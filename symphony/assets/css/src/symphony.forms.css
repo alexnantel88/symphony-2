@@ -21,7 +21,7 @@ select[multiple],
 	padding: 0.2rem 0.3rem;
 	font-family: inherit;
 	font-size: 109.09%;
-	border: 0.1rem solid rgba(0, 0, 0, 0.25);
+	border: 0.2rem solid #B7C2CC;
 }
 
 input,
@@ -168,7 +168,7 @@ button,
 	padding: 0 1rem;
 	color: rgba(85, 85, 85, 0.95);
 	line-height: 1.85;
-	border: 0.1rem solid rgba(0, 0, 0, 0.25);
+	border: 0.2rem solid #B7C2CC;
 	border-radius: 0.4rem;
 	background-image: linear-gradient(to bottom, #fbfbfa 0%, #e3e3df 100%);
 }
@@ -270,7 +270,7 @@ button.delete:focus,
 	min-height: 2rem;
 	margin: 0;
 	padding: 0;
-	border: 0.1rem solid rgba(0, 0, 0, 0.25);
+	border: 0.2rem solid #B7C2CC;
 	border-radius: 0.4rem;
 	background: #fbfbfa;
 }
@@ -356,7 +356,7 @@ button.delete:focus,
 }
 
 .apply:hover button {
-	border-left: 0.1rem solid rgba(0, 0, 0, 0.25);
+	border-left: 0.1rem solid #B7C2CC;
 }
 
 /* Single select "With selected…" */
@@ -372,7 +372,7 @@ button.delete:focus,
 .apply.single button {
 	height: auto;
 	white-space: nowrap;
-	border: 0.1rem solid rgba(0, 0, 0, 0.25);
+	border: 0.2rem solid #B7C2CC;
 	border-bottom-color: rgba(0, 0, 0, 0.3);
 	border-radius: 0.4rem;
 }

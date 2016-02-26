@@ -4,11 +4,12 @@ module.exports = function (grunt) {
 
     grunt.initConfig({
 
-        concat: {
+        less: {
             dist: {
                 files: {
                     'symphony/assets/css/symphony.min.css': [
-                        'symphony/assets/css/src/symphony.css',
+                        'symphony/assets/css/src/variables.less',
+                        'symphony/assets/css/src/symphony.less',
                         'symphony/assets/css/src/symphony.affix.css',
                         'symphony/assets/css/src/symphony.grids.css',
                         'symphony/assets/css/src/symphony.forms.css',
@@ -122,7 +123,7 @@ module.exports = function (grunt) {
 
         watch: {
             styles: {
-                files: 'symphony/assets/css/src/*.css',
+                files: 'symphony/assets/css/src/*',
                 tasks: ['css']
             },
             scripts: {
@@ -150,7 +151,7 @@ module.exports = function (grunt) {
 
     });
 
-    grunt.loadNpmTasks('grunt-contrib-concat');
+    grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-autoprefixer');
     grunt.loadNpmTasks('grunt-csso');
     //grunt.loadNpmTasks('grunt-contrib-jshint');
@@ -158,8 +159,8 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-phpcs');
 
-    grunt.registerTask('default', ['concat', 'autoprefixer', 'csso', 'uglify']);
-    grunt.registerTask('css', ['concat', 'autoprefixer', 'csso']);
+    grunt.registerTask('default', ['less', 'autoprefixer', 'csso', 'uglify']);
+    grunt.registerTask('css', ['less', 'autoprefixer', 'csso']);
     grunt.registerTask('php', ['phpcs']);
     grunt.registerTask('js', ['uglify']);
 };
