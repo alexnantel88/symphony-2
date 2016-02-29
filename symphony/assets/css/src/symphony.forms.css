@@ -30,7 +30,7 @@ select[multiple] {
 }
 
 input {
-	height: 2.2rem;
+	// height: 2.2rem;
 }
 
 input[type=file] {

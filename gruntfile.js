@@ -6,6 +6,10 @@ module.exports = function (grunt) {
 
         less: {
             dist: {
+                options: {
+                    sourceMap: true,
+                    sourceMapURL: 'symphony.min.css.map'
+                },
                 files: {
                     'symphony/assets/css/symphony.min.css': [
                         'symphony/assets/css/src/variables.less',
@@ -124,7 +128,7 @@ module.exports = function (grunt) {
         watch: {
             styles: {
                 files: 'symphony/assets/css/src/*',
-                tasks: ['css']
+                tasks: ['less']
             },
             scripts: {
                 files: 'symphony/assets/js/src/*.js',
