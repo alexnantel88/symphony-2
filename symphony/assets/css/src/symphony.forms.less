@@ -7,6 +7,12 @@
  */
 
 
+ /*-----------------------------------------------------------------------------
+ 	LESS — Variables Importing
+ -----------------------------------------------------------------------------*/
+ @import "variables";
+
+
 /*--------------------------------------------------------------------------
 	Inputs, text areas, selects
 --------------------------------------------------------------------------*/
@@ -17,18 +23,23 @@ select[multiple],
 .field-value-readonly {
 	box-sizing: border-box;
 	width: 100%;
-	margin-top: 0.2rem;
-	padding: 0.2rem 0.3rem;
+	margin-top: @spacing-micro;
+	padding: @spacing-smallest;
 	font-family: inherit;
-	font-size: 109.09%;
-	border: 0.2rem solid #B7C2CC;
+	font-size: @size-current;
+	font-weight: normal;
+	border: @bdr-current @lighter-grey;
+	border-radius: @radius-current;
+	color: @color-current;
 }
 
 input,
 select[multiple] {
-	background-color: white;
+	background-color: @white;
 }
 
+
+// @TODO — erase this rule if everything is still functioning properly
 input {
 	// height: 2.2rem;
 }
@@ -47,7 +58,7 @@ textarea:active,
 textarea:focus,
 select[multiple]:active,
 select[multiple]:focus {
-	border-color: rgba(0, 0, 0, 0.4);
+	border-color: @light-grey;
 	outline: none;
 }
 

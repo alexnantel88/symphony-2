@@ -68,14 +68,14 @@ html {
 }
 
 body {
-	color: #222;
-	font: 1.6rem/1.5 'Karla', 'Lucida Grande', Leelawadee, Tahoma, Verdana, sans-serif;
+	color: @color-current;
+	font: @size-current/1.8 'Karla', 'Lucida Grande', Leelawadee, Tahoma, Verdana, sans-serif;
 	background: #fff;
 }
 
 body > div,
 body > form {
-	font-size: 1.6rem;
+	font-size: @size-current;
 }
 
 /* Headlines */
@@ -87,26 +87,26 @@ h3 {
 /* Paragraphs */
 
 p {
-	margin-bottom: 1.5rem;
+	margin-bottom: @spacing-smallest;
 }
 
 p.label {
 	position: relative;
-	margin: 0 0 0.2rem;
+	margin: 0 0 @spacing-micro;
 }
 
 /* Links */
 
 a {
-	color: #3f.269a5;
-	border-bottom: 1px solid rgba(63, 105, 165, 0.15);
+	color: @blue;
+	border-bottom: @bdr-mid @blue;
 	cursor: pointer;
 }
 
 a:hover,
 .inactive a:hover {
-	color: #000;
-	border-bottom-color: rgba(0, 0, 0, 0.3);
+	color: @color-current;
+	border-bottom-color: currentColor;
 }
 
 a:active, a:focus,
@@ -118,14 +118,13 @@ a:active, a:focus,
 /* Lists */
 
 ul, ol {
-	margin: 0 0 1.5rem 2.5rem;
+	margin: 0 0 @spacing-smallest @spacing-smaller;
 }
 
 ul.tags {
-	margin: -0.75rem 0 1.5rem 0;
+	margin: -@spacing-micro 0 @spacing-smallest 0;
 	padding: 0;
-	color: #a2a2a2;
-	color: rgba(0, 0, 0, 0.4);
+	color: @grey;
 	list-style: none;
 }
 
@@ -134,8 +133,8 @@ ul.tags li:first-of-type,
 ul.tags li:last-of-type {
 	display: inline;
 	float: none;
-	padding: 0 6px 0 0;
-	font-size: 90.91%;
+	padding: 0 @spacing-micro 0 0;
+	font-size: 85%;
 	border: none;
 	cursor: pointer;
 }
@@ -145,13 +144,13 @@ ul.tags li:hover {
 }
 
 ul.tags li.more {
-	color: #5072bf;
-	border-bottom: 0.1rem solid rgba(63, 105, 165, 0.15);
+	color: @blue;
+	border-bottom: @bdr-mid currentColor;
 }
 
 ul.tags .more:hover {
-	color: #222;
-	border-bottom-color: rgba(0, 0, 0, 0.1);
+	color: @color-current;
+	border-bottom-color: currentColor;
 }
 
 /* Code */
@@ -163,19 +162,19 @@ code,
 }
 
 pre {
-	margin-bottom: 1.5rem;
-	color: #474742;
+	margin-bottom: @spacing-smaller;
+	color: @color-current;
 	font: inherit;
 	white-space: normal;
-	background: #f4f4f4;
+	background: @lightest-grey;
 }
 
 pre code {
 	display: block;
 	overflow: auto;
-	padding: 0.5rem 0.7rem;
+	padding: @spacing-smallest;
 	white-space: pre;
-	border: 0.1rem solid #d5d6d0;
+	border: @bdr-current @lighter-grey;
 }
 
 i code {
@@ -193,12 +192,12 @@ i, var {
 
 fieldset {
 	position: relative;
-	padding: 1rem 0;
+	padding: @spacing-smallest 0;
 }
 
 legend {
 	padding: 0;
-	color: rgba(0, 0, 0, 0.65);
+	color: @dark-grey;
 	font-weight: bold;
 	line-height: 1;
 }
@@ -206,7 +205,10 @@ legend {
 label {
 	display: block;
 	position: relative;
-	margin-bottom: 1.5rem;
+	margin-bottom: @spacing-micro;
+	font-size: 85%;
+	font-weight: bold;
+	color: @grey;
 }
 
 label > i,
@@ -229,11 +231,11 @@ label.inline-help > i {
 
 .inactive,
 .inactive * {
-	color: #b4b4b4;
+	color: @light-grey;
 }
 
 .inactive a {
-	border-bottom-color: rgba(180, 180, 180, 0.3);
+	border-bottom-color: currentColor;
 }
 
 .irrelevant {
@@ -242,20 +244,20 @@ label.inline-help > i {
 
 .selected, .selected a,
 .selected .inactive {
-	color: #fff;
+	color: @white;
 }
 
 .selected, .selected a {
-	border-bottom-color: rgba(255, 255, 255, 0.2);
+	border-bottom-color: currentColor;
 }
 
 .selected a:hover {
-	color: #f2f2f2;
+	color: @lighter-grey;
 }
 
 .help {
 	clear: both;
-	color: #808080;
+	color: @grey;
 }
 
 .centered {

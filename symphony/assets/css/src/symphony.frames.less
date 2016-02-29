@@ -5,31 +5,38 @@
  * @since: Symphony 2.3
  */
 
+
+ /*-----------------------------------------------------------------------------
+ 	LESS — Variables Importing
+ -----------------------------------------------------------------------------*/
+ @import "variables";
+ 
+
 .frame {
 	position: relative;
 	box-sizing: border-box;
-	margin: 0 0 4.5rem;
+	margin: 0 0 @spacing-small;
 	padding: 0;
 	list-style: none;
-	border: 0.1rem solid #c5c5c5;
-	border-radius: 0.4rem;
-	background: #f5f5f5;
+	border: @bdr-current @lighter-grey;
+	border-radius: @radius-current;
+	background: @lightest-grey;
 }
 
 .frame h1 {
-	margin: -1.1rem -1.1rem 1.5rem;
-	padding: 1.8rem 1.1rem;
-	color: #fff;
-	font-size: 1.5rem;
+	margin: -(@spacing-smallest + @bdr-mid) -(@spacing-smallest - @bdr-mid) @spacing-smaller;
+	padding: @spacing-smallest;
+	color: @white;
+	font-size: inherit;
 	font-weight: normal;
-	line-height: 1.5;
-	border-radius: 0.4rem 0.4rem 0 0;
-	background: #282828;
+	line-height: inherit;
+	border-radius: @radius-current @radius-current 0 0;
+	background: @darker-grey;
 }
 
 .frame.empty {
 	height: 3rem;
-	border: 0.1rem dashed #b8b8b8;
+	border: @bdr-alt @light-grey;
 }
 
 .frame::after {
@@ -45,26 +52,26 @@
 }
 
 .frame .tags {
-	margin-top: -1rem;
-	margin-bottom: 1.5rem;
+	margin-top: -@spacing-smallest;
+	margin-bottom: @spacing-smaller;
 }
 
 /* Headers */
 
 .frame-header {
 	position: relative;
-	padding: 0.8rem 1rem 0.7rem;
-	color: #3d3d3d;
-	border-top: 0.1rem solid #d0d0d0;
-	border-bottom: 0.1rem solid #dcdcdc;
+	padding: @spacing-smallest - .1;
+	color: @color-current;
+	// border-top: 0.1rem solid #d0d0d0;
+	// border-bottom: 0.1rem solid #dcdcdc;
 }
 
 .frame:not(.collapsible) .frame-header {
-	box-shadow: 0 0.1rem 0.4rem #e5e5e5;
+	box-shadow: 0 0.1rem 0.4rem @light-grey;
 }
 
 .frame .collapsed .frame-header {
-	border-bottom: 0.1rem solid #f5f5f5;
+	border-bottom: 0.1rem solid @light-grey;
 }
 
 .frame-header h4 {
@@ -73,8 +80,8 @@
 }
 
 .frame-header span {
-	margin: 0 0 0 1rem;
-	color: #a1a1a1;
+	margin: 0 0 0 @spacing-smallest;
+	color: @light-grey;
 	font-weight: normal;
 }
 
@@ -84,36 +91,36 @@
 	display: block;
 	float: left;
 	width: 0.1rem;
-	height: 1rem;
-	margin: 0.3rem 0.7rem 0 0;
-	border-right: 0.3rem solid #dcdcdc;
-	border-left: 0.6rem solid #b8b8b8;
+	height: @spacing-smallest;
+	margin: @spacing-smallest @spacing-smallest 0 0;
+	border-right: @spacing-micro solid @light-grey;
+	border-left: @spacing-micro * .75 solid @grey;
 }
 
 .sidebar::before {
-	border-right: 0.3rem solid #b8b8b8;
-	border-left: 0.6rem solid #dcdcdc;
+	border-right: @spacing-micro solid #b8b8b8;
+	border-left: @spacing-smallest solid #dcdcdc;
 }
 
 .highlight .main::before {
-	border-right: 0.3rem solid #b9b9b9;
-	border-left: 0.6rem solid #747474;
+	border-right: @spacing-micro solid #b9b9b9;
+	border-left: @spacing-smallest solid #747474;
 }
 
 .highlight .sidebar::before {
-	border-right: 0.3rem solid #747474;
-	border-left: 0.6rem solid #b9b9b9;
+	border-right: @spacing-micro solid #747474;
+	border-left: @spacing-smallest solid #b9b9b9;
 }
 
 /* Content: light scheme */
 
 .frame .content {
 	box-sizing: border-box;
-	padding: 1rem;
+	padding: @spacing-smallest;
 }
 
 .frame .instance:last-of-type .content {
-	border-radius: 0 0 0.4rem 0.4rem;
+	border-radius: 0 0 @radius-current @radius-current;
 }
 
 .frame .content::after {
@@ -123,14 +130,14 @@
 }
 
 .frame .content fieldset {
-	border-top-color: #d0d0d0;
+	border-top-color: @light-grey;
 }
 
 /* Content: dark scheme */
 
 .frame.dark .content {
-	color: #fff;
-	background: #323230;
+	color: @white;
+	background: @darker-grey;
 }
 
 .frame.dark legend {
@@ -139,11 +146,11 @@
 
 .frame.dark i,
 .frame.dark ul.tags {
-	color: #6f6f6e;
+	color: @dark-grey;
 }
 
 .frame.dark fieldset {
-	border-top-color: #464644;
+	border-top-color: @darker-grey;
 }
 
 /*--------------------------------------------------------------------------
@@ -154,8 +161,8 @@ span.frame,
 fieldset.frame,
 .frame.inline {
 	display: block;
-	margin-bottom: 1.5rem;
-	padding: 1rem;
+	margin-bottom: @spacing-smaller;
+	padding: @spacing-smallest;
 }
 
 /*--------------------------------------------------------------------------
@@ -164,9 +171,9 @@ fieldset.frame,
 
 #login .frame {
 	overflow: visible;
-	width: 28rem;
-	margin: 10rem auto;
-	padding: 1rem 1rem 1.5rem;
+	width: @spacing-huge;
+	margin: @spacing-large auto;
+	padding: @spacing-smallest @spacing-smallest @spacing-smaller;
 	text-align: left;
 }
 
@@ -180,7 +187,7 @@ fieldset.frame,
 
 #login .action-link {
 	float: left;
-	margin-top: 0.3rem;
+	margin-top: @spacing-micro;
 }
 
 #login button {
@@ -194,10 +201,10 @@ fieldset.frame,
 .frame .destructor,
 .frame .debug {
 	position: absolute;
-	top: 0.8rem;
-	right: 1rem;
+	top: @spacing-smallest;
+	right: @spacing-smallest;
 	margin: 0;
-	color: #aeaeae;
+	color: @light-grey;
 	font-weight: normal;
 	border-bottom: none;
 }
@@ -336,7 +343,7 @@ fieldset.frame,
 }
 
 .frame .highlight {
-	background: #e8e8e8;
+	background: @lightest-grey;
 }
 
 /*-----------------------------------------------------------------------------
@@ -368,12 +375,12 @@ fieldset.frame,
 }
 
 .collapsible .content {
-	background: #e8e8e8;
+	background: @lightest-grey;
 }
 
 .collapsible legend {
 	padding-right: 0.5rem;
-	background: #e8e8e8;
+	background: @lightest-grey;
 }
 
 .frame .js-animate {

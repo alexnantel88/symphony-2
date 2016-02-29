@@ -2,6 +2,14 @@
  * Style definition for the Symphony backend
  */
 
+
+
+/*-----------------------------------------------------------------------------
+	LESS — Variables Importing
+-----------------------------------------------------------------------------*/
+@import "variables";
+
+
 /*--------------------------------------------------------------------------
 	Structure
 --------------------------------------------------------------------------*/
@@ -310,15 +318,15 @@
 
 fieldset.settings {
 	position: relative;
-	margin: 0 1.8rem 1rem;
-	padding: 1rem 0 1rem 27.5rem;
+	margin: 0 @spacing-smaller @spacing-smallest;
+	padding: @spacing-smaller 0 @spacing-smaller @spacing-largest;
 	border-top: 0.1rem solid rgba(0, 0, 0, 0.1);
 }
 
 fieldset.settings > legend {
 	position: absolute;
 	line-height: 1.5;
-	text-indent: -27.5rem;
+	text-indent: -@spacing-largest;
 }
 
 fieldset.settings select {
@@ -326,7 +334,7 @@ fieldset.settings select {
 }
 
 fieldset.settings p.help {
-	margin: -0.5rem 0 1.5rem;
+	margin: -0.5rem 0 @spacing-smaller;
 }
 
 fieldset.settings input + p.help,
@@ -346,11 +354,11 @@ fieldset.settings:first-of-type {
 fieldset.settings > legend + .help {
 	position: absolute;
 	width: 22rem;
-	margin: 1.75rem 0 0 -27.5rem;
+	margin: @spacing-small 0 0 -@spacing-largest;
 }
 
 fieldset.settings > legend + .help p {
-	margin: 0 0 1.5rem;
+	margin: 0 0 @spacing-smaller;
 }
 
 fieldset.settings > *:first-child {
@@ -402,7 +410,7 @@ fieldset.settings.highlight {
 	}
 
 	fieldset.settings:first-of-type {
-		margin: 1.5rem 1.8rem 1rem;
+		margin: @spacing-smaller @spacing-smaller @spacing-smallest;
 		border-top: 0.1rem solid rgba(0, 0, 0, 0.1);
 	}
 
@@ -415,7 +423,7 @@ fieldset.settings.highlight {
 	fieldset.settings > legend + .help {
 		position: relative;
 		width: auto;
-		margin: 0 0 1.5rem;
+		margin: 0 0 @spacing-smaller;
 	}
 }
 
@@ -449,14 +457,14 @@ fieldset.settings.highlight {
 --------------------------------------------------------------------------*/
 
 #password {
-	margin: 0 0 0 -1.5rem;
+	margin: 0 0 0 -@spacing-smaller;
 	padding: 0;
 	border: none;
 }
 
 #password legend {
 	margin: 0 !important;
-	padding: 0 0 0 1.5rem;
+	padding: 0 0 0 @spacing-smaller;
 	color: #222;
 	line-height: 1.5;
 	text-shadow: none;
@@ -473,7 +481,7 @@ div.password {
 	left: 0;
 	box-sizing: border-box;
 	width: 100%;
-	padding: 0 0 0 27.5rem;
+	padding: 0 0 0 @spacing-largest;
 	z-index: 1000;
 }
 
@@ -601,7 +609,7 @@ ul.page form span {
 .field {
 	box-sizing: border-box;
 	min-height: 4.7rem;
-	margin-bottom: 1.5rem;
+	margin-bottom: @spacing-smaller;
 }
 
 /* Checkboxes */

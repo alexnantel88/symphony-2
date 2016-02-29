@@ -1,4 +1,300 @@
 /**
+ * This file bundles basic style definitions shared across the different areas
+ * of Symphony. They are used by the installer, the front-end error messages and
+ * notifications and by the backend itself.
+ */
+/*-----------------------------------------------------------------------------
+	LESS — Variables Importing
+-----------------------------------------------------------------------------*/
+/*-----------------------------------------------------------------------------
+	Font importing — Karla | Google Fonts
+-----------------------------------------------------------------------------*/
+@import url(https://fonts.googleapis.com/css?family=Karla:400,400italic,700,700italic);
+/*-----------------------------------------------------------------------------
+	Reset – based on http://meyerweb.com/eric/tools/css/reset/
+-----------------------------------------------------------------------------*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+header,
+nav,
+section,
+aside,
+footer,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+font,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td {
+  margin: 0;
+  padding: 0;
+  font-size: 1em;
+  vertical-align: baseline;
+  text-decoration: none;
+  border: 0;
+  background: transparent;
+}
+input,
+select,
+textarea,
+button {
+  margin: 0;
+  padding: 0;
+  font-size: 1em;
+  vertical-align: baseline;
+}
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+ol,
+ul {
+  list-style: none;
+}
+table {
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+header,
+nav,
+section,
+aside,
+footer {
+  display: block;
+}
+/*-----------------------------------------------------------------------------
+	Basic styles
+-----------------------------------------------------------------------------*/
+html {
+  font-size: 10px;
+}
+body {
+  color: #3B3D40;
+  font: 1.5rem/1.8 'Karla', 'Lucida Grande', Leelawadee, Tahoma, Verdana, sans-serif;
+  background: #fff;
+}
+body > div,
+body > form {
+  font-size: 1.5rem;
+}
+/* Headlines */
+h3 {
+  font-weight: bold;
+}
+/* Paragraphs */
+p {
+  margin-bottom: 1rem;
+}
+p.label {
+  position: relative;
+  margin: 0 0 0.5rem;
+}
+/* Links */
+a {
+  color: #5848DE;
+  border-bottom: 2px #5848DE;
+  cursor: pointer;
+}
+a:hover,
+.inactive a:hover {
+  color: #3B3D40;
+  border-bottom-color: currentColor;
+}
+a:active,
+a:focus,
+.inactive a:active,
+.inactive a:focus {
+  color: #d42;
+  border-bottom-color: rgba(221, 68, 34, 0.3);
+}
+/* Lists */
+ul,
+ol {
+  margin: 0 0 1rem 2rem;
+}
+ul.tags {
+  margin: -0.5rem 0 1rem 0;
+  padding: 0;
+  color: #98A3AC;
+  list-style: none;
+}
+ul.tags li,
+ul.tags li:first-of-type,
+ul.tags li:last-of-type {
+  display: inline;
+  float: none;
+  padding: 0 0.5rem 0 0;
+  font-size: 85%;
+  border: none;
+  cursor: pointer;
+}
+ul.tags li:hover {
+  color: #554;
+}
+ul.tags li.more {
+  color: #5848DE;
+  border-bottom: 2px currentColor;
+}
+ul.tags .more:hover {
+  color: #3B3D40;
+  border-bottom-color: currentColor;
+}
+/* Code */
+code,
+.code {
+  font: 100%/1.5 Monaco, Consolas, 'Andale Mono', monospace;
+  tab-size: 4;
+}
+pre {
+  margin-bottom: 2rem;
+  color: #3B3D40;
+  font: inherit;
+  white-space: normal;
+  background: #F4F8FA;
+}
+pre code {
+  display: block;
+  overflow: auto;
+  padding: 1rem;
+  white-space: pre;
+  border: 2px solid #EAEEF0;
+}
+i code {
+  font-size: 1em;
+  font-size-adjust: 0;
+}
+i,
+var {
+  color: #a9a9a9;
+  font-style: normal;
+  text-shadow: none;
+}
+/* Forms */
+fieldset {
+  position: relative;
+  padding: 1rem 0;
+}
+legend {
+  padding: 0;
+  color: #73797F;
+  font-weight: bold;
+  line-height: 1;
+}
+label {
+  display: block;
+  position: relative;
+  margin-bottom: 0.5rem;
+  font-size: 85%;
+  font-weight: bold;
+  color: #98A3AC;
+}
+label > i,
+p.label > i {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+label.inline-help > i {
+  position: relative;
+}
+/* States */
+.busy,
+.busy * {
+  cursor: wait;
+}
+.inactive,
+.inactive * {
+  color: #B7C2CC;
+}
+.inactive a {
+  border-bottom-color: currentColor;
+}
+.irrelevant {
+  display: none !important;
+}
+.selected,
+.selected a,
+.selected .inactive {
+  color: #ffffff;
+}
+.selected,
+.selected a {
+  border-bottom-color: currentColor;
+}
+.selected a:hover {
+  color: #EAEEF0;
+}
+.help {
+  clear: both;
+  color: #98A3AC;
+}
+.centered {
+  text-align: center;
+}
+.accessible {
+  position: absolute;
+  top: auto;
+  left: -10000px;
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
+}
+/*# sourceMappingURL=symphony.min.css.map */
+/**
  * Grids and columns
  *
  * @since: Symphony 2.3
@@ -121,6 +417,9 @@ form.columns .column.primary {
  *
  * @since Symphony 2.3
  */
+/*-----------------------------------------------------------------------------
+ 	LESS — Variables Importing
+ -----------------------------------------------------------------------------*/
 /*--------------------------------------------------------------------------
 	Inputs, text areas, selects
 --------------------------------------------------------------------------*/
@@ -130,15 +429,18 @@ select[multiple],
 .field-value-readonly {
   box-sizing: border-box;
   width: 100%;
-  margin-top: 0.2rem;
-  padding: 0.2rem 0.3rem;
+  margin-top: 0.5rem;
+  padding: 1rem;
   font-family: inherit;
-  font-size: 109.09%;
-  border: 0.2rem solid #B7C2CC;
+  font-size: 1.5rem;
+  font-weight: normal;
+  border: 2px solid #EAEEF0;
+  border-radius: 5px;
+  color: #3B3D40;
 }
 input,
 select[multiple] {
-  background-color: white;
+  background-color: #ffffff;
 }
 input[type=file] {
   height: auto;
@@ -153,7 +455,7 @@ textarea:active,
 textarea:focus,
 select[multiple]:active,
 select[multiple]:focus {
-  border-color: rgba(0, 0, 0, 0.4);
+  border-color: #B7C2CC;
   outline: none;
 }
 select {
@@ -454,29 +756,32 @@ fieldset .button {
  *
  * @since: Symphony 2.3
  */
+/*-----------------------------------------------------------------------------
+ 	LESS — Variables Importing
+ -----------------------------------------------------------------------------*/
 .frame {
   position: relative;
   box-sizing: border-box;
-  margin: 0 0 4.5rem;
+  margin: 0 0 4rem;
   padding: 0;
   list-style: none;
-  border: 0.1rem solid #c5c5c5;
-  border-radius: 0.4rem;
-  background: #f5f5f5;
+  border: 2px solid #EAEEF0;
+  border-radius: 5px;
+  background: #F4F8FA;
 }
 .frame h1 {
-  margin: -1.1rem -1.1rem 1.5rem;
-  padding: 1.8rem 1.1rem;
-  color: #fff;
-  font-size: 1.5rem;
+  margin: -3rem 1rem 2rem;
+  padding: 1rem;
+  color: #ffffff;
+  font-size: inherit;
   font-weight: normal;
-  line-height: 1.5;
-  border-radius: 0.4rem 0.4rem 0 0;
-  background: #282828;
+  line-height: inherit;
+  border-radius: 5px 5px 0 0;
+  background: #3B3D40;
 }
 .frame.empty {
   height: 3rem;
-  border: 0.1rem dashed #b8b8b8;
+  border: 2px dashed #B7C2CC;
 }
 .frame::after {
   content: '';
@@ -490,21 +795,19 @@ fieldset .button {
 }
 .frame .tags {
   margin-top: -1rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
 }
 /* Headers */
 .frame-header {
   position: relative;
-  padding: 0.8rem 1rem 0.7rem;
-  color: #3d3d3d;
-  border-top: 0.1rem solid #d0d0d0;
-  border-bottom: 0.1rem solid #dcdcdc;
+  padding: 0.9rem;
+  color: #3B3D40;
 }
 .frame:not(.collapsible) .frame-header {
-  box-shadow: 0 0.1rem 0.4rem #e5e5e5;
+  box-shadow: 0 0.1rem 0.4rem #B7C2CC;
 }
 .frame .collapsed .frame-header {
-  border-bottom: 0.1rem solid #f5f5f5;
+  border-bottom: 0.1rem solid #B7C2CC;
 }
 .frame-header h4 {
   display: inline;
@@ -512,7 +815,7 @@ fieldset .button {
 }
 .frame-header span {
   margin: 0 0 0 1rem;
-  color: #a1a1a1;
+  color: #B7C2CC;
   font-weight: normal;
 }
 .main::before,
@@ -522,21 +825,21 @@ fieldset .button {
   float: left;
   width: 0.1rem;
   height: 1rem;
-  margin: 0.3rem 0.7rem 0 0;
-  border-right: 0.3rem solid #dcdcdc;
-  border-left: 0.6rem solid #b8b8b8;
+  margin: 1rem 1rem 0 0;
+  border-right: 0.5rem solid #B7C2CC;
+  border-left: 0.375rem solid #98A3AC;
 }
 .sidebar::before {
-  border-right: 0.3rem solid #b8b8b8;
-  border-left: 0.6rem solid #dcdcdc;
+  border-right: 0.5rem solid #b8b8b8;
+  border-left: 1rem solid #dcdcdc;
 }
 .highlight .main::before {
-  border-right: 0.3rem solid #b9b9b9;
-  border-left: 0.6rem solid #747474;
+  border-right: 0.5rem solid #b9b9b9;
+  border-left: 1rem solid #747474;
 }
 .highlight .sidebar::before {
-  border-right: 0.3rem solid #747474;
-  border-left: 0.6rem solid #b9b9b9;
+  border-right: 0.5rem solid #747474;
+  border-left: 1rem solid #b9b9b9;
 }
 /* Content: light scheme */
 .frame .content {
@@ -544,7 +847,7 @@ fieldset .button {
   padding: 1rem;
 }
 .frame .instance:last-of-type .content {
-  border-radius: 0 0 0.4rem 0.4rem;
+  border-radius: 0 0 5px 5px;
 }
 .frame .content::after {
   content: '';
@@ -552,22 +855,22 @@ fieldset .button {
   clear: both;
 }
 .frame .content fieldset {
-  border-top-color: #d0d0d0;
+  border-top-color: #B7C2CC;
 }
 /* Content: dark scheme */
 .frame.dark .content {
-  color: #fff;
-  background: #323230;
+  color: #ffffff;
+  background: #3B3D40;
 }
 .frame.dark legend {
   background: transparent;
 }
 .frame.dark i,
 .frame.dark ul.tags {
-  color: #6f6f6e;
+  color: #73797F;
 }
 .frame.dark fieldset {
-  border-top-color: #464644;
+  border-top-color: #3B3D40;
 }
 /*--------------------------------------------------------------------------
 	Inline frames (e. g. upload fields)
@@ -576,7 +879,7 @@ span.frame,
 fieldset.frame,
 .frame.inline {
   display: block;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
   padding: 1rem;
 }
 /*--------------------------------------------------------------------------
@@ -584,9 +887,9 @@ fieldset.frame,
 --------------------------------------------------------------------------*/
 #login .frame {
   overflow: visible;
-  width: 28rem;
+  width: 32rem;
   margin: 10rem auto;
-  padding: 1rem 1rem 1.5rem;
+  padding: 1rem 1rem 2rem;
   text-align: left;
 }
 #login fieldset {
@@ -597,7 +900,7 @@ fieldset.frame,
 }
 #login .action-link {
   float: left;
-  margin-top: 0.3rem;
+  margin-top: 0.5rem;
 }
 #login button {
   float: right;
@@ -608,10 +911,10 @@ fieldset.frame,
 .frame .destructor,
 .frame .debug {
   position: absolute;
-  top: 0.8rem;
+  top: 1rem;
   right: 1rem;
   margin: 0;
-  color: #aeaeae;
+  color: #B7C2CC;
   font-weight: normal;
   border-bottom: none;
 }
@@ -726,7 +1029,7 @@ fieldset.frame,
   border-left: 0.6rem solid #7c9bc7;
 }
 .frame .highlight {
-  background: #e8e8e8;
+  background: #F4F8FA;
 }
 /*-----------------------------------------------------------------------------
 	Collapsibles
@@ -752,11 +1055,11 @@ fieldset.frame,
   cursor: pointer;
 }
 .collapsible .content {
-  background: #e8e8e8;
+  background: #F4F8FA;
 }
 .collapsible legend {
   padding-right: 0.5rem;
-  background: #e8e8e8;
+  background: #F4F8FA;
 }
 .frame .js-animate {
   overflow: hidden;
