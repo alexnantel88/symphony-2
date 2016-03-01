@@ -36,7 +36,7 @@
 
 .frame.empty {
 	height: 3rem;
-	border: @bdr-alt @light-grey;
+	border: @bdr-alt @lighter-grey;
 }
 
 .frame::after {
@@ -63,15 +63,15 @@
 	padding: @spacing-smallest - .1;
 	color: @color-current;
 	// border-top: 0.1rem solid #d0d0d0;
-	// border-bottom: 0.1rem solid #dcdcdc;
+	border-bottom: @bdr-current @lighter-grey;
 }
 
 .frame:not(.collapsible) .frame-header {
-	box-shadow: 0 0.1rem 0.4rem @light-grey;
+	// box-shadow: 0 0.1rem 0.4rem @light-grey;
 }
 
 .frame .collapsed .frame-header {
-	border-bottom: 0.1rem solid @light-grey;
+	border-bottom: @bdr-current @lighter-grey;
 }
 
 .frame-header h4 {
@@ -122,10 +122,16 @@
 .frame .content {
 	box-sizing: border-box;
 	padding: @spacing-smallest;
+	border-bottom: @bdr-current @lighter-grey;
 }
 
 .frame .instance:last-of-type .content {
 	border-radius: 0 0 @radius-current @radius-current;
+	border-bottom: none;
+}
+
+.frame .instance.collapsed:last-of-type .frame-header {
+	border-bottom: none;
 }
 
 .frame .content::after {
@@ -218,7 +224,7 @@ fieldset.frame,
 .frame .destructor:hover,
 .frame .debug:hover,
 .frame .constructor:hover {
-	color: @grey;
+	color: @color-current;
 }
 
 .frame .disabled {
@@ -232,19 +238,19 @@ fieldset.frame,
 .frame .apply {
 	position: absolute;
 	right: 0;
-	bottom: -@spacing-small;
+	bottom: -@spacing-mid - @spacing-smallest;
 	clear: left;
 	text-align: right;
-	border-color: #B7C2CC;
+	border-color: @lighter-grey;
 	cursor: default;
 }
 
 .frame .apply:hover {
-	border-color: rgba(0, 0, 0, 0.4);
+	border-color: @lighter-grey;
 }
 
 .frame .actions {
-	margin: 0 0 0.7rem;
+	margin: 0 0 @spacing-smallest;
 }
 
 .frame .actions input {
@@ -379,12 +385,12 @@ fieldset.frame,
 }
 
 .collapsible .content {
-	background: @lightest-grey;
+	// background: @lightest-grey;
 }
 
 .collapsible legend {
 	padding-right: 0.5rem;
-	background: @lightest-grey;
+	// background: @lightest-grey;
 }
 
 .frame .js-animate {
@@ -406,7 +412,7 @@ fieldset.frame,
 }
 
 .collapsed.js-animate .frame-header {
-	border-bottom-color: rgba(0, 0, 0, 0);
+	border-bottom-color: @lighter-grey;
 	transition: border-color 0.25s ease-in;
 }
 
@@ -417,6 +423,10 @@ fieldset.frame,
 /*-----------------------------------------------------------------------------
 	Duplicators
 -----------------------------------------------------------------------------*/
+
+.duplicator {
+	margin-bottom: @spacing-large;
+}
 
 .duplicator ol {
 	margin-top: -0.1rem;

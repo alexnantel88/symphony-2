@@ -121,11 +121,13 @@ footer {
 -----------------------------------------------------------------------------*/
 html {
   font-size: 62.5%;
+  min-height: 100%;
+  background: #F4F8FA;
 }
 body {
   color: #3B3D40;
   font: 1.5rem/1.8 'Karla', 'Lucida Grande', Leelawadee, Tahoma, Verdana, sans-serif;
-  background: #fff;
+  min-height: 100%;
 }
 body > div,
 body > form {
@@ -245,8 +247,12 @@ label {
 label > i,
 p.label > i {
   position: absolute;
-  top: 0;
+  top: 100%;
   right: 0;
+  font-weight: normal;
+  font-style: italic;
+  font-size: 85%;
+  color: #73797F;
 }
 label.inline-help > i {
   position: relative;
@@ -281,6 +287,8 @@ label.inline-help > i {
 .help {
   clear: both;
   color: #98A3AC;
+  font-size: 85%;
+  line-height: 1.5;
 }
 .centered {
   text-align: center;
@@ -300,11 +308,14 @@ label.inline-help > i {
  * @since: Symphony 2.3
  */
 /*-----------------------------------------------------------------------------
+ 	LESS — Variables Importing
+ -----------------------------------------------------------------------------*/
+/*-----------------------------------------------------------------------------
 	General column definitions
 -----------------------------------------------------------------------------*/
 .columns {
   clear: both;
-  margin-left: -1.5rem;
+  margin-left: -2rem;
 }
 .columns:after {
   content: '';
@@ -315,8 +326,8 @@ label.inline-help > i {
 .columns > .invalid {
   float: left;
   box-sizing: border-box;
-  margin: 0 0 1.5rem;
-  padding: 0 0 0 1.5rem;
+  margin: 0 0 2rem;
+  padding: 0 0 0 2rem;
 }
 /* Equal columns */
 .two.columns .column,
@@ -332,8 +343,8 @@ label.inline-help > i {
   width: 25%;
 }
 .columns legend {
-  margin: 0 0 0 -1.5rem !important;
-  padding: 0 0.5rem 0 1.5rem !important;
+  margin: 0 0 0 -2rem !important;
+  padding: 0 0.5rem 0 2rem !important;
 }
 .columns legend + * {
   margin-top: 1rem;
@@ -341,19 +352,21 @@ label.inline-help > i {
 /* Unequal columns */
 form.columns {
   margin: 0;
-  padding: 1rem 1.8rem 0;
+  padding: 1rem 0 0;
 }
 form.columns .column.primary {
   width: 100%;
   padding: 0;
 }
 .two.columns .column.primary {
-  width: 65%;
+  width: 56%;
   margin: 0;
+  padding: 0 4rem 0 0;
 }
 .two.columns .column.secondary {
-  width: 35%;
+  width: 44%;
   margin: 0;
+  padding: 0 4rem;
 }
 @media screen and (max-width: 700px) {
   .two.columns .column,
@@ -364,8 +377,8 @@ form.columns .column.primary {
   }
   .two.columns .column.secondary {
     margin-top: 0.5rem;
-    padding: 1.5rem 0 0 0;
-    border-top: 0.1rem solid rgba(0, 0, 0, 0.1);
+    padding: 2rem 0 0 0;
+    border-top: 2px solid #EAEEF0;
   }
   .two.columns .column.secondary p.label {
     margin-top: 1rem;
@@ -543,14 +556,18 @@ button,
 .apply-label-left,
 .apply-label-right {
   display: inline-block;
-  min-height: 2rem;
   margin-left: 1rem;
-  padding: 0.75rem 1.5rem;
-  color: rgba(85, 85, 85, 0.95);
+  padding: 0.5rem 1rem;
+  font-size: 85%;
+  color: #3B3D40;
   line-height: 1.85;
-  border: 2px solid transparent;
-  border-radius: 5px;
+  border: none;
+  border-radius: 3px;
   background-color: #EAEEF0;
+}
+input[type=submit] {
+  background-color: #5848DE;
+  color: #ffffff;
 }
 input[type=submit]:hover,
 input[type=submit]:active,
@@ -562,7 +579,6 @@ button:focus,
 .button:active,
 .button:focus {
   color: #3B3D40;
-  border-color: #EAEEF0;
   background-color: #B7C2CC;
   cursor: pointer;
 }
@@ -570,7 +586,6 @@ input[type=submit].selected,
 button.selected,
 .button.selected {
   color: rgba(0, 0, 0, 0.7);
-  border-color: #EAEEF0;
   background: #e3e3df;
   box-shadow: inset 0 0 0.15rem rgba(0, 0, 0, 0.2);
   text-shadow: 0.1rem 0.1rem 0 rgba(255, 255, 255, 0.7);
@@ -601,9 +616,12 @@ button[disabled=disabled]:focus {
 /* Create buttons */
 button.create,
 .button.create {
-  color: #fff;
-  border-color: #F4F8FA;
-  background-color: #5848DE;
+  color: #73797F;
+  background-color: #F4F8FA;
+}
+button.link,
+.button.link {
+  background-color: #EAEEF0;
 }
 button.create:hover,
 button.create:active,
@@ -611,8 +629,8 @@ button.create:focus,
 .button.create:hover,
 .button.create:active,
 .button.create:focus {
-  border-color: #EAEEF0;
-  background-color: #73797F;
+  background-color: #5848DE;
+  color: #ffffff;
 }
 /* Delete buttons */
 button.delete:hover,
@@ -636,26 +654,15 @@ button.delete:focus,
   float: right;
   margin: 0;
   padding: 0;
-  border: 2px solid #B7C2CC;
+  border: 2px solid #EAEEF0;
   border-radius: 5px;
-  background: #F4F8FA;
 }
 .apply.inactive {
   opacity: 0.5;
 }
 .apply div {
   float: left;
-  overflow: hidden;
   text-align: left;
-  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAwCAYAAADHEYBIAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAORJREFUeNpiYIAAHiDuBmJWEOf///9YMRNUcRUQOwJxJgMeAFLsBcRuUH4cEFvhUsyITRBkJS6TiQYgxb5AfAYJW+FTvBmId0H5i4D4GCEbiAo6RlyeoYoHRxUPacWMjIwMQMwKxBZADOYTMtkQiKWAWIuQM+SAWAbKVwNicfrnQRYglgdiYySxo0D8EpfJD4H4CZR/C5dCZADKexYwZ43mwVHF5OZBEC3DCAEETZYEYl4gFiXkDH4g5oPyhaFVxgDkQX5omQEDj4H4Cy6TPwLxJyj/LS6FMJNB4DnU/a/xOQMgwACLFl2Yo1jbdgAAAABJRU5ErkJggg==);
-  background-repeat: no-repeat;
-  background-position: right -1.4rem;
-}
-.apply:hover div {
-  background-position: right 0.6rem;
-}
-.apply.inactive div {
-  background: right -3.4rem;
 }
 .apply select {
   display: inline-block;
@@ -663,16 +670,15 @@ button.delete:focus,
   -ms-appearance: none;
   -o-appearance: none;
   appearance: none;
-  width: 110% !important;
-  min-width: 17rem;
-  margin: 0.2rem 0 0 0;
-  padding: 0 0 0 0.7rem;
-  color: #3c3c3c;
+  min-width: 16rem;
+  margin: 0 0 0 0;
+  padding: 0 0 0 1rem;
+  color: #3B3D40;
   line-height: 1.5;
   border: none;
   border-radius: 5px;
   -webkit-appearance: none;
-  background: transparent;
+  background: #ffffff;
   outline: none;
   cursor: pointer;
 }
@@ -688,8 +694,9 @@ button.delete:focus,
 .apply-label-right,
 .apply-label-left {
   float: right;
+  height: 4.25rem;
   margin: 0;
-  line-height: 1.85;
+  line-height: 3rem;
   border: none;
   border-right: none;
   border-left: 2px solid #B7C2CC;
@@ -703,11 +710,13 @@ button.delete:focus,
   border-radius: 5px 0 0 5px;
 }
 .apply.inactive button,
+.apply.inactive:hover button,
 .apply.inactive button:hover {
   color: #73797F;
-  border-left: 2px solid #B7C2CC;
+  border-left: 2px solid #F4F8FA;
   box-shadow: none;
   cursor: default;
+  background-color: #EAEEF0;
 }
 .apply:hover button {
   border-left: 2px solid #B7C2CC;
@@ -768,7 +777,7 @@ fieldset .button {
 }
 .frame.empty {
   height: 3rem;
-  border: 2px dashed #B7C2CC;
+  border: 2px dashed #EAEEF0;
 }
 .frame::after {
   content: '';
@@ -789,12 +798,10 @@ fieldset .button {
   position: relative;
   padding: 0.9rem;
   color: #3B3D40;
-}
-.frame:not(.collapsible) .frame-header {
-  box-shadow: 0 0.1rem 0.4rem #B7C2CC;
+  border-bottom: 2px solid #EAEEF0;
 }
 .frame .collapsed .frame-header {
-  border-bottom: 0.1rem solid #B7C2CC;
+  border-bottom: 2px solid #EAEEF0;
 }
 .frame-header h4 {
   display: inline;
@@ -836,9 +843,14 @@ fieldset .button {
 .frame .content {
   box-sizing: border-box;
   padding: 1rem;
+  border-bottom: 2px solid #EAEEF0;
 }
 .frame .instance:last-of-type .content {
   border-radius: 0 0 5px 5px;
+  border-bottom: none;
+}
+.frame .instance.collapsed:last-of-type .frame-header {
+  border-bottom: none;
 }
 .frame .content::after {
   content: '';
@@ -913,7 +925,7 @@ fieldset.frame,
 .frame .destructor:hover,
 .frame .debug:hover,
 .frame .constructor:hover {
-  color: #98A3AC;
+  color: #3B3D40;
 }
 .frame .disabled {
   color: #B7C2CC;
@@ -924,17 +936,17 @@ fieldset.frame,
 .frame .apply {
   position: absolute;
   right: 0;
-  bottom: -4rem;
+  bottom: -7rem;
   clear: left;
   text-align: right;
-  border-color: #B7C2CC;
+  border-color: #EAEEF0;
   cursor: default;
 }
 .frame .apply:hover {
-  border-color: rgba(0, 0, 0, 0.4);
+  border-color: #EAEEF0;
 }
 .frame .actions {
-  margin: 0 0 0.7rem;
+  margin: 0 0 1rem;
 }
 .frame .actions input {
   margin-top: 0;
@@ -1044,12 +1056,8 @@ fieldset.frame,
 .collapsible .frame-header {
   cursor: pointer;
 }
-.collapsible .content {
-  background: #F4F8FA;
-}
 .collapsible legend {
   padding-right: 0.5rem;
-  background: #F4F8FA;
 }
 .frame .js-animate {
   overflow: hidden;
@@ -1066,7 +1074,7 @@ fieldset.frame,
   transition: padding 0.25s ease-in;
 }
 .collapsed.js-animate .frame-header {
-  border-bottom-color: rgba(0, 0, 0, 0);
+  border-bottom-color: #EAEEF0;
   transition: border-color 0.25s ease-in;
 }
 .collapsed .content {
@@ -1075,6 +1083,9 @@ fieldset.frame,
 /*-----------------------------------------------------------------------------
 	Duplicators
 -----------------------------------------------------------------------------*/
+.duplicator {
+  margin-bottom: 10rem;
+}
 .duplicator ol {
   margin-top: -0.1rem;
   border-radius: 0.4rem;

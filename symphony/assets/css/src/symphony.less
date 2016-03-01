@@ -65,12 +65,14 @@ header, nav, section, aside, footer {
 
 html {
 	font-size: 62.5%;
+	min-height: 100%;
+	background: @lightest-grey;
 }
 
 body {
 	color: @color-current;
 	font: @size-current/1.8 'Karla', 'Lucida Grande', Leelawadee, Tahoma, Verdana, sans-serif;
-	background: #fff;
+	min-height: 100%;
 }
 
 body > div,
@@ -214,8 +216,12 @@ label {
 label > i,
 p.label > i {
 	position: absolute;
-	top: 0;
+	top: 100%;
 	right: 0;
+	font-weight: normal;
+	font-style: italic;
+	font-size: 85%;
+	color: @dark-grey;
 }
 
 label.inline-help > i {
@@ -258,6 +264,8 @@ label.inline-help > i {
 .help {
 	clear: both;
 	color: @grey;
+	font-size: 85%;
+	line-height: 1.5;
 }
 
 .centered {

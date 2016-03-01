@@ -3,10 +3,18 @@
  */
 
 
+
+ /*-----------------------------------------------------------------------------
+ 	LESS — Variables Importing
+ -----------------------------------------------------------------------------*/
+ @import "variables";
+
+
 table {
 	width: 100%;
-	margin-top: 0.8rem;
+	margin-top: @spacing-smaller;
 	border-collapse: collapse;
+	font-size: 85%;
 }
 
 table.fixed {
@@ -16,8 +24,8 @@ table.fixed {
 }
 
 th {
-	padding-right: 1.9rem;
-	color: rgba(0, 0, 0, 0.6);
+	padding-right: @spacing-small;
+	color: @dark-grey;
 	font-weight: normal;
 	line-height: 2;
 	text-align: left;
@@ -25,15 +33,18 @@ th {
 }
 
 td {
-	padding: 0.8rem 1.9rem 0.8rem 0;
-	border: 0.1rem solid #e6e6e5;
-	border-width: 0.1rem 0;
-	background-color: #f5f5f5;
+	padding: @spacing-smallest @spacing-smaller @spacing-smallest 0;
+	border-top: @bdr-current @lighter-grey;
+	border-bottom: @bdr-current @lighter-grey;
+	background-color: @lightest-grey;
+	line-height: 1.325;
+	// font-size: 81.75%;
+	vertical-align: middle;
 }
 
 th:first-child,
 td:first-child {
-	padding-left: 1.9rem;
+	padding-left: @spacing-smaller;
 }
 
 tr:nth-child(even) td {
@@ -41,12 +52,12 @@ tr:nth-child(even) td {
 }
 
 tbody a {
-	padding-top: 0.67rem;
+	padding-top: @spacing-micro;
 }
 
 table input {
 	float: right;
-	margin-right: 1.9rem;
+	margin-right: @spacing-smaller;
 }
 
 th span {
@@ -64,24 +75,25 @@ th a {
 th a,
 th a:hover,
 th a:hover:after {
-	color: rgba(0, 0, 0, 0.6);
+	color: @dark-grey;
 }
 
 th a:after {
-	color: rgba(0, 0, 0, 0.2);
+	color: @grey;
+	font-size: .875em;
 }
 
 th a:active,
 th a.active,
 th a.active:after {
-	color: #808080;
+	color: @color-current;
 }
 
 th a:after,
 th a.active:hover:after,
 th a.active[href$=asc]:after {
 	content: '\2193';
-	margin-left: 0.3rem;
+	margin-left: @spacing-micro;
 }
 
 th a.active:after,
@@ -91,23 +103,23 @@ th a.active[href$=asc]:hover:after {
 }
 
 table.busy td {
-	border-top: 0.1rem solid #e6e6e5;
-	border-bottom: 0.1rem solid #e6e6e5;
-	background-color: #fff;
+	border-top: @bdr-current @lighter-grey;
+	border-bottom: @bdr-current @lighter-grey;
+	background-color: @white;
 }
 
 table.busy tr:nth-child(odd) td {
-	border-top: 0.1rem solid #e6e6e5;
-	border-bottom: 0.1rem solid #e6e6e5;
-	background-color: #f5f5f4;
+	border-top: @bdr-current @lighter-grey;
+	border-bottom: @bdr-current @lighter-grey;
+	background-color: @lightest-grey;
 }
 
 table.busy a {
-	color: #5072bf;
+	color: @blue;
 }
 
 table + fieldset {
-	margin-top: 5rem !important;
+	margin-top: @spacing-mid !important;
 }
 
 td img {
@@ -123,35 +135,35 @@ table.selectable input {
 }
 
 tr.selected td {
-	border-top: 0.1rem solid #4d78b4;
-	border-bottom: 0.1rem solid #7492bc;
-	background-color: #668abe;
+	border-top: @bdr-current @lightest-blue;
+	border-bottom: @bdr-current @lightest-blue;
+	background-color: @blue;
 }
 
 tr:nth-child(odd).selected td {
-	background: #5c83ba;
+	background: @blue;
 }
 
 tr.selected td,
 tr.selected a,
 tr.selecting td,
 tr.selecting a {
-	color: #fff;
+	color: @white;
 }
 
 tr.selected td a:hover {
-	color: white;
-	border-bottom-color: rgba(255, 255, 255, 0.5);
+	color: @white;
+	border-bottom-color: @white;
 }
 
 tr.selected td a:focus {
-	color: white;
-	border-bottom-color: white;
+	color: @white;
+	border-bottom-color: @white;
 }
 
 tr.selected .inactive,
 tr.selected i {
-	color: rgba(255, 255, 255, 0.6);
+	color: @white;
 }
 
 /*-----------------------------------------------------------------------------
@@ -164,15 +176,15 @@ tr.ordering {
 
 tr.ordering td,
 tr:nth-child(odd).ordering td {
-	border-top: 0.1rem solid #2d466a;
-	border-bottom: 0.1rem solid #3c5e8e;
+	border-top: @bdr-current #2d466a;
+	border-bottom: @bdr-current #3c5e8e;
 	background-color: #4870a9;
 	text-shadow: 0.1rem 0.1rem rgba(0, 0, 0, 0.2);
 }
 
 tr.ordering td,
 tr.ordering a {
-	color: #fff;
+	color: @white;
 }
 
 /*-----------------------------------------------------------------------------
@@ -207,12 +219,12 @@ tr[class*=status-] td:first-of-type {
 tr[class*=status-] a:first-of-type::after {
 	content: attr(data-status);
 	color: transparent;
-	border-bottom: 1px solid #f5f5f5;
+	border-bottom: 1px solid @lightest-grey;
 }
 
 tr[class*=status-]:nth-child(even) a:first-of-type::after,
 tr[class*=status-]:nth-child(even):hover a:first-of-type::after {
-	border-bottom-color: #fff;
+	border-bottom-color: @white;
 }
 
 tr[class*=status-]:hover a:first-of-type::after {
