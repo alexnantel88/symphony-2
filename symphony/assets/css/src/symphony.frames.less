@@ -81,8 +81,13 @@
 
 .frame-header span {
 	margin: 0 0 0 @spacing-smallest;
-	color: @light-grey;
+	color: @grey;
 	font-weight: normal;
+	font-size: 85%;
+}
+
+.frame-header .required {
+	font-style: italic;
 }
 
 .main::before,
@@ -92,7 +97,7 @@
 	float: left;
 	width: 0.1rem;
 	height: @spacing-smallest;
-	margin: @spacing-smallest @spacing-smallest 0 0;
+	margin: @spacing-smallest * .75 @spacing-smallest * .75 0 0;
 	border-right: @spacing-micro solid @light-grey;
 	border-left: @spacing-micro * .75 solid @grey;
 }
@@ -207,16 +212,17 @@ fieldset.frame,
 	color: @light-grey;
 	font-weight: normal;
 	border-bottom: none;
+	font-size: 85%;
 }
 
 .frame .destructor:hover,
 .frame .debug:hover,
 .frame .constructor:hover {
-	color: #494949;
+	color: @grey;
 }
 
 .frame .disabled {
-	color: #adadad;
+	color: @light-grey;
 	opacity: 0.4;
 	cursor: not-allowed;
 }
@@ -226,9 +232,8 @@ fieldset.frame,
 .frame .apply {
 	position: absolute;
 	right: 0;
-	bottom: -3.5rem;
+	bottom: -@spacing-small;
 	clear: left;
-	margin: 1rem 0 0;
 	text-align: right;
 	border-color: #B7C2CC;
 	cursor: default;
@@ -239,7 +244,6 @@ fieldset.frame,
 }
 
 .frame .actions {
-	height: 2rem;
 	margin: 0 0 0.7rem;
 }
 

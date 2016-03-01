@@ -121,7 +121,7 @@ footer {
 	Basic styles
 -----------------------------------------------------------------------------*/
 html {
-  font-size: 10px;
+  font-size: 62.5%;
 }
 body {
   color: #3B3D40;
@@ -436,7 +436,7 @@ form.columns .column.primary {
 --------------------------------------------------------------------------*/
 input,
 textarea,
-select[multiple],
+select,
 .field-value-readonly {
   box-sizing: border-box;
   width: 100%;
@@ -448,9 +448,6 @@ select[multiple],
   border: 2px solid #EAEEF0;
   border-radius: 5px;
   color: #3B3D40;
-}
-input,
-select[multiple] {
   background-color: #ffffff;
 }
 input[type=file] {
@@ -471,19 +468,18 @@ select[multiple]:focus {
 }
 select {
   display: block;
-  box-sizing: border-box;
-  width: 100%;
-  margin-top: 0.2rem;
+  height: 4.1875rem;
 }
 select[multiple] {
-  width: 100%;
-  height: 10rem;
-  padding: 0;
-  font-size: 1.1rem;
+  height: 16rem;
 }
 select[size] {
   height: auto;
   max-height: 10rem;
+}
+option {
+  margin: 0.125rem 0;
+  padding: 0.125rem;
 }
 input[size] {
   width: auto;
@@ -499,12 +495,6 @@ input[type='checkbox'] {
   font-size: inherit;
   border: none;
   box-shadow: none;
-}
-button,
-input,
-select,
-optgroup {
-  font-family: 'Lucida Grande', Leelawadee, Tahoma, Verdana, sans-serif;
 }
 button[disabled] {
   opacity: 0.5;
@@ -544,14 +534,14 @@ input[type='file'] > input[type='button']::-moz-focus-inner {
 /* Errors */
 .invalid input .invalid select[multiple],
 .invalid textarea {
-  border-color: #c31;
+  border-color: #e90a20;
 }
 .invalid input:active,
 .invalid input:focus,
 .invalid textarea:active,
 .invalid textarea:focus {
-  border-color: #9d270d;
-  box-shadow: 0 0 0.6rem rgba(0, 0, 0, 0.3);
+  border-color: #e90a20;
+  box-shadow: 0 0 0.6rem #EAEEF0;
 }
 /*--------------------------------------------------------------------------
 	Buttons
@@ -566,12 +556,12 @@ button,
   display: inline-block;
   min-height: 2rem;
   margin-left: 1rem;
-  padding: 0 1rem;
+  padding: 0.75rem 1.5rem;
   color: rgba(85, 85, 85, 0.95);
   line-height: 1.85;
-  border: 0.2rem solid #B7C2CC;
-  border-radius: 0.4rem;
-  background-image: linear-gradient(to bottom, #fbfbfa 0%, #e3e3df 100%);
+  border: 2px solid transparent;
+  border-radius: 5px;
+  background-color: #EAEEF0;
 }
 input[type=submit]:hover,
 input[type=submit]:active,
@@ -582,16 +572,16 @@ button:focus,
 .button:hover,
 .button:active,
 .button:focus {
-  color: #3c3c3c;
-  border-color: rgba(0, 0, 0, 0.35);
-  background-image: linear-gradient(to bottom, #fbfbfa 0%, #e3e3df 50%);
+  color: #3B3D40;
+  border-color: #EAEEF0;
+  background-color: #B7C2CC;
   cursor: pointer;
 }
 input[type=submit].selected,
 button.selected,
 .button.selected {
   color: rgba(0, 0, 0, 0.7);
-  border-color: rgba(0, 0, 0, 0.3);
+  border-color: #EAEEF0;
   background: #e3e3df;
   box-shadow: inset 0 0 0.15rem rgba(0, 0, 0, 0.2);
   text-shadow: 0.1rem 0.1rem 0 rgba(255, 255, 255, 0.7);
@@ -623,8 +613,8 @@ button[disabled=disabled]:focus {
 button.create,
 .button.create {
   color: #fff;
-  border-color: #799747;
-  background-image: linear-gradient(to bottom, #b3d47d 0%, #8b3 100%);
+  border-color: #F4F8FA;
+  background-color: #5848DE;
 }
 button.create:hover,
 button.create:active,
@@ -632,8 +622,8 @@ button.create:focus,
 .button.create:hover,
 .button.create:active,
 .button.create:focus {
-  border-color: #6b863f;
-  background-image: linear-gradient(to bottom, #b3d47d 0%, #8b3 50%);
+  border-color: #EAEEF0;
+  background-color: #73797F;
 }
 /* Delete buttons */
 button.delete:hover,
@@ -642,9 +632,9 @@ button.delete:focus,
 .button.delete:hover,
 .button.delete:active,
 .button.delete:focus {
-  color: rgba(255, 255, 255, 0.8);
-  border-color: #870915;
-  background-image: linear-gradient(to bottom, #e90a20 0%, #9e0b19 100%);
+  color: #F4F8FA;
+  border-color: #73797F;
+  background-color: #e90a20;
 }
 /* Installer */
 .submit input {
@@ -655,13 +645,11 @@ button.delete:focus,
 .apply.inactive:hover {
   display: block;
   float: right;
-  height: 1.85em;
-  min-height: 2rem;
   margin: 0;
   padding: 0;
-  border: 0.2rem solid #B7C2CC;
-  border-radius: 0.4rem;
-  background: #fbfbfa;
+  border: 2px solid #B7C2CC;
+  border-radius: 5px;
+  background: #F4F8FA;
 }
 .apply.inactive {
   opacity: 0.5;
@@ -693,7 +681,7 @@ button.delete:focus,
   color: #3c3c3c;
   line-height: 1.5;
   border: none;
-  border-radius: 0.5rem;
+  border-radius: 5px;
   -webkit-appearance: none;
   background: transparent;
   outline: none;
@@ -711,30 +699,29 @@ button.delete:focus,
 .apply-label-right,
 .apply-label-left {
   float: right;
-  height: 1.85rem;
   margin: 0;
   line-height: 1.85;
   border: none;
   border-right: none;
-  border-left: 0.1rem solid rgba(0, 0, 0, 0.15);
-  border-radius: 0 0.4rem 0.4rem 0;
+  border-left: 2px solid #B7C2CC;
+  border-radius: 0 5px 5px 0;
 }
 .apply-button-left,
 .apply-label-left {
   float: left;
-  border-right: 0.1rem solid rgba(0, 0, 0, 0.15);
+  border-right: 2px solid #B7C2CC;
   border-left: none;
-  border-radius: 0.4rem 0 0 0.4rem;
+  border-radius: 5px 0 0 5px;
 }
 .apply.inactive button,
 .apply.inactive button:hover {
-  color: rgba(60, 60, 60, 0.8);
-  border-left: 0.1rem solid rgba(0, 0, 0, 0.15);
+  color: #73797F;
+  border-left: 2px solid #B7C2CC;
   box-shadow: none;
   cursor: default;
 }
 .apply:hover button {
-  border-left: 0.1rem solid #B7C2CC;
+  border-left: 2px solid #B7C2CC;
 }
 /* Single select "With selected…" */
 .apply.single {
@@ -747,7 +734,7 @@ button.delete:focus,
   height: auto;
   white-space: nowrap;
   border: 0.2rem solid #B7C2CC;
-  border-bottom-color: rgba(0, 0, 0, 0.3);
+  border-bottom-color: #EAEEF0;
   border-radius: 0.4rem;
 }
 .apply.single button:before {
@@ -1004,8 +991,12 @@ tr[class*=status-]:hover a:first-of-type::after {
 }
 .frame-header span {
   margin: 0 0 0 1rem;
-  color: #B7C2CC;
+  color: #98A3AC;
   font-weight: normal;
+  font-size: 85%;
+}
+.frame-header .required {
+  font-style: italic;
 }
 .main::before,
 .sidebar::before {
@@ -1014,7 +1005,7 @@ tr[class*=status-]:hover a:first-of-type::after {
   float: left;
   width: 0.1rem;
   height: 1rem;
-  margin: 1rem 1rem 0 0;
+  margin: 0.75rem 0.75rem 0 0;
   border-right: 0.5rem solid #B7C2CC;
   border-left: 0.375rem solid #98A3AC;
 }
@@ -1106,14 +1097,15 @@ fieldset.frame,
   color: #B7C2CC;
   font-weight: normal;
   border-bottom: none;
+  font-size: 85%;
 }
 .frame .destructor:hover,
 .frame .debug:hover,
 .frame .constructor:hover {
-  color: #494949;
+  color: #98A3AC;
 }
 .frame .disabled {
-  color: #adadad;
+  color: #B7C2CC;
   opacity: 0.4;
   cursor: not-allowed;
 }
@@ -1121,9 +1113,8 @@ fieldset.frame,
 .frame .apply {
   position: absolute;
   right: 0;
-  bottom: -3.5rem;
+  bottom: -4rem;
   clear: left;
-  margin: 1rem 0 0;
   text-align: right;
   border-color: #B7C2CC;
   cursor: default;
@@ -1132,7 +1123,6 @@ fieldset.frame,
   border-color: rgba(0, 0, 0, 0.4);
 }
 .frame .actions {
-  height: 2rem;
   margin: 0 0 0.7rem;
 }
 .frame .actions input {
@@ -2203,53 +2193,52 @@ input:focus ~ .suggestions[data-search-types='date'] {
 --------------------------------------------------------------------------*/
 #wrapper {
   position: relative;
-  background: #fff;
+  background: #ffffff;
 }
 /* Header */
 #header {
   position: relative;
   margin: 0 0 0;
-  color: #fff;
-  border-bottom: 1px solid #e6e6e6;
+  color: #ffffff;
+  border-bottom: 2px solid #F4F8FA;
   z-index: 9000;
 }
 #header h1 {
   position: relative;
-  padding: 1.8rem;
-  font-size: 1.5rem;
+  padding: 1rem 2rem;
   font-weight: normal;
   line-height: 1;
-  background: #282828;
-  text-shadow: -0.1rem 0.2rem 0.3rem #111;
+  background: #B7C2CC;
   z-index: 10;
 }
 #header h1 a,
 #session a {
-  color: #e6e6e6;
-  color: rgba(255, 255, 255, 0.85);
+  color: #ffffff;
+  font-weight: bold;
   border: none;
 }
 #header h1 a:hover,
 #header h1 a:focus,
 #session a:hover,
 #session a:focus {
-  color: rgba(255, 255, 255, 0.99);
+  color: #ffffff;
 }
 #header h1 a:focus,
 #session a:focus {
-  border-bottom: 0.1rem solid white;
+  border-bottom: 2px solid white;
 }
 /* Session */
 #session {
   position: relative;
   float: right;
-  margin: -3.1rem 0 0;
-  padding: 0 0.9rem;
+  margin: -3rem 0 0;
+  padding: 0 1rem;
   z-index: 11;
+  font-size: 85%;
 }
 #session li {
   display: inline;
-  padding: 0 0.9rem;
+  padding: 0 1rem;
 }
 /* Navigation */
 #nav {
@@ -2257,14 +2246,13 @@ input:focus ~ .suggestions[data-search-types='date'] {
   float: left;
   box-sizing: border-box;
   width: 100%;
-  min-height: 3.1rem;
+  min-height: 4rem;
   margin: 0;
-  padding: 0 0.8rem 0;
-  font-size: 12px;
+  padding: 0 1rem 0;
+  font-size: 85%;
   list-style: none;
-  border-bottom: 0.1rem solid #e0e0e0;
-  background-image: linear-gradient(to bottom, #efefed 0px, #efefed 0.6rem, #d7d7d2 2.5rem, #d7d7d2 3rem, #bbbbb7 3rem);
-  background-size: 100% 3.1rem;
+  border-bottom: 2px solid #F4F8FA;
+  background-color: #EAEEF0;
   z-index: 3;
 }
 #nav ul {
@@ -2284,25 +2272,22 @@ input:focus ~ .suggestions[data-search-types='date'] {
   color: #555;
   line-height: 3.1rem;
   white-space: nowrap;
-  border-right: 0.1rem solid transparent;
-  border-left: 0.1rem solid transparent;
-  text-shadow: 0 0.1rem 0 rgba(255, 255, 255, 0.3);
+  border-right: 2px solid transparent;
+  border-left: 2px solid transparent;
   cursor: default;
   z-index: 11000;
 }
 #nav > ul > li.active {
   height: 3.1rem;
-  color: #fff;
-  background-color: #4d78b4;
-  background-image: linear-gradient(to bottom, #6f92c2 0%, #6f92c2 35%, #4d78b4 65%, #4d78b4 100%);
-  text-shadow: 0.1rem 0.1rem 0 rgba(0, 0, 0, 0.2);
+  color: #ffffff;
+  background-color: #5848DE;
   z-index: 2;
 }
 #nav > ul > li:hover,
 #nav > ul > li.active:hover {
   height: 3.1rem;
   color: #555;
-  background: #fff;
+  background: #ffffff;
   text-shadow: none;
   z-index: 12000;
 }
@@ -2315,7 +2300,7 @@ input:focus ~ .suggestions[data-search-types='date'] {
   max-width: 11.8rem;
   height: 0.3re,;
   padding: 0 0.1rem;
-  background: #fff;
+  background: #ffffff;
 }
 /* Dropdown */
 #nav li ul {
@@ -2327,11 +2312,11 @@ input:focus ~ .suggestions[data-search-types='date'] {
   margin: 0;
   padding: 0;
   list-style: none;
-  border: 0.1rem solid rgba(187, 187, 187, 0.5);
+  border: 2px solid rgba(187, 187, 187, 0.5);
   border-top: none;
   border-bottom-right-radius: 0.4rem;
   border-bottom-left-radius: 0.4rem;
-  background: #fff;
+  background: #ffffff;
   box-shadow: 0 0.4rem 0.5rem rgba(0, 0, 0, 0.03), 0 7px 15px -5px rgba(0, 0, 0, 0.15);
   text-shadow: none;
 }
@@ -2348,12 +2333,12 @@ input:focus ~ .suggestions[data-search-types='date'] {
   color: #555;
   font-weight: normal;
   -webkit-font-smoothing: subpixel-antialiased !important;
-  border: 0.1rem solid transparent;
+  border: 2px solid transparent;
   cursor: pointer;
 }
 #nav ul a:hover {
-  color: #fff;
-  border: 0.1rem solid #fff;
+  color: #ffffff;
+  border: 2px solid #ffffff;
   background: #888;
   text-shadow: 0.1rem 0.1rem 0 #807d79;
 }
@@ -2415,10 +2400,10 @@ input:focus ~ .suggestions[data-search-types='date'] {
   padding: 0;
   color: #2e2e2e;
   font: 127.28%/1.35 'Lucida Grande', Leelawadee, Tahoma, Verdana, sans-serif;
-  text-shadow: 0 0 0.1rem #fff;
+  text-shadow: 0 0 0.1rem #ffffff;
 }
 #breadcrumbs a {
-  border-bottom: 0.1rem solid rgba(0, 0, 0, 0.05);
+  border-bottom: 2px solid rgba(0, 0, 0, 0.05);
 }
 #breadcrumbs a:hover,
 #breadcrumbs a:focus {
@@ -2438,8 +2423,8 @@ input:focus ~ .suggestions[data-search-types='date'] {
   clear: both;
   min-height: 100%;
   padding: 0 0 5rem;
-  border-top: 0.1rem solid rgba(191, 191, 183, 0.65);
-  background: #fff;
+  border-top: 2px solid rgba(191, 191, 183, 0.65);
+  background: #ffffff;
   box-shadow: 0 -0.2rem 0.3rem rgba(0, 0, 0, 0.05);
 }
 #contents h2 {
@@ -2465,7 +2450,6 @@ fieldset.settings {
   position: relative;
   margin: 0 2rem 1rem;
   padding: 2rem 0 2rem 20rem;
-  border-top: 0.1rem solid rgba(0, 0, 0, 0.1);
 }
 fieldset.settings > legend {
   position: absolute;
@@ -2502,8 +2486,7 @@ fieldset.settings > *:first-child {
 }
 fieldset.settings fieldset {
   margin-top: 0.5rem;
-  padding-bottom: 0;
-  border-top: 0.1rem solid #ddc;
+  padding: 0;
 }
 fieldset.settings fieldset legend {
   display: inline;
@@ -2513,7 +2496,7 @@ fieldset.settings fieldset legend {
   font-weight: normal;
   line-height: 1.5;
   text-indent: 0;
-  background: #fff;
+  background: #ffffff;
 }
 fieldset.settings.highlight {
   margin-right: 0;
@@ -2522,7 +2505,7 @@ fieldset.settings.highlight {
   padding-right: 1.8rem;
   padding-bottom: 2rem;
   padding-left: 29.3rem;
-  border-bottom: 0.1rem solid rgba(0, 0, 0, 0.1);
+  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
   background: #fff9a2;
   -webkit-transition: background 0.25s ease-in;
   transition: background 0.25s ease-in;
@@ -2539,7 +2522,7 @@ fieldset.settings.highlight {
   }
   fieldset.settings:first-of-type {
     margin: 2rem 2rem 1rem;
-    border-top: 0.1rem solid rgba(0, 0, 0, 0.1);
+    border-top: 2px solid rgba(0, 0, 0, 0.1);
   }
   fieldset.settings > legend {
     position: relative;
@@ -2648,7 +2631,7 @@ ul.page form {
   box-sizing: border-box;
   min-height: 2rem;
   padding: 0;
-  border: 0.1rem solid transparent;
+  border: 2px solid transparent;
   border-radius: 0.4rem;
 }
 ul.page:hover form {
@@ -2739,7 +2722,7 @@ div.field-checkbox + .field:not(.field-checkbox) {
   float: right;
   color: #998;
   font-style: normal;
-  border-bottom: 0.1rem solid rgba(153, 153, 136, 0.3);
+  border-bottom: 2px solid rgba(153, 153, 136, 0.3);
   cursor: pointer;
 }
 .file em:hover {
@@ -2750,9 +2733,13 @@ div.field-checkbox + .field:not(.field-checkbox) {
 .page-single #contents .actions,
 .single #contents .actions {
   clear: both;
-  margin: 0 1.8rem;
-  padding: 1.75rem 0 0;
-  border-top: 0.1rem solid rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  padding: 2rem;
+  border-top: 2px solid #EAEEF0;
+  position: fixed;
+  box-sizing: border-box;
+  bottom: 0;
+  width: 100%;
 }
 .page-single #contents .columns .actions,
 .single #contents .columns .actions {
@@ -2761,7 +2748,7 @@ div.field-checkbox + .field:not(.field-checkbox) {
 .page-single #contents .actions input,
 .single #contents .actions input {
   float: right;
-  margin-left: 1rem;
+  margin-left: 2rem;
 }
 .page-single #contents .actions button,
 .single #contents .actions button {
@@ -2777,10 +2764,10 @@ div.field-checkbox + .field:not(.field-checkbox) {
   line-height: 3rem;
 }
 #utilities > li:nth-child(2n) {
-  background: #fff;
+  background: #ffffff;
 }
 #utilities > li.selected {
-  background: #668abe;
+  background: #5848DE;
 }
 #version {
   float: left;

@@ -19,7 +19,7 @@
 
 input,
 textarea,
-select[multiple],
+select,
 .field-value-readonly {
 	box-sizing: border-box;
 	width: 100%;
@@ -31,12 +31,14 @@ select[multiple],
 	border: @bdr-current @lighter-grey;
 	border-radius: @radius-current;
 	color: @color-current;
-}
-
-input,
-select[multiple] {
 	background-color: @white;
 }
+
+// @TODO — erase when sure
+// input,
+// select[multiple] {
+// 	background-color: @white;
+// }
 
 
 // @TODO — erase this rule if everything is still functioning properly
@@ -64,21 +66,27 @@ select[multiple]:focus {
 
 select {
 	display: block;
-	box-sizing: border-box;
-	width: 100%;
-	margin-top: 0.2rem;
+	height: @spacing-small + @spacing-micro * .375;
+	// box-sizing: border-box;
+	// width: 100%;
+	// margin-top: 0.2rem;
 }
 
 select[multiple] {
-	width: 100%;
-	height: 10rem;
-	padding: 0;
-	font-size: 1.1rem;
+	// width: 100%;
+	height: @spacing-larger;
+	// padding: 0;
+	// font-size: 1.1rem;
 }
 
 select[size] {
 	height: auto;
 	max-height: 10rem;
+}
+
+option {
+	margin: @spacing-micro * .25 0;
+	padding: @spacing-micro * .25;
 }
 
 input[size] {
@@ -98,12 +106,14 @@ input[type='checkbox'] {
 	box-shadow: none;
 }
 
-button,
-input,
-select,
-optgroup {
-	font-family: 'Lucida Grande', Leelawadee, Tahoma, Verdana, sans-serif;
-}
+
+// @TODO : remove when sure
+// button,
+// input,
+// select,
+// optgroup {
+// 	font-family: 'Lucida Grande', Leelawadee, Tahoma, Verdana, sans-serif;
+// }
 
 button[disabled] {
 	opacity: 0.5;
@@ -151,15 +161,15 @@ input[type='file'] > input[type='button']::-moz-focus-inner {
 .invalid input
 .invalid select[multiple],
 .invalid textarea {
-	border-color: #c31;
+	border-color: @red;
 }
 
 .invalid input:active,
 .invalid input:focus,
 .invalid textarea:active,
 .invalid textarea:focus {
-	border-color: #9d270d;
-	box-shadow: 0 0 0.6rem rgba(0, 0, 0, 0.3);
+	border-color: @red;
+	box-shadow: 0 0 0.6rem @lighter-grey;
 }
 
 /*--------------------------------------------------------------------------
@@ -176,12 +186,13 @@ button,
 	display: inline-block;
 	min-height: 2rem;
 	margin-left: 1rem;
-	padding: 0 1rem;
+	padding: @spacing-micro * 1.5 @spacing-smallest * 1.5;
 	color: rgba(85, 85, 85, 0.95);
 	line-height: 1.85;
-	border: 0.2rem solid #B7C2CC;
-	border-radius: 0.4rem;
-	background-image: linear-gradient(to bottom, #fbfbfa 0%, #e3e3df 100%);
+	border: @bdr-current transparent;
+	border-radius: @radius-current;
+	// background-image: linear-gradient(to bottom, #fbfbfa 0%, #e3e3df 100%);
+	background-color: @lighter-grey;
 }
 
 input[type=submit]:hover,
@@ -193,9 +204,10 @@ button:focus,
 .button:hover,
 .button:active,
 .button:focus {
-	color: #3c3c3c;
-	border-color: rgba(0, 0, 0, 0.35);
-	background-image: linear-gradient(to bottom, #fbfbfa 0%, #e3e3df 50%);
+	color: @color-current;
+	border-color: @lighter-grey;
+	// background-image: linear-gradient(to bottom, #fbfbfa 0%, #e3e3df 50%);
+	background-color: @light-grey;
 	cursor: pointer;
 }
 
@@ -203,7 +215,7 @@ input[type=submit].selected,
 button.selected,
 .button.selected {
 	color: rgba(0, 0, 0, 0.7);
-	border-color: rgba(0, 0, 0, 0.3);
+	border-color: @lighter-grey;
 	background: #e3e3df;
 	box-shadow: inset 0 0 0.15rem rgba(0, 0, 0, 0.2);
 	text-shadow: 0.1rem 0.1rem 0 rgba(255, 255, 255, 0.7);
@@ -238,8 +250,9 @@ button[disabled=disabled]:focus {
 button.create,
 .button.create {
 	color: #fff;
-	border-color: #799747;
-	background-image: linear-gradient(to bottom, #b3d47d 0%, #8b3 100%);
+	border-color: @lightest-grey;
+	// background-image: linear-gradient(to bottom, #b3d47d 0%, #8b3 100%);
+	background-color: @blue;
 }
 
 button.create:hover,
@@ -248,8 +261,9 @@ button.create:focus,
 .button.create:hover,
 .button.create:active,
 .button.create:focus {
-	border-color: #6b863f;
-	background-image: linear-gradient(to bottom, #b3d47d 0%, #8b3 50%);
+	border-color: @lighter-grey;
+	// background-image: linear-gradient(to bottom, #b3d47d 0%, #8b3 50%);
+	background-color: @dark-grey;
 }
 
 /* Delete buttons */
@@ -260,9 +274,10 @@ button.delete:focus,
 .button.delete:hover,
 .button.delete:active,
 .button.delete:focus {
-	color: rgba(255, 255, 255, 0.8);
-	border-color: #870915;
-	background-image: linear-gradient(to bottom, #e90a20 0%, #9e0b19 100%);
+	color: @lightest-grey;
+	border-color: @dark-grey;
+	// background-image: linear-gradient(to bottom, #e90a20 0%, #9e0b19 100%);
+	background-color: @red;
 }
 
 /* Installer */
@@ -277,13 +292,13 @@ button.delete:focus,
 .apply.inactive:hover {
 	display: block;
 	float: right;
-	height: 1.85em;
-	min-height: 2rem;
+	// height: 1.85em;
+	// min-height: 2rem;
 	margin: 0;
 	padding: 0;
-	border: 0.2rem solid #B7C2CC;
-	border-radius: 0.4rem;
-	background: #fbfbfa;
+	border: @bdr-current @light-grey;
+	border-radius: @radius-current;
+	background: @lightest-grey;
 }
 
 .apply.inactive {
@@ -320,7 +335,7 @@ button.delete:focus,
 	color: rgb(60, 60, 60);
 	line-height: 1.5;
 	border: none;
-	border-radius: 0.5rem;
+	border-radius: @radius-current;
 	-webkit-appearance: none;
 	background: transparent;
 	outline: none;
@@ -341,33 +356,33 @@ button.delete:focus,
 .apply-label-right,
 .apply-label-left {
 	float: right;
-	height: 1.85rem;
+	// height: 1.85rem;
 	margin: 0;
 	line-height: 1.85;
 	border: none;
 	border-right: none;
-	border-left: 0.1rem solid rgba(0, 0, 0, 0.15);
-	border-radius: 0 0.4rem 0.4rem 0;
+	border-left: @bdr-current @light-grey;
+	border-radius: 0 @radius-current @radius-current 0;
 }
 
 .apply-button-left,
 .apply-label-left {
 	float: left;
-	border-right: 0.1rem solid rgba(0, 0, 0, 0.15);
+	border-right: @bdr-current @light-grey;
 	border-left: none;
-	border-radius: 0.4rem 0 0 0.4rem;
+	border-radius: @radius-current 0 0 @radius-current;
 }
 
 .apply.inactive button,
 .apply.inactive button:hover {
-	color: rgba(60, 60, 60, 0.8);
-	border-left: 0.1rem solid rgba(0, 0, 0, 0.15);
+	color: @dark-grey;
+	border-left: @bdr-current @light-grey;
 	box-shadow: none;
 	cursor: default;
 }
 
 .apply:hover button {
-	border-left: 0.1rem solid #B7C2CC;
+	border-left: @bdr-current @light-grey;
 }
 
 /* Single select "With selected…" */
@@ -384,7 +399,7 @@ button.delete:focus,
 	height: auto;
 	white-space: nowrap;
 	border: 0.2rem solid #B7C2CC;
-	border-bottom-color: rgba(0, 0, 0, 0.3);
+	border-bottom-color: @lighter-grey;
 	border-radius: 0.4rem;
 }
 
