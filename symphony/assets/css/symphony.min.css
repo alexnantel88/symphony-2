@@ -130,6 +130,16 @@ body {
   font: 1.5rem/1.8 'Karla', 'Lucida Grande', Leelawadee, Tahoma, Verdana, sans-serif;
   min-height: 100%;
 }
+button,
+td,
+a,
+li,
+ul,
+input,
+*:after,
+*:before {
+  transition: all ease-in-out 0.15s;
+}
 body > div,
 body > form {
   font-size: 1.5rem;
@@ -576,19 +586,21 @@ button,
   background-color: #EAEEF0;
 }
 input[type=submit] {
-  background-color: #5848DE;
-  color: #ffffff;
+  background-color: #B7C2CC;
+  font-weight: bold;
 }
 input[type=submit]:hover,
 input[type=submit]:active,
-input[type=submit]:focus,
+input[type=submit]:focus {
+  background-color: #5848DE;
+  color: #ffffff;
+}
 button:hover,
 button:active,
 button:focus,
 .button:hover,
 .button:active,
 .button:focus {
-  color: #3B3D40;
   background-color: #B7C2CC;
   cursor: pointer;
 }
@@ -628,10 +640,6 @@ button.create,
 .button.create {
   color: #73797F;
   background-color: #F4F8FA;
-}
-button.link,
-.button.link {
-  background-color: #EAEEF0;
 }
 button.create:hover,
 button.create:active,
@@ -1162,21 +1170,10 @@ fieldset.frame,
 .frame .selected,
 .frame .ordering {
   position: relative;
-  background-color: #5848DE;
 }
-.frame .selected::before,
-.frame .selected::after,
-.frame .ordering::before,
-.frame .ordering::after {
-  content: '';
-  display: block;
-  position: absolute;
-  top: 0;
-  left: -0.1rem;
-  width: 0.1rem;
-  height: 100%;
-  background: #5848DE;
-  z-index: 1000;
+.frame .selected .frame-header,
+.frame .ordering .frame-header {
+  background-color: #5848DE;
 }
 .frame .selected::after,
 .frame .ordering::after {
@@ -1194,23 +1191,6 @@ fieldset.frame,
 .frame .ordering .content i,
 .frame .ordering ul.tags {
   color: #bdcbdd;
-}
-.frame .ordering .content,
-.frame .ordering .content legend {
-  color: #fff;
-  background: #5848DE;
-}
-.frame.dark .ordering .content,
-.frame.dark .ordering .content legend {
-  color: #fff;
-  background: #5848DE;
-}
-.frame .ordering .content input,
-.frame .ordering .content textarea {
-  border-color: #5848DE;
-}
-.frame .ordering .content fieldset {
-  border-top-color: #5848DE;
 }
 .frame .ordering .main::before {
   border-right: 0.3rem solid #7c9bc7;
@@ -2311,7 +2291,7 @@ input:focus ~ .suggestions[data-search-types='date'] {
   background-color: #B7C2CC;
   z-index: 12000;
 }
-#nav > ul > li:hover ul:before {
+#nav > ul > li ul:before {
   content: '';
   position: absolute;
   display: block;
@@ -2320,12 +2300,15 @@ input:focus ~ .suggestions[data-search-types='date'] {
   width: 100%;
   border-top-right-radius: 5px;
   height: 1rem;
-  background-color: #B7C2CC;
   z-index: -1;
+}
+#nav > ul > li ul:before {
+  background-color: #B7C2CC;
 }
 /* Dropdown */
 #nav li ul {
-  display: none;
+  pointer-events: none;
+  opacity: 0;
   position: absolute;
   top: 3rem;
   left: 0;
@@ -2342,7 +2325,8 @@ input:focus ~ .suggestions[data-search-types='date'] {
   right: 0;
 }
 #nav li:hover ul {
-  display: block;
+  pointer-events: all;
+  opacity: 1;
 }
 #nav ul a {
   display: block;
@@ -2387,7 +2371,8 @@ input:focus ~ .suggestions[data-search-types='date'] {
   margin-top: -4rem;
   padding: 0;
 }
-#context ul.actions li {
+#context ul.actions li,
+#context ul.actions button {
   float: right;
 }
 #context .apply-label-left {

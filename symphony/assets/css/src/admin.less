@@ -147,7 +147,7 @@
 	z-index: 12000;
 }
 
-#nav > ul > li:hover ul:before {
+#nav > ul > li ul:before {
 	content: '';
 	position: absolute;
 	display: block;
@@ -159,14 +159,18 @@
 	// max-width: 11.8rem;
 	height: @spacing-smallest;
 	// padding: 0 0.1rem;
-	background-color: @light-grey;
 	z-index: -1;
+}
+
+#nav > ul > li ul:before { 
+	background-color: @light-grey;	
 }
 
 /* Dropdown */
 
 #nav li ul {
-	display: none;
+	pointer-events: none;
+	opacity: 0;
 	position: absolute;
 	top: @spacing-smaller + @spacing-smallest; // depends on #nav li + li:after height — see above
 	left: 0;
@@ -188,7 +192,8 @@
 }
 
 #nav li:hover ul {
-	display: block;
+	pointer-events: all;
+	opacity: 1;
 }
 
 #nav ul a {
@@ -248,7 +253,8 @@
 	padding: 0;
 }
 
-#context ul.actions li {
+#context ul.actions li,
+#context ul.actions button {
 	float: right;
 }
 

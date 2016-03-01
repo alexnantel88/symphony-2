@@ -277,23 +277,27 @@ fieldset.frame,
 .frame .selected,
 .frame .ordering {
 	position: relative;
+}
+
+.frame .selected .frame-header,
+.frame .ordering .frame-header {
 	background-color: @blue;
 }
 
-.frame .selected::before,
-.frame .selected::after,
-.frame .ordering::before,
-.frame .ordering::after {
-	content: '';
-	display: block;
-	position: absolute;
-	top: 0;
-	left: -0.1rem;
-	width: 0.1rem;
-	height: 100%;
-	background: @blue;
-	z-index: 1000;
-}
+// .frame .selected::before,
+// .frame .selected::after,
+// .frame .ordering::before,
+// .frame .ordering::after {
+// 	content: '';
+// 	display: block;
+// 	position: absolute;
+// 	top: 0;
+// 	left: -0.1rem;
+// 	width: 0.1rem;
+// 	height: 100%;
+// 	background: @blue;
+// 	z-index: 1000;
+// }
 
 .frame .selected::after,
 .frame .ordering::after {
@@ -327,23 +331,23 @@ fieldset.frame,
 
 .frame .ordering .content,
 .frame .ordering .content legend {
-	color: #fff;
-	background: @blue;
+	// color: #fff;
+	// background: @blue;
 }
 
 .frame.dark .ordering .content,
 .frame.dark .ordering .content legend {
-	color: #fff;
-	background: @blue;
+	// color: #fff;
+	// background: @blue;
 }
 
 .frame .ordering .content input,
 .frame .ordering .content textarea {
-	border-color: @blue;
+	// border-color: @blue;
 }
 
 .frame .ordering .content fieldset {
-	border-top-color: @blue;
+	// border-top-color: @blue;
 }
 
 .frame .ordering .main::before {

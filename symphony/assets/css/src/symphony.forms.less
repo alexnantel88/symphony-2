@@ -197,20 +197,25 @@ button,
 }
 
 input[type=submit] {
-	background-color: @blue;
-	color: @white;
+	background-color: @light-grey;
+	// color: @white;
+	font-weight: bold;
 }
 
 input[type=submit]:hover,
 input[type=submit]:active,
-input[type=submit]:focus,
+input[type=submit]:focus {
+	background-color: @blue;
+	color: @white;
+}
+
 button:hover,
 button:active,
 button:focus,
 .button:hover,
 .button:active,
 .button:focus {
-	color: @color-current;
+	// color: @white;
 	// border-color: @lighter-grey;
 	// background-image: linear-gradient(to bottom, #fbfbfa 0%, #e3e3df 50%);
 	background-color: @light-grey;
@@ -266,7 +271,7 @@ button.link,
 	// color: @light-grey;
 	// border-color: @lightest-grey;
 	// background-image: linear-gradient(to bottom, #b3d47d 0%, #8b3 100%);
-	background-color: @lighter-grey;
+	// background-color: @lighter-grey;
 }
 
 button.create:hover,
