@@ -77,13 +77,13 @@
 .frame-header h4 {
 	display: inline;
 	font-weight: bold;
+	font-size: 85%;
 }
 
 .frame-header span {
 	margin: 0 0 0 @spacing-smallest;
-	color: @grey;
+	color: @dark-grey;
 	font-weight: normal;
-	font-size: 85%;
 }
 
 .frame-header .required {
@@ -270,10 +270,14 @@ fieldset.frame,
 	cursor: move;
 }
 
+.orderable .frame-header:hover {
+	background-color: @lightest-blue;
+}
+
 .frame .selected,
 .frame .ordering {
 	position: relative;
-	background-color: #668abe;
+	background-color: @blue;
 }
 
 .frame .selected::before,
@@ -287,7 +291,7 @@ fieldset.frame,
 	left: -0.1rem;
 	width: 0.1rem;
 	height: 100%;
-	background: #4d78b4;
+	background: @blue;
 	z-index: 1000;
 }
 
@@ -298,20 +302,20 @@ fieldset.frame,
 }
 
 .frame .ordering + .instance .frame-header {
-	border-top: 0.1rem solid #4d78b4;
+	// border-top: 0.1rem solid @blue;
 }
 
 .ordering .frame-header {
 	color: #fff;
-	border-top: 0.1rem solid #4d78b4;
-	border-bottom-color: #7093c3;
-	background: #5c83ba;
+	// border-top: 0.1rem solid @blue;
+	// border-bottom-color: #7093c3;
+	background: @blue;
 	transition: none;
 	cursor: move;
 }
 
 .frame:not(.collapsible) .ordering .frame-header {
-	box-shadow: 0 0.1rem 0.4rem #7093c3;
+	// box-shadow: 0 0.1rem 0.4rem #7093c3;
 }
 
 .frame .ordering .frame-header span,
@@ -324,22 +328,22 @@ fieldset.frame,
 .frame .ordering .content,
 .frame .ordering .content legend {
 	color: #fff;
-	background: #668abe;
+	background: @blue;
 }
 
 .frame.dark .ordering .content,
 .frame.dark .ordering .content legend {
 	color: #fff;
-	background: #4d78b4;
+	background: @blue;
 }
 
 .frame .ordering .content input,
 .frame .ordering .content textarea {
-	border-color: #4b76b1;
+	border-color: @blue;
 }
 
 .frame .ordering .content fieldset {
-	border-top-color: #7093c3;
+	border-top-color: @blue;
 }
 
 .frame .ordering .main::before {

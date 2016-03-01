@@ -4,15 +4,24 @@
  * @since Symphony 2.3
  */
 
+
+ /*-----------------------------------------------------------------------------
+ 	LESS — Variables Importing
+ -----------------------------------------------------------------------------*/
+ @import "variables";
+
+
 ul.tabs {
 	position: relative;
-	top: 0.1rem;
+	// top: 0.1rem;
 	clear: both;
-	height: 2.3rem;
+	// height: 2.3rem;
 	margin: 0;
 	padding: 0;
 	list-style-type: none;
 	z-index: 10;
+	font-size: 85%;
+	text-transform: uppercase;
 }
 
 ul.tabs li {
@@ -20,34 +29,32 @@ ul.tabs li {
 	position: relative;
 	float: left;
 	box-sizing: border-box;
-	height: 2.4rem;
-	margin: 0 0.3rem 0 0;
-	padding: 0.4rem 1rem 0;
-	color: rgba(0, 0, 0, 0.5);
+	// height: 2.4rem;
+	margin: 0 @spacing-smallest 0 0;
+	// padding: 0.4rem 1rem 0;
+	color: @dark-grey;
 	list-style-type: none;
-	border: 0.1rem solid rgba(0, 0, 0, 0.1);
-	border-bottom-color: #d5d5d0;
-	border-radius: 0.4rem 0.4rem 0 0;
-	background: #fafafa;
+	border-bottom: @bdr-current fade(@dark-grey, 0);
 	cursor: pointer;
 	cursor: pointer;
+}
+
+ul.tabs li:last-of-type {
+	margin-right: 0;
 }
 
 ul.tabs li:hover {
-	color: rgba(0, 0, 0, 0.65);
-	border: 0.1rem solid rgba(0, 0, 0, 0.2);
-	border-bottom-color: #c4c4c4;
-	background: #f5f5f5;
+	border-bottom-color: @dark-grey;
+	// background: #f5f5f5;
 }
 
 ul.tabs .selected,
+ul.tabs .active,
 ul.tabs .invalid.selected,
 ul.tabs .invalid.selected:hover {
-	color: rgba(0, 0, 0, 0.8);
-	border: 0.1rem solid rgba(0, 0, 0, 0.2);
-	border-bottom-color: #fff;
-	background: #fff;
-	text-shadow: none;
+	color: @color-current;
+	border-bottom-color: @color-current;
+	// text-shadow: none;
 	z-index: 1000;
 }
 

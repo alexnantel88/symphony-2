@@ -4,6 +4,11 @@
  * @since Symphony 2.3
  */
 
+ /*-----------------------------------------------------------------------------
+ 	LESS — Variables Importing
+ -----------------------------------------------------------------------------*/
+ @import "variables";
+
 
 /*-----------------------------------------------------------------------------
 	Notifier
@@ -11,8 +16,9 @@
 
 .notifier {
 	overflow: hidden;
-	border-bottom: 0.1rem solid #575757;
-	background: #383838;
+	border-bottom: @bdr-current @grey;
+	background: @darker-grey;
+	font-size: 85%;
 }
 
 .notifier nav {
@@ -47,16 +53,16 @@
 	box-sizing: border-box;
 	width: 100%;
 	margin: 0;
-	padding: 0.4rem 9rem 0.3rem 1.8rem;
-	color: #9b9b9b;
-	border-bottom: 0.1rem solid #575757;
-	background: #383838;
+	padding: @spacing-micro @spacing-large @spacing-micro @spacing-smaller;
+	color: @light-grey;
+	border-bottom: @bdr-current @dark-grey;
+	background: @darker-grey;
 }
 
 .notice a {
 	margin: 0 0.3rem;
-	color: #bdc3c3;
-	border-bottom: 0.1rem solid rgba(189, 195, 195, 0.2);
+	color: @lightest-grey;
+	border-bottom: @bdr-small solid @lighter-grey;
 }
 
 .notice a:hover,
