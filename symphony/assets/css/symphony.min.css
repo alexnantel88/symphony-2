@@ -213,7 +213,7 @@ pre code {
   display: block;
   overflow: auto;
   padding: 1rem;
-  white-space: pre;
+  white-space: pre-wrap;
   border: 2px solid #EAEEF0;
 }
 i code {
@@ -866,10 +866,10 @@ table.selectable input {
 tr.selected td {
   border-top: 2px solid #E8ECFD;
   border-bottom: 2px solid #E8ECFD;
-  background-color: #5848DE;
+  background-color: #73797F;
 }
 tr:nth-child(odd).selected td {
-  background: #5848DE;
+  background: #73797F;
 }
 tr.selected td,
 tr.selected a,
@@ -2364,8 +2364,8 @@ input:focus ~ .suggestions[data-search-types='date'] {
   position: relative;
   clear: both;
   margin: 0;
-  padding: 1rem;
-  padding-top: 2rem;
+  padding: 2rem;
+  padding-bottom: 1rem;
   color: #3B3D40;
   background-color: #EAEEF0;
 }
@@ -2383,9 +2383,7 @@ input:focus ~ .suggestions[data-search-types='date'] {
   border-bottom: 0;
 }
 #context ul.actions {
-  position: absolute;
   top: -0.5rem;
-  right: 2rem;
   margin-top: -4rem;
   padding: 0;
 }

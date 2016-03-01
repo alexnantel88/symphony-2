@@ -212,7 +212,7 @@ pre code {
   display: block;
   overflow: auto;
   padding: 1rem;
-  white-space: pre;
+  white-space: pre-wrap;
   border: 2px solid #EAEEF0;
 }
 i code {
