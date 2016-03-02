@@ -62,7 +62,7 @@
 	position: relative;
 	padding: @spacing-smallest - .1;
 	color: @color-current;
-	// border-top: 0.1rem solid #d0d0d0;
+	border-top: @bdr-current fade(@light-grey, 0);
 	border-bottom: @bdr-current @lighter-grey;
 }
 
@@ -75,7 +75,7 @@
 }
 
 .frame-header h4 {
-	display: inline;
+	display: inline-block;
 	font-weight: bold;
 	font-size: 85%;
 }
@@ -271,7 +271,7 @@ fieldset.frame,
 }
 
 .orderable .frame-header:hover {
-	background-color: @lightest-blue;
+	background-color: @lighter-grey;
 }
 
 .frame .selected,
@@ -372,12 +372,18 @@ fieldset.frame,
 	the first `transitionend` event.
 -----------------------------------------------------------------------------*/
 
+// @TODO : there is a problem with the calculating of the max-height of drawers. It's related to the to the adding of a padding on the header on opening.
+// see : .collapsible .instance:not(.collapsed) .frame-header
+
 .collapsible .instance {
-	overflow: visible;
+	overflow: hidden;
+	padding-bottom: @spacing-smaller;
+	background-color: ;
 }
 
 .collapsible .instance.collapsed {
 	overflow: hidden;
+	padding-bottom: 0;
 }
 
 .collapsible .instance,
@@ -403,12 +409,12 @@ fieldset.frame,
 
 .frame .js-animate {
 	overflow: hidden;
-	transition: max-height 0.25s linear;
+	transition: max-height @duration-short @easeInOutQuad;
 }
 
 .collapsed.js-animate,
 .destructed.js-animate {
-	transition: max-height 0.25s ease-out;
+	transition: max-height @duration-short @easeInOutQuad;
 }
 
 .collapsible .js-animate {
@@ -416,12 +422,48 @@ fieldset.frame,
 }
 
 .collapsible .js-animate .content {
-	transition: padding 0.25s ease-in;
+	// transition: all @duration-shortest @easeInOutQuad;
 }
 
 .collapsed.js-animate .frame-header {
 	border-bottom-color: @lighter-grey;
-	transition: border-color 0.25s ease-in;
+	// transition: all @duration-short @easeInOutQuad;
+}
+
+.collapsible .instance:not(.collapsed) .frame-header {
+	border-top-color: fade(@light-grey, 40%);
+	border-bottom-color: fade(@lighter-grey, 0);
+	background-color: @lighter-grey;
+	padding-top: @spacing-small;
+}
+
+.collapsible .frame-header:hover {
+	background-color: fade(@lighter-grey, 50%);
+}
+
+.collapsible .instance.collapsed .frame-header:before,
+.collapsible .instance.collapsed .frame-header h4 {
+	transition: all @duration-shortest @easeInOutQuad;
+}
+
+.collapsible .instance.collapsed .frame-header:hover:before,
+.collapsible .instance.collapsed .frame-header:hover h4 {
+	transform: translateY(@spacing-micro);
+}
+
+.collapsible .instance:not(.collapsed) .frame-header:hover,
+.collapsible .instance:not(.collapsed) .frame-header:hover ~ .content {
+	background-color: fade(@light-grey, 40%);
+	// transition-delay: 0ms;
+}
+
+// .collapsible .frame-header ~ .content {
+// 	background-color: fade(@lighter-grey, 0);
+// }
+
+.collapsible .frame-header ~ .content {
+	background-color: @lighter-grey;
+	// transition-delay: 0ms;
 }
 
 .collapsed .content {

@@ -78,13 +78,13 @@
 	color: #6d7841;
 	border-color: #90c349;
 	background-color: #bfdc96;
-	transition: color 0.5s ease-out, border-color 0.5s ease-out, background-color 0.5s ease-out;
+	transition: color @duration @easeInOutQuad, border-color @duration @easeInOutQuad, background-color @duration @easeInOutQuad;
 }
 
 .notice.success a {
 	color: #4e5b39;
 	border-color: #a1bf7e;
-	transition: color 0.5s ease-out, border-color 0.5s ease-out;
+	transition: color @duration @easeInOutQuad, border-color @duration @easeInOutQuad;
 }
 
 .notice.success.dimmed {

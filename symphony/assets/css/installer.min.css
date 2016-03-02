@@ -129,6 +129,10 @@ body {
   font: 1.5rem/1.8 'Karla', 'Lucida Grande', Leelawadee, Tahoma, Verdana, sans-serif;
   min-height: 100%;
 }
+div,
+header {
+  transition: all 150ms cubic-bezier(0.455, 0.03, 0.515, 0.955);
+}
 button,
 td,
 a,
@@ -824,13 +828,14 @@ fieldset .button {
   position: relative;
   padding: 0.9rem;
   color: #3B3D40;
+  border-top: 2px solid rgba(183, 194, 204, 0);
   border-bottom: 2px solid #EAEEF0;
 }
 .frame .collapsed .frame-header {
   border-bottom: 2px solid #EAEEF0;
 }
 .frame-header h4 {
-  display: inline;
+  display: inline-block;
   font-weight: bold;
   font-size: 85%;
 }
@@ -988,7 +993,7 @@ fieldset.frame,
   cursor: move;
 }
 .orderable .frame-header:hover {
-  background-color: #E8ECFD;
+  background-color: #EAEEF0;
 }
 .frame .selected,
 .frame .ordering {
@@ -1034,10 +1039,13 @@ fieldset.frame,
 	the first `transitionend` event.
 -----------------------------------------------------------------------------*/
 .collapsible .instance {
-  overflow: visible;
+  overflow: hidden;
+  padding-bottom: 2rem;
+  background-color: ;
 }
 .collapsible .instance.collapsed {
   overflow: hidden;
+  padding-bottom: 0;
 }
 .collapsible .instance,
 .collapsible input,
@@ -1054,21 +1062,41 @@ fieldset.frame,
 }
 .frame .js-animate {
   overflow: hidden;
-  transition: max-height 0.25s linear;
+  transition: max-height 300ms cubic-bezier(0.455, 0.03, 0.515, 0.955);
 }
 .collapsed.js-animate,
 .destructed.js-animate {
-  transition: max-height 0.25s ease-out;
+  transition: max-height 300ms cubic-bezier(0.455, 0.03, 0.515, 0.955);
 }
 .collapsible .js-animate {
   overflow: hidden;
 }
-.collapsible .js-animate .content {
-  transition: padding 0.25s ease-in;
-}
 .collapsed.js-animate .frame-header {
   border-bottom-color: #EAEEF0;
-  transition: border-color 0.25s ease-in;
+}
+.collapsible .instance:not(.collapsed) .frame-header {
+  border-top-color: rgba(183, 194, 204, 0.4);
+  border-bottom-color: rgba(234, 238, 240, 0);
+  background-color: #EAEEF0;
+  padding-top: 4rem;
+}
+.collapsible .frame-header:hover {
+  background-color: rgba(234, 238, 240, 0.5);
+}
+.collapsible .instance.collapsed .frame-header:before,
+.collapsible .instance.collapsed .frame-header h4 {
+  transition: all 150ms cubic-bezier(0.455, 0.03, 0.515, 0.955);
+}
+.collapsible .instance.collapsed .frame-header:hover:before,
+.collapsible .instance.collapsed .frame-header:hover h4 {
+  transform: translateY(0.5rem);
+}
+.collapsible .instance:not(.collapsed) .frame-header:hover,
+.collapsible .instance:not(.collapsed) .frame-header:hover ~ .content {
+  background-color: rgba(183, 194, 204, 0.4);
+}
+.collapsible .frame-header ~ .content {
+  background-color: #EAEEF0;
 }
 .collapsed .content {
   padding-top: 0;
