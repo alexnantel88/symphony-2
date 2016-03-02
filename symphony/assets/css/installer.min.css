@@ -135,9 +135,28 @@ a,
 li,
 ul,
 input,
+textarea,
 *:after,
 *:before {
-  transition: all ease-in-out 0.15s;
+  transition: all 150ms cubic-bezier(0.455, 0.03, 0.515, 0.955) 150ms;
+}
+button:hover,
+td:hover,
+a:hover,
+li:hover,
+ul:hover,
+input:hover,
+*:hover:after,
+*:hover:before,
+button:focus,
+td:focus,
+a:focus,
+li:focus,
+ul:focus,
+input:focus,
+*:focus:after,
+*:focus:before {
+  transition-delay: 0ms;
 }
 body > div,
 body > form {
@@ -479,7 +498,7 @@ select[multiple]:focus {
 }
 select {
   display: block;
-  height: 4.1875rem;
+  height: 4.1625rem;
 }
 select[multiple] {
   height: 16rem;
