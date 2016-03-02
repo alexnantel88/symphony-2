@@ -207,6 +207,7 @@ input[type=submit]:active,
 input[type=submit]:focus {
 	background-color: @blue;
 	color: @white;
+	// outline: none;
 }
 
 button:hover,
@@ -220,6 +221,20 @@ button:focus,
 	// background-image: linear-gradient(to bottom, #fbfbfa 0%, #e3e3df 50%);
 	background-color: @light-grey;
 	cursor: pointer;
+	// outline: none;
+}
+
+button,
+.button,
+input[type="submit"] {
+	outline: @bdr-alt fade(@lighter-grey, 0);
+	outline-offset: @spacing-nano;
+}
+
+button:focus,
+.button:focus,
+input[type="submit"]:focus {
+	outline: @bdr-alt @light-grey;
 }
 
 input[type=submit].selected,

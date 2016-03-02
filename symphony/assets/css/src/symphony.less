@@ -75,16 +75,16 @@ body {
 	min-height: 100%;
 }
 
-div, header {
+div, header, td {
 	transition: all @duration-shortest @easeInOutQuad;
 }
 
-button, td, a, li, ul, input, textarea, *:after, *:before {
+button, a, li, ul, input, textarea, *:after, *:before {
 	transition: all @duration-shortest @easeInOutQuad @duration-shortest;
 }
 
-button:hover, td:hover, a:hover, li:hover, ul:hover, input:hover, *:hover:after, *:hover:before,
-button:focus, td:focus, a:focus, li:focus, ul:focus, input:focus, *:focus:after, *:focus:before {
+button:hover, a:hover, li:hover, ul:hover, input:hover, *:hover:after, *:hover:before,
+button:focus, a:focus, li:focus, ul:focus, input:focus, *:focus:after, *:focus:before {
 	transition-delay: 0ms;
 }
 

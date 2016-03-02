@@ -326,7 +326,7 @@
 
 
 #breadcrumbs, #context .actions {
-	max-width: 120rem;
+	max-width: @contents-max-width;
 	margin-left: auto;
 	margin-right: auto;
 	position: relative;
@@ -381,7 +381,7 @@
 	position: relative;
 	clear: both;
 	min-height: 100%;
-	max-width: 120rem;
+	max-width: @contents-max-width;
 	padding: @spacing-smaller;
 	margin: @spacing-mid auto @spacing-larger;
 	border: @bdr-current @lighter-grey;
@@ -780,7 +780,7 @@ div.field-checkbox + .field:not(.field-checkbox) {
 	bottom: 0;
 	left: 50%;
 	width: 100%;
-	max-width: 120rem;
+	max-width: @contents-max-width;
 	text-align: center;
 	transform: translateX(-50%);
 }
