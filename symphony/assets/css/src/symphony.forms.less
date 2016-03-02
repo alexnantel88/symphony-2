@@ -23,7 +23,6 @@ select,
 .field-value-readonly {
 	box-sizing: border-box;
 	width: 100%;
-	// margin-top: @spacing-micro;
 	padding: @spacing-smallest;
 	font-family: inherit;
 	font-size: @size-current;
@@ -43,7 +42,6 @@ select,
 
 // @TODO — erase this rule if everything is still functioning properly
 input {
-	// height: 2.2rem;
 }
 
 input[type=file] {
@@ -67,16 +65,10 @@ select[multiple]:focus {
 select {
 	display: block;
 	height: @field-height-current;
-	// box-sizing: border-box;
-	// width: 100%;
-	// margin-top: 0.2rem;
 }
 
 select[multiple] {
-	// width: 100%;
 	height: @spacing-larger;
-	// padding: 0;
-	// font-size: 1.1rem;
 }
 
 select[size] {
@@ -105,15 +97,6 @@ input[type='checkbox'] {
 	border: none;
 	box-shadow: none;
 }
-
-
-// @TODO : remove when sure
-// button,
-// input,
-// select,
-// optgroup {
-// 	font-family: 'Lucida Grande', Leelawadee, Tahoma, Verdana, sans-serif;
-// }
 
 button[disabled] {
 	opacity: 0.5;
@@ -184,7 +167,6 @@ button,
 .apply-label-left,
 .apply-label-right {
 	display: inline-block;
-	// min-height: 2rem;
 	margin-left: 1rem;
 	padding: @spacing-micro @spacing-smallest;
 	font-size: 85%;
@@ -192,13 +174,11 @@ button,
 	line-height: 1.85;
 	border: none;
 	border-radius: @radius-small;
-	// background-image: linear-gradient(to bottom, #fbfbfa 0%, #e3e3df 100%);
 	background-color: @lighter-grey;
 }
 
 input[type=submit] {
 	background-color: @light-grey;
-	// color: @white;
 	font-weight: bold;
 }
 
@@ -207,7 +187,6 @@ input[type=submit]:active,
 input[type=submit]:focus {
 	background-color: @blue;
 	color: @white;
-	// outline: none;
 }
 
 button:hover,
@@ -216,12 +195,8 @@ button:focus,
 .button:hover,
 .button:active,
 .button:focus {
-	// color: @white;
-	// border-color: @lighter-grey;
-	// background-image: linear-gradient(to bottom, #fbfbfa 0%, #e3e3df 50%);
 	background-color: @light-grey;
 	cursor: pointer;
-	// outline: none;
 }
 
 button,
@@ -241,7 +216,6 @@ input[type=submit].selected,
 button.selected,
 .button.selected {
 	color: rgba(0, 0, 0, 0.7);
-	// border-color: @lighter-grey;
 	background: #e3e3df;
 	box-shadow: inset 0 0 0.15rem rgba(0, 0, 0, 0.2);
 	text-shadow: 0.1rem 0.1rem 0 rgba(255, 255, 255, 0.7);
@@ -276,17 +250,11 @@ button[disabled=disabled]:focus {
 button.create,
 .button.create {
 	color: @dark-grey;
-	// border-color: @lightest-grey;
-	// background-image: linear-gradient(to bottom, #b3d47d 0%, #8b3 100%);
 	background-color: @lightest-grey;
 }
 
 button.link,
 .button.link {
-	// color: @light-grey;
-	// border-color: @lightest-grey;
-	// background-image: linear-gradient(to bottom, #b3d47d 0%, #8b3 100%);
-	// background-color: @lighter-grey;
 }
 
 button.create:hover,
@@ -295,8 +263,6 @@ button.create:focus,
 .button.create:hover,
 .button.create:active,
 .button.create:focus {
-	// border-color: @lighter-grey;
-	// background-image: linear-gradient(to bottom, #b3d47d 0%, #8b3 50%);
 	background-color: @blue;
 	color: @white;
 }
@@ -311,7 +277,6 @@ button.delete:focus,
 .button.delete:focus {
 	color: @lightest-grey;
 	border-color: @dark-grey;
-	// background-image: linear-gradient(to bottom, #e90a20 0%, #9e0b19 100%);
 	background-color: @red;
 }
 
@@ -327,12 +292,9 @@ button.delete:focus,
 .apply.inactive:hover {
 	display: block;
 	float: right;
-	// height: 1.85em;
-	// min-height: 2rem;
 	margin: 0;
 	padding: 0;
 
-	// background: @white;
 }
 
 .apply.inactive {
@@ -341,19 +303,8 @@ button.delete:focus,
 
 .apply div {
 	float: left;
-	box-sizing: border-box;	// overflow: hidden;
+	box-sizing: border-box;	
 	text-align: left;
-	// background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAwCAYAAADHEYBIAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAORJREFUeNpiYIAAHiDuBmJWEOf///9YMRNUcRUQOwJxJgMeAFLsBcRuUH4cEFvhUsyITRBkJS6TiQYgxb5AfAYJW+FTvBmId0H5i4D4GCEbiAo6RlyeoYoHRxUPacWMjIwMQMwKxBZADOYTMtkQiKWAWIuQM+SAWAbKVwNicfrnQRYglgdiYySxo0D8EpfJD4H4CZR/C5dCZADKexYwZ43mwVHF5OZBEC3DCAEETZYEYl4gFiXkDH4g5oPyhaFVxgDkQX5omQEDj4H4Cy6TPwLxJyj/LS6FMJNB4DnU/a/xOQMgwACLFl2Yo1jbdgAAAABJRU5ErkJggg==);
-	// background-repeat: no-repeat;
-	// background-position: right -1.4rem;
-}
-
-.apply:hover div {
-	// background-position: right 0.6rem;
-}
-
-.apply.inactive div {
-	// background: right -3.4rem;
 }
 
 .apply select {

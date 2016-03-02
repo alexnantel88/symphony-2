@@ -66,10 +66,6 @@
 	border-bottom: @bdr-current @lighter-grey;
 }
 
-.frame:not(.collapsible) .frame-header {
-	// box-shadow: 0 0.1rem 0.4rem @light-grey;
-}
-
 .frame .collapsed .frame-header {
 	border-bottom: @bdr-current @lighter-grey;
 }
@@ -284,42 +280,17 @@ fieldset.frame,
 	background-color: @blue;
 }
 
-// .frame .selected::before,
-// .frame .selected::after,
-// .frame .ordering::before,
-// .frame .ordering::after {
-// 	content: '';
-// 	display: block;
-// 	position: absolute;
-// 	top: 0;
-// 	left: -0.1rem;
-// 	width: 0.1rem;
-// 	height: 100%;
-// 	background: @blue;
-// 	z-index: 1000;
-// }
-
 .frame .selected::after,
 .frame .ordering::after {
 	left: auto;
 	right: 0;
 }
 
-.frame .ordering + .instance .frame-header {
-	// border-top: 0.1rem solid @blue;
-}
-
 .ordering .frame-header {
 	color: #fff;
-	// border-top: 0.1rem solid @blue;
-	// border-bottom-color: #7093c3;
 	background: @blue;
 	transition: none;
 	cursor: move;
-}
-
-.frame:not(.collapsible) .ordering .frame-header {
-	// box-shadow: 0 0.1rem 0.4rem #7093c3;
 }
 
 .frame .ordering .frame-header span,
@@ -327,27 +298,6 @@ fieldset.frame,
 .frame .ordering .content i,
 .frame .ordering ul.tags {
 	color: #bdcbdd;
-}
-
-.frame .ordering .content,
-.frame .ordering .content legend {
-	// color: #fff;
-	// background: @blue;
-}
-
-.frame.dark .ordering .content,
-.frame.dark .ordering .content legend {
-	// color: #fff;
-	// background: @blue;
-}
-
-.frame .ordering .content input,
-.frame .ordering .content textarea {
-	// border-color: @blue;
-}
-
-.frame .ordering .content fieldset {
-	// border-top-color: @blue;
 }
 
 .frame .ordering .main::before {
@@ -398,13 +348,8 @@ fieldset.frame,
 	cursor: pointer;
 }
 
-.collapsible .content {
-	// background: @lightest-grey;
-}
-
 .collapsible legend {
 	padding-right: 0.5rem;
-	// background: @lightest-grey;
 }
 
 .frame .js-animate {
@@ -421,13 +366,8 @@ fieldset.frame,
 	overflow: hidden;
 }
 
-.collapsible .js-animate .content {
-	// transition: all @duration-shortest @easeInOutQuad;
-}
-
 .collapsed.js-animate .frame-header {
 	border-bottom-color: @lighter-grey;
-	// transition: all @duration-short @easeInOutQuad;
 }
 
 .collapsible .instance:not(.collapsed) .frame-header {
@@ -454,16 +394,10 @@ fieldset.frame,
 .collapsible .instance:not(.collapsed) .frame-header:hover,
 .collapsible .instance:not(.collapsed) .frame-header:hover ~ .content {
 	background-color: fade(@light-grey, 40%);
-	// transition-delay: 0ms;
 }
-
-// .collapsible .frame-header ~ .content {
-// 	background-color: fade(@lighter-grey, 0);
-// }
 
 .collapsible .frame-header ~ .content {
 	background-color: @lighter-grey;
-	// transition-delay: 0ms;
 }
 
 .collapsed .content {
