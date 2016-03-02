@@ -1717,7 +1717,6 @@ div.drawer.horizontal {
 div.drawer.horizontal .contents {
   margin-top: 1.7rem;
   padding: 2rem 0;
-  border-top: 0.1rem solid rgba(0, 0, 0, 0.05);
 }
 div.drawer.horizontal .contents:after {
   content: ' ';
@@ -2692,6 +2691,12 @@ input:focus ~ .suggestions[data-search-types='date'] {
   text-align-last: auto;
   float: none;
 }
+#drawer-dashboard {
+  margin-top: 6rem;
+  max-width: 140rem;
+  margin-left: auto;
+  margin-right: auto;
+}
 /* Breadcrumbs */
 #breadcrumbs,
 #context .actions {
@@ -3063,6 +3068,11 @@ div.field-checkbox + .field:not(.field-checkbox) {
   max-width: 140rem;
   text-align: center;
   transform: translateX(-50%);
+}
+.page-single #contents .actions #duplicate-section,
+.single #contents .actions #duplicate-section {
+  display: inline-block;
+  margin-left: 4rem;
 }
 .page-single #contents .columns .actions,
 .single #contents .columns .actions {
