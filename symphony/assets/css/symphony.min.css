@@ -578,7 +578,7 @@ textarea:active,
 textarea:focus,
 select[multiple]:active,
 select[multiple]:focus {
-  border-color: #B7C2CC;
+  border-color: #9593C7;
   outline: none;
 }
 select {
@@ -3061,6 +3061,7 @@ div.field-checkbox + .field:not(.field-checkbox) {
   padding: 2rem;
   border-top: 1px solid #B7C2CC;
   position: fixed;
+  z-index: 1;
   box-sizing: border-box;
   bottom: 0;
   left: 50%;
