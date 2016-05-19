@@ -66,13 +66,14 @@ header, nav, section, aside, footer {
 html {
 	font-size: 62.5%;
 	min-height: 100%;
-	background: @lightest-grey;
+	background: @blue;
 }
 
 body {
 	color: @color-current;
 	font: @size-current/1.8 'Roboto', 'Lucida Grande', Leelawadee, Tahoma, Verdana, sans-serif;
 	min-height: 100%;
+	padding-left: @spacing-huge;
 }
 
 div, header, td {
@@ -113,20 +114,20 @@ p.label {
 /* Links */
 
 a {
-	color: @blue;
+	// color: @blue;
 	border-bottom: @bdr-mid @blue;
 	cursor: pointer;
 }
 
 a:hover,
 .inactive a:hover {
-	color: @color-current;
+	// color: @color-current;
 	border-bottom-color: currentColor;
 }
 
 a:active, a:focus,
 .inactive a:active, .inactive a:focus {
-	color: #d42;
+	// color: #d42;
 	border-bottom-color: rgba(221, 68, 34, 0.3);
 }
 
