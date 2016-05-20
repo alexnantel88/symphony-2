@@ -128,7 +128,7 @@ module.exports = function (grunt) {
         watch: {
             styles: {
                 files: 'symphony/assets/css/src/*',
-                tasks: ['less']
+                tasks: ['less', 'csso']
             },
             scripts: {
                 files: 'symphony/assets/js/src/*.js',
