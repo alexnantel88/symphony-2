@@ -26,7 +26,7 @@ select,
 	padding: @spacing-smallest;
 	font-family: inherit;
 	font-size: @size-current;
-	font-weight: normal;
+	font-weight: 300;
 	border: @bdr-current @lighter-grey;
 	border-radius: @radius-current;
 	color: @color-current;
@@ -169,24 +169,24 @@ button,
 	display: inline-block;
 	margin-left: 1rem;
 	padding: @spacing-micro @spacing-smallest;
-	font-size: 85%;
-	color: @color-current;
+	font-size: 125%;
+	color: @blue;
 	line-height: 1.85;
 	border: none;
-	border-radius: @radius-small;
-	background-color: @lighter-grey;
+	// border-radius: @radius-small;
+	// background-color: @lighter-grey;
 }
 
 input[type=submit] {
-	background-color: @light-grey;
-	font-weight: bold;
+	// background-color: @light-grey;
+	// font-weight: bold;
 }
 
 input[type=submit]:hover,
 input[type=submit]:active,
 input[type=submit]:focus {
-	background-color: @blue;
-	color: @white;
+	// background-color: @blue;
+	// color: @white;
 }
 
 button:hover,
@@ -195,7 +195,7 @@ button:focus,
 .button:hover,
 .button:active,
 .button:focus {
-	background-color: @light-grey;
+	// background-color: @light-grey;
 	cursor: pointer;
 }
 
@@ -216,7 +216,7 @@ input[type=submit].selected,
 button.selected,
 .button.selected {
 	color: rgba(0, 0, 0, 0.7);
-	background: #e3e3df;
+	// background: #e3e3df;
 	box-shadow: inset 0 0 0.15rem rgba(0, 0, 0, 0.2);
 	text-shadow: 0.1rem 0.1rem 0 rgba(255, 255, 255, 0.7);
 	cursor: pointer;
@@ -249,8 +249,8 @@ button[disabled=disabled]:focus {
 
 button.create,
 .button.create {
-	color: @dark-grey;
-	background-color: @lightest-grey;
+	// color: @dark-grey;
+	// background-color: @lightest-grey;
 }
 
 button.link,
@@ -263,8 +263,8 @@ button.create:focus,
 .button.create:hover,
 .button.create:active,
 .button.create:focus {
-	background-color: @blue;
-	color: @white;
+	// background-color: @blue;
+	// color: @white;
 }
 
 /* Delete buttons */
@@ -275,9 +275,9 @@ button.delete:focus,
 .button.delete:hover,
 .button.delete:active,
 .button.delete:focus {
-	color: @lightest-grey;
-	border-color: @dark-grey;
-	background-color: @red;
+	// color: @lightest-grey;
+	// border-color: @dark-grey;
+	// background-color: @red;
 }
 
 /* Installer */
@@ -322,7 +322,7 @@ button.delete:focus,
 	border-radius: @radius-current;
 	border: @bdr-current @lighter-grey;
 	-webkit-appearance: none;
-	background: @white;
+	// background: @white;
 	outline: none;
 	cursor: pointer;
 }
@@ -365,7 +365,7 @@ button.delete:focus,
 	border-left: @bdr-small solid @lightest-grey;
 	box-shadow: none;
 	cursor: default;
-	background-color: @lighter-grey;
+	// background-color: @lighter-grey;
 }
 
 .apply:hover button {
