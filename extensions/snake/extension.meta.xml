@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<extension id="snake" xmlns="http://symphony-cms.com/schemas/extension/1.0">
+	<name>Snake</name>
+	<description>Adds a hook to the backend so you can easily make JavaScript and CSS adjustments on certain pages.</description>
+	<repo type="github">https://github.com/BloodBrother/symphony-2/tree/redesign</repo>
+	<types>
+		<type>Other</type>
+		<type>Workflow</type>
+	</types>
+	<authors>
+		<author>
+			<name github="BloodBrother">Emma</name>
+		</author>
+	</authors>
+	<releases>
+		<release version="1.0.0" date="2016-12-22" min="2.6.0" max="2.x.x"/>
+	</releases>
+</extension>
