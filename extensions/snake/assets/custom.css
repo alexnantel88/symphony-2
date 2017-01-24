@@ -7,4 +7,28 @@ img.gravatar {
 	-moz-border-radius: 50%;
 	-webkit-border-radius: 50%;
 	border-radius: 50%;
+	margin: auto;
+	display: block;
+}
+
+a.gravatar {
+	padding-top: 4rem;
+	border-top: 1px solid lightgrey;
+}
+
+
+#nav li.backend_language_switcher {
+	position: fixed;
+	bottom: 0;
+	align-self: center;
+}
+
+#nav li.backend_language_switcher img {
+	margin: auto;
+	display: block;
+}
+
+#nav li.backend_language_switcher.first {
+	margin-left: 0 !important;
+	margin-top: 40rem;
 }

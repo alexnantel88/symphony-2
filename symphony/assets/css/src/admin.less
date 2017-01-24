@@ -18,6 +18,10 @@
 	letter-spacing: .02em;
 }
 
+body {
+	font-weight: 500;
+}
+
 #wrapper {
 	position: relative;
 }
@@ -27,13 +31,21 @@
 #header {
 	position: fixed;
 	left: 0;
-	height: 100%;
-	width: @spacing-largest;
+	bottom: 0;
+	top: @spacing-large;
+	width: @spacing-huge;
+	display: flex;
+	flex-direction: column;
+	border-right: @bdr-small solid @lighter-grey;
+}
+
+#header > * {
+	order: 2;
 }
 
 #header h1 {
 	position: relative;
-	padding: @spacing-small 0 @spacing-smaller @spacing-smallest * 2;
+	padding: @spacing-small 0 @spacing-smaller;
 	font-size: 112.5%;
 	letter-spacing: .0425em;
 	font-weight: normal;
@@ -41,6 +53,7 @@
 	line-height: 1;
 	font-weight: 500;
 	text-transform: uppercase;
+	text-align: center;
 }
 
 #header h1 a, #session a {
@@ -72,10 +85,11 @@
 
 #nav {
 	display: block;
-
+	order: 1;
 	box-sizing: border-box;
 	width: 100%;
 	margin: 0;
+	margin-bottom: auto;
 	padding: @spacing-smallest @spacing-smaller @spacing-smaller;
 	font-size: 108.75%;
 	list-style: none;
@@ -234,11 +248,18 @@
 /* Context */
 
 #context {
-	position: relative;
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 0;
 	clear: both;
 	margin: 0;
 	padding: @spacing-smaller;
 	padding-bottom: @spacing-smallest;
+	padding-left: @spacing-huge;
+	height: @spacing-large;
+	box-sizing: border-box;
+	border-bottom: 1px solid @lighter-grey;
 }
 
 #context:after {
@@ -256,7 +277,7 @@
 
 #context ul.actions {
 	// top: -@spacing-micro;
-	margin-top: @spacing-large;
+	// margin-top: @spacing-large;
 	padding: 0;
 }
 
@@ -306,8 +327,8 @@
 
 
 #breadcrumbs, #context .actions {
-	max-width: @contents-max-width;
-	margin-left: auto;
+	// max-width: @contents-max-width;
+	// margin-left: auto;
 	margin-right: auto;
 	position: relative;
 }
@@ -356,9 +377,9 @@
 	clear: both;
 	padding: @spacing-smaller;
 	margin-top: @spacing-large;
-	border: @bdr-current @lighter-grey;
-	background-color: @white;
-	border-top-left-radius: @radius-current;
+	// border: @bdr-current @lighter-grey;
+	// background-color: @white;
+	// border-top-left-radius: @radius-current;
 	box-sizing: border-box;
 }
 
@@ -754,7 +775,26 @@ div.field-checkbox + .field:not(.field-checkbox) {
 	top: 0;
 
 	display: flex;
-	flex-direction: row-reverse;
+	flex-direction: column;
+	background-color: @blue;
+	color: @white;
+	width: @spacing-largest;
+}
+
+#context ul.actions {
+	clear: both;
+	text-align: right;
+	padding-top: @spacing-smaller;
+	padding-bottom: @spacing-smaller;
+	padding-right: @spacing-smaller;
+	border-top: @bdr-small solid @lightest-blue;
+	z-index: 1;
+	box-sizing: border-box;
+	right: @spacing-largest; // pareil .page-single #contents .actions, .single #contents .actions
+	box-sizing: border-box;
+	position: fixed;
+	top: 0;
+
 }
 
 .page-single #contents .actions #duplicate-section,
