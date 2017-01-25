@@ -1,19 +1,12 @@
-img.gravatar {
-	position: relative;
-	right: auto;
-	top: 0;
-	z-index: 12;
-	border: 1px solid #e6e6e6;
-	-moz-border-radius: 50%;
-	-webkit-border-radius: 50%;
-	border-radius: 50%;
-	margin: auto;
-	display: block;
+a.gravatar {
+	display: block; padding: 3rem 3rem 1rem; border-top: 1px solid #EAEEF0;
 }
 
-a.gravatar {
-	padding-top: 4rem;
-	border-top: 1px solid lightgrey;
+img.gravatar {
+	-moz-border-radius: 100%;
+	-webkit-border-radius: 100%;
+	border-radius: 100%;
+	display: block; position: relative; right: 0; top: 0; margin: 0 auto; border: 1px solid #EAEEF0; z-index: 12;
 }
 
 

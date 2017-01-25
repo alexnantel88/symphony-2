@@ -4,13 +4,16 @@
 @spacing-nano: .2rem;
 @spacing-micro: .5rem;
 @spacing-smallest: 1rem;
+@spacing-smallerish: 1.5rem;
 @spacing-smaller: 2rem;
+@spacing-smallish: 3rem;
 @spacing-small: 4rem;
 @spacing-mid: 6rem;
+@spacing-midlarge: 8rem;
 @spacing-large: 10rem;
 @spacing-larger: 16rem;
 @spacing-largest: 20rem;
-@spacing-huge: 28rem;
+@spacing-huge: 25rem;
 
 
 /*-----------------------------------------------------------------------------
@@ -25,6 +28,10 @@
 @light-grey: #B7C2CC;
 @lighter-grey: #EAEEF0;
 @lightest-grey: #F4F8FA;
+
+@accent: orange;
+
+/* --- */
 
 // @blue: #4A4DD8;
 @blue: #3D40C5;
@@ -93,3 +100,33 @@
 @easeInOutCirc: cubic-bezier(0.785, 0.135, 0.15, 0.86);
 @easeInExpo: cubic-bezier(0.95, 0.05, 0.795, 0.035);
 @easeInBack: cubic-bezier(0.6, -0.28, 0.735, 0.045);
+
+/* Mixins
+---------------------------------------------*/
+
+.transitioned(@transProperty: color, @transDuration: 0.45s, @transDelay: 0s) {
+	-webkit-transition-duration: @transDuration;
+	-webkit-transition-property: @transProperty;
+	-webkit-transition-delay: @transDelay;
+	-webkit-transition-timing-function: 'ease-in-out';
+	transition-duration: @transDuration;
+	transition-property: @transProperty;
+	transition-delay: @transDelay;
+	transition-timing-function: 'ease-in-out';
+
+	backface-visibility: hidden;
+	-webkit-backface-visibility: hidden;
+}
+
+.flex(@direction: row, @align: flex-start, @justify: space-between){ 
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-direction: @direction;
+	flex-direction: @direction;
+	-webkit-align-items: @align;
+	align-items: @align;
+	-webkit-justify-content: @justify;
+	justify-content: @justify;
+	
+}

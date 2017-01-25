@@ -3,7 +3,8 @@
 	
 	var ready = function () {
 		$('#nav li').has('ul').on('click', function(){
-			$(this).children('ul').toggleClass('shown');
+			$(this).toggleClass('opened');
+			$(this).children('ul').slideToggle(250);
 		});
 	};
 	
