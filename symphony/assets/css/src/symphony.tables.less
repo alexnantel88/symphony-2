@@ -11,10 +11,9 @@
 
 
 table {
-	width: 100%;
-	margin-top: @spacing-smaller;
-	border-collapse: collapse;
-	font-size: 85%;
+	border-radius: 3px;
+	border-collapse: initial;
+	font-size: 87.5%; text-align: left; border: 1px solid @lighter-grey; width: 100%;
 }
 
 table.fixed {
@@ -24,29 +23,19 @@ table.fixed {
 }
 
 th {
-	padding-right: @spacing-small;
-	color: @dark-grey;
-	font-weight: normal;
-	line-height: 2;
-	text-align: left;
-	white-space: nowrap;
+	color: @dark-grey; font-size: 68.7%; font-weight: 300; text-transform: uppercase; padding: @spacing-smallerish @spacing-smallish;
 }
 
 td {
-	padding: @spacing-smallest @spacing-smaller @spacing-smallest 0;
-	border-top: @bdr-current @lighter-grey;
-	border-bottom: @bdr-current @lighter-grey;
-	background-color: @lightest-grey;
-	line-height: 1.325;
-	vertical-align: middle;
-}
+	color: @dark-grey; font-weight: 300; padding: @spacing-smallerish @spacing-smallish; border-top: 1px solid @lighter-grey; vertical-align: middle;
 
-th:first-child,
-td:first-child {
-	padding-left: @spacing-smaller;
-	min-width: @spacing-mid;
-	padding-right: @spacing-small;
+	a {
+		color: @accent;
 
+		&:hover {
+			color: @dark-grey;
+		}
+	}
 }
 
 @media screen and (max-width: 700px) {

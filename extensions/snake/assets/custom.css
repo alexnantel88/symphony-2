@@ -1,3 +1,5 @@
+/* Gravatar */
+
 a.gravatar {
 	display: block; padding: 3rem 3rem 1rem; border-top: 1px solid #EAEEF0;
 }
@@ -9,19 +11,20 @@ img.gravatar {
 	display: block; position: relative; right: 0; top: 0; margin: 0 auto; border: 1px solid #EAEEF0; z-index: 12;
 }
 
+/* Language Switcher */
 
 #nav li.backend_language_switcher {
-	position: fixed;
-	bottom: 0;
-	align-self: center;
-}
-
-#nav li.backend_language_switcher img {
-	margin: auto;
-	display: block;
+	position: fixed; left: 0; bottom: 15px; width: 12rem;
 }
 
 #nav li.backend_language_switcher.first {
-	margin-left: 0 !important;
-	margin-top: 40rem;
+	left: 0; text-align: right; margin: 0;
+}
+
+#nav li.backend_language_switcher.last {
+	left: 13rem; text-align: left; margin: 0;
+}
+
+#nav li.backend_language_switcher img {
+	display: inline-block;
 }
