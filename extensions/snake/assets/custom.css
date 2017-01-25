@@ -42,5 +42,32 @@ img.gravatar {
 }
 
 .CodeMirror {
-	border-color: #EAEEF0;
+	font-size: 1.6rem; border-color: #EAEEF0;
+}
+
+/* Publish Tab */
+
+.column.primary {
+	overflow: hidden;
+}
+
+.tab-group {
+	box-sizing: border-box;
+	position: relative!important; left: 0!important; top: 0!important;
+}
+
+.tab-group:first-child {
+	float: left; padding-right: 3rem; border-right: 1px solid #EAEEF0; width: calc(100% - 40rem);
+}
+
+.tab-group:nth-child(2) {
+	padding-top: 8rem;
+}
+
+.tab-group:nth-child(n + 2) {
+	float: right; padding-left: 3rem; width: 40rem;
+}
+
+.tab-group:nth-child(n + 3) {
+	padding-top: 3rem; border-top: 1px solid #EAEEF0;
 }

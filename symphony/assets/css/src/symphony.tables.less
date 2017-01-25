@@ -14,12 +14,12 @@ table {
 	border-radius: @radius-current;
 	border-collapse: initial;
 	font-size: 87.5%; text-align: left; border: 1px solid @lighter-grey; width: 100%;
-}
 
-table.fixed {
-	overflow-wrap: break-word;
-	word-wrap: break-word;
-	table-layout: fixed;
+	&.fixed {
+		overflow-wrap: break-word;
+		word-wrap: break-word;
+		table-layout: fixed;
+	}
 }
 
 th {
@@ -38,7 +38,7 @@ td {
 	}
 }
 
-@media screen and (max-width: 700px) {
+/*@media screen and (max-width: 700px) {
 	td, th {
 		width: 0;
 		display: none;
@@ -73,7 +73,7 @@ th span {
 
 th a {
 	border-bottom: none;
-}
+}*/
 
 th a,
 th a:hover,
@@ -105,7 +105,7 @@ th a.active[href$=asc]:hover:after {
 	content: '\2191';
 }
 
-table.busy td {
+/*table.busy td {
 	border-top: @bdr-current @lighter-grey;
 	border-bottom: @bdr-current @lighter-grey;
 	background-color: @white;
@@ -127,7 +127,7 @@ table + fieldset {
 
 td img {
 	vertical-align: middle;
-}
+}*/
 
 /*-----------------------------------------------------------------------------
 	Selectable rows

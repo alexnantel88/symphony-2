@@ -800,7 +800,8 @@ class AdministrationPage extends HTMLPage
             }
 
             if ($this->doesAuthorHaveAccess($n['limit'])) {
-                $xGroup = new XMLElement('li', $n['name'], array('role' => 'presentation'));
+                $xGroup = new XMLElement('li', null, array('role' => 'presentation'));
+                $xGroup->appendChild(new XMLElement('span', $n['name']));
 
                 if (isset($n['class']) && trim($n['name']) !== '') {
                     $xGroup->setAttribute('class', $n['class']);

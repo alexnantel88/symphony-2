@@ -32,7 +32,6 @@ fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td {
 	margin: 0;
 	padding: 0;
-	font-size: 1em;
 	vertical-align: baseline;
 	text-decoration: none;
 	border: 0;
@@ -41,7 +40,6 @@ table, caption, tbody, tfoot, thead, tr, th, td {
 input, select, textarea, button {
 	margin: 0;
 	padding: 0;
-	font-size: 1em;
 	vertical-align: baseline;
 }
 button::-moz-focus-inner {
@@ -66,17 +64,18 @@ header, nav, section, aside, footer {
 html {
 	font-size: 62.5%;
 	min-height: 100%;
-	// background: @blue;
+	// background: @accent;
 }
 
 body {
-	color: @color-current;
-	font: @size-current/1.8 'Roboto', 'Lucida Grande', Leelawadee, Tahoma, Verdana, sans-serif;
-	min-height: 100%;
-	padding-left: @spacing-huge;
+	color: @color-current; font: @text-current 'Roboto', 'Lucida Grande', Leelawadee, Tahoma, Verdana, sans-serif; padding-left: @spacing-huge; min-height: 100%;
 }
 
-div, header, td {
+a, button, input, li {
+	.transitioned(~'color, background, border');
+}
+
+/*div, header, td {
 	transition: all @duration-shortest @easeInOutQuad;
 }
 
@@ -87,11 +86,11 @@ button, a, li, ul, input, textarea, *:after, *:before {
 button:hover, a:hover, li:hover, ul:hover, input:hover, *:hover:after, *:hover:before,
 button:focus, a:focus, li:focus, ul:focus, input:focus, *:focus:after, *:focus:before {
 	transition-delay: 0ms;
-}
+}*/
 
 body > div,
 body > form {
-	font-size: @size-current;
+	font-size: @text-current;
 }
 
 /* Headlines */
@@ -114,8 +113,8 @@ p.label {
 /* Links */
 
 a {
-	// color: @blue;
-	border-bottom: @bdr-mid @blue;
+	// color: @accent;
+	border-bottom: @bdr-mid @accent;
 	cursor: pointer;
 }
 
@@ -150,7 +149,7 @@ ul.tags li:last-of-type {
 	display: inline;
 	float: none;
 	padding: 0 @spacing-micro 0 0;
-	font-size: 85%;
+	font-size: @text-short;
 	border: none;
 	cursor: pointer;
 }
@@ -160,7 +159,7 @@ ul.tags li:hover {
 }
 
 ul.tags li.more {
-	color: @blue;
+	color: @accent;
 	border-bottom: @bdr-mid currentColor;
 }
 
@@ -194,7 +193,7 @@ pre code {
 }
 
 i code {
-	font-size: 1em;
+	font-size: @text-shorter;
 	font-size-adjust: 0;
 }
 
@@ -211,9 +210,8 @@ p.label > i {
 	position: absolute;
 	top: 100%;
 	right: 0;
-	font-weight: normal;
-	font-style: italic;
-	font-size: 87.5%;
+	font-weight: 300;
+	font-size: @text-shorter;
 	color: @dark-grey;
 	margin-top: 2px;
 }
@@ -256,7 +254,7 @@ label.inline-help > i {
 }
 
 .help {
-	clear: both; color: @dark-grey; font-size: 87.5%; font-weight: 300; line-height: 1.4em;
+	clear: both; color: @dark-grey; font-size: @text-short; font-weight: 300; line-height: 1.4em;
 }
 
 .centered {

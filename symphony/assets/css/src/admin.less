@@ -37,7 +37,7 @@ body {
 #header {
 	display: flex;
 	flex-direction: column;
-	position: fixed; left: 0; bottom: 0; top: 0; border-right: 1px solid @lighter-grey; background: @white; width: @spacing-huge; z-index: 50;
+	position: fixed; left: 0; bottom: 0; top: 0; border-right: 1px solid @lighter-grey; background: @white; width: @spacing-huge; z-index: 55;
 
 	> * {
 		order: 3;
@@ -47,7 +47,11 @@ body {
 		.flex(~'column', ~'flex-start', ~'center');
 		order: 1;
 		box-sizing: border-box;
-		position: relative; top: 0; left: 0; padding: 0 @spacing-smallish; border-bottom: 1px solid @lighter-grey; height: @spacing-midlarge;
+		position: relative; top: 0; left: 0; font-size: @text-current; padding: 0 @spacing-smallish; border-bottom: 1px solid @lighter-grey; height: @spacing-midlarge;
+
+		a {
+			color: @accent; font-weight: 300;
+		}
 	}
 }
 
@@ -59,7 +63,6 @@ body {
 	width: 100%;
 	margin: 0;
 	margin-bottom: auto;
-	font-size: 108.75%;
 	list-style: none;
 
 	/* First Level */
@@ -76,8 +79,18 @@ body {
 			line-height: 2.5rem;
 			cursor: pointer;
 
+			> span:after {
+				.transitioned(~'opacity');
+				content: ">";
+				padding-left: @spacing-smallest; opacity: 0;
+			}
+
 			&.opened, &.active, &:hover {
 				color: @accent;
+			}
+
+			&.opened > span:after {
+				opacity: 1;
 			}
 
 			& + li {
@@ -112,7 +125,7 @@ body {
 /* Session */
 
 #session {
-	font-size: 87.5%; font-weight: 500; text-align: center; margin: 0 0 @spacing-small!important;
+	font-size: @text-short; font-weight: 500; text-align: center; margin: 0 0 @spacing-small!important;
 
 	a {
 		color: @dark-grey; line-height: @spacing-smallerish;
@@ -133,13 +146,35 @@ body {
 	position: fixed; left: @spacing-huge; right: 0; top: 0; border-bottom: 1px solid @lighter-grey; background: @white; height: @spacing-midlarge; z-index: 50;
 
 	&.spaced-right {
-		padding-right: @spacing-huge; 
+		padding-right: @spacing-larger; 
 	}
 
 	/* Tabs */
 
 	.tabs {
 		order: 2;
+		position: absolute; right: 0; top: 100%; margin-top: 1px; padding: 0 @spacing-smallish 0 0; border-left: 1px solid @lighter-grey; border-bottom: 1px solid @lighter-grey; background: @white; width: @spacing-huger; height: @spacing-midlarge;
+
+		li {
+			.flex(~'column', ~'flex-start', ~'center');
+			overflow: hidden; position: relative; font-size: @text-short; font-weight: 300; text-transform: none; border-color: transparent;height: @spacing-midlarge;		
+
+			&:hover,
+			&.selected,
+			&.active,
+			&.invalid.selected,
+			&.invalid.selected:hover {
+				color: @accent; border-color: @accent;
+			}
+
+			& + li {
+				margin-left: @spacing-smallish;
+			}
+
+			&:first-child {
+				display: none;
+			}
+		}
 	}
 
 	/* Actions */
@@ -150,7 +185,7 @@ body {
 		margin: 0; padding: 0 @spacing-smallerish;
 
 		a {
-			color: @dark-grey; font-size: 68.7%; text-transform: uppercase; line-height: @spacing-midlarge; padding: 0 @spacing-smallerish;
+			color: @dark-grey; font-size: @text-shorter; text-transform: uppercase; line-height: @spacing-midlarge; padding: 0 @spacing-smallerish;
 		}
 
 		li + li {
@@ -172,7 +207,7 @@ body {
 			padding-right: @spacing-smallish;
 
 			a {
-				color: @dark-grey; font-size: 125%; font-weight: 300;
+				color: @dark-grey; font-size: @text-big; font-weight: 300;
 
 				&:hover {
 					color: @accent;
@@ -186,7 +221,7 @@ body {
 	}
 
 	h2 {
-		display: inline-block; color: @accent; font-size: 200%; font-weight: 300;
+		display: inline-block; color: @accent; font-size: @text-bigger; font-weight: 300;
 	}
 }
 
@@ -194,14 +229,14 @@ body {
 
 .page-single #contents .actions,
 .single #contents .actions {
-	position: fixed; right: 0; top: 0; width: @spacing-huge; height: @spacing-midlarge; z-index: 60;
+	position: fixed; right: 0; top: 0; width: @spacing-larger; height: @spacing-midlarge; z-index: 60;
 
 	> * {
 		.transitioned(~'opacity');
 		border-radius: 0px;
 		box-sizing: border-box;
-		display: block; color: @white; font-size: 68.7%; text-transform: uppercase; text-align: left; line-height: @spacing-midlarge; margin: 0; padding: 0 @spacing-smallish; border: none; background: @accent; width: 100%; cursor: pointer;
-	
+		display: block; color: @white; font-size: @text-shorter; text-transform: uppercase; text-align: left; line-height: @spacing-midlarge; margin: 0; padding: 0 @spacing-smallish; border: none; background: @accent; width: 100%; cursor: pointer;
+
 		&:nth-child(n + 2) {
 			opacity: 0; pointer-events: none;
 		}
@@ -264,6 +299,10 @@ body {
 #contents {
 	box-sizing: border-box;
 	position: relative; margin-top: @spacing-midlarge; padding: @spacing-smallish;
+
+	&.spaced-top {
+		padding-top: calc(~'@{spacing-smallish} + @{spacing-midlarge}');
+	}
 }
 
 /*#contents h2 {
@@ -295,7 +334,7 @@ fieldset.settings {
 }
 
 fieldset.settings > legend {
-	position: absolute; line-height: 1.4em; text-indent: -@spacing-largest;
+	position: absolute; top: -0.4rem; line-height: 1.4em; text-indent: -@spacing-largest;
 }
 
 fieldset.settings select {
@@ -416,7 +455,7 @@ fieldset.settings.highlight {
 	}
 
 	i {
-		position: absolute; top: 0; right: 0; font-size: 68.7%; font-weight: 300; text-transform: uppercase;
+		position: absolute; top: 0; right: 0; font-size: @text-shorter; font-weight: 300; text-transform: uppercase;
 	}
 }
 
@@ -506,7 +545,7 @@ ul.page input {
 	margin: 0;
 	padding: 0;
 	color: #666;
-	font-size: 1rem;
+	font-size: @text-current;
 	line-height: 1;
 	text-align: center !important;
 	border: none;
@@ -600,7 +639,7 @@ div.field-checkbox + .field:not(.field-checkbox) {
 	color: #222;
 }
 
-.file span.frame {
+/*.file span.frame {
 	margin-top: 0.1rem;
 	text-align: left;
 }
@@ -609,7 +648,7 @@ div.field-checkbox + .field:not(.field-checkbox) {
 	float: left;
 	overflow: hidden;
 	max-width: 50%;
-}
+}*/
 
 .file a {
 	word-wrap: break-word;
@@ -677,13 +716,11 @@ div.field-checkbox + .field:not(.field-checkbox) {
 }
 
 #utilities > li.selected {
-	background: @blue;
+	background: @accent;
 }
 
 #version {
-	float: left;
-	margin: 3.3rem 0 0 1.9rem;
-	color: #9e9e9e;
+	color: @dark-grey; padding: @spacing-smallish;
 }
 
 .actions #version {

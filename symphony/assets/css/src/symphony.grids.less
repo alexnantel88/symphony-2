@@ -10,55 +10,50 @@
  -----------------------------------------------------------------------------*/
  @import "variables";
 
-
 /*-----------------------------------------------------------------------------
 	General column definitions
 -----------------------------------------------------------------------------*/
 
 .columns {
-	clear: both;
+	.flex(~'row', ~'baseline', ~'flex-start');
 	margin-left: -@spacing-smallish;
-}
 
-.columns:after {
-	content: '';
-	display: block;
-	clear: both;
-}
+	legend {
+		margin: 0 0 0 -@spacing-smaller !important;
+		padding: 0 0.5rem 0 @spacing-smaller !important;
+	}
 
-.columns .column,
-.columns > .invalid {
-	float: left;
-	box-sizing: border-box;
-	margin: 0 0 @spacing-smallish;
-	padding: 0 0 0 @spacing-smallish;
-}
+	.column,
+	> .invalid {
+		box-sizing: border-box;
+		margin: 0 0 @spacing-smallish;
+		padding: 0 0 0 @spacing-smallish;
 
-/* Equal columns */
+		&.primary,
+		&.secondary {
+			width: 100%;
+		}
+	}
 
-.two.columns .column,
-.two.columns > .invalid {
-	width: 50%;
-}
+	&.two .column,
+	&.two > .invalid {
+		width: 50%;
+	}
 
-.three.columns .column,
-.three.columns > .invalid {
-	width: 33.33%;
-}
+	&.three .column,
+	&.three > .invalid {
+		width: 33.33%;
+	}
 
-.four.columns .column,
-.four.columns > .invalid {
-	width: 25%;
-}
-
-.columns legend {
-	margin: 0 0 0 -@spacing-smaller !important;
-	padding: 0 0.5rem 0 @spacing-smaller !important;
+	&.four .column,
+	&.four > .invalid {
+		width: 25%;
+	}
 }
 
 /* Unequal columns */
 
-form.columns {
+/*form.columns {
 	margin: 0;
 	padding: @spacing-smallest 0 0;
 }
@@ -98,7 +93,7 @@ form.columns .column.primary {
 	.two.columns .column.secondary p.label {
 		margin-top: @spacing-smallest;
 	}
-}
+}*/
 
 /* Errors in columns */
 

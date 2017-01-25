@@ -68,7 +68,7 @@
 .frame-header h4 {
 	display: inline-block;
 	font-weight: bold;
-	font-size: 85%;
+	font-size: @text-short;
 }
 
 .frame-header span {
@@ -209,7 +209,7 @@ fieldset.frame,
 	color: @light-grey;
 	font-weight: normal;
 	border-bottom: none;
-	font-size: 85%;
+	font-size: @text-short;
 }
 
 .frame .destructor:hover,
@@ -272,7 +272,7 @@ fieldset.frame,
 
 .frame .selected .frame-header,
 .frame .ordering .frame-header {
-	background-color: @blue;
+	background-color: @accent;
 }
 
 .frame .selected::after,
@@ -283,7 +283,7 @@ fieldset.frame,
 
 .ordering .frame-header {
 	color: #fff;
-	background: @blue;
+	background: @accent;
 	transition: none;
 	cursor: move;
 }

@@ -12,47 +12,40 @@
 
 
 ul.tabs {
+	.flex(~'row', ~'center', ~'flex-start');
 	position: relative;
-	clear: both;
 	margin: 0;
 	padding: 0;
 	list-style-type: none;
 	z-index: 10;
-	font-size: 85%;
+	font-size: @text-short;
 	text-transform: uppercase;
 }
 
 ul.tabs li {
-	display: block;
 	position: relative;
-	float: left;
 	box-sizing: border-box;
-	margin: 0 @spacing-smallest 0 0;
 	color: @dark-grey;
 	list-style-type: none;
-	border-bottom: @bdr-current fade(@dark-grey, 0);
+	border-bottom: 2px solid @dark-grey;
 	cursor: pointer;
-	cursor: pointer;
+
+	& + li {
+		margin-left: @spacing-smallest;
+	}
 }
 
-ul.tabs li:last-of-type {
-	margin-right: 0;
-}
-
-ul.tabs li:hover {
-	border-bottom-color: @dark-grey;
-}
-
+ul.tabs li:hover,
 ul.tabs .selected,
 ul.tabs .active,
 ul.tabs .invalid.selected,
 ul.tabs .invalid.selected:hover {
-	color: @color-current;
-	border-bottom-color: @color-current;
+	color: @black;
+	border-bottom-color: @black;
 	z-index: 1000;
 }
 
-ul.tabs .selected:before {
+/*ul.tabs .selected:before {
 	content: '';
 	display: block;
 	position: absolute;
@@ -78,7 +71,7 @@ ul.tabs .selected:after {
 	border-bottom: 0.1rem solid #ccc;
 	border-left: 0.1rem solid #ccc;
 	border-radius: 0 0 0 0.2rem;
-}
+}*/
 
 /* Destructor */
 
@@ -119,10 +112,4 @@ ul.tabs .invalid:hover {
 ul.tabs .invalid a.destructor {
 	color: #fb9;
 	text-shadow: none;
-}
-
-/* Tabs in context area */
-
-#context ul.tabs {
-	margin: 2rem 0 0 -1.1rem;
 }
