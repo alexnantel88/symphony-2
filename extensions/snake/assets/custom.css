@@ -28,3 +28,19 @@ img.gravatar {
 #nav li.backend_language_switcher img {
 	display: inline-block;
 }
+
+/* Field Multilingual */
+
+.field-multilingual ul.tabs li {
+	font-size: 68.7%; text-transform: uppercase; line-height: 1.4em; padding-bottom: 0.6rem;
+}
+
+/* Sandbox */
+
+.editor-toolbar {
+	margin-top: 0; border-color: #EAEEF0;
+}
+
+.CodeMirror {
+	border-color: #EAEEF0;
+}

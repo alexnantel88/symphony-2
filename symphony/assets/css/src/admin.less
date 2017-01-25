@@ -37,7 +37,7 @@ body {
 #header {
 	display: flex;
 	flex-direction: column;
-	position: fixed; left: 0; bottom: 0; top: 0; border-right: 1px solid @lighter-grey; width: @spacing-huge;
+	position: fixed; left: 0; bottom: 0; top: 0; border-right: 1px solid @lighter-grey; background: @white; width: @spacing-huge; z-index: 50;
 
 	> * {
 		order: 3;
@@ -130,7 +130,7 @@ body {
 #context {
 	.flex(~'row', ~'center', ~'space-between');
 	box-sizing: border-box;
-	position: fixed; left: @spacing-huge; right: 0; top: 0; border-bottom: 1px solid @lighter-grey; height: @spacing-midlarge;
+	position: fixed; left: @spacing-huge; right: 0; top: 0; border-bottom: 1px solid @lighter-grey; background: @white; height: @spacing-midlarge; z-index: 50;
 
 	&.spaced-right {
 		padding-right: @spacing-huge; 
@@ -194,7 +194,7 @@ body {
 
 .page-single #contents .actions,
 .single #contents .actions {
-	position: fixed; right: 0; top: 0; width: @spacing-huge; height: @spacing-midlarge;
+	position: fixed; right: 0; top: 0; width: @spacing-huge; height: @spacing-midlarge; z-index: 60;
 
 	> * {
 		.transitioned(~'opacity');
@@ -291,15 +291,11 @@ body {
 --------------------------------------------------------------------------*/
 
 fieldset.settings {
-	position: relative;
-	margin: 0 @spacing-smaller @spacing-smallest;
-	padding: @spacing-smaller 0 @spacing-smaller @spacing-largest;
+	position: relative; margin-bottom: @spacing-smallish; padding: 0 0 0 @spacing-largest;
 }
 
 fieldset.settings > legend {
-	position: absolute;
-	line-height: 1.5;
-	text-indent: -@spacing-largest;
+	position: absolute; line-height: 1.4em; text-indent: -@spacing-largest;
 }
 
 fieldset.settings select {
@@ -307,7 +303,7 @@ fieldset.settings select {
 }
 
 fieldset.settings p.help {
-	margin: -0.5rem 0 @spacing-smaller;
+	margin: -0.5rem 0 @spacing-smallish;
 }
 
 fieldset.settings input + p.help,
@@ -319,28 +315,14 @@ fieldset.settings li .label {
 	margin: 1rem 0 1.25rem;
 }
 
-fieldset.settings:first-of-type {
-	margin-top: 0.5rem;
-	border-top: none;
-}
-
 fieldset.settings > legend + .help {
 	position: absolute;
 	width: @spacing-larger;
-	margin: @spacing-small 0 0 -@spacing-largest;
+	margin: 2.5rem 0 0 -@spacing-largest;
 }
 
 fieldset.settings > legend + .help p {
 	margin: 0 0 @spacing-smaller;
-}
-
-fieldset.settings > *:first-child {
-	margin-top: 0;
-}
-
-fieldset.settings fieldset {
-	margin-top: @spacing-micro;
-	padding: 0;
 }
 
 fieldset.settings fieldset legend {
@@ -429,38 +411,17 @@ fieldset.settings.highlight {
 --------------------------------------------------------------------------*/
 
 #password {
-	margin: 0 0 0 -@spacing-smaller;
-	padding: 0;
-	border: none;
-}
+	legend {
+		margin-left: @spacing-smallish!important; padding: 0!important;
+	}
 
-#password legend {
-	margin: 0 !important;
-	padding: 0 0 0 @spacing-smaller;
-	color: #222;
-	line-height: 1.5;
-}
-
-#password i {
-	position: absolute;
-	top: -1rem;
-	right: 0;
+	i {
+		position: absolute; top: 0; right: 0; font-size: 68.7%; font-weight: 300; text-transform: uppercase;
+	}
 }
 
 div.password {
-	position: absolute;
-	left: 0;
-	box-sizing: border-box;
-	width: 100%;
-	padding: 0 0 0 @spacing-largest;
-	z-index: 1000;
-}
-
-@media screen and (max-width: 700px) {
-
-	div.password {
-		padding: 0;
-	}
+	display: none;
 }
 
 /*--------------------------------------------------------------------------
@@ -579,8 +540,42 @@ ul.page form span {
 
 .field {
 	box-sizing: border-box;
-	min-height: @spacing-small;
-	margin-bottom: @spacing-smaller;
+	margin-bottom: @spacing-smallish; min-height: @spacing-small;
+
+	&.field-multilingual div.container label {
+		margin-bottom: @spacing-smallest;
+	}
+}
+
+fieldset {
+	position: relative;
+}
+
+legend {
+	color: @dark-grey; font-size: @size-current; font-weight: 300;
+}
+
+label,
+#password legend {
+	display: block; position: relative; color: @dark-grey; font-size: 68.7%; font-weight: 300; text-transform: uppercase; line-height: 1.4em;
+}
+
+label {
+	> input,
+	> textarea,
+	> select,
+	> .field-value-readonly,
+	> .frame {
+		margin-top: @spacing-smallest;
+	}
+
+	a {
+		color: @accent;
+
+		&:hover {
+			color: currentColor;
+		}
+	}
 }
 
 /* Checkboxes */

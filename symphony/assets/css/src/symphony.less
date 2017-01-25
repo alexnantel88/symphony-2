@@ -206,27 +206,6 @@ i, var {
 
 /* Forms */
 
-fieldset {
-	position: relative;
-	padding: @spacing-smallest 0;
-}
-
-legend {
-	padding: 0;
-	color: @dark-grey;
-	font-weight: bold;
-	line-height: 1;
-}
-
-label {
-	display: block;
-	position: relative;
-	margin-bottom: @spacing-micro;
-	font-size: 85%;
-	font-weight: bold;
-	color: @grey;
-}
-
 label > i,
 p.label > i {
 	position: absolute;
@@ -234,8 +213,9 @@ p.label > i {
 	right: 0;
 	font-weight: normal;
 	font-style: italic;
-	font-size: 85%;
+	font-size: 87.5%;
 	color: @dark-grey;
+	margin-top: 2px;
 }
 
 label.inline-help > i {
@@ -276,10 +256,7 @@ label.inline-help > i {
 }
 
 .help {
-	clear: both;
-	color: @grey;
-	font-size: 85%;
-	line-height: 1.5;
+	clear: both; color: @dark-grey; font-size: 87.5%; font-weight: 300; line-height: 1.4em;
 }
 
 .centered {

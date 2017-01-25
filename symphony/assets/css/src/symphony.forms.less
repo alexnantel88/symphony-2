@@ -22,14 +22,8 @@ textarea,
 select,
 .field-value-readonly {
 	box-sizing: border-box;
-	width: 100%;
-	padding: @spacing-smallest;
-	font-family: inherit;
-	font-size: @size-current;
-	border: @bdr-current @lighter-grey;
 	border-radius: @radius-current;
-	color: @color-current;
-	background-color: transparent;
+	color: @color-current; font-family: inherit; font-size: 1.4rem; font-weight: 300; padding: @spacing-smallest @spacing-smallerish; border: 1px solid @lighter-grey; background-color: transparent; width: 100%;
 }
 
 // @TODO — erase when sure
@@ -57,7 +51,7 @@ textarea:active,
 textarea:focus,
 select[multiple]:active,
 select[multiple]:focus {
-	border-color: @light-blue;
+	border-color: @accent;
 	outline: none;
 }
 
@@ -91,6 +85,7 @@ input[type='checkbox'] {
 	height: auto;
 	margin-top: 0;
 	margin-right: 0.5rem;
+	margin-bottom: @spacing-smallish;
 	padding: inherit;
 	font-size: inherit;
 	border: none;
