@@ -27,8 +27,9 @@ ul.tabs li {
 	box-sizing: border-box;
 	color: @dark-grey;
 	list-style-type: none;
-	border-bottom: 2px solid @dark-grey;
+	border-bottom: 2px solid transparent;
 	cursor: pointer;
+	margin-bottom: -1px;
 
 	& + li {
 		margin-left: @spacing-smallest;
@@ -40,9 +41,7 @@ ul.tabs .selected,
 ul.tabs .active,
 ul.tabs .invalid.selected,
 ul.tabs .invalid.selected:hover {
-	color: @black;
-	border-bottom-color: @black;
-	z-index: 1000;
+	color: @accent!important; border-bottom-color: @accent; z-index: 10;
 }
 
 /*ul.tabs .selected:before {

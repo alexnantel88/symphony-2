@@ -303,6 +303,7 @@ button.delete:focus,
 
 .apply select {
 	display: inline-block;
+	-webkit-appearance: none;
 	-moz-appearance: none;
 	-ms-appearance: none;
 	-o-appearance: none;
@@ -314,9 +315,7 @@ button.delete:focus,
 	color: @color-current;
 	line-height: 1.5;
 	border-radius: @radius-current;
-	border: @bdr-current @lighter-grey;
-	-webkit-appearance: none;
-	// background: @white;
+	border: 1px solid @lighter-grey;
 	outline: none;
 	cursor: pointer;
 }
@@ -325,45 +324,25 @@ button.delete:focus,
 	cursor: default;
 }
 
-.apply select:hover {
-	background-position: right -1.6rem;
-}
-
 .apply button,
 .apply-button-right,
 .apply-button-left,
 .apply-label-right,
 .apply-label-left {
-	float: right;
-	height: @field-height-current;
-	margin: 0;
-	line-height: @spacing-smaller + @spacing-smallest;
-	border: none;
-	border-right: none;
-	border-left: @bdr-small solid @light-grey;
 	border-radius: 0 @radius-current @radius-current 0;
+	float: right; color: @white!important; font-size: @text-shorter; font-weight: 300; text-transform: uppercase; line-height: @spacing-smaller + @spacing-smallest; margin: 0; padding-left: @spacing-smallerish; padding-right: @spacing-smallerish; border: none; background: @accent; height: @field-height-current; cursor: pointer;
 }
 
 .apply-button-left,
 .apply-label-left {
-	float: left;
-	border-right: @bdr-current @light-grey;
-	border-left: none;
 	border-radius: @radius-current 0 0 @radius-current;
+	float: left;
 }
 
 .apply.inactive button,
 .apply.inactive:hover button,
 .apply.inactive button:hover {
-	color: @dark-grey;
-	border-left: @bdr-small solid @lightest-grey;
-	box-shadow: none;
-	cursor: default;
-	// background-color: @lighter-grey;
-}
-
-.apply:hover button {
-	border-left: @bdr-small solid @light-grey;
+	color: @dark-grey; background: @grey; cursor: default;
 }
 
 /* Single select "With selected…" */

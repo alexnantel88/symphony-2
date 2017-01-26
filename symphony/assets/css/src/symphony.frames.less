@@ -52,6 +52,10 @@
 
 .frame .content {
 	padding-top: @spacing-smallerish;
+
+	.help {
+		margin-top: @spacing-smallest!important;
+	}
 }
 
 /* Headers */
@@ -204,17 +208,7 @@ fieldset.frame,
 /* Applicators */
 
 .frame .apply {
-	position: absolute;
-	right: 0;
-	bottom: -@spacing-mid - @spacing-smallest;
-	clear: left;
-	text-align: right;
-	border-color: @lighter-grey;
-	cursor: default;
-}
-
-.frame .apply:hover {
-	border-color: @lighter-grey;
+	position: absolute; right: 0; bottom: -@spacing-mid - @spacing-smallest; text-align: right; cursor: default;
 }
 
 .frame .actions {

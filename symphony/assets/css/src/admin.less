@@ -157,15 +157,7 @@ body {
 
 		li {
 			.flex(~'column', ~'flex-start', ~'center');
-			overflow: hidden; position: relative; font-size: @text-short; font-weight: 300; text-transform: none; border-color: transparent;height: @spacing-midlarge;		
-
-			&:hover,
-			&.selected,
-			&.active,
-			&.invalid.selected,
-			&.invalid.selected:hover {
-				color: @accent; border-color: @accent;
-			}
+			overflow: hidden; position: relative; font-size: @text-short; font-weight: 300; text-transform: none; height: @spacing-midlarge;		
 
 			& + li {
 				margin-left: @spacing-smallish;
@@ -244,15 +236,15 @@ body {
 .single #contents .actions {
 	position: fixed; right: 0; top: 0; width: @spacing-larger; height: @spacing-midlarge; z-index: 60;
 
-	> * {
+	input, button {
 		.transitioned(~'opacity');
 		border-radius: 0px;
 		box-sizing: border-box;
-		display: block; color: @white; font-size: @text-shorter; text-transform: uppercase; text-align: left; line-height: @spacing-midlarge; margin: 0; padding: 0 @spacing-smallish; border: none; background: @accent; width: 100%; cursor: pointer;
+		display: block; color: @white; font-size: @text-shorter; text-transform: uppercase; text-align: left; line-height: @spacing-midlarge; margin: 0!important; padding: 0 @spacing-smallish; border: none; background: @accent!important; width: 100%; cursor: pointer;
+	}
 
-		&:nth-child(n + 2) {
-			opacity: 0; pointer-events: none;
-		}
+	> *:nth-child(n + 2) {
+		float: none!important; opacity: 0; pointer-events: none;
 	}
 
 	&:hover > *:nth-child(n + 2) {
@@ -632,7 +624,7 @@ label {
 
 label.tab-en + label.tab-en,
 label.tab-fr + label.tab-fr,
-.column > label,
+fieldset.settings .column + .columns > .column > label,
 .instance label:not(.column) + label:not(.column),
 .instance label + .columns {
 	margin-top: @spacing-smallish;
@@ -655,9 +647,8 @@ div.field-checkbox + .field:not(.field-checkbox) {
 /* File uploads */
 
 .file input {
-	margin: -0.3rem 0;
-	font: inherit;
-	color: #222;
+	border-radius: @bdr-current;
+	color: @dark-grey; font-size: @text-short; font-weight: 300; padding: @spacing-smallerish; border: 1px solid @lighter-grey;
 }
 
 /*.file span.frame {

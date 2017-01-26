@@ -35,6 +35,15 @@ img.gravatar {
 	font-size: 68.7%; text-transform: uppercase; line-height: 1.4em; padding-bottom: 0.6rem;
 }
 
+.field-multilingual .container, .field-datetime {
+	position: relative;
+}
+
+.field-multilingual .container > label,
+.field-datetime > label {
+	position: static;
+}
+
 /* Sandbox */
 
 .editor-toolbar {
@@ -70,4 +79,10 @@ img.gravatar {
 
 .tab-group:nth-child(n + 3) {
 	margin-top: 5rem; padding-top: 3rem; border-top: 1px solid #EAEEF0;
+}
+
+/* Tables */
+
+table.selectable td.field-checkbox input.ajax-checkbox {
+	display: block; margin: 0; padding: 0;
 }
