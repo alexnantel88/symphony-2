@@ -34,11 +34,11 @@
 	border: @bdr-alt @lighter-grey;
 }
 
-.frame::after {
+/*.frame::after {
 	content: '';
 	display: block;
 	clear: both;
-}
+}*/
 
 .frame ol,
 .frame ul {
@@ -47,41 +47,40 @@
 }
 
 .frame .tags {
-	margin-top: -@spacing-smallest;
-	margin-bottom: @spacing-smaller;
+	margin: @spacing-smallest 0 @spacing-smallish;
+}
+
+.frame .content {
+	padding-top: @spacing-smallerish;
 }
 
 /* Headers */
 
 .frame-header {
-	position: relative;
-	padding: @spacing-smallest - .1;
-	color: @color-current;
-	border-top: @bdr-current fade(@light-grey, 0);
-	border-bottom: @bdr-current @lighter-grey;
-}
-
-.frame .collapsed .frame-header {
-	border-bottom: @bdr-current @lighter-grey;
+	position: relative; margin-left: -@spacing-smallerish; padding: @spacing-smallerish; border-top: 1px solid @lighter-grey; width: 100%;
 }
 
 .frame-header h4 {
-	display: inline-block;
-	font-weight: bold;
-	font-size: @text-short;
+	display: inline-block; font-size: @text-current;
+
+	* {
+		.transitioned(~'color');
+	}
+
+	strong {
+		font-weight: 300;
+	}
+
+	span {
+		color: @dark-grey; font-size: @text-short; font-weight: 300; padding-left: @spacing-smallest;
+	}
+
+	.required {
+		font-style: italic;
+	}
 }
 
-.frame-header span {
-	margin: 0 0 0 @spacing-smallest;
-	color: @dark-grey;
-	font-weight: normal;
-}
-
-.frame-header .required {
-	font-style: italic;
-}
-
-.main::before,
+/*.main::before,
 .sidebar::before {
 	content: '';
 	display: block;
@@ -106,38 +105,23 @@
 .highlight .sidebar::before {
 	border-right: @spacing-micro solid #747474;
 	border-left: @spacing-smallest solid #b9b9b9;
-}
+}*/
 
 /* Content: light scheme */
 
-.frame .content {
+/*.frame .content {
 	box-sizing: border-box;
 	padding: @spacing-smallest;
 	border-bottom: @bdr-current @lighter-grey;
 }
 
-.frame .instance:last-of-type .content {
-	border-radius: 0 0 @radius-current @radius-current;
-	border-bottom: none;
-}
-
-.frame .instance.collapsed:last-of-type .frame-header {
-	border-bottom: none;
-}
-
-.frame .content::after {
-	content: '';
-	display: block;
-	clear: both;
-}
-
 .frame .content fieldset {
 	border-top-color: @light-grey;
-}
+}*/
 
 /* Content: dark scheme */
 
-.frame.dark .content {
+/*.frame.dark .content {
 	color: @white;
 	background: @darker-grey;
 }
@@ -153,7 +137,7 @@
 
 .frame.dark fieldset {
 	border-top-color: @darker-grey;
-}
+}*/
 
 /*--------------------------------------------------------------------------
 	Inline frames (e. g. upload fields)
@@ -202,14 +186,7 @@ fieldset.frame,
 
 .frame .destructor,
 .frame .debug {
-	position: absolute;
-	top: @spacing-smallest;
-	right: @spacing-smallest;
-	margin: 0;
-	color: @light-grey;
-	font-weight: normal;
-	border-bottom: none;
-	font-size: @text-short;
+	position: absolute; top: @spacing-smallerish; right: @spacing-smallerish; color: @light-grey; font-size: @text-short; font-weight: 300; margin: 0;
 }
 
 .frame .destructor:hover,
@@ -261,8 +238,12 @@ fieldset.frame,
 	cursor: move;
 }
 
-.orderable .frame-header:hover {
-	background-color: @lighter-grey;
+.orderable .frame-header:hover,
+.frame .selected .frame-header,
+.frame .ordering .frame-header {
+	h4, h4 span {
+		color: @accent;
+	}
 }
 
 .frame .selected,
@@ -270,22 +251,12 @@ fieldset.frame,
 	position: relative;
 }
 
-.frame .selected .frame-header,
-.frame .ordering .frame-header {
-	background-color: @accent;
-}
-
-.frame .selected::after,
-.frame .ordering::after {
-	left: auto;
-	right: 0;
-}
-
 .ordering .frame-header {
-	color: #fff;
-	background: @accent;
-	transition: none;
 	cursor: move;
+
+	h4, h4 span {
+		color: @accent;
+	}
 }
 
 .frame .ordering .frame-header span,
@@ -295,7 +266,7 @@ fieldset.frame,
 	color: #bdcbdd;
 }
 
-.frame .ordering .main::before {
+/*.frame .ordering .main::before {
 	border-right: 0.3rem solid #7c9bc7;
 	border-left: 0.6rem solid #cedaea;
 }
@@ -307,7 +278,7 @@ fieldset.frame,
 
 .frame .highlight {
 	background: @lightest-grey;
-}
+}*/
 
 /*-----------------------------------------------------------------------------
 	Collapsibles
@@ -321,14 +292,19 @@ fieldset.frame,
 // see : .collapsible .instance:not(.collapsed) .frame-header
 
 .collapsible .instance {
-	overflow: hidden;
-	padding-bottom: @spacing-smaller;
-	background-color: ;
+	overflow: hidden; margin-left: -@spacing-smallerish; padding: 0 @spacing-smallerish; width: 100%;
+
+	&:first-child .frame-header {
+		margin-top: -@spacing-smallerish; border: none;
+	}
+
+	&:last-child {
+		margin-bottom: -@spacing-smallerish;
+	}
 }
 
 .collapsible .instance.collapsed {
 	overflow: hidden;
-	padding-bottom: 0;
 }
 
 .collapsible .instance,
@@ -361,18 +337,13 @@ fieldset.frame,
 	overflow: hidden;
 }
 
-.collapsed.js-animate .frame-header {
-	border-bottom-color: @lighter-grey;
-}
-
 .collapsible .instance:not(.collapsed) .frame-header {
-	border-top-color: fade(@light-grey, 40%);
-	border-bottom-color: fade(@lighter-grey, 0);
-	background-color: @lighter-grey;
-	padding-top: @spacing-small;
+	h4, h4 span {
+		color: @accent;
+	}
 }
 
-.collapsible .frame-header:hover {
+/*.collapsible .frame-header:hover {
 	background-color: fade(@lighter-grey, 50%);
 }
 
@@ -393,11 +364,7 @@ fieldset.frame,
 
 .collapsible .frame-header ~ .content {
 	background-color: @lighter-grey;
-}
-
-.collapsed .content {
-	padding-top: 0;
-}
+}*/
 
 /*-----------------------------------------------------------------------------
 	Duplicators

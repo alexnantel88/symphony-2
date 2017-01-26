@@ -632,7 +632,9 @@ label {
 
 label.tab-en + label.tab-en,
 label.tab-fr + label.tab-fr,
-.column > label {
+.column > label,
+.instance label:not(.column) + label:not(.column),
+.instance label + .columns {
 	margin-top: @spacing-smallish;
 }
 
