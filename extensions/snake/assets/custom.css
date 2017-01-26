@@ -47,17 +47,17 @@ img.gravatar {
 
 /* Publish Tab */
 
-.column.primary {
-	overflow: hidden;
-}
-
 .tab-group {
 	box-sizing: border-box;
-	position: relative!important; left: 0!important; top: 0!important;
+}
+
+.tab-group > h2 {
+	color: ##3B3D40; font-size: 3.2rem; font-weight: 300; padding: 1rem 0 5rem;
 }
 
 .tab-group:first-child {
-	float: left; padding-right: 3rem; border-right: 1px solid #EAEEF0; width: calc(100% - 40rem);
+	overflow: auto;
+	position: fixed!important; left: 25rem!important; right: 43rem; top: 8rem!important; bottom: 0; padding: 3rem; padding-right: 3rem; width: auto;
 }
 
 .tab-group:nth-child(2) {
@@ -65,9 +65,9 @@ img.gravatar {
 }
 
 .tab-group:nth-child(n + 2) {
-	float: right; padding-left: 3rem; width: 40rem;
+	position: relative!important; left: 0!important; top: 0!important; margin-left: calc(100% - 40rem); padding-left: 3rem; padding-right: 3rem; width: 43rem;
 }
 
 .tab-group:nth-child(n + 3) {
-	padding-top: 3rem; border-top: 1px solid #EAEEF0;
+	margin-top: 5rem; padding-top: 3rem; border-top: 1px solid #EAEEF0;
 }

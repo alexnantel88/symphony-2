@@ -138,20 +138,11 @@ table.selectable input {
 }
 
 tr.selected td {
-	border-top: @bdr-current @lighter-grey;
-	border-bottom: @bdr-current @lighter-grey;
-	background-color: @dark-grey;
-}
+	color: @white; background-color: @accent;
 
-tr:nth-child(odd).selected td {
-	background: @dark-grey;
-}
-
-tr.selected td,
-tr.selected a,
-tr.selecting td,
-tr.selecting a {
-	color: @white;
+	a {
+		color: @white;
+	}
 }
 
 tr.selected td a:hover {
