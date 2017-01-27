@@ -308,6 +308,10 @@ body {
 	&.spaced-top {
 		padding-top: calc(~'@{spacing-smallish} + @{spacing-midlarge}');
 	}
+
+	> p:first-child {
+		margin: 0 0 @spacing-smallish!important;
+	}
 }
 
 /*#contents h2 {
@@ -486,7 +490,7 @@ div.password {
 .page-index .actions,
 .index .actions {
 	height: 3.8rem;
-	padding: 3rem 1.8rem 0;
+	padding: @spacing-smallish 0 0;
 	text-align: right;
 }
 
@@ -609,7 +613,8 @@ label {
 	> textarea,
 	> select,
 	> .field-value-readonly,
-	> .frame {
+	> .frame,
+	> .color-chooser-container {
 		margin-top: @spacing-smallest;
 	}
 
@@ -649,6 +654,10 @@ div.field-checkbox + .field:not(.field-checkbox) {
 .file input {
 	border-radius: @bdr-current;
 	color: @dark-grey; font-size: @text-short; font-weight: 300; padding: @spacing-smallerish; border: 1px solid @lighter-grey;
+}
+
+.file .frame input {
+	padding: 0; border: none;
 }
 
 /*.file span.frame {
@@ -732,7 +741,7 @@ div.field-checkbox + .field:not(.field-checkbox) {
 }
 
 #version {
-	color: @dark-grey; padding: @spacing-smallish;
+	display: none; color: @dark-grey; padding: @spacing-smallish;
 }
 
 .actions #version {

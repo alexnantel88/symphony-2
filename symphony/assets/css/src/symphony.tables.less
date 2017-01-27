@@ -206,21 +206,27 @@ tr[class*=status-].selected {
 	border-left-color: #4967a1;
 }
 
-tr[class*=status-] td:first-of-type {
+/*tr[class*=status-] td:first-of-type {
 	padding-left: 1.5rem;
-}
+}*/
 
 tr[class*=status-] a:first-of-type::after {
+	.transitioned(~'color');
 	content: attr(data-status);
 	color: transparent;
-	border-bottom: 1px solid @lightest-grey;
 }
 
-tr[class*=status-]:nth-child(even) a:first-of-type::after,
+/*tr[class*=status-]:nth-child(even) a:first-of-type::after,
 tr[class*=status-]:nth-child(even):hover a:first-of-type::after {
 	border-bottom-color: @white;
-}
+}*/
 
 tr[class*=status-]:hover a:first-of-type::after {
-	color: #b4b4b4;
+	color: @grey;
+}
+
+tr.selected {
+	&[class*=status-]:hover a:first-of-type::after {
+		color: @white;
+	}
 }

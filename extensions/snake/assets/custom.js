@@ -20,9 +20,9 @@
 
 		/* Nav - Toggle Submenu */
 
-		$('#nav li').has('ul').on('click', function(){
-			$(this).toggleClass('opened');
-			$(this).children('ul').slideToggle(250);
+		$('#nav li').has('ul').on('click', '> span', function(){
+			$(this).parent().toggleClass('opened');
+			$(this).siblings('ul').slideToggle(250);
 		});
 
 		/* Actions - Init */
