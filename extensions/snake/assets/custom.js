@@ -14,15 +14,22 @@
 		/* Nav - Init */
 
 		$('#nav li.active').has('ul').each(function(){
-			$(this).addClass('opened');
-			$('ul', this).show();
+			var t = $(this);
+			t.addClass('opened');
+			$('ul', t).show();
+
+			$('ul > li a', t).each(function(){
+				var t = $(this);
+				if(window.location.href.includes(t.attr('href'))) t.parent().addClass('active');
+			});
 		});
 
 		/* Nav - Toggle Submenu */
 
 		$('#nav li').has('ul').on('click', '> span', function(){
-			$(this).parent().toggleClass('opened');
-			$(this).siblings('ul').slideToggle(250);
+			var t = $(this);
+			t.parent().toggleClass('opened');
+			t.siblings('ul').slideToggle(250);
 		});
 
 		/* Actions - Init */
@@ -47,13 +54,13 @@
 			return false;
 		});
 
-		/* Drawers */
+		/* Drawers - Check State */
 
 		$('#context .actions a.button.drawer').on('click', function(){
-			console.log($(this).attr('class'));
-
 			changeStateDrawer();
 		});
+
+		/* Drawers - Function */
 
 		function changeStateDrawer(){
 			var t = $('#context .actions a.button.drawer');
