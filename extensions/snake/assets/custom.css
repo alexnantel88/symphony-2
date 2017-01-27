@@ -148,6 +148,7 @@ table.selectable td.field-checkbox input.ajax-checkbox {
 .field.field-entry_relationship fieldset.single .sections-selection { font-size: 1.4rem; text-transform: none; margin-left: 0.5rem; }
 .field.field-entry_relationship fieldset.single > button { border-radius: 5px; font-size: 1.1rem; font-weight: 300; text-transform: uppercase; line-height: 3rem; margin: 0 0 0 1rem; padding: 0.5rem 1.5rem; background: orange; }
 
+#entry-relationship-ctn.show { background: rgba(0, 0, 0, 0.8); }
 #entry-relationship-ctn.show > .iframe { left: 3rem!important; top: 3rem!important; width: calc(100vw - 6rem)!important; height: calc(100vh - 6rem)!important; }
 #entry-relationship-ctn.show > .iframe > iframe { display: block; width: 100%; height: 100%; }
 

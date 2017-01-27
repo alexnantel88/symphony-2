@@ -125,7 +125,7 @@ body {
 /* Session */
 
 #session {
-	font-size: @text-short; font-weight: 500; text-align: center; margin: 0 0 @spacing-small!important;
+	font-size: @text-short; font-weight: 300; text-align: center; margin: 0 0 @spacing-small!important;
 
 	a {
 		color: @dark-grey; line-height: @spacing-smallerish;
@@ -158,7 +158,7 @@ body {
 
 		li {
 			.flex(~'column', ~'flex-start', ~'center');
-			overflow: hidden; position: relative; font-size: @text-short; font-weight: 300; text-transform: none; height: @spacing-midlarge;		
+			overflow: hidden; position: relative; font-size: @text-short; font-weight: 300; text-transform: none; height: @spacing-midlarge;	
 
 			& + li {
 				margin-left: @spacing-smallish;
@@ -183,7 +183,7 @@ body {
 		margin: 0; padding: 0 @spacing-smallerish;
 
 		a {
-			color: @dark-grey; font-size: @text-shorter; text-transform: uppercase; line-height: @spacing-midlarge; padding: 0 @spacing-smallerish;
+			color: @dark-grey; font-size: @text-shorter; text-transform: uppercase; line-height: @spacing-midlarge; padding: 0 @spacing-smallerish; white-space: nowrap;
 
 			&.selected {
 				color: @accent;
@@ -204,7 +204,7 @@ body {
 
 #breadcrumbs {
 	order: 1;
-	padding: 0 @spacing-smallish;
+	padding: 0 @spacing-smallish; white-space: nowrap;
 
 	nav {
 		display: inline-block;
@@ -243,7 +243,7 @@ body {
 
 .page-single #contents .actions,
 .single #contents .actions,
-.page-index #contents .actions {
+body.entry_relationship.page-index #contents .actions {
 	.flex(~'column',~'flex-start',~'flex-start');
 	position: fixed; right: 0; top: 0; margin: 0; padding: 0; width: @spacing-larger; height: @spacing-midlarge; z-index: 60;
 

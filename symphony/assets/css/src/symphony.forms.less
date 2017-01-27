@@ -17,6 +17,11 @@
 	Inputs, text areas, selects
 --------------------------------------------------------------------------*/
 
+input, button {
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+	outline: none;
+}
+
 input,
 textarea,
 select,
@@ -24,17 +29,6 @@ select,
 	box-sizing: border-box;
 	border-radius: @radius-current;
 	color: @color-current; font-family: inherit; font-size: 1.4rem; font-weight: 300; padding: @spacing-smallest @spacing-smallerish; border: 1px solid @lighter-grey; background-color: transparent; width: 100%;
-}
-
-// @TODO — erase when sure
-// input,
-// select[multiple] {
-// 	background-color: @white;
-// }
-
-
-// @TODO — erase this rule if everything is still functioning properly
-input {
 }
 
 input[type=file] {
@@ -329,8 +323,6 @@ button.delete:focus,
 .apply-button-left,
 .apply-label-right,
 .apply-label-left {
-	-webkit-tap-highlight-color: rgba(0,0,0,0);
-	outline: none;
 	border-radius: 0 @radius-current @radius-current 0;
 	float: right; color: @white!important; font-size: @text-shorter; font-weight: 300; text-transform: uppercase; line-height: @spacing-smaller + @spacing-smallest; margin: 0; padding-left: @spacing-smallerish; padding-right: @spacing-smallerish; border: none; background: @accent; cursor: pointer;
 }
