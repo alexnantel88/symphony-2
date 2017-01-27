@@ -27,7 +27,8 @@ th {
 }
 
 td {
-	color: @dark-grey; font-weight: 300; padding: @spacing-smallerish @spacing-smallish; border-top: 1px solid @lighter-grey; vertical-align: middle;
+	.transitioned(~'color, background');
+	color: @dark-grey; font-weight: 300; padding: @spacing-smallerish @spacing-smallish!important; border-top: 1px solid @lighter-grey; vertical-align: middle;
 
 	a {
 		color: @accent;

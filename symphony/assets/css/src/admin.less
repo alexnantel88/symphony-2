@@ -239,6 +239,7 @@ body {
 
 .page-single #contents .actions,
 .single #contents .actions {
+	.flex(~'column',~'flex-start',~'flex-start');
 	position: fixed; right: 0; top: 0; width: @spacing-larger; height: @spacing-midlarge; z-index: 60;
 
 	input, button {
@@ -246,6 +247,16 @@ body {
 		border-radius: 0px;
 		box-sizing: border-box;
 		display: block; color: @white; font-size: @text-shorter; text-transform: uppercase; text-align: left; line-height: @spacing-midlarge; margin: 0!important; padding: 0 @spacing-smallish; border: none; background: @accent!important; width: 100%; cursor: pointer;
+	
+		&[name="action[delete]"] {
+			order: 10;
+			background: @red!important;
+		}
+	}
+
+	> * {
+		flex-shrink: 0;
+		width: 100%;
 	}
 
 	> *:nth-child(n + 2) {
@@ -352,7 +363,7 @@ fieldset.settings {
 }
 
 fieldset.settings > legend {
-	position: absolute; top: -0.4rem; line-height: 1.4em; text-indent: -@spacing-largest;
+	position: absolute; top: -0.4rem; left: 0; line-height: 1.4em; width: 17rem;
 }
 
 fieldset.settings select {
@@ -410,7 +421,7 @@ fieldset.settings.highlight {
 	border-top: 0;
 }
 
-@media screen and (max-width: 700px) {
+/*@media screen and (max-width: 700px) {
 
 	fieldset.settings {
 		padding-left: 0;
@@ -436,7 +447,7 @@ fieldset.settings.highlight {
 		width: auto;
 		margin: 0 0 @spacing-smaller;
 	}
-}
+}*/
 
 /* Condensed, pickable settings, e. g. email gateways */
 
@@ -640,7 +651,8 @@ label.tab-en + label.tab-en,
 label.tab-fr + label.tab-fr,
 fieldset.settings .column + .columns > .column > label,
 .instance label:not(.column) + label:not(.column),
-.instance label + .columns {
+.instance label + .columns,
+.column.primary > label + label {
 	margin-top: @spacing-smallish;
 }
 
@@ -655,7 +667,7 @@ div.field-checkbox:first-child {
 }
 
 div.field-checkbox + .field:not(.field-checkbox) {
-	margin-top: 2.6rem;
+	margin-top: @spacing-smallish;
 }
 
 /* File uploads */
@@ -697,6 +709,12 @@ div.field-checkbox + .field:not(.field-checkbox) {
 
 .file em:hover {
 	color: @red;
+}
+
+/* Publish Note */
+
+.field-publishnotes {
+	margin-top: @spacing-smallish;
 }
 
 /*.page-single #contents .actions #duplicate-section,

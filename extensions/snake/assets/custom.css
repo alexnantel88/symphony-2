@@ -29,6 +29,32 @@ img.gravatar {
 	display: inline-block;
 }
 
+/* Extension Downloader */
+
+#extension_downloader {
+	order: 2;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-direction: row;
+	flex-direction: row;
+	-webkit-align-items: center;
+	align-items: center;
+	padding: 0 3rem;
+}
+
+#extension_downloader h3 {
+	font-size: 2rem; font-weight: 300; margin: 0; padding-right: 1.5rem; white-space: nowrap;
+}
+
+#extension_downloader h3 a {
+	transition: color 0.45s;
+	float: none; color: orange; font-size: 1.6rem; padding-left: 1rem;
+}
+#extension_downloader h3 a:hover {
+	color: currentColor;
+}
+
 /* Field Multilingual */
 
 .field-multilingual ul.tabs li {
@@ -42,6 +68,14 @@ img.gravatar {
 .field-multilingual .container > label,
 .field-datetime > label {
 	position: static;
+}
+
+.field-datetime .collapsible > * > li:last-child {
+	margin-bottom: 0;
+}
+
+.field-datetime header em.label {
+	font-size: 1.1rem; text-transform: uppercase; font-weight: 300;
 }
 
 .field-multilingual_image_upload .tab-panel.file {
@@ -62,7 +96,7 @@ img.gravatar {
 .field-entry_relationship > .frame { margin: 1rem 0!important; border: 1px solid #EAEEF0; }
 
 .field.field-entry_relationship fieldset.single .sections-selection { font-size: 1.4rem; text-transform: none; }
-.field.field-entry_relationship fieldset.single > button { font-size: 1.1rem; font-weight: 300; text-transform: uppercase; line-height: 3rem; margin: 0 0 0 1.5rem; padding: 0.5rem 1.5rem; background: orange; }
+.field.field-entry_relationship fieldset.single > button { border-radius: 5px; font-size: 1.1rem; font-weight: 300; text-transform: uppercase; line-height: 3rem; margin: 0 0 0 1.5rem; padding: 0.5rem 1.5rem; background: orange; }
 
 /* Sandbox */
 

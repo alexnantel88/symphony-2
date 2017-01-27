@@ -38,6 +38,14 @@
 	&.two .column,
 	&.two > .invalid {
 		width: 50%;
+
+		&.primary {
+			width: calc(~'100% - @{spacing-huger}');
+		}
+
+		&.secondary {
+			padding-left: @spacing-mid; width: @spacing-huger;
+		}
 	}
 
 	&.three .column,
