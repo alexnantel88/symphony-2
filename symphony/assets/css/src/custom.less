@@ -1,0 +1,224 @@
+/**
+ * Style definition for the Symphony backend
+ */
+
+/*-----------------------------------------------------------------------------
+	LESS — Variables Importing
+-----------------------------------------------------------------------------*/
+
+@import "variables";
+
+/*--------------------------------------------------------------------------
+	Gravatar
+--------------------------------------------------------------------------*/
+
+a.gravatar {
+	display: block; padding: @spacing-smallish @spacing-smallish @spacing-smallest; border-top: 1px solid @lighter-grey;
+}
+
+img.gravatar {
+	border-radius: 100%;
+	display: block; position: relative; right: 0; top: 0; margin: 0 auto; border: 1px solid @lighter-grey; z-index: 12;
+}
+
+/*--------------------------------------------------------------------------
+	Language Switcher
+--------------------------------------------------------------------------*/
+
+#nav li.backend_language_switcher {
+	position: fixed; left: 0; bottom: @spacing-smallerish; width: 12rem;
+
+	img {
+		display: inline-block;
+	}
+
+	&.first {
+		left: 0; text-align: right; margin: 0;
+	}
+
+	&.last {
+		left: 1@spacing-smallish; text-align: left; margin: 0;
+	}
+}
+
+/*--------------------------------------------------------------------------
+	Extension Downloader
+--------------------------------------------------------------------------*/
+
+#extension_downloader {
+	.flex(~'row', ~'center', ~'center');
+	order: 2;
+	position: relative; padding: 0 @spacing-smallish; height: 100%;
+
+	h3 {
+		font-size: @text-big; font-weight: 300; margin: 0; padding-right: @spacing-smallerish; white-space: nowrap;
+
+		a {
+			transition: color 0.45s; float: none; color: @accent; font-size: @text-current; padding-left: @spacing-smallest;
+
+			&:hover {
+				color: currentColor;
+			}
+		}
+	}
+}
+
+#extension_downloader_results {
+	position: absolute; right: 0; top: 100%; padding: 0; border: 1px solid @lighter-grey; border-top: none; background: #fff; min-width: @spacing-huger;
+
+	a {
+		display: block; color: @accent; font-size: @text-short; font-weight: 300; line-height: @text-short; padding: @spacing-smallerish @spacing-smallish; border-top: 1px solid @lighter-grey; white-space: nowrap;
+	
+		&:hover { color: @darker-grey; }
+	}
+}
+
+/*--------------------------------------------------------------------------
+	Fields
+--------------------------------------------------------------------------*/
+
+/* Multilingual */
+
+.field-multilingual ul.tabs li {
+	font-size: @text-shorter; text-transform: uppercase; line-height: 1.4em; padding-bottom: 0.6rem;
+}
+
+.field-multilingual .container, .field-datetime {
+	position: relative;
+}
+
+.field-multilingual .container > label,
+.field-datetime > label {
+	position: static;
+}
+
+/* Datetime */
+
+.field-datetime .collapsible > * > li:last-child {
+	margin-bottom: 0;
+}
+
+.field-datetime header em.label {
+	font-size: @text-shorter; text-transform: uppercase; font-weight: 300;
+}
+
+/* Image Upload */
+
+.field-multilingual_image_upload .tab-panel.file {
+	border-radius: @radius-current;
+	padding: @spacing-smallerish; border: 1px solid @lighter-grey;
+}
+
+/* OEmbed */
+
+.field-oembed label > div {
+	position: absolute; left: 0; top: 100%; margin-top: 2px;
+}
+
+/* Sandbox */
+
+.editor-toolbar {
+	margin-top: 0; border-color: @lighter-grey;
+}
+
+.CodeMirror {
+	font-size: @text-current; border-color: @lighter-grey;
+}
+
+/*--------------------------------------------------------------------------
+	Publish Tab
+--------------------------------------------------------------------------*/
+
+.column.primary:after {
+	content: "";
+	display: block; clear: both;
+}
+
+.tab-group {
+	box-sizing: border-box;
+	background: @white;
+}
+
+.tab-group > h2 {
+	color: #3B3D40; font-size: 3.2rem; font-weight: 300; padding: @spacing-smallest 0 5rem;
+}
+
+.tab-group:first-child {
+	overflow: auto;
+	position: fixed!important; left: 25rem!important; right: @spacing-huger; top: @spacing-midlarge!important; bottom: 0; padding: @spacing-smallish; padding-right: @spacing-smallish; width: auto;
+}
+
+.tab-group:nth-child(2) {
+	padding-top: @spacing-midlarge;
+}
+
+.tab-group:nth-child(n + 2) {
+	box-sizing: border-box;
+	clear: both; float: right; position: relative!important; left: 0!important; top: 0!important; margin-right: -@spacing-smallish; padding-left: @spacing-smallish; padding-right: @spacing-smallish; width: @spacing-huger;
+}
+
+.tab-group:nth-child(n + 3) {
+	margin-top: 5rem; padding-top: @spacing-smallish; border-top: 1px solid @lighter-grey;
+}
+
+/*--------------------------------------------------------------------------
+	Tables
+--------------------------------------------------------------------------*/
+
+table.selectable td.field-checkbox input.ajax-checkbox {
+	display: block; margin: 0; padding: 0;
+}
+
+/*--------------------------------------------------------------------------
+	Entry Relationship
+--------------------------------------------------------------------------*/
+
+.field-entry_relationship {
+	position: relative; padding-bottom: 0.8rem;
+
+	> label {
+		position: static;
+	}
+
+	> .frame {
+		margin: @spacing-smallest 0!important; border: 1px solid @lighter-grey;
+	}
+
+	fieldset.single {
+		.sections-selection {
+			font-size: @text-short; text-transform: none; margin-left: @spacing-micro;
+		}
+
+		> button {
+			border-radius: @radius-current; font-size: @text-shorter; font-weight: 300; text-transform: uppercase; line-height: @spacing-smallish; margin: 0 0 0 @spacing-smallest; padding: @spacing-micro @spacing-smallerish; background: @accent;
+		}
+	}
+}
+
+#entry-relationship-ctn.show {
+	background: rgba(0, 0, 0, 0.8);
+
+	> .iframe {
+		left: @spacing-smallish!important; top: @spacing-smallish!important; width: calc(~'100vw - @{spacing-mid}')!important; height: calc(~'100vh - @{spacing-mid}')!important;
+
+		> iframe {
+			display: block; width: 100%; height: 100%;
+		}
+	}
+}
+
+body.entry_relationship {
+	padding-left: 0;
+
+	#header {
+		display: none;
+	}
+
+	#context {
+		left: 0;
+	}
+
+	.tab-group:first-child {
+		left: 0!important;
+	}
+}

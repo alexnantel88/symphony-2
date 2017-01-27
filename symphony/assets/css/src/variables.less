@@ -89,28 +89,18 @@
 ---------------------------------------------*/
 
 .transitioned(@transProperty: color, @transDuration: 0.45s, @transDelay: 0s) {
-	-webkit-transition-duration: @transDuration;
-	-webkit-transition-property: @transProperty;
-	-webkit-transition-delay: @transDelay;
-	-webkit-transition-timing-function: 'ease-in-out';
 	transition-duration: @transDuration;
 	transition-property: @transProperty;
 	transition-delay: @transDelay;
 	transition-timing-function: 'ease-in-out';
 
 	backface-visibility: hidden;
-	-webkit-backface-visibility: hidden;
 }
 
 .flex(@direction: row, @align: flex-start, @justify: space-between){ 
-	display: -webkit-box;
-	display: -webkit-flex;
 	display: flex;
-	-webkit-flex-direction: @direction;
 	flex-direction: @direction;
-	-webkit-align-items: @align;
 	align-items: @align;
-	-webkit-justify-content: @justify;
 	justify-content: @justify;
 	
 }

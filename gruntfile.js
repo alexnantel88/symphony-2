@@ -35,6 +35,9 @@ module.exports = function (grunt) {
                         'symphony/assets/css/src/symphony.frames.less',
                         'symphony/assets/css/src/installer.css'
                     ],
+                    'extensions/snake/assets/custom.css': [
+                        'symphony/assets/css/src/custom.less'
+                    ]
                 },
             },
         },
@@ -50,6 +53,9 @@ module.exports = function (grunt) {
                     ],
                     'symphony/assets/css/devkit.min.css': [
                         'symphony/assets/css/src/devkit.css'
+                    ],
+                    'extensions/snake/assets/custom.css': [
+                        'extensions/snake/assets/custom.css'
                     ]
                 }
             }
@@ -66,6 +72,9 @@ module.exports = function (grunt) {
                     ],
                     'symphony/assets/css/devkit.min.css': [
                         'symphony/assets/css/devkit.min.css'
+                    ],
+                    'extensions/snake/assets/custom.css': [
+                        'extensions/snake/assets/custom.css'
                     ]
                 }
             }
