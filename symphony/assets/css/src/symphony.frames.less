@@ -19,7 +19,7 @@
 }
 
 .frame h1 {
-	margin: -(@spacing-smallest + @bdr-mid) -(@spacing-smallest - @bdr-mid) @spacing-smaller;
+	//margin: -(@spacing-smallest + @bdr-mid) -(@spacing-smallest - @bdr-mid) @spacing-smaller;
 	padding: @spacing-smallest;
 	color: @white;
 	font-size: inherit;
@@ -31,7 +31,7 @@
 
 .frame.empty {
 	height: 3rem;
-	border: @bdr-alt @lighter-grey;
+	border: 1px solid @lighter-grey;
 }
 
 /*.frame::after {
@@ -122,7 +122,7 @@
 /*.frame .content {
 	box-sizing: border-box;
 	padding: @spacing-smallest;
-	border-bottom: @bdr-current @lighter-grey;
+	border-bottom: 1px solid @lighter-grey;
 }
 
 .frame .content fieldset {
@@ -165,29 +165,43 @@ fieldset.frame,
 	Login
 --------------------------------------------------------------------------*/
 
-#login .frame {
-	overflow: visible;
-	width: @spacing-huge;
-	margin: @spacing-large auto;
-	padding: @spacing-smallest @spacing-smallest @spacing-smaller;
-	text-align: left;
-}
+#login {
+	.flex(~'column', ~'center', ~'center');
+	padding: 0; width: 100%; height: 100vh;
 
-#login fieldset {
-	padding: 0;
-}
+	fieldset {
+		padding: @spacing-smallerish;
 
-#login legend {
-	display: none;
-}
+		legend {
+			display: none;
+		}
 
-#login .action-link {
-	float: left;
-	margin-top: @spacing-micro;
-}
+		label + label {
+			margin-top: @spacing-smallish;
+		}
+	}
 
-#login button {
-	float: right;
+	.frame {
+		overflow: hidden; padding: 0; width: @spacing-huger;
+
+		h1 {
+			padding: @spacing-smallest @spacing-smallerish; background: @accent;
+		}
+	}
+
+	.actions {
+		.flex(~'row-reverse', ~'center', ~'space-between');
+		padding: 0 @spacing-smallerish @spacing-smallerish;
+
+		.action-link {
+			color: @dark-grey; font-size: @text-short; font-weight: 300;
+		}
+
+		button {
+			border-radius: @radius-current;
+			font-size: @text-shorter; font-weight: 300; text-transform: uppercase; padding: @spacing-smallest @spacing-smallerish; background: @accent;
+		}
+	}
 }
 
 /*--------------------------------------------------------------------------
@@ -202,7 +216,7 @@ fieldset.frame,
 .frame .destructor:hover,
 .frame .debug:hover,
 .frame .constructor:hover {
-	color: @color-current;
+	color: @darker-grey;
 }
 
 .frame .disabled {

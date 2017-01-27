@@ -68,7 +68,7 @@ html {
 }
 
 body {
-	color: @color-current; font: @text-current 'Roboto', 'Lucida Grande', Leelawadee, Tahoma, Verdana, sans-serif; padding-left: @spacing-huge; min-height: 100%;
+	color: @darker-grey; font: @text-current 'Roboto', 'Lucida Grande', Leelawadee, Tahoma, Verdana, sans-serif; padding-left: @spacing-huge; min-height: 100%;
 }
 
 a, button, input, li {
@@ -113,21 +113,7 @@ p.label {
 /* Links */
 
 a {
-	// color: @accent;
-	border-bottom: @bdr-mid @accent;
 	cursor: pointer;
-}
-
-a:hover,
-.inactive a:hover {
-	// color: @color-current;
-	border-bottom-color: currentColor;
-}
-
-a:active, a:focus,
-.inactive a:active, .inactive a:focus {
-	// color: #d42;
-	border-bottom-color: rgba(221, 68, 34, 0.3);
 }
 
 /* Lists */
@@ -157,11 +143,11 @@ ul.tags li:hover {
 
 ul.tags li.more {
 	color: @accent;
-	border-bottom: @bdr-mid currentColor;
+	border-bottom: 1px solid currentColor;
 }
 
 ul.tags .more:hover {
-	color: @color-current;
+	color: @darker-grey;
 	border-bottom-color: currentColor;
 }
 
@@ -175,7 +161,7 @@ code,
 
 pre {
 	margin-bottom: @spacing-smaller;
-	color: @color-current;
+	color: @darker-grey;
 	font: inherit;
 	white-space: normal;
 	background: @lightest-grey;
@@ -186,7 +172,7 @@ pre code {
 	overflow: auto;
 	padding: @spacing-smallest;
 	white-space: pre-wrap;
-	border: @bdr-current @lighter-grey;
+	border: 1px solid @lighter-grey;
 }
 
 i code {
