@@ -34,7 +34,7 @@
 
 		/* Actions - Init */
 
-		if($('.page-single #contents .actions, .single #contents .actions').length) $('#context').addClass('spaced-right');
+		if($('.page-single #contents .actions, .single #contents .actions, .page-index #contents .actions').length) $('#context').addClass('spaced-right');
 
 		/* Tabs - Init */
 

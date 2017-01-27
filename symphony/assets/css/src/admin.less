@@ -190,6 +190,10 @@ body {
 			}
 		}
 
+		button {
+			font-size: @text-shorter; font-weight: 300; text-transform: uppercase; padding: @spacing-smallest @spacing-smallerish; border-radius: @radius-current;
+		}
+
 		li + li {
 			padding-left: @spacing-smallish;
 		}
@@ -238,9 +242,10 @@ body {
 /* Actions - Page */
 
 .page-single #contents .actions,
-.single #contents .actions {
+.single #contents .actions,
+.page-index #contents .actions {
 	.flex(~'column',~'flex-start',~'flex-start');
-	position: fixed; right: 0; top: 0; width: @spacing-larger; height: @spacing-midlarge; z-index: 60;
+	position: fixed; right: 0; top: 0; margin: 0; padding: 0; width: @spacing-larger; height: @spacing-midlarge; z-index: 60;
 
 	input, button {
 		.transitioned(~'opacity');
@@ -255,6 +260,7 @@ body {
 	}
 
 	> * {
+		.transitioned(~'opacity, color');
 		flex-shrink: 0;
 		width: 100%;
 	}
