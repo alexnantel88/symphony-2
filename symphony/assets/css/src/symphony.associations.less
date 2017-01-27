@@ -17,33 +17,26 @@
 -----------------------------------------------------------------------------*/
 
 #drawer-section-associations .contents {
-	padding: @spacing-smallest @spacing-smaller;
+	padding: 0;
 }
 
 .association {
-	min-height: 3rem;
-	margin-top: @spacing-smaller;
-	color: @dark-grey;
-	font-size: 85%;
+	color: @dark-grey; font-size: @text-short; font-weight: 300; padding: @spacing-smallerish @spacing-smallish; min-height: 3rem;
 }
 
 .association + .association {
-	margin-top: @spacing-smallest;
-}
-
-.association:last-of-type {
-	padding-bottom: @spacing-smallest;
+	border-top: 1px solid @lighter-grey;
 }
 
 .association a {
-	color: @dark-grey;
+	color: @accent;
 }
 
 .association a:hover {
-	color: @color-current;
+	color: @black;
 }
 
-.association:first-of-type header {
+/*.association:first-of-type header {
 	padding-top: @spacing-micro;
 }
 
@@ -64,16 +57,19 @@
 .association header i {
 	float: right;
 	margin-left: @spacing-micro;
+}*/
+
+.association header p {
+	color: @dark-grey;
 }
 
 .association .association-section {
-	color: #323232;
+	color: @black;
 }
 
 .association-links {
-	width: 26rem;
 	margin: 0;
-	padding: @spacing-micro 0 0;
+	padding: @spacing-smallest 0 0;
 }
 
 .association-links li {
@@ -81,6 +77,10 @@
 	box-sizing: border-box;
 	line-height: 2;
 	white-space: nowrap;
+
+	& + li {
+		margin-top: @spacing-micro;
+	}
 }
 
 .association-links a,
@@ -112,7 +112,10 @@
 	content: '\00B7\00B7\00B7' !important;
 }
 
-.association-new {
-	float: right;
-	margin-top: -@spacing-smaller - @spacing-smallest;
+.association .association-new {
+	display: inline-block; color: @white; font-size: @text-shorter; font-weight: 300; text-transform: uppercase; margin: 0; padding: @spacing-smallest @spacing-smallerish; background: @accent;
+
+	&:hover {
+		color: @white;
+	}
 }

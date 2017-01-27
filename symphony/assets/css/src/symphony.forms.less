@@ -332,13 +332,18 @@ button.delete:focus,
 	-webkit-tap-highlight-color: rgba(0,0,0,0);
 	outline: none;
 	border-radius: 0 @radius-current @radius-current 0;
-	float: right; color: @white!important; font-size: @text-shorter; font-weight: 300; text-transform: uppercase; line-height: @spacing-smaller + @spacing-smallest; margin: 0; padding-left: @spacing-smallerish; padding-right: @spacing-smallerish; border: none; background: @accent; height: @field-height-current; cursor: pointer;
+	float: right; color: @white!important; font-size: @text-shorter; font-weight: 300; text-transform: uppercase; line-height: @spacing-smaller + @spacing-smallest; margin: 0; padding-left: @spacing-smallerish; padding-right: @spacing-smallerish; border: none; background: @accent; cursor: pointer;
 }
 
 .apply-button-left,
 .apply-label-left {
 	border-radius: @radius-current 0 0 @radius-current;
 	float: left;
+}
+
+.apply-label-left + div select {
+	border-radius: 0 @radius-current @radius-current 0;
+	border-left: 0;
 }
 
 .apply.inactive button,
