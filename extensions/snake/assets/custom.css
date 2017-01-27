@@ -44,6 +44,11 @@ img.gravatar {
 	position: static;
 }
 
+.field-multilingual_image_upload .tab-panel.file {
+	border-radius: 5px;
+	padding: 1.5rem; border: 1px solid #EAEEF0;
+}
+
 /* Field OEmbed */
 
 .field-oembed label > div {
@@ -71,8 +76,14 @@ img.gravatar {
 
 /* Publish Tab */
 
+.column.primary:after {
+	content: "";
+	display: block; clear: both;
+}
+
 .tab-group {
 	box-sizing: border-box;
+	background: @white;
 }
 
 .tab-group > h2 {
@@ -81,7 +92,7 @@ img.gravatar {
 
 .tab-group:first-child {
 	overflow: auto;
-	position: fixed!important; left: 25rem!important; right: 43rem; top: 8rem!important; bottom: 0; padding: 3rem; padding-right: 3rem; width: auto;
+	position: fixed!important; left: 25rem!important; right: 40rem; top: 8rem!important; bottom: 0; padding: 3rem; padding-right: 3rem; width: auto;
 }
 
 .tab-group:nth-child(2) {
@@ -89,7 +100,8 @@ img.gravatar {
 }
 
 .tab-group:nth-child(n + 2) {
-	position: relative!important; left: 0!important; top: 0!important; margin-left: calc(100% - 40rem); padding-left: 3rem; padding-right: 3rem; width: 43rem;
+	box-sizing: border-box;
+	clear: both; float: right; position: relative!important; left: 0!important; top: 0!important; margin-right: -3rem; padding-left: 3rem; padding-right: 3rem; width: 40rem;
 }
 
 .tab-group:nth-child(n + 3) {

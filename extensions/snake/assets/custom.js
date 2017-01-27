@@ -47,6 +47,31 @@
 			return false;
 		});
 
+		/* Drawers */
+
+		$('#context .actions a.button.drawer').on('click', function(){
+			console.log($(this).attr('class'));
+
+			changeStateDrawer();
+		});
+
+		function changeStateDrawer(){
+			var t = $('#context .actions a.button.drawer');
+			var d = $(t.attr('href'));
+
+			if(t.hasClass('selected')) d.addClass('opened');
+			else d.removeClass('opened');
+		}
+
+		/* ////////////////////////////////////////////////////////////////////////////
+		//
+		// Init
+		//
+		/////////////////////////////////////////////////////////////////////////// */
+
+		changeStateDrawer();
+		onScroll();
+
 		/* ////////////////////////////////////////////////////////////////////////////
 		//
 		// onScroll
@@ -54,8 +79,6 @@
 		/////////////////////////////////////////////////////////////////////////// */
 
 		/* Scroll - Events */
-
-		onScroll();
 
 		win.on('scroll', function(){
 			onScroll();

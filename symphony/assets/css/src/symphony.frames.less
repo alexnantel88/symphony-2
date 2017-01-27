@@ -291,7 +291,7 @@ fieldset.frame,
 // @TODO : there is a problem with the calculating of the max-height of drawers. It's related to the to the adding of a padding on the header on opening.
 // see : .collapsible .instance:not(.collapsed) .frame-header
 
-.collapsible .instance {
+.collapsible > * > li {
 	overflow: hidden; margin-left: -@spacing-smallerish; padding: 0 @spacing-smallerish; width: 100%;
 
 	&:first-child .frame-header {

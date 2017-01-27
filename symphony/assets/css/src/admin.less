@@ -153,6 +153,7 @@ body {
 
 	.tabs {
 		order: 2;
+		box-sizing: border-box;
 		position: absolute; right: 0; top: 100%; margin-top: 1px; padding: 0 @spacing-smallish 0 0; border-bottom: 1px solid @lighter-grey; background: @white; width: @spacing-huger; height: @spacing-midlarge;
 
 		li {
@@ -311,6 +312,10 @@ body {
 
 	> p:first-child {
 		margin: 0 0 @spacing-smallish!important;
+	}
+
+	> form.columns:first-child {
+		margin-right: 0!important;
 	}
 }
 
@@ -652,8 +657,7 @@ div.field-checkbox + .field:not(.field-checkbox) {
 /* File uploads */
 
 .file input {
-	border-radius: @bdr-current;
-	color: @dark-grey; font-size: @text-short; font-weight: 300; padding: @spacing-smallerish; border: 1px solid @lighter-grey;
+	color: @dark-grey; font-size: @text-short; font-weight: 300;
 }
 
 .file .frame input {
@@ -683,16 +687,12 @@ div.field-checkbox + .field:not(.field-checkbox) {
 }
 
 .file em {
-	float: right;
-	color: #998;
-	font-style: normal;
-	border-bottom: @bdr-current rgba(153, 153, 136, 0.3);
-	cursor: pointer;
+	.transitioned(~'color');
+	float: right; color: @light-grey; font-size: @text-short; font-weight: 300; font-style: normal; cursor: pointer;
 }
 
 .file em:hover {
-	color: #d42;
-	border-bottom-color: rgba(221, 68, 34, 0.3);
+	color: @red;
 }
 
 /*.page-single #contents .actions #duplicate-section,
