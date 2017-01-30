@@ -129,18 +129,32 @@ input[type='file'] > input[type='button']::-moz-focus-inner {
 
 /* Errors */
 
-.invalid input
-.invalid select[multiple],
-.invalid textarea {
+.invalid input,
+.invalid select,
+.invalid textarea,
+.invalid .frame {
 	border-color: @red;
 }
 
 .invalid input:active,
 .invalid input:focus,
+.invalid select:active,
+.invalid select:focus,
 .invalid textarea:active,
 .invalid textarea:focus {
 	border-color: @red;
-	box-shadow: 0 0 0.6rem @lighter-grey;
+}
+
+.invalid label {
+	color: @red;
+}
+
+.invalid > p {
+	color: @red; font-weight: 500; padding: @spacing-smallest 0 0;
+
+	br:first-child {
+		display: none;
+	}
 }
 
 /*--------------------------------------------------------------------------
@@ -161,54 +175,7 @@ button,
 	color: @white;
 	line-height: 1.85;
 	border: none;
-	// border-radius: @radius-small;
-	// background-color: @lighter-grey;
 }
-
-/*input[type=submit] {
-	// background-color: @light-grey;
-	// font-weight: bold;
-}
-
-input[type=submit]:hover,
-input[type=submit]:active,
-input[type=submit]:focus {
-	// background-color: @blue;
-	// color: @white;
-}
-
-button:hover,
-button:active,
-button:focus,
-.button:hover,
-.button:active,
-.button:focus {
-	// background-color: @light-grey;
-	cursor: pointer;
-}
-
-button,
-.button,
-input[type="submit"] {
-	outline: @bdr-alt fade(@lighter-grey, 0);
-	outline-offset: @spacing-nano;
-}
-
-button:focus,
-.button:focus,
-input[type="submit"]:focus {
-	outline: @bdr-alt @light-grey;
-}
-
-input[type=submit].selected,
-button.selected,
-.button.selected {
-	color: rgba(0, 0, 0, 0.7);
-	// background: #e3e3df;
-	box-shadow: inset 0 0 0.15rem rgba(0, 0, 0, 0.2);
-	text-shadow: 0.1rem 0.1rem 0 rgba(255, 255, 255, 0.7);
-	cursor: pointer;
-}*/
 
 textarea[disabled=disabled],
 textarea[disabled=disabled]:hover,

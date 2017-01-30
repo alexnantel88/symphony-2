@@ -15,11 +15,11 @@
 -----------------------------------------------------------------------------*/
 
 .notifier {
-	overflow: hidden; position: fixed; bottom: 0; left: 0; right: 0; color: @black; font-size: 87.5%; background: @accent; z-index: 100;
+	overflow: hidden; position: fixed; bottom: 0; left: 0; right: 0; color: @black; font-size: @text-short; background: @accent; z-index: 100;
 }
 
 .notifier nav {
-	display: block; position: absolute; top: 0; right: @spacing-smallish; padding: @spacing-smallerish 0; cursor: pointer;
+	display: block; position: absolute; top: 0; right: @spacing-smallish; padding: @spacing-smallest 0; cursor: pointer;
 }
 
 .notifier nav:before {
@@ -41,7 +41,7 @@
 -----------------------------------------------------------------------------*/
 
 .notice {
-	position: relative; padding: @spacing-smallest @spacing-smallish;
+	position: relative; margin: 0; padding: @spacing-smallest @spacing-smallish;
 }
 
 .notice a {
