@@ -385,7 +385,7 @@ fieldset.settings {
 	}
 
 	p.help {
-		margin: -0.5rem 0 @spacing-smallish;
+		margin: @spacing-smallest 0 0;
 
 		a {
 			border-bottom: 1px solid currentColor;
@@ -605,7 +605,10 @@ fieldset.settings .group label + label,
 .instance label:not(.column) + label:not(.column),
 .instance label + .columns,
 .column > label + label,
-label + .columns.two {
+label + .columns.two,
+#file-actions + label,
+label + .help + label,
+.jit-duplicator ~ label {
 	margin-top: @spacing-smallish;
 }
 

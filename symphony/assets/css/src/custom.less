@@ -222,6 +222,25 @@ div.dt-calendar tbody td:hover {
 	color: @white; background: @accent!important;
 }
 
+/**/
+
+#contents .navigationicons-duplicator > li {
+	.flex(~'row', ~'center', ~'space-between');
+	clear: none;
+
+	span {
+		font-size: @text-short; padding: 0;
+	}
+
+	input.navIcon {
+		font-family: inherit;
+	}
+
+	& + li {
+		margin-top: @spacing-smallest;
+	}
+}
+
 /*--------------------------------------------------------------------------
 	Publish Tab
 --------------------------------------------------------------------------*/
