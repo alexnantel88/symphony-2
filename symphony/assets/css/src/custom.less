@@ -127,10 +127,87 @@ img.gravatar {
 	a.active {
 		color: @accent!important;
 	}
+
+	&.fullscreen {
+		z-index: 90;
+	}
 }
 
 .CodeMirror {
 	font-size: @text-current; border-color: @lighter-grey;
+}
+
+/* Insert */
+
+#contents {
+	table + fieldset.insert {
+		margin: @spacing-smallish 0!important; padding: 0; border: none;
+	}
+
+	fieldset.insert label {
+		.flex(~'row', ~'center', ~'flex-start');
+
+		.input-ip {
+			border-radius: @radius-current 0 0 @radius-current;
+		}
+
+		.input-submit {
+			border-radius: 0 @radius-current @radius-current 0;
+		}
+	}
+}
+
+/* Calendar */
+
+div.dt-calendar td {
+	color: @accent; padding: 0!important; border-color: @lighter-grey;
+}
+
+div.dt-calendar div.date nav {
+	border: none;
+
+	a:hover {
+		color: @accent;
+	}
+
+	a.previous {
+		background-position: 6px -13px!important;
+	}
+
+	a.next {
+		background-position: -15px -13px!important;
+	}
+}
+
+div.dt-calendar div.switch {
+	box-shadow: none;
+	background: @accent!important;
+
+	ul li {
+		font-size: @text-short;
+	}
+}
+
+div.dt-calendar thead td,
+div.dt-calendar thead td:first-child,
+div.dt-calendar thead td:last-child {
+	color: @accent;
+}
+
+div.dt-calendar td.last,
+div.dt-calendar td.next {
+	color: @lighter-grey;
+}
+
+div.dt-calendar td:first-child,
+div.dt-calendar td:last-child {
+	background: none;
+}
+
+div.dt-calendar td.selected,
+div.dt-calendar td.selected.today,
+div.dt-calendar tbody td:hover {
+	color: @white; background: @accent!important;
 }
 
 /*--------------------------------------------------------------------------

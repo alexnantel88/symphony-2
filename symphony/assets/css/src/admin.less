@@ -195,7 +195,7 @@ body {
 		}
 
 		button {
-			font-size: @text-shorter; font-weight: 300; text-transform: uppercase; padding: @spacing-smallest @spacing-smallerish; border-radius: @radius-current; cursor: pointer;
+			font-size: @text-shorter; font-weight: 300; text-transform: uppercase; padding: @spacing-smallest @spacing-smallerish; border-radius: @radius-current; background: @accent; cursor: pointer;
 
 			&:hover {
 				background: @darker-grey;
@@ -298,7 +298,7 @@ body.entry_relationship.page-index #contents .actions {
 
 	#save-panel {
 		a {
-			color: currentColor; border-color: currentColor;
+			color: currentColor; line-height: 1.8em; border-color: currentColor;
 
 			&:hover {
 				border-color: transparent;
@@ -326,10 +326,14 @@ body.entry_relationship.page-index #contents .actions {
 			margin: 0; padding: 0;
 
 			input {
-				font-size: @text-shorter; font-weight: 300; text-transform: uppercase; padding: @spacing-smallest @spacing-smallerish; border: none; background: @accent; border-radius: @radius-current; cursor: pointer;
+				font-size: @text-shorter; font-weight: 300; text-transform: uppercase; margin: 0; padding: @spacing-smallest @spacing-smallerish; border: none; background: @accent; border-radius: @radius-current; cursor: pointer;
 
 				&:hover {
 					background: @darker-grey;
+				}
+
+				& + input {
+					margin-left: @spacing-smallest;
 				}
 			}
 		}

@@ -38,6 +38,20 @@
 
 		/* Tabs - Init */
 
+		if($('.secondary.column .tab-group').length > 1){
+			$('.secondary.column .tab-group').parents('.columns.two').removeClass('columns two');
+
+			$('.secondary.column .tab-group').each(function(){
+				var t = $(this);
+				var classes = t.attr('class').split(' ');
+
+				if($('.primary.column .'+classes[1]).length) $('.primary.column .'+classes[1]).append(t.html());
+				else $('.primary.column').append(t);
+			});
+
+			$('.secondary.column .tab-group').remove();
+		}
+
 		$('.tab-group:not(:first-child)').each(function(){
 			var t = $(this);
 			var title = $('#context .tabs li').eq(t.index()).html();
