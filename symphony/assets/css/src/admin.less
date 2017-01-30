@@ -356,7 +356,7 @@ body.entry_relationship.page-index #contents .actions {
 		margin: 0 0 @spacing-smallish!important;
 	}
 
-	> form.columns:first-child {
+	> form:first-child {
 		margin-right: 0!important;
 	}
 }
@@ -423,6 +423,10 @@ fieldset.settings {
 		text-indent: 0;
 		background: @white;
 	}
+
+	> .columns.two .column {
+		margin-bottom: 0;
+	}
 }
 
 #password {
@@ -436,31 +440,6 @@ fieldset.settings {
 }
 
 div.password {
-	display: none;
-}
-
-/* Condensed, pickable settings, e. g. email gateways */
-
-.js-active .settings.condensed:not(.pickable) {
-	margin-bottom: 0.5rem;
-}
-
-.js-active .settings.condensed:not(.pickable) label {
-	margin-bottom: 0;
-}
-
-.js-active .settings.pickable.condensed {
-	margin-bottom: 0;
-	padding-bottom: 0;
-	border-bottom: none;
-}
-
-.js-active .settings.pickable.condensed {
-	padding-top: 0;
-	border-top: 0;
-}
-
-.js-active .settings.pickable.condensed legend {
 	display: none;
 }
 
@@ -622,9 +601,11 @@ label {
 label.tab-en + label.tab-en,
 label.tab-fr + label.tab-fr,
 fieldset.settings .column + .columns > .column > label,
+fieldset.settings .group label + label,
 .instance label:not(.column) + label:not(.column),
 .instance label + .columns,
-.column.primary > label + label {
+.column > label + label,
+label + .columns.two {
 	margin-top: @spacing-smallish;
 }
 

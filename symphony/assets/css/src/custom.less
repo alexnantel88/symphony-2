@@ -103,7 +103,19 @@ img.gravatar {
 }
 
 .field-datetime header em.label {
-	font-size: @text-shorter; text-transform: uppercase; font-weight: 300;
+	top: 6px; font-size: @text-shorter; text-transform: uppercase; font-weight: 300;
+}
+
+.field-datetime .frame {
+	margin-top: @spacing-smallest; padding: 0.8rem @spacing-smallerish;
+}
+
+.field-datetime .frame header div {
+	padding: 0;
+}
+
+fieldset.primary div.dt-calendar {
+	padding: @spacing-smallish 0 @spacing-smallest!important;
 }
 
 /* Image Upload */
@@ -164,7 +176,7 @@ div.dt-calendar td {
 }
 
 div.dt-calendar div.date nav {
-	border: none;
+	padding-bottom: @spacing-micro; border: none;
 
 	a:hover {
 		color: @accent;
@@ -181,7 +193,7 @@ div.dt-calendar div.date nav {
 
 div.dt-calendar div.switch {
 	box-shadow: none;
-	background: @accent!important;
+	background: @accent!important; height: 20px;
 
 	ul li {
 		font-size: @text-short;
