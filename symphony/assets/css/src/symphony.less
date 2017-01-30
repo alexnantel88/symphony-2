@@ -147,19 +147,18 @@ code,
 }
 
 pre {
-	margin-bottom: @spacing-smaller;
-	color: @darker-grey;
-	font: inherit;
-	white-space: normal;
-	background: @lightest-grey;
+	border-radius: @radius-current;
+	color: @darker-grey; margin-bottom: @spacing-smaller; border: 1px solid @lighter-grey; white-space: normal;
 }
 
 pre code {
 	display: block;
 	overflow: auto;
-	padding: @spacing-smallest;
+	font-size: @text-short;
+	font-family: inherit;
+	line-height: 1.4em;
+	padding: @spacing-smallerish;
 	white-space: pre-wrap;
-	border: 1px solid @lighter-grey;
 }
 
 i code {

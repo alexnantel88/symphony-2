@@ -149,7 +149,7 @@ body {
 
 	/* Tabs */
 
-	.tabs {
+	> .tabs {
 		order: 2;
 		box-sizing: border-box;
 		position: absolute; right: 0; top: 100%; margin-top: 1px; padding: 0 @spacing-smallish 0 0; border-bottom: 1px solid @lighter-grey; background: @white; width: @spacing-huger; height: @spacing-midlarge;
@@ -175,7 +175,7 @@ body {
 
 	/* Actions */
 
-	.actions {
+	> .actions {
 		.flex(~'row', ~'center', ~'flex-start');
 		order: 3;
 		margin: 0; padding: 0 @spacing-smallish;
@@ -291,6 +291,51 @@ body.entry_relationship.page-index #contents .actions {
 	}
 }
 
+/* Drawer Dashboard */
+
+#drawer-dashboard {
+	position: absolute; right: 0; top: 100%; padding: @spacing-smallish; border: 1px solid @lighter-grey; background: @white; z-index: 60;
+
+	#save-panel {
+		a {
+			color: currentColor; border-color: currentColor;
+
+			&:hover {
+				border-color: transparent;
+			}
+		}
+
+		h3 {
+			color: @darker-grey; font-size: @text-big; font-weight: 300; padding: 0 0 @spacing-smallish; border: none;
+
+			span {
+				position: relative; left: 0; color: @accent;
+			}
+		}
+
+		fieldset {
+			border: none;
+
+			label + label {
+				margin-top: @spacing-smallish;
+			}
+		}
+
+		.actions {
+			.flex(~'row', ~'center', ~'flex-start');
+			margin: 0; padding: 0;
+
+			input {
+				font-size: @text-shorter; font-weight: 300; text-transform: uppercase; padding: @spacing-smallest @spacing-smallerish; border: none; background: @accent; border-radius: @radius-current; cursor: pointer;
+
+				&:hover {
+					background: @darker-grey;
+				}
+			}
+		}
+	}
+}
+
 /*--------------------------------------------------------------------------
 	Contents
 --------------------------------------------------------------------------*/
@@ -323,12 +368,28 @@ fieldset.settings {
 		position: absolute; top: -0.4rem; left: 0; line-height: 1.4em; width: 17rem;
 	}
 
+	> p a {
+		color: @accent;
+
+		&:hover {
+			color: currentColor;
+		}
+	}
+
 	select {
 		width: 100%;
 	}
 
 	p.help {
 		margin: -0.5rem 0 @spacing-smallish;
+
+		a {
+			border-bottom: 1px solid currentColor;
+
+			&:hover {
+				border-color: transparent;
+			}
+		}
 	}
 
 	input + p.help,
@@ -337,9 +398,7 @@ fieldset.settings {
 	}
 
 	> legend + .help {
-		position: absolute;
-		width: @spacing-larger;
-		margin: 2.5rem 0 0 -@spacing-largest;
+		position: absolute; line-height: 1.8em; margin: 2.5rem 0 0 -@spacing-largest; width: @spacing-larger; width: 17rem;
 
 		p {
 			margin: 0 0 @spacing-smaller;
@@ -548,10 +607,10 @@ label {
 	}
 
 	a {
-		color: @accent;
+		color: currentColor; border-bottom: 1px solid currentColor;
 
 		&:hover {
-			color: currentColor;
+			border-color: transparent;
 		}
 	}
 }

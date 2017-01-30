@@ -19,7 +19,6 @@
 }
 
 .frame h1 {
-	//margin: -(@spacing-smallest + @bdr-mid) -(@spacing-smallest - @bdr-mid) @spacing-smaller;
 	padding: @spacing-smallest;
 	color: @white;
 	font-size: inherit;
@@ -33,12 +32,6 @@
 	height: 3rem;
 	border: 1px solid @lighter-grey;
 }
-
-/*.frame::after {
-	content: '';
-	display: block;
-	clear: both;
-}*/
 
 .frame ol,
 .frame ul {
@@ -232,6 +225,7 @@ fieldset.frame,
 // @TODO : there is a problem with the calculating of the max-height of drawers. It's related to the to the adding of a padding on the header on opening.
 // see : .collapsible .instance:not(.collapsed) .frame-header
 
+.constructable > * > li,
 .collapsible > * > li {
 	overflow: hidden; margin-left: -@spacing-smallerish; padding: 0 @spacing-smallerish; width: 100%;
 
@@ -284,6 +278,10 @@ fieldset.frame,
 	}
 }
 
+.collapsible .field-publishnotes {
+	margin-top: 0;
+}
+
 /*-----------------------------------------------------------------------------
 	Duplicators
 -----------------------------------------------------------------------------*/
@@ -304,39 +302,6 @@ fieldset.frame,
 /*-----------------------------------------------------------------------------
 	Invalid states
 -----------------------------------------------------------------------------*/
-
-/*.invalid {
-	display: block;
-	box-sizing: border-box;
-	margin: 0 0 1.5rem;
-	padding: 1rem;
-	color: #fff;
-	border: 0.1rem solid #c31;
-	border-radius: 0.4rem;
-	background: #eb6347;
-}
-
-.invalid p {
-	clear: both;
-	margin: 0;
-}
-
-.invalid p,
-.invalid a {
-	color: rgba(255, 255, 255, 0.7);
-}
-
-.invalid a:hover {
-	color: #fff;
-}
-
-.invalid label {
-	margin-bottom: 1rem;
-}
-
-.invalid i {
-	color: rgba(255, 255, 255, 0.5);
-}*/
 
 /* Errors */
 
