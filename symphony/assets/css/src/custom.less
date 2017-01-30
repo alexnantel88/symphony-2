@@ -119,6 +119,10 @@ img.gravatar {
 
 .editor-toolbar {
 	margin-top: 0; border-color: @lighter-grey;
+
+	a.active {
+		color: @accent!important;
+	}
 }
 
 .CodeMirror {
@@ -145,7 +149,7 @@ img.gravatar {
 
 .tab-group:first-child {
 	overflow: auto;
-	position: fixed!important; left: 25rem!important; right: @spacing-huger; top: @spacing-midlarge!important; bottom: 0; padding: @spacing-smallish; padding-right: @spacing-smallish; width: auto;
+	position: fixed!important; left: 25.1rem!important; right: @spacing-huger; top: @spacing-midlarge!important; bottom: 0; padding: @spacing-smallish; padding-right: @spacing-smallish; width: auto; z-index: 70;
 }
 
 .tab-group:nth-child(2) {
@@ -190,7 +194,11 @@ table.selectable td.field-checkbox input.ajax-checkbox {
 		}
 
 		> button {
-			border-radius: @radius-current; font-size: @text-shorter; font-weight: 300; text-transform: uppercase; line-height: @spacing-smallish; margin: 0 0 0 @spacing-smallest; padding: @spacing-micro @spacing-smallerish; background: @accent;
+			border-radius: @radius-current; font-size: @text-shorter; font-weight: 300; text-transform: uppercase; line-height: @spacing-smallish; margin: 0 0 0 @spacing-smallest; padding: @spacing-micro @spacing-smallerish; background: @accent; cursor: pointer;
+		
+			&:hover {
+				background: @darker-grey;
+			}
 		}
 	}
 }

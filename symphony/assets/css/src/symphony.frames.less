@@ -90,65 +90,6 @@
 	}
 }
 
-/*.main::before,
-.sidebar::before {
-	content: '';
-	display: block;
-	float: left;
-	width: 0.1rem;
-	height: @spacing-smallest;
-	margin: @spacing-smallest * .75 @spacing-smallest * .75 0 0;
-	border-right: @spacing-micro solid @light-grey;
-	border-left: @spacing-micro * .75 solid @grey;
-}
-
-.sidebar::before {
-	border-right: @spacing-micro solid #b8b8b8;
-	border-left: @spacing-smallest solid #dcdcdc;
-}
-
-.highlight .main::before {
-	border-right: @spacing-micro solid #b9b9b9;
-	border-left: @spacing-smallest solid #747474;
-}
-
-.highlight .sidebar::before {
-	border-right: @spacing-micro solid #747474;
-	border-left: @spacing-smallest solid #b9b9b9;
-}*/
-
-/* Content: light scheme */
-
-/*.frame .content {
-	box-sizing: border-box;
-	padding: @spacing-smallest;
-	border-bottom: 1px solid @lighter-grey;
-}
-
-.frame .content fieldset {
-	border-top-color: @light-grey;
-}*/
-
-/* Content: dark scheme */
-
-/*.frame.dark .content {
-	color: @white;
-	background: @darker-grey;
-}
-
-.frame.dark legend {
-	background: transparent;
-}
-
-.frame.dark i,
-.frame.dark ul.tags {
-	color: @dark-grey;
-}
-
-.frame.dark fieldset {
-	border-top-color: @darker-grey;
-}*/
-
 /*--------------------------------------------------------------------------
 	Inline frames (e. g. upload fields)
 --------------------------------------------------------------------------*/
@@ -280,20 +221,6 @@ fieldset.frame,
 	color: #bdcbdd;
 }
 
-/*.frame .ordering .main::before {
-	border-right: 0.3rem solid #7c9bc7;
-	border-left: 0.6rem solid #cedaea;
-}
-
-.frame .ordering .sidebar::before {
-	border-right: 0.3rem solid #cedaea;
-	border-left: 0.6rem solid #7c9bc7;
-}
-
-.frame .highlight {
-	background: @lightest-grey;
-}*/
-
 /*-----------------------------------------------------------------------------
 	Collapsibles
 
@@ -356,29 +283,6 @@ fieldset.frame,
 		color: @accent;
 	}
 }
-
-/*.collapsible .frame-header:hover {
-	background-color: fade(@lighter-grey, 50%);
-}
-
-.collapsible .instance.collapsed .frame-header:before,
-.collapsible .instance.collapsed .frame-header h4 {
-	transition: all @duration-shortest @easeInOutQuad;
-}
-
-.collapsible .instance.collapsed .frame-header:hover:before,
-.collapsible .instance.collapsed .frame-header:hover h4 {
-	transform: translateY(@spacing-micro);
-}
-
-.collapsible .instance:not(.collapsed) .frame-header:hover,
-.collapsible .instance:not(.collapsed) .frame-header:hover ~ .content {
-	background-color: fade(@light-grey, 40%);
-}
-
-.collapsible .frame-header ~ .content {
-	background-color: @lighter-grey;
-}*/
 
 /*-----------------------------------------------------------------------------
 	Duplicators
