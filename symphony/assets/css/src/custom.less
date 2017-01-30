@@ -96,28 +96,6 @@ img.gravatar {
 	padding: 0; border: none; background: transparent;
 }
 
-/* Datetime */
-
-.field-datetime .collapsible > * > li:last-child {
-	margin-bottom: 0;
-}
-
-.field-datetime header em.label {
-	top: 6px; font-size: @text-shorter; text-transform: uppercase; font-weight: 300;
-}
-
-.field-datetime .frame {
-	margin-top: @spacing-smallest; padding: 0.8rem @spacing-smallerish;
-}
-
-.field-datetime .frame header div {
-	padding: 0;
-}
-
-fieldset.primary div.dt-calendar {
-	padding: @spacing-smallish 0 @spacing-smallest!important;
-}
-
 /* Image Upload */
 
 .field-multilingual_image_upload .tab-panel.file {
@@ -170,6 +148,42 @@ fieldset.primary div.dt-calendar {
 }
 
 /* Calendar */
+
+.field-datetime .collapsible > * > li:last-child {
+	margin-bottom: 0;
+}
+
+.field-datetime header em.label {
+	top: 2px; font-size: @text-shorter; text-transform: uppercase; font-weight: 300;
+}
+
+.field-datetime .frame {
+	margin-top: @spacing-smallest; padding: 0.8rem @spacing-smallerish;
+}
+
+.field-datetime .frame header div {
+	padding: 0;
+}
+
+fieldset.primary div.dt-calendar {
+	padding: @spacing-smallish 0 @spacing-smallest!important;
+
+	div.date:not(:last-child) {
+		display: block!important; padding: 0!important; width: 100%!important;
+	}
+}
+
+fieldset.primary div.timer {
+	display: block!important; padding: 0!important; width: 100%!important;
+
+	div.timeline {
+		border-color: @accent; background: @accent;
+
+		span {
+			border-color: rgba(0,0,0,0.1);
+		}
+	}
+}
 
 div.dt-calendar td {
 	color: @accent; padding: 0!important; border-color: @lighter-grey;

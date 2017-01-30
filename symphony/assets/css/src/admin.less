@@ -600,6 +600,8 @@ label {
 
 label.tab-en + label.tab-en,
 label.tab-fr + label.tab-fr,
+fieldset.settings > label + label,
+fieldset.settings > input[type="hidden"] + label,
 fieldset.settings .column + .columns > .column > label,
 fieldset.settings .group label + label,
 .instance label:not(.column) + label:not(.column),
@@ -608,7 +610,9 @@ fieldset.settings .group label + label,
 label + .columns.two,
 #file-actions + label,
 label + .help + label,
-.jit-duplicator ~ label {
+.jit-duplicator ~ label,
+.two.columns + label,
+#password {
 	margin-top: @spacing-smallish;
 }
 
