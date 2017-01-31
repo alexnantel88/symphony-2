@@ -23,12 +23,12 @@ table {
 }
 
 th {
-	color: @dark-grey; font-size: 68.7%; font-weight: 300; text-transform: uppercase; padding: @spacing-smallerish @spacing-smallish; background: @lightest-grey;
+	color: @dark-grey; font-size: 68.7%; font-weight: 300; text-transform: uppercase; line-height: 1.4em; padding: @spacing-smallerish @spacing-smallish; background: @lightest-grey;
 }
 
 td {
 	.transitioned(~'color, background');
-	color: @dark-grey; font-weight: 300; padding: @spacing-smallerish @spacing-smallish!important; border-top: 1px solid @lighter-grey; vertical-align: middle;
+	color: @dark-grey; font-weight: 300; line-height: 1.4em; padding: @spacing-smallerish @spacing-smallish!important; border-top: 1px solid @lighter-grey; vertical-align: middle;
 
 	a {
 		color: @accent;
@@ -38,43 +38,6 @@ td {
 		}
 	}
 }
-
-/*@media screen and (max-width: 700px) {
-	td, th {
-		width: 0;
-		display: none;
-	}
-	th:first-child,
-	td:first-child {
-		width: 100%;
-		display: block;
-	}
-}
-
-tr:nth-child(even) td {
-	background-color: transparent;
-}
-
-tbody a {
-	padding-top: @spacing-micro;
-}
-
-table input {
-	float: right;
-	margin-right: @spacing-smaller;
-}
-
-th span {
-	float: left;
-	overflow: hidden;
-	max-width: 90%;
-	white-space: nowrap;
-	text-overflow: ellipsis;
-}
-
-th a {
-	border-bottom: none;
-}*/
 
 th a,
 th a:hover,

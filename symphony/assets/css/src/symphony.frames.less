@@ -15,7 +15,7 @@
 .frame {
 	box-sizing: border-box;
 	border-radius: @radius-current;
-	position: relative; margin: 0; padding: @spacing-smallerish; border: 1px solid @lighter-grey; background: none;
+	position: relative; margin: 0; padding: @spacing-smallerish; border: 1px solid @lighter-grey; background: @lightest-grey;
 }
 
 .frame h1 {
@@ -68,7 +68,7 @@
 /* Headers */
 
 .frame-header {
-	position: relative; margin-left: -@spacing-smallerish; padding: @spacing-smallerish; border-top: 1px solid @lighter-grey; width: 100%;
+	position: relative; padding: @spacing-smallerish; border-top: 1px solid @lighter-grey;
 }
 
 .frame-header h4 {
@@ -233,16 +233,21 @@ fieldset.frame,
 // @TODO : there is a problem with the calculating of the max-height of drawers. It's related to the to the adding of a padding on the header on opening.
 // see : .collapsible .instance:not(.collapsed) .frame-header
 
+.constructable,
+.collapsible {
+	padding: 0;
+}
+
 .constructable > * > li,
 .collapsible > * > li {
 	overflow: hidden; margin-left: -@spacing-smallerish; padding: 0 @spacing-smallerish; width: 100%;
 
 	&:first-child .frame-header {
-		margin-top: -@spacing-smallerish; border: none;
+		border: none;
 	}
 
-	&:last-child {
-		margin-bottom: -@spacing-smallerish;
+	.content {
+		padding: @spacing-smallerish;
 	}
 }
 

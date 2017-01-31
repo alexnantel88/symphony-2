@@ -359,6 +359,14 @@ body.entry_relationship.page-index #contents .actions {
 	> form:first-child {
 		margin-right: 0!important;
 	}
+
+	&.centered-content {
+		.flex(~'column', ~'center', ~'center');
+
+		> form {
+			width: 100%; max-width: @max-width-big;
+		}
+	}
 }
 
 /*--------------------------------------------------------------------------

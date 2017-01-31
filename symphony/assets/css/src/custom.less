@@ -99,6 +99,7 @@ img.gravatar {
 /* Image Upload */
 
 .field-multilingual_image_upload .tab-panel.file {
+	.flex(~'column-reverse', ~'center', ~'center');
 	border-radius: @radius-current;
 	padding: @spacing-smallerish; border: 1px solid @lighter-grey;
 }
@@ -148,12 +149,30 @@ img.gravatar {
 	}
 
 	&.fullscreen {
-		z-index: 90;
+		z-index: 100;
 	}
 }
 
 .CodeMirror {
-	font-size: @text-current; border-color: @lighter-grey;
+	color: @dark-grey; font-size: @text-current; font-weight: 300; padding: @spacing-smallerish; border-color: @lighter-grey;
+
+	.CodeMirror-code {
+		.cm-header {
+			font-weight: 300; line-height: 1.2em;
+		}
+
+		.cm-header-1 {
+			font-size: @text-biggest;
+		}
+
+		.cm-header-2 {
+			font-size: @text-bigger;
+		}
+	}
+}
+
+.editor-fullscreen .tab-group:first-child {
+	z-index: 100;
 }
 
 /* Insert */
@@ -182,23 +201,34 @@ img.gravatar {
 	margin-bottom: 0;
 }
 
-.field-datetime header em.label {
-	top: 2px; font-size: @text-shorter; text-transform: uppercase; font-weight: 300;
-}
-
 .field-datetime .frame {
 	margin-top: @spacing-smallest; padding: 0.8rem @spacing-smallerish;
-}
 
-.field-datetime .frame header div {
-	padding: 0;
-}
+	header {
+		div, div.focus {
+			box-shadow: none;
+			margin: 0; padding: 0!important; border: none; background: none;
+		}
+
+		input {
+			background: none;
+		}
+
+		em.label {
+			color: @dark-grey; top: 2px; font-size: @text-shorter; text-transform: uppercase; font-weight: 300;
+		}
+	}
+} 
 
 fieldset.primary div.dt-calendar {
-	padding: @spacing-smallish 0 @spacing-smallest!important;
+	padding: @spacing-smallish 0 @spacing-smallest!important; 
 
 	div.date:not(:last-child) {
 		display: block!important; padding: 0!important; width: 100%!important;
+	}
+
+	table {
+		background: @white;
 	}
 }
 
@@ -304,7 +334,7 @@ div.dt-calendar tbody td:hover {
 
 .tab-group:first-child {
 	overflow: auto;
-	position: fixed!important; left: 25.1rem!important; right: @spacing-huger; top: @spacing-midlarge!important; bottom: 0; padding: @spacing-smallish; padding-right: @spacing-smallish; width: auto; z-index: 70;
+	position: fixed!important; left: 25.1rem!important; right: @spacing-huger; top: @spacing-midlarge!important; bottom: 0; padding: @spacing-smallish; padding-right: @spacing-smallish; width: auto;
 
 	> h2 {
 		padding-top: @spacing-smallest + @spacing-midlarge;

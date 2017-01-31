@@ -9,6 +9,8 @@
 		context: '#context',
 		contextTabs: '#context .tabs li',
 		contextDrawers: '#context .actions a.button.drawer',
+		contents: '#contents',
+		contentsForm: '#contents > form',
 		tabGroup: '.tab-group',
 		secTabGroup: '.secondary.column .tab-group',
 		priTabGroup: '.primary.column .tab-group',
@@ -16,7 +18,8 @@
 		secColumn: '.secondary.column',
 		priColumn: '.primary.column',
 		multiTabsEl: '.field-multilingual ul.tabs li',
-		multiLabel: '.field-multilingual > .container > label'
+		multiLabel: '.field-multilingual > .container > label',
+		editorEl: '.editor-toolbar a'
 	};
 
 	var ready = function () {
@@ -63,6 +66,10 @@
 		/*
 		// Context Tabs
 		_____________________________________________ */
+
+		/* Init - Determine how to center content */
+
+		if(!$(o.tabGroup).length) $(o.contents).addClass('centered-content');
 
 		/* Init - TEMP repartition of the divided tabs in the Primary Column */
 
@@ -113,6 +120,21 @@
 		// Contents
 		//
 		/////////////////////////////////////////////////////////////////////////// */
+
+		/*
+		// Markdown
+		_____________________________________________ */
+
+		/* Trigger fullscreen state on Body */
+
+		$(o.editorEl).on('click', function(){
+			var t = $(this).parents('.editor-toolbar');
+
+			setTimeout(function(){
+				if(t.hasClass('fullscreen')) $('body').addClass('editor-fullscreen');
+				else $('body').removeClass('editor-fullscreen');
+			}, 100);
+		});
 
 		/*
 		// Multilingual Fields
