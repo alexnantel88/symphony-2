@@ -25,15 +25,10 @@
 .notifier nav:before {
 	content: '\2193';
 	padding-right: 0.3rem;
-	opacity: 0.2;
 }
 
 .notifier .notice:last-child nav:before {
 	content: '\2191';
-}
-
-.notifier nav:hover:before {
-	opacity: 0.5;
 }
 
 /*-----------------------------------------------------------------------------
@@ -41,72 +36,41 @@
 -----------------------------------------------------------------------------*/
 
 .notice {
-	position: relative; margin: 0; padding: @spacing-smallest @spacing-smallish;
+	position: relative; font-weight: 300; margin: 0; border: none; padding: @spacing-smallest @spacing-smallish;
 }
 
 .notice a {
 	margin: 0 0.3rem;
-	color: @lightest-grey;
-	border-bottom: 1px solid @lighter-grey;
-}
+	color: currentColor;
+	border-bottom: 1px solid currentColor;
 
-.notice a:hover,
-.notice a:active,
-.notice a:focus {
-	color: #e4ece4;
-	border-color: #9b9b9b;
+	&:hover {
+		border-color: transparent;
+	}
 }
 
 /* Success messages */
 
 .notice.success {
-	color: #6d7841;
-	border-color: #90c349;
-	background-color: #bfdc96;
-	transition: color @duration @easeInOutQuad, border-color @duration @easeInOutQuad, background-color @duration @easeInOutQuad;
+	color: @darker-grey;
+	background: #bfdc96;
 }
 
-.notice.success a {
-	color: #4e5b39;
-	border-color: #a1bf7e;
-	transition: color @duration @easeInOutQuad, border-color @duration @easeInOutQuad;
-}
-
-.notice.success.dimmed {
-	color: #9b9b9b;
-	border-color: #575757;
-	background-color: #383838;
+/*.notice.success.dimmed {
+	color: @white;
+	border-color: @darker-grey;
+	background-color: @darker-grey;
 }
 
 .notice.success.dimmed a {
-	color: #bdc3c3;
-	border-color: #7c7c7c;
-}
- 
-.notice.success a:hover {
-	color: #333c25;
-	border-color: #4e5b39;
-}
-
-.notice.success.dimmed a:hover {
-    color: #dbdede;
-    border-color: #bdc3c3;
-}
+	color: @white;
+	border-color: @white;
+}*/
 
 /* Errors messages */
 
 .notice.error {
-	color: #bd7053;
-	border-color: #e7a973;
-	background-color: #fff9a2;
-}
-
-.notice.error a {
-	color: #b02d3c;
-	border-bottom: 0.1rem solid #eed08a;
-}
-
-.notice.error a:hover {
-	color: #87232e;
-	border-bottom: 0.1rem solid #b02d3c;
+	color: @white;
+	border-color: @red;
+	background-color: @red;
 }
