@@ -36,7 +36,7 @@
 -----------------------------------------------------------------------------*/
 
 .notice {
-	position: relative; font-weight: 300; margin: 0; border: none; padding: @spacing-smallest @spacing-smallish;
+	position: relative; color: @white; font-size: @text-short; font-weight: 300; margin: 0; border: none; padding: @spacing-smallest @spacing-smallish;
 }
 
 .notice a {
@@ -52,25 +52,11 @@
 /* Success messages */
 
 .notice.success {
-	color: @darker-grey;
-	background: #bfdc96;
+	background: @accent;
 }
-
-/*.notice.success.dimmed {
-	color: @white;
-	border-color: @darker-grey;
-	background-color: @darker-grey;
-}
-
-.notice.success.dimmed a {
-	color: @white;
-	border-color: @white;
-}*/
 
 /* Errors messages */
 
 .notice.error {
-	color: @white;
-	border-color: @red;
-	background-color: @red;
+	background: @red;
 }

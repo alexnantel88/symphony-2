@@ -68,26 +68,27 @@
 /* Headers */
 
 .frame-header {
-	position: relative; padding: @spacing-smallerish; border-top: 1px solid @lighter-grey;
-}
+	.flex(~'row', ~'center', ~'space-between');
+	position: relative; padding: @spacing-smallest @spacing-smallerish; border-top: 1px solid @lighter-grey;
 
-.frame-header h4 {
-	display: inline-block; font-size: @text-current;
+	h4 {
+		display: inline-block; font-size: @text-short;
 
-	* {
-		.transitioned(~'color');
-	}
+		* {
+			.transitioned(~'color');
+		}
 
-	strong {
-		font-weight: 300;
-	}
+		strong {
+			font-weight: 300;
+		}
 
-	span {
-		color: @dark-grey; font-size: @text-short; font-weight: 300; padding-left: @spacing-smallest;
-	}
+		span {
+			color: @dark-grey; font-size: @text-short; font-weight: 300; padding-left: @spacing-smallest;
+		}
 
-	.required {
-		font-style: italic;
+		.required {
+			font-style: italic;
+		}
 	}
 }
 
@@ -152,7 +153,7 @@ fieldset.frame,
 
 .frame .destructor,
 .frame .debug {
-	position: absolute; top: @spacing-smallerish; right: @spacing-smallerish; color: @light-grey; font-size: @text-short; font-weight: 300; margin: 0;
+	color: @light-grey; font-size: @text-short; font-weight: 300; margin: 0;
 }
 
 .frame .destructor:hover,
@@ -240,14 +241,14 @@ fieldset.frame,
 
 .constructable > * > li,
 .collapsible > * > li {
-	overflow: hidden; margin-left: -@spacing-smallerish; padding: 0 @spacing-smallerish; width: 100%;
+	overflow: hidden; margin-left: -@spacing-smallerish; padding: 0 @spacing-smallerish!important; width: 100%;
 
 	&:first-child .frame-header {
 		border: none;
 	}
 
 	.content {
-		padding: @spacing-smallerish;
+		padding: @spacing-smallerish; border-top: 1px solid @lighter-grey; background: @white;
 	}
 }
 

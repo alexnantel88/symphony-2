@@ -77,24 +77,27 @@ img.gravatar {
 	Fields
 --------------------------------------------------------------------------*/
 
-/* Multilingual */
-
-.field-multilingual ul.tabs li {
-	font-size: @text-shorter; text-transform: uppercase; line-height: 1.4em; padding-bottom: 0.6rem;
-}
-
-.field-multilingual .container, .field-datetime {
-	position: relative;
-}
-
 .field-multilingual .container > label,
 .field-datetime > label {
 	position: static;
 }
 
-#contents .field-multilingual .invalid > div {
-	padding: 0; border: none; background: transparent;
+.field-multilingual .container,
+.field-datetime {
+	position: relative;
 }
+
+/* Multilingual */
+
+#contents .field-multilingual {
+	.invalid > div {
+		padding: 0; border: none; background: transparent;
+	}
+
+	ul.tabs li {
+		font-size: @text-shorter; text-transform: uppercase; line-height: 1.4em; padding-bottom: 0.6rem;
+	}
+} 
 
 /* Image Upload */
 
@@ -126,7 +129,7 @@ img.gravatar {
 
 		> a {
 			border-radius: @radius-current;
-			color: @white; font-size: @text-shorter; font-style: normal; line-height: @spacing-smaller; margin-bottom: @spacing-smallest; padding: 0 @spacing-smallest; background: @accent; cursor: pointer;
+			color: @white; font-size: @text-shorter; font-style: normal; font-weight: 300; text-transform: uppercase; line-height: @spacing-smaller; margin-bottom: @spacing-smallest; padding: 0 @spacing-smallest; border: none; background: @accent; cursor: pointer;
 
 			&:hover {
 				background: @darker-grey;
@@ -186,20 +189,16 @@ img.gravatar {
 		.flex(~'row', ~'center', ~'flex-start');
 
 		.input-ip {
-			border-radius: @radius-current 0 0 @radius-current;
+			line-height: 1.5; border-radius: @radius-current 0 0 @radius-current;
 		}
 
 		.input-submit {
-			border-radius: 0 @radius-current @radius-current 0;
+			line-height: 3.2; padding: @spacing-micro @spacing-smallerish; border-radius: 0 @radius-current @radius-current 0;
 		}
 	}
 }
 
 /* Calendar */
-
-.field-datetime .collapsible > * > li:last-child {
-	margin-bottom: 0;
-}
 
 .field-datetime .frame {
 	margin-top: @spacing-smallest; padding: 0.8rem @spacing-smallerish;
@@ -211,91 +210,99 @@ img.gravatar {
 		}
 
 		input {
-			background: none;
+			background-color: none;
+
+			&.end {
+				padding-left: 22px; padding-top: 7px; background-position: 2px 10px;
+			}
 		}
 
 		em.label {
-			color: @dark-grey; top: 2px; font-size: @text-shorter; text-transform: uppercase; font-weight: 300;
+			top: 2px; right: 0; color: @dark-grey; font-size: @text-shorter; text-transform: uppercase; font-weight: 300;
+
+			&.end {
+				top: 32px;
+			}
 		}
 	}
-} 
 
-fieldset.primary div.dt-calendar {
-	padding: @spacing-smallish 0 @spacing-smallest!important; 
+	div.dt-calendar {
+		margin: 0 auto; padding: @spacing-smallish 0 @spacing-smallest!important; border: none; background: none; max-width: 30rem;
 
-	div.date:not(:last-child) {
-		display: block!important; padding: 0!important; width: 100%!important;
+		div.date:not(:last-child) {
+			display: block!important; padding: 0!important; width: 100%!important;
+		}
+
+		table {
+			background: @white;
+		}
+
+		div.switch {
+			box-shadow: none;
+			background: @accent!important; height: 20px;
+
+			ul li {
+				font-size: @text-short;
+			}
+		}
+
+		div.date nav {
+			padding-bottom: @spacing-micro; border: none;
+
+			a:hover {
+				color: @accent;
+			}
+
+			a.previous {
+				background-position: 6px -13px!important;
+			}
+
+			a.next {
+				background-position: -15px -13px!important;
+			}
+		}
+
+		td {
+			color: @accent; padding: 0!important; border-color: @lighter-grey;
+		}
+
+		thead td,
+		thead td:first-child,
+		thead td:last-child {
+			color: @accent;
+		}
+
+		td:first-child,
+		td:last-child {
+			background: none;
+		}
+
+		td.selected,
+		td.selected.today,
+		tbody td:hover {
+			color: @white; background: @accent!important;
+		}
+
+		td.last,
+		td.next {
+			color: @lighter-grey;
+		}
 	}
 
-	table {
-		background: @white;
-	}
-}
+	div.timer {
+		display: block!important; margin: 0 auto; padding: 0!important; width: 100%!important; max-width: 30rem;
 
-fieldset.primary div.timer {
-	display: block!important; padding: 0!important; width: 100%!important;
+		div.timeline {
+			border-color: @accent; background: @accent;
 
-	div.timeline {
-		border-color: @accent; background: @accent;
-
-		span {
-			border-color: rgba(0,0,0,0.1);
+			span {
+				border-color: rgba(0,0,0,0.1);
+			}
 		}
 	}
 }
 
-div.dt-calendar td {
-	color: @accent; padding: 0!important; border-color: @lighter-grey;
-}
-
-div.dt-calendar div.date nav {
-	padding-bottom: @spacing-micro; border: none;
-
-	a:hover {
-		color: @accent;
-	}
-
-	a.previous {
-		background-position: 6px -13px!important;
-	}
-
-	a.next {
-		background-position: -15px -13px!important;
-	}
-}
-
-div.dt-calendar div.switch {
-	box-shadow: none;
-	background: @accent!important; height: 20px;
-
-	ul li {
-		font-size: @text-short;
-	}
-}
-
-div.dt-calendar thead td,
-div.dt-calendar thead td:first-child,
-div.dt-calendar thead td:last-child {
-	color: @accent;
-}
-
-div.dt-calendar td.last,
-div.dt-calendar td.next {
-	color: @lighter-grey;
-}
-
-div.dt-calendar td:first-child,
-div.dt-calendar td:last-child {
-	background: none;
-}
-
-div.dt-calendar td.selected,
-div.dt-calendar td.selected.today,
-div.dt-calendar tbody td:hover {
-	color: @white; background: @accent!important;
-}
-
-/**/
+/* Preferences */
 
 #contents .navigationicons-duplicator > li {
 	.flex(~'row', ~'center', ~'space-between');
@@ -326,36 +333,36 @@ div.dt-calendar tbody td:hover {
 .tab-group {
 	box-sizing: border-box;
 	background: @white;
-}
-
-.tab-group > h2 {
-	color: @accent; font-size: 3.2rem; font-weight: 300; padding: @spacing-smallest 0 5rem;
-}
-
-.tab-group:first-child {
-	overflow: auto;
-	position: fixed!important; left: 25.1rem!important; right: @spacing-huger; top: @spacing-midlarge!important; bottom: 0; padding: @spacing-smallish; padding-right: @spacing-smallish; width: auto;
 
 	> h2 {
-		padding-top: @spacing-smallest + @spacing-midlarge;
+		color: @accent; font-size: 3.2rem; font-weight: 300; padding: @spacing-smallest 0 5rem;
 	}
 
-	> * {
-		margin-left: auto; margin-right: auto; max-width: @max-width-small;
+	&:first-child {
+		overflow: auto;
+		position: fixed!important; left: 25.1rem!important; right: @spacing-huger; top: @spacing-midlarge!important; bottom: 0; padding: @spacing-smallish; padding-right: @spacing-smallish; width: auto;
+
+		> h2 {
+			padding-top: @spacing-smallest + @spacing-midlarge;
+		}
+
+		> * {
+			margin-left: auto; margin-right: auto; max-width: @max-width-small;
+		}
 	}
-}
 
-.tab-group:nth-child(2) {
-	padding-top: @spacing-midlarge;
-}
+	&:nth-child(2) {
+		padding-top: @spacing-midlarge;
+	}
 
-.tab-group:nth-child(n + 2) {
-	box-sizing: border-box;
-	clear: both; float: right; position: relative!important; left: 0!important; top: 0!important; margin-right: -@spacing-smallish; padding-left: @spacing-smallish; padding-right: @spacing-smallish; width: @spacing-huger;
-}
+	&:nth-child(n + 2) {
+		box-sizing: border-box;
+		clear: both; float: right; position: relative!important; left: 0!important; top: 0!important; margin-right: -@spacing-smallish; padding-left: @spacing-smallish; padding-right: @spacing-smallish; width: @spacing-huger;
+	}
 
-.tab-group:nth-child(n + 3) {
-	margin-top: 5rem; padding-top: @spacing-smallish; border-top: 1px solid @lighter-grey;
+	&:nth-child(n + 3) {
+		margin-top: 5rem; padding-top: @spacing-smallish; border-top: 1px solid @lighter-grey;
+	}
 }
 
 /*--------------------------------------------------------------------------
@@ -370,8 +377,14 @@ table.selectable td.field-checkbox input.ajax-checkbox {
 	Entry Relationship
 --------------------------------------------------------------------------*/
 
-.field-entry_relationship {
+/* Field */
+
+#contents .field-entry_relationship {
 	position: relative; padding-bottom: 0.8rem;
+
+	.destructor a:hover {
+		color: @darker-grey;
+	}
 
 	> label {
 		position: static;
@@ -396,6 +409,8 @@ table.selectable td.field-checkbox input.ajax-checkbox {
 	}
 }
 
+/* Overwrite Lightbox Styles */
+
 #entry-relationship-ctn.show {
 	background: rgba(0, 0, 0, 0.8);
 
@@ -407,6 +422,8 @@ table.selectable td.field-checkbox input.ajax-checkbox {
 		}
 	}
 }
+
+/* Modify layout when in iFrame */
 
 body.entry_relationship {
 	padding-left: 0;

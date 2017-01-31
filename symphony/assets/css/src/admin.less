@@ -374,10 +374,10 @@ body.entry_relationship.page-index #contents .actions {
 --------------------------------------------------------------------------*/
 
 fieldset.settings {
-	position: relative; margin-bottom: @spacing-smallish; padding: 0 0 0 @spacing-largest;
+	position: relative; margin-bottom: @spacing-smallish; padding: 0 0 0 @spacing-huge;
 
 	> legend {
-		position: absolute; top: -0.4rem; left: 0; line-height: 1.4em; width: 17rem;
+		position: absolute; top: -0.4rem; left: 0; line-height: 1.4em; width: @spacing-huge - @spacing-smallish;
 	}
 
 	> p a {
@@ -410,7 +410,7 @@ fieldset.settings {
 	}
 
 	> legend + .help {
-		position: absolute; line-height: 1.8em; margin: 2.5rem 0 0 -@spacing-largest; width: @spacing-larger; width: 17rem;
+		position: absolute; line-height: 1.8em; margin: 2.5rem 0 0 -@spacing-huge; width: @spacing-huge - @spacing-smallish; width: 17rem;
 
 		p {
 			margin: 0 0 @spacing-smaller;
@@ -667,7 +667,7 @@ div.field-checkbox + .field:not(.field-checkbox) {
 	em {
 		.transitioned(~'color, background');
 		border-radius: @radius-current;
-		color: @white; font-size: @text-shorter; font-style: normal; line-height: @spacing-smaller; margin-bottom: @spacing-smallest; padding: 0 @spacing-smallest; background: @accent; cursor: pointer;
+		color: @white; font-size: @text-shorter; font-style: normal; font-weight: 300; text-transform: uppercase; line-height: @spacing-smaller; margin-bottom: @spacing-smallest; padding: 0 @spacing-smallest; background: @accent; cursor: pointer;
 
 		&:hover {
 			background: @darker-grey;

@@ -69,7 +69,7 @@
 
 		/* Init - Determine how to center content */
 
-		if(!$(o.tabGroup).length) $(o.contents).addClass('centered-content');
+		if(!$(o.tabGroup).length && !$(o.secColumn).length) $(o.contents).addClass('centered-content');
 
 		/* Init - TEMP repartition of the divided tabs in the Primary Column */
 
@@ -140,7 +140,7 @@
 		// Multilingual Fields
 		_____________________________________________ */
 
-		/* Init - Cut all strings to only 2 characters */
+		/* Init - TEMP Cut all strings to only 2 characters */
 
 		$(o.multiTabsEl).each(function(){
 			var t = $(this);
