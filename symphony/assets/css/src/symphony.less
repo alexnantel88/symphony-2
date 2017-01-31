@@ -57,6 +57,10 @@ header, nav, section, aside, footer {
 	display: block;
 }
 
+h1, h2, h3, h4, h5, h6 {
+	line-height: 1.2em;
+}
+
 /*-----------------------------------------------------------------------------
 	Basic styles
 -----------------------------------------------------------------------------*/
@@ -64,7 +68,6 @@ header, nav, section, aside, footer {
 html {
 	font-size: 62.5%;
 	min-height: 100%;
-	// background: @accent;
 }
 
 body {
@@ -73,17 +76,6 @@ body {
 
 a, button, input, li {
 	.transitioned(~'color, background, border');
-}
-
-body > div,
-body > form {
-	font-size: @text-current;
-}
-
-/* Headlines */
-
-h3 {
-	font-weight: bold;
 }
 
 /* Paragraphs */
@@ -99,7 +91,7 @@ p.label {
 
 /* Links */
 
-a {
+a, input, button {
 	cursor: pointer;
 }
 
@@ -142,13 +134,13 @@ ul.tags .more:hover {
 
 code,
 .code {
-	font: 100%/1.5 Monaco, Consolas, 'Andale Mono', monospace;
+	//font: 100%/1.5 Monaco, Consolas, 'Andale Mono', monospace;
 	tab-size: 4;
 }
 
 pre {
 	border-radius: @radius-current;
-	color: @darker-grey; margin-bottom: @spacing-smaller; border: 1px solid @lighter-grey; white-space: normal;
+	color: @darker-grey; margin-bottom: @spacing-smaller; border: 1px solid @lighter-grey; background: @lightest-grey; white-space: normal;
 }
 
 pre code {
@@ -181,6 +173,7 @@ p.label > i {
 	right: 0;
 	font-weight: 300;
 	font-size: @text-shorter;
+	text-transform: none;
 	color: @dark-grey;
 	margin-top: 2px;
 }
@@ -198,7 +191,7 @@ label.inline-help > i {
 
 .inactive,
 .inactive * {
-	color: @light-grey;
+	color: @grey;
 }
 
 .inactive a {

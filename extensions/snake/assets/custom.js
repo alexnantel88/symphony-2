@@ -2,7 +2,23 @@
 	'use strict';
 
 	var win = $(window);
-	
+	var o = {
+		nav: '#nav',
+		navEl: '#nav li',
+		actions: '.page-single #contents .actions, .single #contents .actions, body.entry_relationship.page-index #contents .actions',
+		context: '#context',
+		contextTabs: '#context .tabs li',
+		contextDrawers: '#context .actions a.button.drawer',
+		tabGroup: '.tab-group',
+		secTabGroup: '.secondary.column .tab-group',
+		priTabGroup: '.primary.column .tab-group',
+		columns: '.two.columns',
+		secColumn: '.secondary.column',
+		priColumn: '.primary.column',
+		multiTabsEl: '.field-multilingual ul.tabs li',
+		multiLabel: '.field-multilingual > .container > label'
+	};
+
 	var ready = function () {
 
 		/* ////////////////////////////////////////////////////////////////////////////
@@ -11,9 +27,13 @@
 		//
 		/////////////////////////////////////////////////////////////////////////// */
 
-		/* Nav - Init */
+		/*
+		// Header Nav
+		_____________________________________________ */
 
-		$('#nav li.active').has('ul').each(function(){
+		/* Init - Show Subnav if parent active and highlight Subnav page if the case */
+
+		$(o.navEl + '.active').has('ul').each(function(){
 			var t = $(this);
 			t.addClass('opened');
 			$('ul', t).show();
@@ -24,65 +44,93 @@
 			});
 		});
 
-		/* Nav - Toggle Submenu */
+		/* Toggle Subnav on parent click */
 
-		$('#nav li').has('ul').on('click', '> span', function(){
+		$(o.navEl).has('ul').on('click', '> span', function(){
 			var t = $(this);
 			t.parent().toggleClass('opened');
 			t.siblings('ul').slideToggle(250);
 		});
 
-		/* Actions - Init */
+		/*
+		// Context Actions
+		_____________________________________________ */
 
-		if($('.page-single #contents .actions, .single #contents .actions, body.entry_relationship.page-index #contents .actions').length) $('#context').addClass('spaced-right');
+		/* Init - Add space to the Context if there are action buttons */
 
-		/* Tabs - Init */
+		if($(o.actions).length) $(context).addClass('spaced-right');
 
-		if($('.secondary.column .tab-group').length > 1){
-			$('.secondary.column .tab-group').parents('.columns.two').removeClass('columns two');
+		/*
+		// Context Tabs
+		_____________________________________________ */
 
-			$('.secondary.column .tab-group').each(function(){
+		/* Init - TEMP repartition of the divided tabs in the Primary Column */
+
+		if($(o.secTabGroup).length > 1){
+			$(o.secTabGroup).parents(o.columns).attr('class', '');
+
+			$(o.secTabGroup).each(function(){
 				var t = $(this);
 				var classes = t.attr('class').split(' ');
 
-				if($('.primary.column .'+classes[1]).length) $('.primary.column .'+classes[1]).append(t.html());
-				else $('.primary.column').append(t);
+				if($(o.priTabGroup+classes[1]).length) $(o.priTabGroup+classes[1]).append(t.html());
+				else $(o.priColumn).append(t);
 			});
 
-			$('.secondary.column .tab-group').remove();
+			$(o.secTabGroup).remove();
 		}
 
-		$('.tab-group:not(:first-child)').each(function(){
+		/* Init - Add a title to each Tab */
+
+		$(o.tabGroup).each(function(){
 			var t = $(this);
-			var title = $('#context .tabs li').eq(t.index()).html();
+			var title = $(o.contextTabs).eq(t.index()).html();
 			t.prepend('<h2>'+title+'</h2>');
 		});
 
-		/* Tabs - Anchors */
+		/* Scroll to right TabGroup on TabNav click */
 
-		$('#context .tabs li').on('click', function(){
+		$(o.contextTabs).on('click', function(){
 			var t = $(this);
 
-			$('html, body').stop().animate({scrollTop: ($('.tab-group').eq(t.index()).offset().top - 120)}, 750);
+			$('html, body').stop().animate({scrollTop: ($(o.tabGroup).eq(t.index()).offset().top - 120)}, 750);
 
 			return false;
 		});
 
-		/* Drawers - Check State */
+		/*
+		// Context Association Drawer
+		_____________________________________________ */
 
-		$('#context .actions a.button.drawer').on('click', function(){
+		/* Check Drawer state on DrawerButton click */
+
+		$(o.contextDrawers).on('click', function(){
 			changeStateDrawer();
 		});
 
-		/* Drawers - Function */
+		/* ////////////////////////////////////////////////////////////////////////////
+		//
+		// Contents
+		//
+		/////////////////////////////////////////////////////////////////////////// */
 
-		function changeStateDrawer(){
-			var t = $('#context .actions a.button.drawer');
-			var d = $(t.attr('href'));
+		/*
+		// Multilingual Fields
+		_____________________________________________ */
 
-			if(t.hasClass('selected')) d.addClass('opened');
-			else d.removeClass('opened');
-		}
+		/* Init - Cut all strings to only 2 characters */
+
+		$(o.multiTabsEl).each(function(){
+			var t = $(this);
+			t.html(t.html().substring(0,2));
+		});
+
+		/* Space the Label depending on the Tabs width */
+
+		$(o.multiLabel).each(function(){
+			var t = $(this);
+			t.css({'padding-right': (t.next('.tabs').width() + 15)});
+		});
 
 		/* ////////////////////////////////////////////////////////////////////////////
 		//
@@ -93,34 +141,42 @@
 		changeStateDrawer();
 		onScroll();
 
-		/* ////////////////////////////////////////////////////////////////////////////
-		//
-		// onScroll
-		//
-		/////////////////////////////////////////////////////////////////////////// */
-
-		/* Scroll - Events */
-
 		win.on('scroll', function(){
 			onScroll();
 		});
 
-		/* Scroll - Function */
+		/* ////////////////////////////////////////////////////////////////////////////
+		//
+		// Functions
+		//
+		/////////////////////////////////////////////////////////////////////////// */
+
+		/* Header Drawers - Function */
+
+		function changeStateDrawer(){
+			var t = $(o.contextDrawers);
+			var d = $(t.attr('href'));
+
+			if(t.hasClass('selected')) d.addClass('opened');
+			else d.removeClass('opened');
+		}
+
+		/* Window Scroll - Function */
 
 		function onScroll(){
 			var pageEnd = $(document).height() - win.height();
 			var curScroll = win.scrollTop();
 
 			if(curScroll == pageEnd){
-				$('#context .tabs li').removeClass('selected');
-				$('#context .tabs li:last-child').addClass('selected');
+				$(o.contextTabs).removeClass('selected');
+				$(o.contextTabs + ':last-child').addClass('selected');
 			} else {
-				$('.tab-group:not(:first-child)').each(function(){
+				$(o.tabGroup + ':not(:first-child)').each(function(){
 					var t = $(this);
 
 					if(curScroll + (win.height() / 2) > t.offset().top) {
-						$('#context .tabs li').removeClass('selected');
-						$('#context .tabs li').eq(t.index()).addClass('selected');
+						$(o.contextTabs).removeClass('selected');
+						$(o.contextTabs).eq(t.index()).addClass('selected');
 					}
 				});
 			}

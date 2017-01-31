@@ -105,14 +105,43 @@ img.gravatar {
 
 /* OEmbed */
 
-.field-oembed label > div {
-	position: absolute; left: 0; top: 100%; margin-top: 2px;
+.field-oembed label {
+	> div {
+		margin-top: 2px;
+	}
+
+	.frame {
+		.flex(~'row', ~'center', ~'center');
+		flex-wrap: wrap;
+
+		> span {
+			display: none;
+		}
+
+		> div {
+			order: 99;
+			flex-shrink: 0; width: 100%;
+		}
+
+		> a {
+			border-radius: @radius-current;
+			color: @white; font-size: @text-shorter; font-style: normal; line-height: @spacing-smaller; margin-bottom: @spacing-smallest; padding: 0 @spacing-smallest; background: @accent; cursor: pointer;
+
+			&:hover {
+				background: @darker-grey;
+			}
+
+			& + span + a {
+				margin-left: @spacing-smallest;
+			}
+		}
+	}
 }
 
 /* Sandbox */
 
 .editor-toolbar {
-	margin-top: 0; border-color: @lighter-grey;
+	margin-top: 0; border-color: @lighter-grey; background: @lightest-grey;
 
 	a.active {
 		color: @accent!important;
@@ -247,7 +276,7 @@ div.dt-calendar tbody td:hover {
 	}
 
 	input.navIcon {
-		font-family: inherit;
+		font-family: inherit; width: 50%!important;
 	}
 
 	& + li {
@@ -270,12 +299,20 @@ div.dt-calendar tbody td:hover {
 }
 
 .tab-group > h2 {
-	color: #3B3D40; font-size: 3.2rem; font-weight: 300; padding: @spacing-smallest 0 5rem;
+	color: @accent; font-size: 3.2rem; font-weight: 300; padding: @spacing-smallest 0 5rem;
 }
 
 .tab-group:first-child {
 	overflow: auto;
 	position: fixed!important; left: 25.1rem!important; right: @spacing-huger; top: @spacing-midlarge!important; bottom: 0; padding: @spacing-smallish; padding-right: @spacing-smallish; width: auto; z-index: 70;
+
+	> h2 {
+		padding-top: @spacing-smallest + @spacing-midlarge;
+	}
+
+	> * {
+		margin-left: auto; margin-right: auto; max-width: @max-width-small;
+	}
 }
 
 .tab-group:nth-child(2) {

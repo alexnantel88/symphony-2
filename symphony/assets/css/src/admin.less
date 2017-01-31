@@ -35,7 +35,7 @@ body {
 #header {
 	display: flex;
 	flex-direction: column;
-	position: fixed; left: 0; bottom: 0; top: 0; border-right: 1px solid @lighter-grey; background: @white; width: @spacing-huge; z-index: 55;
+	position: fixed; left: 0; bottom: 0; top: 0; border-right: 1px solid @lighter-grey; background: @white; width: @spacing-huge; z-index: 100;
 
 	> * {
 		order: 3;
@@ -430,12 +430,23 @@ fieldset.settings {
 }
 
 #password {
+	display: block;
+
 	legend {
 		margin-left: @spacing-smallish!important; padding: 0!important;
 	}
 
 	i {
-		position: absolute; top: 0; right: 0; font-size: @text-shorter; font-weight: 300; text-transform: uppercase;
+		position: absolute; top: 100%; right: 0; font-size: @text-shorter; font-weight: 300; margin-top: @spacing-nano;
+	}
+
+	.column {
+		float: left;
+	}
+
+	&:after {
+		content: "";
+		display: block; clear: both;
 	}
 }
 
@@ -576,7 +587,7 @@ legend {
 
 label,
 #password legend {
-	display: block; position: relative; color: @dark-grey; font-size: 68.7%; font-weight: 300; text-transform: uppercase; line-height: 1.4em;
+	display: block; position: relative; color: @dark-grey; font-size: @text-shorter; font-weight: 300; text-transform: uppercase; line-height: 1.4em;
 }
 
 label {
@@ -632,32 +643,28 @@ div.field-checkbox + .field:not(.field-checkbox) {
 
 /* File uploads */
 
-.file input {
-	color: @dark-grey; font-size: @text-short; font-weight: 300;
-}
+.file {
+	input {
+		color: @dark-grey; font-size: @text-short; font-weight: 300;
+	}
 
-.file .frame input {
-	padding: 0; border: none;
-}
+	.frame {
+		.flex(~'column-reverse', ~'center', ~'center');
 
-.file a {
-	word-wrap: break-word;
+		input {
+			padding: 0; border: none;
+		}
+	}
 
-	overflow-wrap: break-word;
-}
+	em {
+		.transitioned(~'color, background');
+		border-radius: @radius-current;
+		color: @white; font-size: @text-shorter; font-style: normal; line-height: @spacing-smaller; margin-bottom: @spacing-smallest; padding: 0 @spacing-smallest; background: @accent; cursor: pointer;
 
-.file a,
-.file a:hover {
-	color: #3f69a5;
-}
-
-.file em {
-	.transitioned(~'color');
-	float: right; color: @light-grey; font-size: @text-shorter; font-style: normal; cursor: pointer;
-}
-
-.file em:hover {
-	color: @red;
+		&:hover {
+			background: @darker-grey;
+		}
+	}
 }
 
 /* Publish Note */

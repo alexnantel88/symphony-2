@@ -28,7 +28,7 @@ select,
 .field-value-readonly {
 	box-sizing: border-box;
 	border-radius: @radius-current;
-	color: @darker-grey; font-family: inherit; font-size: 1.4rem; font-weight: 300; padding: @spacing-smallest @spacing-smallerish; border: 1px solid @lighter-grey; background-color: transparent; width: 100%;
+	color: @darker-grey; font-family: inherit; font-size: 1.4rem; font-weight: 300; padding: @spacing-smallest @spacing-smallerish; border: 1px solid @lighter-grey; background-color: @lightest-grey; width: 100%;
 }
 
 input[type=file] {
@@ -124,10 +124,12 @@ input[type='file'] > input[type='button']::-moz-focus-inner {
 
 .field-value-readonly {
 	display: block;
+	color: @darker-grey;
 	min-height: 2.2rem;
 	padding-left: 0;
 	border: none;
-	opacity: 0.5;
+	background: none;
+	opacity: 1;
 }
 
 /* Errors */
