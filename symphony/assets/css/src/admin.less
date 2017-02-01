@@ -44,6 +44,7 @@ body {
 	h1 {
 		.flex(~'column', ~'flex-start', ~'center');
 		order: 1;
+		flex-shrink: 0;
 		box-sizing: border-box;
 		position: relative; top: 0; left: 0; font-size: @text-current; padding: 0 @spacing-smallish; border-bottom: 1px solid @lighter-grey; height: @spacing-midlarge;
 
@@ -56,19 +57,15 @@ body {
 /* Navigation */
 
 #nav {
-	display: block;
 	order: 2;
-	width: 100%;
-	margin: 0;
-	margin-bottom: auto;
-	list-style: none;
+	flex-grow: 1;
+	display: block; overflow: auto; margin: 0 0 auto; width: 100%; list-style: none;
 
 	/* First Level */
 
 	> ul {
-		margin: 0;
-		color: @dark-grey;
-		padding: @spacing-smallish;
+		
+		color: @dark-grey; margin: 0; padding: @spacing-smallish;
 
 		> li {
 			display: block;
@@ -123,14 +120,22 @@ body {
 /* Session */
 
 #session {
-	font-size: @text-short; font-weight: 300; text-align: center; margin: 0 0 @spacing-small!important;
+	font-size: @text-short; font-weight: 300; text-align: center; line-height: 1.4em; margin: 0 0 @spacing-small!important;
 
 	a {
 		color: @dark-grey; line-height: @spacing-smallerish;
+
+		&:hover {
+			color: @darker-grey;
+		}
 	}
 
 	li:first-child a {
 		color: @accent;
+
+		&:hover {
+			color: @darker-grey;
+		}
 	}
 }
 
@@ -178,6 +183,7 @@ body {
 	> .actions {
 		.flex(~'row', ~'center', ~'flex-start');
 		order: 3;
+		flex-shrink: 0;
 		margin: 0; padding: 0 @spacing-smallish;
 
 		a {
@@ -211,11 +217,13 @@ body {
 /* Breadcrumbs */
 
 #breadcrumbs {
+	.flex(~'row',~'baseline', ~'flex-start');
 	order: 1;
-	padding: 0 @spacing-smallish; white-space: nowrap;
+	flex-grow: 1;
+	overflow: hidden; position: relative; padding: 0 @spacing-smallish; white-space: nowrap;
 
 	nav {
-		display: inline-block;
+		flex-shrink: 0;
 
 		p {
 			padding-right: @spacing-smallish;
@@ -235,7 +243,8 @@ body {
 	}
 
 	h2 {
-		display: inline-block; color: @accent; font-size: @text-bigger; font-weight: 300;
+		text-overflow: ellipsis;
+		overflow: hidden; color: @accent; font-size: @text-bigger; font-weight: 300;
 	}
 
 	p.inactive {
