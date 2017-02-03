@@ -63,6 +63,13 @@
 
 		if($(o.actions).length) $(context).addClass('spaced-right');
 
+		/* Init - Wrap Inputs and Buttons */
+
+		$('input, button', o.actions).each(function(){
+			var t = $(this);
+			t.wrap('<div class="button-container" data-icon="'+t.attr('name')+'"></div>');
+		});
+
 		/*
 		// Context Tabs
 		_____________________________________________ */
@@ -109,6 +116,10 @@
 		// Context Association Drawer
 		_____________________________________________ */
 
+		/* Init - Always Close Drawer */
+
+		if($(o.contextDrawers).hasClass('selected')) $(o.contextDrawers).trigger('click');
+
 		/* Check Drawer state on DrawerButton click */
 
 		$(o.contextDrawers).on('click', function(){
@@ -140,7 +151,7 @@
 		// Multilingual Fields
 		_____________________________________________ */
 
-		/* Init - TEMP Cut all strings to only 2 characters */
+		/* Init - Cut all strings to only 2 characters */
 
 		$(o.multiTabsEl).each(function(){
 			var t = $(this);
@@ -193,7 +204,7 @@
 				$(o.contextTabs).removeClass('selected');
 				$(o.contextTabs + ':last-child').addClass('selected');
 			} else {
-				$(o.tabGroup + ':not(:first-child)').each(function(){
+				$(o.tabGroup).each(function(){
 					var t = $(this);
 
 					if(curScroll + (win.height() / 2) > t.offset().top) {
