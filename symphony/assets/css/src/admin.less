@@ -399,10 +399,21 @@ body.entry_relationship.page-index #contents .actions {
 --------------------------------------------------------------------------*/
 
 fieldset.settings {
-	position: relative; margin-bottom: @spacing-smallish; padding: 0 0 0 @spacing-huge;
+	position: relative; margin-bottom: @spacing-smallish; padding: 0;
+
+	@media (min-width: (@md + 1)){
+		padding-left: @spacing-huge;
+	}
 
 	> legend {
-		position: absolute; top: -0.4rem; left: 0; line-height: 1.4em; width: @spacing-huge - @spacing-smallish;
+		line-height: 1.4em;
+		
+		@media (min-width: (@md + 1)){
+			position: absolute; top: -0.4rem; left: 0; width: @spacing-huge - @spacing-smallish;
+		}
+		@media (max-width: @md){
+			color: @accent; padding-bottom: @spacing-smallish;
+		}
 	}
 
 	> p a {
@@ -446,19 +457,18 @@ fieldset.settings {
 		margin: 1rem 0 1.25rem;
 	}
 
-	fieldset legend {
-		display: inline;
-		margin: 0;
-		padding: 0;
-		color: #665;
-		font-weight: normal;
-		line-height: 1.5;
-		text-indent: 0;
-		background: @white;
-	}
-
 	> .columns.two .column {
 		margin-bottom: 0;
+	}
+
+	& + fieldset.settings {
+		@media (max-width: @md){
+			margin-top: 5rem;
+
+			> legend {
+				display: block; padding-top: @spacing-smallish;  border-top: 1px solid @lighter-grey; width: 100%;
+			}
+		}
 	}
 }
 
