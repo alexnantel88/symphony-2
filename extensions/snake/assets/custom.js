@@ -3,6 +3,8 @@
 
 	var win = $(window);
 	var o = {
+		header: '#header',
+		btnMobileNav: '#btn-toggle-header-mobile',
 		nav: '#nav',
 		navEl: '#nav li',
 		actions: '.page-single #contents .actions, .single #contents .actions, body.entry_relationship.page-index #contents .actions',
@@ -33,6 +35,16 @@
 		/*
 		// Header Nav
 		_____________________________________________ */
+
+		/* Init - Steup mobile Nav Toggler */
+
+		$(o.header).append('<a href="" id="btn-toggle-header-mobile"><svg version="1" xmlns="http://www.w3.org/2000/svg" width="24" height="15" viewBox="0 0 24 15" class="line-height-0 valign-top width-full height-full block"><path fill-rule="evenodd" clip-rule="evenodd" fill="currentColor" d="M0 0v3h24V0H0zm0 9h24V6H0v3zm0 6h24v-3H0v3z"/></svg></a>');
+
+		$(o.header).on('click', o.btnMobileNav, function(){
+			$(o.header).toggleClass('opened');
+
+			return false;
+		});
 
 		/* Init - Show Subnav if parent active and highlight Subnav page if the case */
 
