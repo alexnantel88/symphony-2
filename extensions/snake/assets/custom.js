@@ -74,7 +74,10 @@
 
 		/* Init - Add space to the Context if there are action buttons */
 
-		if($(o.actions).length) $(context).addClass('spaced-right');
+		if($(o.actions).length){
+			$(o.context).addClass('spaced-right');
+			$(o.contents).addClass('spaced-bottom');
+		}
 
 		/* Init - Wrap Inputs and Buttons */
 
@@ -238,6 +241,98 @@
 				});
 			}
 		}
+
+		/* Browser Detector */
+
+		var browserDetector = (function () {
+			var getUserAgent = function (userAgent) {
+				if (!userAgent) {
+					return window.navigator.userAgent;
+				}
+				return userAgent;
+			};
+			
+			var testUserAgent = function (regexp, userAgent) {
+				userAgent = getUserAgent(userAgent);
+				return regexp.test(userAgent);
+			};
+			
+			var detector = {
+			
+				isTablet: function (userAgent) {
+					return detector.isMobile(userAgent) &&
+						!detector.isPhone(userAgent);
+				},
+				
+				/* @deprecated */
+				isTablette: function (userAgent) {
+					return this.isTablet(userAgent);
+				},
+				
+				isIos: function (userAgent) {
+					return detector.isIphone(userAgent) ||
+						detector.isIpad(userAgent);
+				},
+				
+				isIphone: function (userAgent) {
+					return !detector.isIpad(userAgent) &&
+						(testUserAgent(/iPhone/i, userAgent) || testUserAgent(/iPod/i, userAgent));
+				},
+				
+				isIpad: function (userAgent) {
+					return testUserAgent(/iPad/i, userAgent);
+				},
+				
+				isAndroid: function (userAgent) {
+					return testUserAgent(/Android/i, userAgent);
+				},
+				
+				isAndroidPhone: function (userAgent) {
+					return detector.isAndroid(userAgent) &&
+						testUserAgent(/mobile/i, userAgent);
+				},
+				
+				isPhone: function (userAgent) {
+					return !detector.isIpad(userAgent) && (
+						detector.isOtherPhone(userAgent) ||
+						detector.isAndroidPhone(userAgent) ||
+						detector.isIphone(userAgent));
+				},
+				
+				isOtherPhone: function (userAgent) {
+					return testUserAgent(/phone/i, userAgent);
+				},
+				
+				isOtherMobile: function (userAgent) {
+					return testUserAgent(/mobile/i, userAgent) ||
+						detector.isOtherPhone(userAgent);
+				},
+				
+				isMobile: function (userAgent) {
+					return detector.isIos(userAgent) ||
+						detector.isAndroid(userAgent) ||
+						detector.isOtherMobile(userAgent);
+				},
+				
+				isMsie: function (userAgent) {
+					return testUserAgent(/msie/mi, userAgent) ||
+						testUserAgent(/trident/mi, userAgent);
+				}
+			};
+			
+			return detector;
+		})();
+		
+		$.iphone = browserDetector.isIphone();
+		$.ipad = browserDetector.isIpad();
+		$.ios = browserDetector.isIos();
+		$.mobile = browserDetector.isMobile();
+		$.android = browserDetector.isAndroid();
+		$.phone = browserDetector.isPhone();
+		$.tablet = browserDetector.isTablet();
+		$.touch = $.ios || $.android;
+
+		if($.touch) $('html').addClass('touch');
 	};
 	
 	$(ready);

@@ -300,6 +300,49 @@ body {
 
 /* Actions - Page */
 
+html.touch {
+	.page-single #contents .actions,
+	.single #contents .actions,
+	body.entry_relationship.page-index #contents .actions {
+		.flex(~'row',~'center',~'flex-end');
+		box-sizing: border-box;
+		transform: translateY(-100%);
+		top: 100vh; left: @spacing-huge; padding: @spacing-smallerish; border-top: 1px solid @lighter-grey; background: @white; width: auto; height: auto;
+
+		@media (max-width: @sm) {
+			left: 0;
+		}
+
+		input, button {
+			line-height: 1.85; padding: @spacing-smallest @spacing-smallerish; border-radius: @radius-current;
+		}
+
+		.button-container:after {
+			display: none;
+		}
+
+		> * {
+			width: auto; opacity: 1!important; pointer-events: auto!important;
+
+			& + * {
+				margin-left: @spacing-smallerish;
+			}
+		}
+
+		&:after {
+			display: none;
+		}
+	}
+
+	#context.spaced-right {
+		padding-right: 0;
+	}
+
+	#contents.spaced-bottom {
+		padding-bottom: @spacing-midlarge;
+	}
+}
+
 .page-single #contents .actions,
 .single #contents .actions,
 body.entry_relationship.page-index #contents .actions {
