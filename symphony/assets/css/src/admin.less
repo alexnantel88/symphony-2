@@ -314,11 +314,19 @@ html.touch {
 		}
 
 		input, button {
-			line-height: 1.85; padding: @spacing-smallest @spacing-smallerish; border-radius: @radius-current;
+			line-height: 1.85; padding: @spacing-smallest @spacing-smallerish; border-radius: @radius-current; width: auto;
 		}
 
 		.button-container:after {
 			display: none;
+		}
+
+		#save-and {
+			.flex(~'row',~'center',~'flex-start');
+
+			> * + * input:not([type="hidden"]) {
+				margin-left: @spacing-smallerish!important;
+			}
 		}
 
 		> * {

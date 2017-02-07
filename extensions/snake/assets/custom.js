@@ -155,7 +155,8 @@
 		$(o.tableEl).each(function(){
 			var t = $(this);
 			var table = t.parents('table');
-			var text = $('thead th', table).eq(t.index()).find('span').text() + ' : ';
+			if($('thead th', table).eq(t.index()).find('span').length > 0) var text = $('thead th', table).eq(t.index()).find('span').text() + ' : ';
+			else var text = $('thead th', table).eq(t.index()).text() + ' : ';
 			$(this).attr('data-title', text)
 		});
 

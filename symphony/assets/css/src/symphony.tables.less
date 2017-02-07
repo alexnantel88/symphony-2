@@ -19,16 +19,20 @@
 
  		td {
  			box-sizing: border-box;
- 			display: flex; border: none;  width: 100%;
+ 			display: flex; border: none; width: 100%;
 
 		 	&:before {
 		 		content: attr(data-title);
 		 		display: block; font-size: @text-shorter; text-transform: uppercase; padding-right: @spacing-micro;
 		 	}
 
- 			& + td {
- 				margin-top: -@spacing-smallish;
- 			}
+		 	&:not(:first-child) {
+		 		padding-top: 0!important;
+		 	}
+
+		 	&:not(:last-child) {
+		 		padding-bottom: 0!important;
+		 	}
  		}
 
  		& + tr td:first-child {
