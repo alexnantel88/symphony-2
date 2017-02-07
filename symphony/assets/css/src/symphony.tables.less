@@ -9,11 +9,39 @@
  -----------------------------------------------------------------------------*/
  @import "variables";
 
+ @media (max-width: @sm){
+ 	thead {
+ 		display: none;
+ 	}
+
+ 	tr {
+ 		.flex(~'column', ~'flex-start', ~'flex-start');
+
+ 		td {
+ 			box-sizing: border-box;
+ 			display: flex; border: none;  width: 100%;
+
+		 	&:before {
+		 		content: attr(data-title);
+		 		display: block; font-size: @text-shorter; text-transform: uppercase; padding-right: @spacing-micro;
+		 	}
+
+ 			& + td {
+ 				margin-top: -@spacing-smallish;
+ 			}
+ 		}
+
+ 		& + tr td:first-child {
+ 			border-top: 1px solid @lighter-grey;
+ 		}
+ 	}
+ }
+
 
 table {
 	border-radius: @radius-current;
 	border-collapse: initial;
-	font-size: 87.5%; text-align: left; border: 1px solid @lighter-grey; width: 100%;
+	font-size: @text-short; text-align: left; border: 1px solid @lighter-grey; width: 100%;
 
 	&.fixed {
 		overflow-wrap: break-word;
@@ -23,7 +51,7 @@ table {
 }
 
 th {
-	color: @dark-grey; font-size: 68.7%; font-weight: 300; text-transform: uppercase; line-height: 1.4em; padding: @spacing-smallerish @spacing-smallish; background: @lightest-grey;
+	color: @dark-grey; font-size: @text-shorter; font-weight: 300; text-transform: uppercase; line-height: 1.4em; padding: @spacing-smallerish @spacing-smallish; background: @lightest-grey;
 }
 
 td {

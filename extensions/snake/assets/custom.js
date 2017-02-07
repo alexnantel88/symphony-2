@@ -21,7 +21,8 @@
 		priColumn: '.primary.column',
 		multiTabsEl: '.field-multilingual ul.tabs li',
 		multiLabel: '.field-multilingual > .container > label',
-		editorEl: '.editor-toolbar a'
+		editorEl: '.editor-toolbar a',
+		tableEl: 'table td'
 	};
 
 	var ready = function () {
@@ -143,6 +144,17 @@
 		// Contents
 		//
 		/////////////////////////////////////////////////////////////////////////// */
+
+		/*
+		// Table
+		_____________________________________________ */
+
+		$(o.tableEl).each(function(){
+			var t = $(this);
+			var table = t.parents('table');
+			var text = $('thead th', table).eq(t.index()).find('span').text() + ' : ';
+			$(this).attr('data-title', text)
+		});
 
 		/*
 		// Markdown

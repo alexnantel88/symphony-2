@@ -40,6 +40,14 @@
 	&.two > .invalid {
 		width: 50%;
 
+		@media (max-width: @xs){
+			width: 100%;
+
+			& + .column {
+				margin-top: @spacing-smallish;
+			}
+		}
+
 		&.primary {
 			margin: 0 auto; width: calc(~'100% - @{spacing-huger}'); max-width: @max-width-small;
 

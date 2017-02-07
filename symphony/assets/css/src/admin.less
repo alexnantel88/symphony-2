@@ -17,7 +17,7 @@
 }
 
 body {
-	font-weight: 400;
+	font-weight: 400; min-width: 320px;
 }
 
 #wrapper {
@@ -180,7 +180,7 @@ body {
 	}
 
 	&.spaced-right {
-		padding-right: @spacing-larger; 
+		padding-right: @spacing-larger;
 	}
 
 	/* Tabs */
@@ -188,11 +188,11 @@ body {
 	> .tabs {
 		order: 2;
 		box-sizing: border-box;
-		position: absolute; right: 0; top: 100%; margin-top: 1px; padding: 0 0 0 @spacing-smallish; border-bottom: 1px solid @lighter-grey; background: @white; width: @spacing-huger; height: @spacing-midlarge;
+		-webkit-overflow-scrolling: touch;
+		display: block; overflow: auto; position: absolute; right: 0; top: 100%; margin-top: 1px; padding: 0 0 0 @spacing-smallish; border-bottom: 1px solid @lighter-grey; background: @white; width: @spacing-huger; height: @spacing-midlarge; white-space: nowrap;
 
 		li {
-			.flex(~'column', ~'flex-start', ~'center');
-			overflow: hidden; position: relative; font-size: @text-short; font-weight: 300; text-transform: none; margin-right: @spacing-smallish; height: @spacing-midlarge;	
+			display: inline-block; position: relative; font-size: @text-short; font-weight: 300; text-transform: none; line-height: @spacing-midlarge; margin-right: @spacing-smallish; height: @spacing-midlarge;
 
 			&:first-child {
 				display: none;
@@ -201,14 +201,14 @@ body {
 
 		&:after {
 			content: "";
-			display: block; position: absolute; left: 0; top: 0; background: @lighter-grey; width: 1px; height: 100vh;
+			display: block; position: fixed; right: @spacing-huger; top: @spacing-midlarge; background: @lighter-grey; width: 1px; height: 100vh;
 		}
 
 		@media (max-width: @md){
 			left: 0; width: auto;
 
 			li:first-child {
-				display: flex;
+				display: inline-block;
 			}
 
 			&:after {
@@ -268,7 +268,7 @@ body {
 		flex-shrink: 0;
 
 		p {
-			padding-right: @spacing-smallish;
+			margin: 0; padding-right: @spacing-smallish;
 
 			a {
 				color: @dark-grey; font-size: @text-big; font-weight: 300;
@@ -347,6 +347,12 @@ body.entry_relationship.page-index #contents .actions {
 
 	&:hover > *:nth-child(n + 2) {
 		opacity: 1; pointer-events: auto;
+	}
+
+	&:after {
+		transform: rotateZ(90deg);
+		content: ">";
+		display: block; position: absolute; right: @spacing-smallerish; top: 2.4rem; color: @white; font-weight: 300; pointer-events: none;
 	}
 }
 
