@@ -25,7 +25,8 @@
 		multiTabsEl: '.field-multilingual ul.tabs li',
 		multiLabel: '.field-multilingual > .container > label',
 		editorEl: '.editor-toolbar a',
-		tableEl: 'table td'
+		tableEl: 'table td',
+		dashboard: '#dashboard'
 	};
 	var s = {
 		burger: '<svg version="1" xmlns="http://www.w3.org/2000/svg" width="24" height="15" viewBox="0 0 24 15" class="line-height-0 valign-top width-full height-full block"><path fill-rule="evenodd" clip-rule="evenodd" fill="currentColor" d="M0 0v3h24V0H0zm0 9h24V6H0v3zm0 6h24v-3H0v3z"/></svg>',
@@ -161,6 +162,17 @@
 		// Contents
 		//
 		/////////////////////////////////////////////////////////////////////////// */
+
+		/*
+		// Dashboard
+		_____________________________________________ */
+
+		/* Init - Columns */
+
+		if($('.secondary.column', o.dashboard).length){
+			$(o.contentsForm).removeClass('two columns');
+			$(o.dashboard).addClass('two columns');
+		} 
 
 		/*
 		// Table

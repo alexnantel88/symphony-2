@@ -42,6 +42,84 @@ img.gravatar {
 }
 
 /*--------------------------------------------------------------------------
+	Dashboard
+--------------------------------------------------------------------------*/
+
+#dashboard {
+	.panel {
+		box-shadow: 0 0 0 rgba(0,0,0,0);
+		position: relative; border: 1px solid @lighter-grey; background: @white;
+
+		h3 {
+			color: @darker-grey; font-size: @text-shorter; text-transform: uppercase; font-weight: 300; padding: @spacing-smallerish @spacing-smallish; border-bottom: 1px solid @lighter-grey; background: @lightest-grey;
+		
+			span {
+				color: @dark-grey;
+
+				&:before {
+					content: " - ";
+				}
+			}
+		}
+
+		a.panel-edit {
+			top: 0.7rem; color: @light-grey; font-size: @text-short; font-weight: 300;
+
+			&:hover {
+				color: @darker-grey;
+			}
+		}
+
+		.panel-inner {
+			color: @dark-grey; font-size: @text-short; font-weight: 300; padding: @spacing-smallish;
+
+			h4 {
+				color: @accent; font-size: @text-short; font-weight: 300; padding-bottom: @spacing-smallest;
+			}
+
+			* + h4 {
+				padding-top: @spacing-smallish;
+			}
+
+			dl {
+				margin: 0;
+			}
+		}
+
+		& + .panel {
+			margin-top: @spacing-smallish;
+		}
+
+		&.rss_reader .panel-inner {
+			h5 {
+				font-size: @text-short; font-weight: 300; line-height: 1.8em; padding-bottom: @spacing-smallest;
+			}
+
+			* + h5 {
+				margin-top: @spacing-smallish; padding-top: @spacing-smallish; border-top: 1px solid @lighter-grey;
+			}
+
+			a {
+				color: @accent;
+
+				&:hover {
+					color: currentColor;
+				}
+			}
+
+			p img {
+				padding: @spacing-micro 0; width: 100%; height: auto;
+			}
+		}
+	}
+
+	.sortable-container {
+		border-radius: @radius-current;
+		padding: 0 0 0 @spacing-smallish; border: none; min-height: 1px;
+	}
+}
+
+/*--------------------------------------------------------------------------
 	Extension Downloader
 --------------------------------------------------------------------------*/
 

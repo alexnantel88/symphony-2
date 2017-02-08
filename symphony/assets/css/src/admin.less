@@ -521,14 +521,18 @@ html:not(.touch) {
 			.flex(~'row', ~'center', ~'flex-start');
 			margin: 0; padding: 0;
 
-			input {
+			input, button {
 				font-size: @text-shorter; font-weight: 300; text-transform: uppercase; margin: 0; padding: @spacing-smallest @spacing-smallerish; border: none; background: @accent; border-radius: @radius-current; cursor: pointer;
 
 				&:hover {
 					background: @darker-grey;
 				}
 
-				& + input {
+				&.delete {
+					background: @red;
+				}
+
+				& + * {
 					margin-left: @spacing-smallest;
 				}
 			}
@@ -907,7 +911,7 @@ div.field-checkbox + .field:not(.field-checkbox) {
 }
 
 #version {
-	display: none; color: @dark-grey; padding: @spacing-smallish;
+	color: @dark-grey; padding: @spacing-smallish;
 }
 
 .actions #version {
