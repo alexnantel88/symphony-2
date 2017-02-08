@@ -10,7 +10,9 @@
 		actions: '.page-single #contents .actions, .single #contents .actions, body.entry_relationship.page-index #contents .actions',
 		context: '#context',
 		contextTabs: '#context .tabs li',
-		contextDrawers: '#context .actions a.button.drawer',
+		contextDrawers: '#context > .actions a.button.drawer',
+		contextActions: '#context > .actions a',
+		actionButtons: '.page-single #contents .actions .button-container, .single #contents .actions .button-container, body.entry_relationship.page-index #contents .actions .button-container',
 		contents: '#contents',
 		contentsForm: '#contents > form',
 		tabGroup: '.tab-group',
@@ -24,6 +26,13 @@
 		editorEl: '.editor-toolbar a',
 		tableEl: 'table td'
 	};
+	var s = {
+		burger: '<svg version="1" xmlns="http://www.w3.org/2000/svg" width="24" height="15" viewBox="0 0 24 15" class="line-height-0 valign-top width-full height-full block"><path fill-rule="evenodd" clip-rule="evenodd" fill="currentColor" d="M0 0v3h24V0H0zm0 9h24V6H0v3zm0 6h24v-3H0v3z"/></svg>',
+		arrow: '<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="18px" height="10px" viewBox="0 0 18 10"><path fill="currentColor" d="M5,10c-0.3,0-0.5-0.1-0.7-0.3l-4-4c-0.4-0.4-0.4-1,0-1.4l4-4c0.4-0.4,1-0.4,1.4,0s0.4,1,0,1.4L2.4,5l3.3,3.3c0.4,0.4,0.4,1,0,1.4C5.5,9.9,5.3,10,5,10z"/><path fill="currentColor" d="M17,6H2C1.4,6,1,5.6,1,5s0.4-1,1-1h15c0.6,0,1,0.4,1,1S17.6,6,17,6z"/></svg>',
+		view: '<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="33.7px" height="19.3px" viewBox="0 0 33.7 19.3"><path fill="currentColor" d="M16.8,19.3c-9.1,0-16.3-8.7-16.6-9c-0.3-0.4-0.3-0.9,0-1.3c0.3-0.4,7.5-9,16.6-9s16.3,8.7,16.6,9c0.3,0.4,0.3,0.9,0,1.3C33.2,10.7,26,19.3,16.8,19.3z M2.3,9.7c1.8,1.9,7.7,7.7,14.5,7.7c6.8,0,12.7-5.7,14.5-7.7C29.6,7.7,23.7,2,16.8,2C10,2,4.1,7.7,2.3,9.7z"/><path fill="currentColor" d="M16.8,15.3c-3.1,0-5.6-2.5-5.6-5.6c0-3.1,2.5-5.6,5.6-5.6s5.6,2.5,5.6,5.6C22.5,12.8,20,15.3,16.8,15.3zM16.8,6c-2,0-3.6,1.6-3.6,3.6s1.6,3.6,3.6,3.6s3.6-1.6,3.6-3.6S18.9,6,16.8,6z"/></svg>',
+		edit: '<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="26px" height="26px" viewBox="0 0 26 26"><path fill="currentColor" d="M13.2,26c-2.2,0-2.8-1.9-3.1-3c-0.1-0.4-0.2-0.7-0.4-1c0-0.1-0.1-0.2-0.1-0.2c-0.1,0-0.1,0-0.2,0.1c-0.3,0.1-0.6,0.3-1,0.5c-1,0.6-2.8,1.6-4.4,0c-1.6-1.6-0.7-3.3-0.2-4.4c0.2-0.4,0.4-0.7,0.4-1c0-0.1,0-0.2,0.1-0.2c-0.1,0-0.1-0.1-0.2-0.1c-0.3-0.1-0.6-0.2-1-0.3C2,16,0,15.5,0,13.3c0-2.2,1.9-2.8,3-3.2c0.4-0.1,0.7-0.2,1-0.4c0.1,0,0.2-0.1,0.2-0.1c0-0.1,0-0.1-0.1-0.2C4,9,3.8,8.7,3.6,8.4c-0.6-1-1.6-2.8,0-4.4C5.2,2.4,6.9,3.3,8,3.8C8.4,4,8.7,4.2,9,4.3c0.1,0,0.2,0,0.2,0.1c0-0.1,0.1-0.1,0.1-0.2c0.1-0.3,0.2-0.6,0.3-1C10,2,10.5,0,12.7,0c2.2,0,2.8,1.9,3.2,3c0.1,0.4,0.2,0.7,0.4,1c0.1,0.1,0.1,0.2,0.1,0.2c0.1,0,0.1,0,0.2-0.1C17,4,17.3,3.9,17.6,3.7c1-0.6,2.8-1.6,4.4,0c1.6,1.6,0.7,3.3,0.2,4.4c-0.2,0.4-0.4,0.7-0.4,1c0,0.1,0,0.2-0.1,0.2c0.1,0,0.1,0.1,0.2,0.1c0.3,0.1,0.6,0.2,1,0.3C24,10,26,10.5,26,12.7c0,2.3-1.9,2.8-3,3.2c-0.4,0.1-0.7,0.2-1,0.4c-0.1,0-0.2,0.1-0.2,0.1c0,0.1,0,0.1,0.1,0.2c0.1,0.3,0.3,0.6,0.5,1c0.6,1,1.6,2.8,0,4.4c-1.6,1.6-3.3,0.7-4.4,0.2c-0.4-0.2-0.7-0.4-1-0.4c-0.1,0-0.2,0-0.2-0.1c0,0.1-0.1,0.1-0.1,0.2c-0.1,0.3-0.2,0.6-0.3,1C16,24,15.5,26,13.2,26C13.2,26,13.2,26,13.2,26z M9.8,19.8c0.2,0,0.3,0,0.5,0.1c0.6,0.2,0.9,0.7,1.2,1.2c0.2,0.4,0.4,0.9,0.5,1.4c0.4,1.3,0.6,1.6,1.3,1.6c0.6,0,0.8-0.3,1.2-1.6c0.1-0.5,0.3-1,0.5-1.4c0.3-0.5,0.6-1,1-1.2c0.5-0.2,1-0.1,1.7,0c0.5,0.1,0.9,0.4,1.3,0.6c1.2,0.7,1.6,0.7,2,0.2c0.4-0.5,0.4-0.8-0.3-2c-0.2-0.4-0.5-0.9-0.6-1.3c-0.2-0.6-0.3-1.1-0.1-1.6c0.2-0.5,0.6-0.8,1.2-1.1c0,0,0,0,0,0c0.4-0.2,0.9-0.4,1.4-0.5c1.3-0.4,1.6-0.6,1.6-1.3s-0.3-0.8-1.6-1.2c-0.5-0.1-1-0.3-1.4-0.5c-0.5-0.3-1-0.6-1.2-1c-0.2-0.6-0.1-1.1,0-1.7c0.1-0.5,0.4-0.9,0.6-1.3c0.7-1.2,0.7-1.6,0.2-2c-0.5-0.4-0.8-0.4-2,0.3c-0.4,0.2-0.9,0.5-1.3,0.6c-0.6,0.2-1.1,0.3-1.6,0.1c-0.6-0.2-0.9-0.7-1.1-1.2C14.3,4.5,14.2,4,14,3.6C13.6,2.2,13.4,2,12.8,2c-0.6,0-0.8,0.3-1.2,1.6c-0.1,0.5-0.3,1-0.5,1.4c-0.3,0.5-0.6,1-1,1.2C9.5,6.5,9,6.4,8.4,6.2C8,6.1,7.5,5.8,7.1,5.6C5.8,5,5.5,4.9,5.1,5.4c-0.4,0.5-0.4,0.8,0.3,2C5.6,7.8,5.9,8.2,6,8.7c0.2,0.6,0.3,1.1,0.2,1.5c0,0,0,0.1,0,0.1c-0.2,0.4-0.6,0.8-1.2,1.1c-0.4,0.2-0.9,0.4-1.4,0.5C2.2,12.4,2,12.6,2,13.2c0,0.6,0.3,0.8,1.6,1.2c0.5,0.1,1,0.3,1.4,0.5c0.5,0.3,1,0.6,1.2,1c0.2,0.6,0.1,1.1,0,1.7c-0.1,0.5-0.4,0.9-0.6,1.3c-0.7,1.2-0.7,1.6-0.2,2c0.5,0.4,0.8,0.4,2-0.3c0.4-0.2,0.9-0.5,1.3-0.6C9.1,19.8,9.5,19.8,9.8,19.8z"/><path fill="currentColor" d="M13,19.2c-3.4,0-6.2-2.8-6.2-6.2S9.6,6.8,13,6.8s6.2,2.8,6.2,6.2S16.4,19.2,13,19.2z M13,8.8c-2.3,0-4.2,1.9-4.2,4.2s1.9,4.2,4.2,4.2s4.2-1.9,4.2-4.2S15.3,8.8,13,8.8z"/></svg>',
+		save: '<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="28.7px" height="19.3px" viewBox="0 0 28.7 19.3"><path fill="currentColor" d="M21.2,19.3H6.4C2.8,19.3,0,16.5,0,13c0-2.9,2-5.4,4.7-6.1C5.5,2.9,9,0,13.2,0c2.3,0,4.4,0.9,6.1,2.5c0.4,0.4,0.4,1,0,1.4c-0.4,0.4-1,0.4-1.4,0C16.6,2.7,15,2,13.2,2C9.8,2,7,4.5,6.6,7.9c0,0.5-0.4,0.8-0.9,0.9C3.6,9.1,2,10.9,2,13c0,2.4,1.9,4.3,4.4,4.3h14.8c3.1,0,5.5-2.4,5.5-5.4c0-1.9-1.1-3.7-2.8-4.7c-0.5-0.3-0.6-0.9-0.4-1.4c0.3-0.5,0.9-0.6,1.4-0.4c2.3,1.3,3.8,3.8,3.8,6.4C28.7,16,25.4,19.3,21.2,19.3z"/><path fill="currentColor" d="M13.9,13.2L13.9,13.2c-0.3,0-0.5-0.1-0.7-0.3L9.5,9.3c-0.4-0.4-0.4-1,0-1.4s1-0.4,1.4,0l2.9,2.9l9.3-9.3c0.4-0.4,1-0.4,1.4,0s0.4,1,0,1.4l-10,10C14.4,13.1,14.1,13.2,13.9,13.2z"/></svg>'
+	}
 
 	var ready = function () {
 
@@ -37,9 +46,9 @@
 		// Header Nav
 		_____________________________________________ */
 
-		/* Init - Steup mobile Nav Toggler */
+		/* Init - Setup mobile Nav Toggler */
 
-		$(o.header).append('<a href="" id="btn-toggle-header-mobile"><svg version="1" xmlns="http://www.w3.org/2000/svg" width="24" height="15" viewBox="0 0 24 15" class="line-height-0 valign-top width-full height-full block"><path fill-rule="evenodd" clip-rule="evenodd" fill="currentColor" d="M0 0v3h24V0H0zm0 9h24V6H0v3zm0 6h24v-3H0v3z"/></svg></a>');
+		$(o.header).append('<a href="" id="btn-toggle-header-mobile">'+s.burger+'</a>');
 
 		$(o.header).on('click', o.btnMobileNav, function(){
 			$(o.header).toggleClass('opened');
@@ -199,6 +208,36 @@
 		//
 		/////////////////////////////////////////////////////////////////////////// */
 
+		/*
+		// SVGs
+		_____________________________________________ */
+
+		/* Init - Add SVGs */
+
+		$('#breadcrumbs nav p a').prepend(s.arrow);
+		$(o.contextDrawers).prepend(s.view);
+		$(o.contextActions).each(function(){
+			var t = $(this);
+			var title = t.attr('title');
+
+			if(title !== undefined){
+				if(title.includes('Edit Section')) t.prepend(s.edit);
+			}
+
+		});
+		$(o.actionButtons).each(function(){
+			var t = $(this);
+			var title = t.attr('data-icon');
+
+			if(title !== undefined){
+				if(title.includes('save')) t.prepend(s.save);
+			}
+		});
+
+		/*
+		// Website
+		_____________________________________________ */
+
 		changeStateDrawer();
 		onScroll();
 
@@ -228,7 +267,10 @@
 			var pageEnd = $(document).height() - win.height();
 			var curScroll = win.scrollTop();
 
-			if(curScroll == pageEnd){
+			/*if(curScroll == 0){
+				$(o.contextTabs).removeClass('selected');
+				$(o.contextTabs + ':first-child').addClass('selected');
+			} else */if(curScroll == pageEnd){
 				$(o.contextTabs).removeClass('selected');
 				$(o.contextTabs + ':last-child').addClass('selected');
 			} else {

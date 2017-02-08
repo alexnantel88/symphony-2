@@ -9,39 +9,6 @@
  -----------------------------------------------------------------------------*/
  @import "variables";
 
- @media (max-width: @sm){
- 	thead {
- 		display: none;
- 	}
-
- 	tr {
- 		.flex(~'column', ~'flex-start', ~'flex-start');
-
- 		td {
- 			box-sizing: border-box;
- 			display: flex; border: none; width: 100%;
-
-		 	&:before {
-		 		content: attr(data-title);
-		 		display: block; font-size: @text-shorter; text-transform: uppercase; padding-right: @spacing-micro;
-		 	}
-
-		 	&:not(:first-child) {
-		 		padding-top: 0!important;
-		 	}
-
-		 	&:not(:last-child) {
-		 		padding-bottom: 0!important;
-		 	}
- 		}
-
- 		& + tr td:first-child {
- 			border-top: 1px solid @lighter-grey;
- 		}
- 	}
- }
-
-
 table {
 	border-radius: @radius-current;
 	border-collapse: initial;
@@ -51,6 +18,38 @@ table {
 		overflow-wrap: break-word;
 		word-wrap: break-word;
 		table-layout: fixed;
+	}
+
+	@media (max-width: @sm){
+	 	thead {
+	 		display: none;
+	 	}
+
+	 	tr {
+	 		.flex(~'column', ~'flex-start', ~'flex-start');
+
+	 		td {
+	 			box-sizing: border-box;
+	 			display: flex; border: none; width: 100%;
+
+			 	&:before {
+			 		content: attr(data-title);
+			 		display: block; font-size: @text-shorter; text-transform: uppercase; padding-right: @spacing-micro; white-space: nowrap;
+			 	}
+
+			 	&:not(:first-child) {
+			 		padding-top: 0!important;
+			 	}
+
+			 	&:not(:last-child) {
+			 		padding-bottom: 0!important;
+			 	}
+	 		}
+
+	 		& + tr td:first-child {
+	 			border-top: 1px solid @lighter-grey;
+	 		}
+	 	}
 	}
 }
 
@@ -181,7 +180,7 @@ tr.ordering a {
 	Status information
 -----------------------------------------------------------------------------*/
 
-tr[class*=status-] {
+/*tr[class*=status-] {
 	border-left-width: 0.8rem;
 	border-left-style: solid;
 }
@@ -202,20 +201,20 @@ tr[class*=status-].selected {
 	border-left-color: #4967a1;
 }
 
-/*tr[class*=status-] td:first-of-type {
+tr[class*=status-] td:first-of-type {
 	padding-left: 1.5rem;
 }*/
 
 tr[class*=status-] a:first-of-type::after {
 	.transitioned(~'color');
 	content: attr(data-status);
-	color: transparent;
+	color: @grey;
 }
 
 /*tr[class*=status-]:nth-child(even) a:first-of-type::after,
 tr[class*=status-]:nth-child(even):hover a:first-of-type::after {
 	border-bottom-color: @white;
-}*/
+}
 
 tr[class*=status-]:hover a:first-of-type::after {
 	color: @grey;
@@ -225,4 +224,4 @@ tr.selected {
 	&[class*=status-]:hover a:first-of-type::after {
 		color: @white;
 	}
-}
+}*/
