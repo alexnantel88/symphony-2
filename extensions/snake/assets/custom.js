@@ -71,7 +71,7 @@
 
 			$('ul > li a', t).each(function(){
 				var t = $(this);
-				if(window.location.href.includes(t.attr('href'))) t.parent().addClass('active');
+				if(window.location.href.indexOf(t.attr('href')) !== -1) t.parent().addClass('active');
 			});
 		});
 
@@ -237,8 +237,8 @@
 			var title = t.attr('title');
 
 			if(title !== undefined){
-				if(title.includes('Edit Section')) t.prepend(s.edit);
-				else if(title.includes('Create')) t.prepend(s.add);
+				if(title.indexOf('Edit Section') !== -1) t.prepend(s.edit);
+				else if(title.indexOf('Create') !== -1) t.prepend(s.add);
 			} else {
 				if(t.hasClass('drawer')) t.prepend(s.view);
 				else t.prepend(s.add);
@@ -250,8 +250,8 @@
 			var title = t.attr('data-icon');
 
 			if(title !== undefined){
-				if(title.includes('save')) t.prepend(s.save);
-				else if(title.includes('delete')) t.prepend(s.delete);
+				if(title.indexOf('save') !== -1) t.prepend(s.save);
+				else if(title.indexOf('delete') !== -1) t.prepend(s.delete);
 			}
 		});
 		$(o.navElFirst).append(s.chevron);
@@ -290,10 +290,11 @@
 			var pageEnd = $(document).height() - win.height();
 			var curScroll = win.scrollTop();
 
-			/*if(curScroll == 0){
+			if(curScroll == 0){
 				$(o.contextTabs).removeClass('selected');
-				$(o.contextTabs + ':first-child').addClass('selected');
-			} else */if(curScroll == pageEnd){
+				if(win.width() < 1280) $(o.contextTabs + ':first-child').addClass('selected');
+				else $(o.contextTabs + ':nth-child(2)').addClass('selected');
+			} else if(curScroll == pageEnd){
 				$(o.contextTabs).removeClass('selected');
 				$(o.contextTabs + ':last-child').addClass('selected');
 			} else {
