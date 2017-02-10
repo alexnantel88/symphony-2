@@ -105,6 +105,10 @@
 			t.wrap('<div class="button-container" data-icon="'+t.attr('name')+'"></div>');
 		});
 
+		/* Init - Remove Version */
+		
+		$('.actions #version').remove();
+
 		/*
 		// Context Tabs
 		_____________________________________________ */
@@ -256,6 +260,7 @@
 			if(title !== undefined){
 				if(title.indexOf('Edit Section') !== -1) t.prepend(s.edit);
 				else if(title.indexOf('Create') !== -1) t.prepend(s.add);
+				else if(title.indexOf('View') !== -1) t.prepend(s.view);
 			} else {
 				if(t.hasClass('drawer')) t.prepend(s.view);
 				else t.prepend(s.add);
@@ -290,6 +295,8 @@
 		onScroll();
 
 		win.on('scroll', function(){
+			onScroll();
+		}).on('resize', function(){
 			onScroll();
 		});
 

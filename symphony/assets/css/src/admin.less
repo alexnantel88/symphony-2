@@ -47,10 +47,10 @@ body {
 		order: 1;
 		flex-shrink: 0;
 		box-sizing: border-box;
-		position: relative; top: 0; left: 0; font-size: @text-current; padding: 0 @spacing-smallish; border-bottom: 1px solid @lighter-grey; height: @spacing-midlarge;
+		position: relative; top: 0; left: 0; font-size: @text-current; padding: 0 @spacing-smallish; border-bottom: 1px solid @lighter-grey; background: url(../img/logo.gif) no-repeat 0 0; background-size: auto 100%; height: @spacing-midlarge;
 
 		a {
-			color: @accent; font-weight: 300;
+			display: block; position: absolute; left: 0; right: 0; top: 0; bottom: 0; color: @accent; font-weight: 300; text-indent: -5000px;
 		}
 	}
 
@@ -923,7 +923,7 @@ div.field-checkbox + .field:not(.field-checkbox) {
 }
 
 #version {
-	display: none; color: @dark-grey; padding: @spacing-smallish;
+	color: @dark-grey; font-size: @text-shorter; font-weight: 300; text-transform: uppercase; margin-bottom: 0; padding: @spacing-smallerish 0;
 }
 
 .actions #version {

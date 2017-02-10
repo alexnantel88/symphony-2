@@ -220,7 +220,7 @@ fieldset.frame,
 .frame .ordering .frame-header .destructor,
 .frame .ordering .content i,
 .frame .ordering ul.tags {
-	color: #bdcbdd;
+	color: @white;
 }
 
 /*-----------------------------------------------------------------------------
@@ -355,28 +355,19 @@ fieldset.frame,
 	overflow: hidden;
 	min-width: 50rem;
 	max-width: 80rem;
-	margin: 0 auto;
-}
-
-#error .frame::after {
-	content: '';
-	display: block;
-	clear: both;
+	margin: 0 auto; padding: 0; background: @white;
 }
 
 #error h1 {
-	margin: 0;
+	color: @darker-grey; font-size: @text-short; font-weight: 300; margin: 0; padding: @spacing-smallerish @spacing-smallish; border-bottom: 1px solid @lighter-grey; background: @lightest-grey;
 }
 
 #error .frame h1 em {
-	color: rgba(255, 255, 255, 0.5);
-	font-family: inherit;
-	font-style: normal;
+	color: @accent; font-family: inherit; font-style: normal;
 }
 
 #error p {
-	margin: 0;
-	padding: 1rem;
+	line-height: 1.4em; margin: 0; padding: @spacing-smallerish @spacing-smallish;
 }
 
 #error .frame pre {
@@ -386,23 +377,27 @@ fieldset.frame,
 #error .frame pre,
 #error .frame ul ul {
 	overflow: auto;
-	padding: 1rem 0;
-	background: #fefefe;
+	padding: @spacing-smallerish 0 @spacing-smallish;
+	background: @white;
 }
 
 #error .content ul {
-	margin: 0 -1rem;
+	margin: 0;
 }
 
 #error .frame ul ul li {
-	padding: 0 1rem;
-	line-height: 1.8;
+	padding: @spacing-micro @spacing-smallish;
+	line-height: 1.4em;
 	white-space: nowrap;
-	border-top: 0.1rem solid rgba(0, 0, 0, 0.05);
+	border-top: 1px solid @lighter-grey;
 }
 
 #error .frame ul ul li.full {
 	white-space: normal;
+}
+
+#error .frame-header {
+	color: @darker-grey; font-size: @text-shorter; font-weight: 300; text-transform: uppercase; padding: @spacing-smallerish @spacing-smallish; border-bottom: 1px solid @lighter-grey; background: @lightest-grey;
 }
 
 #error .frame ul ul:first-of-type li:first-of-type {
@@ -410,8 +405,8 @@ fieldset.frame,
 }
 
 #error .frame .error {
-	color: #bd7053;
-	background-color: #fff9a2;
+	color: @red;
+	background-color: @lightest-grey;
 }
 #error .frame .error b {
 	display: inline-block;
@@ -431,6 +426,7 @@ fieldset.frame,
 	color: rgba(0, 0, 0, 0.5);
 	font: 100%/1.5 Monaco, Consolas, 'Andale Mono', monospace;
 	font-style: normal;
+	padding-right: @spacing-micro;
 }
 
 #error .frame .content {
