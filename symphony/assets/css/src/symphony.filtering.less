@@ -1,18 +1,46 @@
-.drawer-filtering .contents {
-	padding-top: 0 !important;
-	border: none !important;
-}
+ /*-----------------------------------------------------------------------------
+ 	LESS — Variables Importing
+ -----------------------------------------------------------------------------*/
+ @import "variables";
+
+  /*-----------------------------------------------------------------------------
+ 	Filtering
+ -----------------------------------------------------------------------------*/
 
 .drawer-filtering .frame {
-	min-height: 6.2rem;
-	margin-bottom: 2rem;
-	border: none;
-	border-top: 0.1rem solid #e7e7e7;
+	.flex(~'row', ~'center', ~'flex-end');
+	flex-wrap: wrap;
+	border: none; background: none;
+
+	&:after {
+		content: "";
+		display: block; clear: both;
+	}
+
+	ol {
+		width: 100%;
+	}
+
+	&.collapsible>*>li,
+	&.constructable>*>li {
+		margin-left: 0;
+
+		.content {
+			padding: @spacing-smallest 0 0; border: none;
+		}
+	}
+
+	.columns.two .column {
+		margin-bottom: 0; padding-left: @spacing-smallish; width: 50%!important;
+	}
+
+	label > * {
+		margin-top: 0;
+	}
 }
 
-.drawer-filtering .frame.empty ol {
-	height: 3.3rem;
-	border-bottom: 0.1rem solid #e7e7e7;
+.drawer-filtering .frame.empty {
+	height: auto;
 }
 
 .drawer-filtering .frame.empty ol::before {
@@ -24,36 +52,28 @@
 }
 
 .drawer-filtering .instance {
-	min-height: 6rem;
-	border-bottom: 0.1rem solid #e7e7e7;
+	margin-bottom: @spacing-smallish; padding: 0 0 @spacing-smallish!important; border-bottom: 1px solid @lighter-grey;
 }
 
 .drawer-filtering .frame-header {
-	padding: 0.8rem 0 0.3rem;
-	border: none;
-	box-shadow: none !important;
+	padding: 0; border: none;
 }
 
 .drawer-filtering .destructor {
 	right: 0;
 }
 
-.drawer-filtering .content {
-	padding: 0;
-}
-
 /* Buttons */
 
 .drawer-filtering .clear-filters {
-	position: absolute;
-	bottom: 0rem;
-	left: -1rem;
+	order: 3;
+	margin-left: @spacing-smallest;
 	cursor: pointer;
 }
 
 .drawer-filtering .apply-filters {
-	float: right;
-	margin-top: 1rem;
+	order: 2;
+	margin-left: @spacing-smallest;
 	cursor: pointer;
 }
 
@@ -65,7 +85,7 @@
 	clear: none;
 }
 
-@media screen and (max-width: 700px) {
+/*@media screen and (max-width: 700px) {
 
 	.drawer-filtering .columns {
 		margin-left: 0;
@@ -80,4 +100,4 @@
 		padding: 0 0 0.7rem;
 		border-top: none;
 	}
-}
+}*/

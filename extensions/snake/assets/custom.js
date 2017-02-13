@@ -246,6 +246,13 @@
 			}, 250);
 		});
 
+		$(o.context).on('click', '.drawer-filtering .constructor', function(){
+			setTimeout(function(){
+				$('.drawer-filtering .instance:last-child select').select2();
+				$('.drawer-filtering .instance:last-child .select2-container .select2-selection--single .select2-selection__arrow').html(s.chevron);
+			}, 250);
+		});
+
 		/*
 		// SVGs
 		_____________________________________________ */

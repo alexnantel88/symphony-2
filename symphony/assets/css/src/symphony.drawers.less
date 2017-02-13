@@ -16,11 +16,16 @@
 	Horizontal drawers
 -----------------------------------------------------------------------------*/
 
-/*div.drawer.horizontal {
-	position: relative;
+div.drawer.horizontal {
+	box-sizing: border-box;
+	position: absolute; right: 0; top: 100%; border: 1px solid @lightest-grey; background: @white;
+
+	.contents {
+		padding: @spacing-smallish;
+	}
 }
 
-div.drawer.horizontal .contents {
+/*div.drawer.horizontal .contents {
 	margin-top: 1.7rem;
 	padding: 2rem 0;
 }
