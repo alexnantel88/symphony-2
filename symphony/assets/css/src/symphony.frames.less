@@ -16,6 +16,19 @@
 	box-sizing: border-box;
 	border-radius: @radius-current;
 	position: relative; margin: 0; padding: @spacing-smallerish; border: 1px solid @lighter-grey; background: @lightest-grey;
+
+	&:after {
+		content: "";
+		display: block; clear: both; width: 100%;
+	}
+}
+
+.duplicator {
+	margin-bottom: 8.2rem;
+
+	.apply {
+		position: absolute; right: 0; bottom: -5.2rem;
+	}
 }
 
 .frame h1 {
@@ -29,8 +42,7 @@
 }
 
 .frame.empty {
-	height: 3rem;
-	border: 1px solid @lighter-grey;
+	min-height: 3.6rem;
 }
 
 .frame ol,
@@ -171,7 +183,7 @@ fieldset.frame,
 /* Applicators */
 
 .frame .apply {
-	margin-top: @spacing-smallish;
+	margin-top: @spacing-smallest;
 }
 
 .frame .actions {
