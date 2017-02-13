@@ -12,11 +12,6 @@
 	flex-wrap: wrap;
 	border: none; background: none;
 
-	&:after {
-		content: "";
-		display: block; clear: both;
-	}
-
 	ol {
 		width: 100%;
 	}
@@ -45,14 +40,11 @@
 
 .drawer-filtering .frame.empty ol::before {
 	content: attr(data-empty);
-	display: block;
-	color: #b4b4b4;
-	font-size: 1.1rem;
-	line-height: 3.3rem;
+	display: block; color: @darker-grey; font-size: @text-shorter; text-transform: uppercase; font-weight: 300; margin-bottom: @spacing-smallish; padding-bottom: @spacing-smallish; border-bottom: 1px solid @lighter-grey;
 }
 
 .drawer-filtering .instance {
-	margin-bottom: @spacing-smallish; padding: 0 0 @spacing-smallish!important; border-bottom: 1px solid @lighter-grey;
+	overflow: visible; margin-bottom: @spacing-smallish; padding: 0 0 @spacing-smallish!important; border-bottom: 1px solid @lighter-grey;
 }
 
 .drawer-filtering .frame-header {

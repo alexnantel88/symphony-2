@@ -93,6 +93,8 @@
 
 		/* Init - Add space to the Context if there are action buttons */
 
+		$('body.entry_relationship.page-index #contents .actions').remove();
+
 		if($(o.actions).length){
 			$(o.context).addClass('spaced-right');
 			$(o.contents).addClass('spaced-bottom');
