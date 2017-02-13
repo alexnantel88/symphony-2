@@ -350,13 +350,24 @@ button.delete:focus,
 	}
 }
 
+.apply-label-left + div .select2-container .select2-selection--single .select2-selection__rendered {
+	border-radius: 0 @radius-current @radius-current 0;
+	border-left: none; border-right: 1px solid @lighter-grey;
+}
+
 .apply button,
 .apply-button-right,
 .apply-button-left,
 .apply-label-right,
 .apply-label-left {
 	border-radius: 0 @radius-current @radius-current 0;
-	float: right; color: @white!important; font-size: @text-shorter; font-weight: 300; text-transform: uppercase; line-height: @spacing-smaller + @spacing-smallest + @spacing-nano; margin: 0; padding-left: @spacing-smallerish; padding-right: @spacing-smallerish; border: none; background: @accent; cursor: pointer;
+	float: right; color: @white!important; font-size: @text-shorter; font-weight: 300; text-transform: uppercase; line-height: @spacing-smaller + @spacing-smallest + @spacing-nano; margin: 0; padding-left: @spacing-smallerish; padding-right: @spacing-smallerish; border: none; background: @accent;
+}
+
+.apply button,
+.apply-button-right,
+.apply-button-left {
+	cursor: pointer;
 
 	&:hover {
 		background: @darker-grey;
