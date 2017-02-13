@@ -95,6 +95,10 @@ body {
 	> ul {
 		color: @dark-grey; margin: 0; padding: @spacing-smallish;
 
+		a {
+			display: inline-block;
+		}
+
 		> li {
 			display: block;
 			position: relative;
@@ -646,6 +650,8 @@ fieldset.settings {
 	}
 
 	& + fieldset.settings {
+		margin-top: @spacing-midlarge;
+
 		@media (max-width: @md){
 			margin-top: 5rem;
 

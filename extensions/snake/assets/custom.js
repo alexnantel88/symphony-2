@@ -143,6 +143,12 @@
 			t.prepend('<h2>'+title+'</h2>');
 		});
 
+		/* Init - Nano Scroll */
+
+		$('.tab-group:first-child').addClass('nano');;
+		$('.tab-group.nano').wrapInner('<div class="nano-content"></div>');
+		$('.tab-group.nano').nanoScroller({ iOSNativeScrolling: true });
+
 		/* Scroll to right TabGroup on TabNav click */
 
 		$(o.contextTabs).on('click', function(){

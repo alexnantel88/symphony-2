@@ -416,24 +416,28 @@ img.gravatar {
 	box-sizing: border-box;
 	background: @white;
 
+	.nano-content > h2,
 	> h2 {
 		color: @accent; font-size: 3.2rem; font-weight: 300; padding: @spacing-smallest 0 5rem;
 	}
 
 	&:first-child {
 		@media (min-width: (@md + 1)){
-			overflow: auto;
-			position: fixed!important; left: 25.1rem!important; right: @spacing-huger; top: @spacing-midlarge!important; bottom: 0; padding: @spacing-smallish; padding-right: @spacing-smallish; width: auto;
+			position: fixed!important; left: 25.1rem!important; right: @spacing-huger; top: @spacing-midlarge!important; width: auto; height: calc(~'100vh - @{spacing-midlarge}');
 		
-			> * {
-				margin-left: auto; margin-right: auto; max-width: @max-width-small;
+			.nano-content {
+				margin-left: auto; margin-right: auto; padding: @spacing-smallish; max-width: @max-width-small;
 			}
 		}
 		@media (max-width: @md){
-			position: relative!important; left: 0!important; top: 0!important;
+			position: relative!important; left: 0!important; top: 0!important; height: auto;
+
+			.nano-content {
+				position: relative!important;
+			}
 		}
 
-		> h2 {
+		.nano-content > h2 {
 			padding-top: @spacing-smallest + @spacing-midlarge;
 		}
 	}
@@ -547,3 +551,11 @@ body.entry_relationship {
 		left: 0!important;
 	}
 }
+
+/*--------------------------------------------------------------------------
+	Nano Scroller
+--------------------------------------------------------------------------*/
+
+body .nano > .nano-pane { background: transparent; width: 15px; }
+body .nano > .nano-pane > .nano-slider { margin: 0 4px; background: rgba(0,0,0,0.35); }
+
