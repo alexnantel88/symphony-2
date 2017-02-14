@@ -515,7 +515,7 @@ html:not(.touch) {
 
 		> form,
 		> p {
-			width: 100%; max-width: @max-width-big;
+			margin-right: 0!important; width: 100%; max-width: @max-width-big;
 		}
 	}
 }
@@ -798,7 +798,8 @@ label + .help + label,
 .jit-duplicator ~ label,
 .two.columns + label,
 #password,
-label.column + fieldset {
+label.column + fieldset,
+label + input[type="hidden"] + label {
 	margin-top: @spacing-smallish;
 }
 
