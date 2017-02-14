@@ -16,11 +16,6 @@
 	box-sizing: border-box;
 	border-radius: @radius-current;
 	position: relative; margin: 0; padding: @spacing-smallerish; border: 1px solid @lighter-grey; background: @lightest-grey;
-
-	&:after {
-		content: "";
-		display: block; clear: both; width: 100%;
-	}
 }
 
 .duplicator {
@@ -65,15 +60,19 @@
 
 .frame {
 	iframe {
-		max-width: 100%;
+		display: block; margin: 0 auto; max-width: 100%;
 	}
 }
 
 .frame > button {
 	font-size: @text-shorter; font-weight: 300; text-transform: uppercase; margin: 0; padding: @spacing-smallest @spacing-smallerish; border: none; background: @accent; border-radius: @radius-current; cursor: pointer;
 
-	&:hover {
+	&:not(:disabled):hover {
 		background: @darker-grey;
+	}
+
+	&:disabled {
+		cursor: default;
 	}
 }
 
