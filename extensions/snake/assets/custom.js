@@ -60,10 +60,6 @@
 		// Header Nav
 		_____________________________________________ */
 
-		/*$(o.nav).addClass('nano-content');
-		$(o.nav).wrap('<div class="nano" id="nav-container"></div>');
-		$('#nav-container').nanoScroller({ preventPageScrolling: true, alwaysVisible: true });*/
-
 		/* Init - Setup mobile Nav Toggler */
 
 		$(o.header).append('<a href="" id="btn-toggle-header-mobile">'+s.burger+'</a>');
@@ -99,9 +95,11 @@
 		// Context Actions
 		_____________________________________________ */
 
-		/* Init - Add space to the Context if there are action buttons */
+		/* Init - Remove Lightbox Actiuons if it is only Close */
 
 		$('body.entry_relationship.page-index #contents .actions').remove();
+
+		/* Init - Add space to the Context if there are action buttons */
 
 		if($(o.actions).length){
 			$(o.context).addClass('spaced-right');
@@ -152,10 +150,6 @@
 		});
 
 		/* Init - Nano Scroll */
-
-		/*$('.tab-group:first-child').addClass('nano');
-		$('.tab-group.nano').wrapInner('<div class="nano-content"></div>');
-		$('.tab-group.nano').nanoScroller({ preventPageScrolling: true, alwaysVisible: true });*/
 
 		/* Scroll to right TabGroup on TabNav click */
 
@@ -253,28 +247,12 @@
 			setTimeout(function(){
 				$(o.dashboardDrawerSelects).select2();
 				$(o.dashboardDrawerSelectsArrows).html(s.chevron);
-
-				/*if($('#drawer-dashboard').hasClass('nano')){
-					$('#drawer-dashboard.nano').nanoScroller();
-				} else {
-					$('#drawer-dashboard').addClass('nano');
-					$('#drawer-dashboard.nano').wrapInner('<div class="nano-content"></div>');
-					$('#drawer-dashboard.nano').nanoScroller({ preventPageScrolling: true, alwaysVisible: true });
-				}*/
 			}, 450);
 		});
 		$('#dashboard .panel a.panel-edit').on('click', function(){
 			setTimeout(function(){
 				$(o.dashboardDrawerSelects).select2();
 				$(o.dashboardDrawerSelectsArrows).html(s.chevron);
-
-				/*if($('#drawer-dashboard').hasClass('nano')){
-					$('#drawer-dashboard.nano').nanoScroller();
-				} else {
-					$('#drawer-dashboard').addClass('nano');
-					$('#drawer-dashboard.nano').wrapInner('<div class="nano-content"></div>');
-					$('#drawer-dashboard.nano').nanoScroller({ preventPageScrolling: true, alwaysVisible: true });
-				}*/
 			}, 450);
 		});
 
@@ -320,6 +298,7 @@
 		$(o.navElFirst).append(s.chevron);
 		if($(o.actionButtons).length > 1) $(o.actions).append(s.chevron);
 		$(o.selectArrows).html(s.chevron);
+		$('.frame.collapsible .frame-header h4').append(s.chevron);
 
 		/* ////////////////////////////////////////////////////////////////////////////
 		//

@@ -51,7 +51,7 @@ img.gravatar {
 		position: relative; border: 1px solid @lighter-grey; background: @white;
 
 		h3 {
-			color: @darker-grey; font-size: @text-shorter; text-transform: uppercase; font-weight: 300; padding: @spacing-smallerish @spacing-smallish; border-bottom: 1px solid @lighter-grey; background: @lightest-grey;
+			color: @darker-grey; font-size: @text-shorter; text-transform: uppercase; font-weight: 300; padding: @spacing-smallerish @spacing-smallish; border-bottom: 1px solid @lighter-grey; background: none;
 		
 			span {
 				color: @dark-grey;
@@ -309,7 +309,7 @@ img.gravatar {
 	}
 
 	div.dt-calendar {
-		margin: 0 auto; padding: @spacing-smallish 0 @spacing-smallest!important; border: none; background: none; max-width: 30rem;
+		margin: 0 auto; padding: @spacing-smallish 0 @spacing-smallest!important; border: none; background: none; max-width: 30rem; z-index: 20;
 
 		div.date:not(:last-child) {
 			display: block!important; padding: 0!important; width: 100%!important;
