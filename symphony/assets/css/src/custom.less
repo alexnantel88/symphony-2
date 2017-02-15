@@ -48,7 +48,7 @@ img.gravatar {
 #dashboard {
 	.panel {
 		box-shadow: 0 0 0 rgba(0,0,0,0);
-		position: relative; border: 1px solid @lighter-grey; background: @white;
+		position: relative; margin: 0; border: 1px solid @lighter-grey; background: @white;
 
 		h3 {
 			color: @darker-grey; font-size: @text-shorter; text-transform: uppercase; font-weight: 300; padding: @spacing-smallerish @spacing-smallish; border-bottom: 1px solid @lighter-grey; background: none;
@@ -116,6 +116,14 @@ img.gravatar {
 	.sortable-container {
 		border-radius: @radius-current;
 		padding: 0 0 0 @spacing-smallish; border: none; min-height: 1px;
+
+		&.secondary {
+			padding-left: @spacing-mid;
+
+			@media (max-width: @md){
+				margin-top: @spacing-smallish; padding-left: 0;
+			}
+		}
 	}
 }
 
@@ -222,6 +230,10 @@ img.gravatar {
 			}
 		}
 	}
+}
+
+body div.compact label.oembed-other-title {
+	display: block; margin: @spacing-smallerish 0 @spacing-smallerish @spacing-smallish; width: 90%;
 }
 
 /* Sandbox */

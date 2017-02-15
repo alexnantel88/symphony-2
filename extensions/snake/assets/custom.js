@@ -161,7 +161,7 @@
 		$(o.contextTabs).on('click', function(){
 			var t = $(this);
 
-			$('html, body').stop().animate({scrollTop: ($(o.tabGroup).eq(t.index()).offset().top - 120)}, 750);
+			$('html, body').stop().animate({scrollTop: ($(o.tabGroup).eq(t.index()).offset().top - 159)}, 750);
 
 			return false;
 		});
@@ -319,7 +319,6 @@
 		// Website
 		_____________________________________________ */
 
-		changeStateDrawer();
 		onScroll();
 
 		win.on('scroll', function(){
