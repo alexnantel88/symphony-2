@@ -265,6 +265,10 @@
 			setTimeout(function(){
 				$('.drawer-filtering .instance:last-child select').select2();
 				$('.drawer-filtering .instance:last-child .select2-container .select2-selection--single .select2-selection__arrow').html(s.chevron);
+
+				$('.drawer-filtering .apply select').select2('destroy');
+				$('.drawer-filtering .apply select').select2();
+				$('.drawer-filtering .apply .select2-container .select2-selection--single .select2-selection__arrow').html(s.chevron);
 			}, 450);
 		});
 

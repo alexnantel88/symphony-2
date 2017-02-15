@@ -69,7 +69,7 @@ body .select2-container {
 		.transitioned(~'color, background');
 		color: @darker-grey; font-family: inherit; font-size: 1.4rem; font-weight: 300; text-transform: none; line-height: 1.4rem; padding: @spacing-smallest @spacing-smallerish;
 
-		&:hover,
+		&[aria-disabled="false"]:hover,
 		&[aria-selected="true"] {
 			color: @white; background: @accent;
 		}
