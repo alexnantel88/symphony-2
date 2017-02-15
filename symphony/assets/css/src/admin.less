@@ -559,8 +559,12 @@ fieldset.settings {
 		width: 100%;
 	}
 
+	label + p.help {
+		margin-top: -@spacing-smaller
+	}
+
 	p.help {
-		margin: @spacing-smallest 0 0;
+		margin: 0;
 
 		a {
 			border-bottom: 1px solid currentColor;
@@ -786,30 +790,9 @@ label {
 	}
 }
 
-label.tab-en + label.tab-en,
-label.tab-fr + label.tab-fr,
-fieldset.settings > div:not(.columns) > label + label,
-fieldset.settings > label + label,
-fieldset.settings > input[type="hidden"] + label,
-fieldset.settings .column + .columns > .column > label,
-fieldset.settings .group label + label,
-fieldset.settings .columns + .columns,
-.instance label:not(.column) + label:not(.column),
-.instance label + .columns,
-.column > label + label,
-label + .columns.two,
-#file-actions + label,
-label + .help + label,
-.jit-duplicator ~ label,
-.two.columns + label,
-#password,
-label.column + fieldset,
-label + input[type="hidden"] + label,
-.field-geocoding label + label,
-.field-taglist label + label,
-.field-taglist fieldset + fieldset,
-.group + .group {
-	margin-top: @spacing-smallish;
+label,
+label.column {
+	margin-bottom: @spacing-smallish!important;
 }
 
 /* Checkboxes */

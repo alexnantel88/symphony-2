@@ -168,8 +168,9 @@ img.gravatar {
 --------------------------------------------------------------------------*/
 
 .field-multilingual .container > label,
-.field-datetime > label {
-	position: static;
+.field-datetime > label,
+#contents .field-entry_relationship > label {
+	position: static; margin-bottom: @spacing-smallest!important;
 }
 
 .field-multilingual .container,
@@ -525,7 +526,7 @@ div.field-addresslocation {
 		position: relative!important; left: 0!important; top: 0!important; 
 
 		@media (max-width: @md){
-			margin-top: 5rem; padding-top: @spacing-smallish; border-top: 1px solid @lighter-grey;
+			margin-top: @spacing-smallish; padding-top: @spacing-smallish; border-top: 1px solid @lighter-grey;
 		}
 		@media (min-width: (@md + 1)){
 			clear: both; float: right; margin-right: -@spacing-smallish; padding-left: @spacing-smallish; padding-right: @spacing-smallish; width: @spacing-huger;
@@ -562,10 +563,6 @@ table.selectable td.field-checkbox input.ajax-checkbox {
 
 	.destructor a:hover {
 		color: @darker-grey;
-	}
-
-	> label {
-		position: static;
 	}
 
 	> .frame {
@@ -617,22 +614,10 @@ body.entry_relationship {
 
 	#context {
 		left: 0;
-
-		/*.actions {
-			display: none;
-		}*/
 	}
 
 	.tab-group:first-child {
 		left: 0!important;
 	}
 }
-
-/*--------------------------------------------------------------------------
-	Nano Scroller
---------------------------------------------------------------------------*/
-
-body .nano > .nano-pane { background: transparent; width: 15px; }
-body .nano > .nano-pane > .nano-slider { margin: 0 4px; background: rgba(0,0,0,0.35); }
-body .nano > .nano-content:focus { outline: none; }
 
