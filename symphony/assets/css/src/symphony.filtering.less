@@ -25,8 +25,12 @@
 		}
 	}
 
-	.columns.two .column {
-		margin-bottom: 0; padding-left: @spacing-smallish; width: 50%!important;
+	.columns.two {
+		margin: 0 0 0 -@spacing-smallish!important;
+
+		.column {
+			margin: 0!important; padding: 0 0 0 @spacing-smallish!important; border: none!important; width: 50%!important;
+		}
 	}
 
 	label > * {

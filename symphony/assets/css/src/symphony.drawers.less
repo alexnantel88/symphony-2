@@ -73,10 +73,12 @@ div.drawer.vertical-right .contents {
 	overflow: auto; position: absolute; right: 0; top: 100%; padding: @spacing-smallish; border: 1px solid @lighter-grey; background: @white; width: 100%; height: calc(~'100vh - @{spacing-midlarge}'); z-index: 60;
 
 	.contents {
-		margin: 0 auto; max-width: @max-width-big;
+		margin: 0 auto; padding: 0; max-width: @max-width-big;
 	}
 
 	#save-panel {
+		margin-top: 0;
+
 		label > span {
 			border: none; background: none;
 		}

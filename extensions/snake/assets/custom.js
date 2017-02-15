@@ -274,9 +274,9 @@
 		$('body').on('click', 'fieldset.apply button', function(){
 			var t = $(this).parents('.apply');
 
-			//console.log(t);
-
 			setTimeout(function(){
+				t.parents('.frame').find('ol .instance:last-child .frame-header h4').append(s.chevron);
+
 				$('select', t).select2();
 				$('.select2-container .select2-selection--single .select2-selection__arrow', t).html(s.chevron);
 			}, 250);
