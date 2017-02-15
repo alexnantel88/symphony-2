@@ -255,23 +255,31 @@
 			setTimeout(function(){
 				$(o.dashboardDrawerSelects).select2();
 				$(o.dashboardDrawerSelectsArrows).html(s.chevron);
-			}, 450);
+			}, 250);
 		});
 		$('#dashboard .panel a.panel-edit').on('click', function(){
 			setTimeout(function(){
 				$(o.dashboardDrawerSelects).select2();
 				$(o.dashboardDrawerSelectsArrows).html(s.chevron);
-			}, 450);
+			}, 250);
 		});
 
 		$(o.context).on('click', '.drawer-filtering .constructor', function(){
 			setTimeout(function(){
 				$('.drawer-filtering .instance:last-child select').select2();
 				$('.drawer-filtering .instance:last-child .select2-container .select2-selection--single .select2-selection__arrow').html(s.chevron);
+			}, 250);
+		});
 
-				$('.drawer-filtering .apply select').select2();
-				$('.drawer-filtering .apply .select2-container .select2-selection--single .select2-selection__arrow').html(s.chevron);
-			}, 450);
+		$('body').on('click', 'fieldset.apply button', function(){
+			var t = $(this).parents('.apply');
+
+			//console.log(t);
+
+			setTimeout(function(){
+				$('select', t).select2();
+				$('.select2-container .select2-selection--single .select2-selection__arrow', t).html(s.chevron);
+			}, 250);
 		});
 
 		/*
