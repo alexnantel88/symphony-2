@@ -328,7 +328,7 @@ body {
 		.transitioned(~'opacity, background');
 		border-radius: 0px;
 		box-sizing: border-box;
-		display: block; color: @white; font-size: @text-shorter; text-transform: uppercase; text-align: left; line-height: @spacing-midlarge; margin: 0!important; padding: 0 @spacing-small 0 5rem; border: none; background: @accent!important; width: 100%; cursor: pointer;
+		display: block; color: @white; font-size: @text-shorter; text-transform: uppercase; text-align: left; line-height: @spacing-midlarge; margin: 0!important; padding: 0 @spacing-small 0 5.5rem; border: none; background: @accent!important; width: 100%; cursor: pointer;
 	
 		&[name="action[delete]"], &[name="action[delete]"]:hover {
 			background: @red!important;
@@ -356,10 +356,6 @@ body {
 
 		&[data-icon="action[delete]"] {
 			order: 10;
-
-			svg {
-				width: 2rem;
-			}
 		}
 	}
 
@@ -376,6 +372,7 @@ body {
 	}
 
 	#duplicate-entry {
+		order: 9;
 		float: none!important;
 
 		> span {

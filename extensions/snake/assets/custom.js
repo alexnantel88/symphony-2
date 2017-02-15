@@ -246,7 +246,10 @@
 		// Select
 		_____________________________________________ */
 
-		$('select').select2();
+		$('select').each(function(){
+			var t = $(this);
+			if(t.attr('multiple') === undefined) t.select2();
+		});
 
 		$('#context .actions li select[name="panel-type"]').on('change', function(){
 			setTimeout(function(){
@@ -266,7 +269,6 @@
 				$('.drawer-filtering .instance:last-child select').select2();
 				$('.drawer-filtering .instance:last-child .select2-container .select2-selection--single .select2-selection__arrow').html(s.chevron);
 
-				$('.drawer-filtering .apply select').select2('destroy');
 				$('.drawer-filtering .apply select').select2();
 				$('.drawer-filtering .apply .select2-container .select2-selection--single .select2-selection__arrow').html(s.chevron);
 			}, 450);
@@ -303,7 +305,8 @@
 			var title = t.attr('data-icon');
 
 			if(title !== undefined){
-				if(title.indexOf('save') !== -1) t.prepend(s.save);
+				if(title.indexOf('save-duplicate') !== -1) t.prepend(s.clone);
+				else if(title.indexOf('save') !== -1) t.prepend(s.save);
 				else if(title.indexOf('delete') !== -1) t.prepend(s.delete);
 				else if(title.indexOf('clone') !== -1) t.prepend(s.clone);
 			}
