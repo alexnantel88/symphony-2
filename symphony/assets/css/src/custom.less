@@ -407,6 +407,60 @@ body div.compact label.oembed-other-title {
 	}
 }
 
+/* Address Location */
+
+body .field-addresslocation {
+	padding: 0; border: none;
+
+	p.title {
+		display: none;
+	}
+
+	div.main.address {
+		.flex(~'row', ~'flex-start', ~'flex-start');
+		flex-wrap: wrap;
+		float: none; width: calc(~'100% + @{spacing-smallish}');
+
+		label {
+			box-sizing: border-box;
+			float: none; margin: 0 0 @spacing-smallish; padding-right: @spacing-smallish; width: 50%;
+
+			@media (max-width: @xs) {
+				width: 100%;
+			}
+
+			&.street {
+				width: 100%;
+			}
+
+			&.locate {
+				.flex(~'row', ~'flex-start', ~'flex-start');
+
+				input {
+					.transitioned(~'color, background');
+					float: none; font-size: @text-shorter; text-transform: uppercase; line-height: 1.85; margin: 0 @spacing-smallest 0 0; padding: @spacing-smallest @spacing-smallerish; border-radius: @radius-current; background: @accent; width: auto;
+				
+					&:not(:disabled) {
+						cursor: pointer;
+
+						&:hover {
+							background: @black;
+						}
+					}
+
+					&:disabled {
+						opacity: 0.5;
+					}
+				}
+			}
+		}
+	}
+
+	div.main.map {
+		float: none; width: 100%;
+	}
+}
+
 /* Preferences */
 
 #contents .navigationicons-duplicator > li {
