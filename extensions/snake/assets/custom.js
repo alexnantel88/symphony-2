@@ -275,10 +275,12 @@
 			var t = $(this).parents('.apply');
 
 			setTimeout(function(){
-				t.parents('.frame').find('ol .instance:last-child .frame-header h4').append(s.chevron);
+				var f = t.parents('.frame').find('ol .instance:last-child');
 
-				$('select', t).select2();
-				$('.select2-container .select2-selection--single .select2-selection__arrow', t).html(s.chevron);
+				$('.frame-header h4', f).append(s.chevron);
+
+				$('select', f).select2();
+				$('.select2-container .select2-selection--single .select2-selection__arrow', f).html(s.chevron);
 			}, 250);
 		});
 
