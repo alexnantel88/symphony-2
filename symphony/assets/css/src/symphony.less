@@ -6,6 +6,17 @@
 
 
 /*-----------------------------------------------------------------------------
+	LESS — Variables Importing
+-----------------------------------------------------------------------------*/
+@import "variables";
+
+/*-----------------------------------------------------------------------------
+	Font importing — Karla | Google Fonts
+-----------------------------------------------------------------------------*/
+// @import url(https://fonts.googleapis.com/css?family=Karla:400,400italic,700,700italic);
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,400italic,500,700,300,300italic);
+
+/*-----------------------------------------------------------------------------
 	Reset – based on http://meyerweb.com/eric/tools/css/reset/
 -----------------------------------------------------------------------------*/
 
@@ -21,7 +32,6 @@ fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td {
 	margin: 0;
 	padding: 0;
-	font-size: 1em;
 	vertical-align: baseline;
 	text-decoration: none;
 	border: 0;
@@ -30,7 +40,6 @@ table, caption, tbody, tfoot, thead, tr, th, td {
 input, select, textarea, button {
 	margin: 0;
 	padding: 0;
-	font-size: 1em;
 	vertical-align: baseline;
 }
 button::-moz-focus-inner {
@@ -48,74 +57,56 @@ header, nav, section, aside, footer {
 	display: block;
 }
 
+h1, h2, h3, h4, h5, h6 {
+	line-height: 1.2em;
+}
+
 /*-----------------------------------------------------------------------------
 	Basic styles
 -----------------------------------------------------------------------------*/
 
 html {
-	font-size: 10px;
+	font-size: 62.5%;
+	min-height: 100%;
 }
 
 body {
-	color: #222;
-	font: 1.1rem/1.5 'Lucida Grande', Leelawadee, Tahoma, Verdana, sans-serif;
-	background: #fff;
+	color: @darker-grey; font: @text-current/1.8em 'Roboto', 'Lucida Grande', Leelawadee, Tahoma, Verdana, sans-serif; padding-left: @spacing-huge; min-height: 100%;
+
+	@media (max-width: @sm){
+		padding-left: 0;
+	}
 }
 
-body > div,
-body > form {
-	font-size: 1.1rem;
-}
-
-/* Headlines */
-
-h3 {
-	font-weight: bold;
+a, button, input, li {
+	.transitioned(~'color, background, border');
 }
 
 /* Paragraphs */
 
 p {
-	margin-bottom: 1.5rem;
+	margin-bottom: @spacing-smallest;
 }
 
 p.label {
 	position: relative;
-	margin: 0 0 0.2rem;
+	margin: 0 0 @spacing-micro;
 }
 
 /* Links */
 
-a {
-	color: #3f69a5;
-	border-bottom: 1px solid rgba(63, 105, 165, 0.15);
+a, input[type="submit"], button {
 	cursor: pointer;
-}
-
-a:hover,
-.inactive a:hover {
-	color: #000;
-	border-bottom-color: rgba(0, 0, 0, 0.3);
-}
-
-a:active, a:focus,
-.inactive a:active, .inactive a:focus {
-	color: #d42;
-	border-bottom-color: rgba(221, 68, 34, 0.3);
 }
 
 /* Lists */
 
 ul, ol {
-	margin: 0 0 1.5rem 2.5rem;
+	margin: 0 0 @spacing-smallest @spacing-smaller;
 }
 
 ul.tags {
-	margin: -0.75rem 0 1.5rem 0;
-	padding: 0;
-	color: #a2a2a2;
-	color: rgba(0, 0, 0, 0.4);
-	list-style: none;
+	color: @grey; font-weight: 300; margin: @spacing-smallest 0 0 @spacing-smallerish; padding: 0; list-style: none;
 }
 
 ul.tags li,
@@ -123,8 +114,8 @@ ul.tags li:first-of-type,
 ul.tags li:last-of-type {
 	display: inline;
 	float: none;
-	padding: 0 6px 0 0;
-	font-size: 90.91%;
+	padding: 0 @spacing-micro 0 0;
+	font-size: @text-short;
 	border: none;
 	cursor: pointer;
 }
@@ -134,41 +125,40 @@ ul.tags li:hover {
 }
 
 ul.tags li.more {
-	color: #5072bf;
-	border-bottom: 0.1rem solid rgba(63, 105, 165, 0.15);
+	color: @accent;
+	border-bottom: 1px solid currentColor;
 }
 
 ul.tags .more:hover {
-	color: #222;
-	border-bottom-color: rgba(0, 0, 0, 0.1);
+	color: @darker-grey;
+	border-bottom-color: currentColor;
 }
 
 /* Code */
 
 code,
 .code {
-	font: 100%/1.5 Monaco, Consolas, 'Andale Mono', monospace;
 	tab-size: 4;
+	font-family: 'Roboto', 'Lucida Grande', Leelawadee, Tahoma, Verdana, sans-serif;
 }
 
 pre {
-	margin-bottom: 1.5rem;
-	color: #474742;
-	font: inherit;
-	white-space: normal;
-	background: #f4f4f4;
+	border-radius: @radius-current;
+	color: @darker-grey; margin-bottom: @spacing-smaller; border: 1px solid @lighter-grey; background: @lightest-grey; white-space: normal;
 }
 
 pre code {
 	display: block;
 	overflow: auto;
-	padding: 0.5rem 0.7rem;
-	white-space: pre;
-	border: 0.1rem solid #d5d6d0;
+	font-size: @text-short;
+	font-family: inherit;
+	line-height: 1.4em;
+	padding: @spacing-smallerish;
+	white-space: pre-wrap;
 }
 
 i code {
-	font-size: 1em;
+	font-size: @text-shorter;
 	font-size-adjust: 0;
 }
 
@@ -180,29 +170,16 @@ i, var {
 
 /* Forms */
 
-fieldset {
-	position: relative;
-	padding: 1rem 0;
-}
-
-legend {
-	padding: 0;
-	color: rgba(0, 0, 0, 0.65);
-	font-weight: bold;
-	line-height: 1;
-}
-
-label {
-	display: block;
-	position: relative;
-	margin-bottom: 1.5rem;
-}
-
 label > i,
 p.label > i {
 	position: absolute;
-	top: 0;
+	top: 100%;
 	right: 0;
+	font-weight: 300;
+	font-size: @text-shorter;
+	text-transform: none;
+	color: @dark-grey;
+	margin-top: 2px;
 }
 
 label.inline-help > i {
@@ -218,11 +195,11 @@ label.inline-help > i {
 
 .inactive,
 .inactive * {
-	color: #b4b4b4;
+	color: @grey;
 }
 
 .inactive a {
-	border-bottom-color: rgba(180, 180, 180, 0.3);
+	border-bottom-color: currentColor;
 }
 
 .irrelevant {
@@ -231,20 +208,19 @@ label.inline-help > i {
 
 .selected, .selected a,
 .selected .inactive {
-	color: #fff;
+	color: @white;
 }
 
 .selected, .selected a {
-	border-bottom-color: rgba(255, 255, 255, 0.2);
+	border-bottom-color: currentColor;
 }
 
 .selected a:hover {
-	color: #f2f2f2;
+	color: @lighter-grey;
 }
 
 .help {
-	clear: both;
-	color: #808080;
+	clear: both; color: @dark-grey; font-size: @text-shorter; font-weight: 300; text-transform: none; line-height: 1.4em;
 }
 
 .centered {

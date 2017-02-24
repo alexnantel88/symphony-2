@@ -1,0 +1,468 @@
+/**
+ * Frames are used in different areas of the system to group content,
+ * e. g. in the section or data source editor.
+ *
+ * @since: Symphony 2.3
+ */
+
+
+ /*-----------------------------------------------------------------------------
+ 	LESS — Variables Importing
+ -----------------------------------------------------------------------------*/
+ @import "variables";
+ 
+
+.frame {
+	box-sizing: border-box;
+	border-radius: @radius-current;
+	position: relative; margin: 0; padding: @spacing-smallerish; border: 1px solid @lighter-grey; background: @lightest-grey;
+}
+
+.duplicator {
+	margin-bottom: 8.2rem;
+
+	.apply {
+		position: absolute; right: 0; bottom: -5.2rem;
+	}
+}
+
+.frame h1 {
+	padding: @spacing-smallest;
+	color: @white;
+	font-size: inherit;
+	font-weight: normal;
+	line-height: inherit;
+	border-radius: @radius-current @radius-current 0 0;
+	background: @darker-grey;
+}
+
+.frame.empty {
+	min-height: 3.6rem;
+}
+
+.frame ol,
+.frame ul {
+	margin: 0;
+	padding: 0;
+}
+
+.frame .tags {
+	margin: -@spacing-smallish 0 @spacing-smallerish;
+}
+
+.frame .content {
+	padding-top: @spacing-smallerish;
+
+	.help {
+		margin-top: @spacing-smallest!important;
+	}
+}
+
+.frame {
+	iframe {
+		display: block; margin: 0 auto; max-width: 100%;
+	}
+}
+
+.frame > button {
+	font-size: @text-shorter; font-weight: 300; text-transform: uppercase; margin: 0; padding: @spacing-smallest @spacing-smallerish; border: none; background: @accent; border-radius: @radius-current; cursor: pointer;
+
+	&:not(:disabled):hover {
+		background: @darker-grey;
+	}
+
+	&:disabled {
+		cursor: default;
+	}
+}
+
+/* Headers */
+
+.frame-header {
+	.flex(~'row', ~'center', ~'space-between');
+	position: relative; padding: @spacing-smallest @spacing-smallerish; border-top: 1px solid @lighter-grey;
+
+	h4 {
+		.flex(~'row', ~'center', ~'flex-start');
+		display: inline-block; font-size: @text-short;
+
+		* {
+			.transitioned(~'color');
+		}
+
+		strong {
+			font-weight: 300;
+		}
+
+		span {
+			color: @dark-grey; font-size: @text-short; font-weight: 300; padding-left: @spacing-smallest;
+		}
+
+		svg {
+			padding-left: @spacing-smallerish;
+
+			* {
+				.transitioned(~'fill');
+			}
+		}
+
+		.required {
+			/*font-style: italic;*/
+		}
+	}
+}
+
+/*--------------------------------------------------------------------------
+	Inline frames (e. g. upload fields)
+--------------------------------------------------------------------------*/
+
+span.frame,
+fieldset.frame,
+.frame.inline {
+	display: block;
+	margin-bottom: @spacing-smaller;
+	padding: @spacing-smallest;
+}
+
+/*--------------------------------------------------------------------------
+	Login
+--------------------------------------------------------------------------*/
+
+#login {
+	.flex(~'column', ~'center', ~'center');
+	padding: 0; width: 100%; height: 100vh;
+
+	fieldset {
+		padding: @spacing-smallerish;
+
+		legend {
+			display: none;
+		}
+
+		label + label {
+			margin-top: @spacing-smallish;
+		}
+	}
+
+	.frame {
+		overflow: hidden; padding: 0; background: @white; width: @spacing-huger;
+
+		h1 {
+			padding: @spacing-smallest @spacing-smallerish; background: @accent;
+		}
+	}
+
+	.actions {
+		.flex(~'row-reverse', ~'center', ~'space-between');
+		padding: 0 @spacing-smallerish @spacing-smallerish;
+
+		.action-link {
+			color: @dark-grey; font-size: @text-short; font-weight: 300;
+		}
+
+		button {
+			border-radius: @radius-current;
+			font-size: @text-shorter; font-weight: 300; text-transform: uppercase; padding: @spacing-smallest @spacing-smallerish; background: @accent;
+		}
+	}
+}
+
+/*--------------------------------------------------------------------------
+	Controls
+--------------------------------------------------------------------------*/
+
+.frame .destructor,
+.frame .debug {
+	color: @light-grey; font-size: @text-short; font-weight: 300; margin: 0;
+}
+
+.frame .destructor:hover,
+.frame .debug:hover,
+.frame .constructor:hover {
+	color: @darker-grey;
+}
+
+.frame .disabled {
+	color: @light-grey;
+	opacity: 0.4;
+	cursor: not-allowed;
+}
+
+/* Applicators */
+
+.frame .apply {
+	margin-top: @spacing-smallest;
+}
+
+.frame .actions {
+	margin: 0 0 @spacing-smallest;
+}
+
+.frame .actions input {
+	margin-top: 0;
+}
+
+.frame .actions button {
+	float: right;
+}
+
+/*-----------------------------------------------------------------------------
+	Orderables and Selectables
+-----------------------------------------------------------------------------*/
+
+.orderable .frame-header,
+.collapsible.orderable .ordering * {
+	cursor: move;
+}
+
+.orderable .frame-header:hover,
+.frame .selected .frame-header,
+.frame .ordering .frame-header {
+	h4, h4 span {
+		color: @accent;
+	}
+}
+
+.frame .selected,
+.frame .ordering {
+	position: relative;
+}
+
+.ordering .frame-header {
+	cursor: move;
+
+	h4, h4 span {
+		color: @accent;
+	}
+}
+
+.frame .ordering .frame-header span,
+.frame .ordering .frame-header .destructor,
+.frame .ordering .content i,
+.frame .ordering ul.tags {
+	color: @white;
+}
+
+/*-----------------------------------------------------------------------------
+	Collapsibles
+
+	The duration of all transitions has to be set to the same time to prevent
+	a "jump" in the animation because the class `.js-animate` is removed on
+	the first `transitionend` event.
+-----------------------------------------------------------------------------*/
+
+// @TODO : there is a problem with the calculating of the max-height of drawers. It's related to the to the adding of a padding on the header on opening.
+// see : .collapsible .instance:not(.collapsed) .frame-header
+
+.constructable,
+.collapsible {
+	padding: 0;
+}
+
+fieldset.settings .constructable,
+fieldset.settings .collapsible {
+	background: none;
+}
+
+.constructable > * > li,
+.collapsible > * > li {
+	overflow: hidden; margin-left: -@spacing-smallerish; padding: 0 @spacing-smallerish!important; width: 100%;
+
+	&:first-child .frame-header {
+		border: none;
+	}
+
+	.content {
+		padding: @spacing-smallerish; border-top: 1px solid @lighter-grey; background: @white;
+	}
+}
+
+.collapsible .instance.collapsed {
+	overflow: hidden;
+}
+
+.collapsible .instance,
+.collapsible input,
+.collapsible textarea,
+.collapsible select,
+.collapsible option {
+	-webkit-font-smoothing: subpixel-antialiased !important;
+}
+
+.collapsible .frame-header {
+	cursor: pointer;
+}
+
+.collapsible legend {
+	padding-right: 0.5rem;
+}
+
+.frame .js-animate {
+	overflow: hidden;
+	transition: max-height @duration-short @easeInOutQuad;
+}
+
+.collapsed.js-animate,
+.destructed.js-animate {
+	transition: max-height @duration-short @easeInOutQuad;
+}
+
+.collapsible .js-animate {
+	overflow: hidden;
+}
+
+.collapsible .instance:not(.collapsed) .frame-header {
+	h4, h4 span {
+		color: @accent;
+	}
+}
+
+.collapsible .field-publishnotes {
+	margin-top: 0;
+}
+
+/*-----------------------------------------------------------------------------
+	Duplicators
+-----------------------------------------------------------------------------*/
+
+/*.duplicator {
+	margin-bottom: @spacing-large;
+}
+
+.duplicator ol {
+	margin-top: -0.1rem;
+	border-radius: 0.4rem;
+}*/
+
+.frame .template {
+	display: none;
+}
+
+/*-----------------------------------------------------------------------------
+	Invalid states
+-----------------------------------------------------------------------------*/
+
+/* Errors */
+
+.conflict.collapsed .frame-header {
+	background: #fff9a2;
+}
+
+.conflict.ordering .frame-header {
+	background: none;
+}
+
+.conflict.collapsed .frame-header span,
+.conflict.collapsed .destructor {
+	color: #bd7053;
+}
+
+.conflict.collapsed .frame-header::before {
+	border-right: 0.3rem solid #e7a973;
+	border-left: 0.6rem solid #bd7053;
+}
+
+.conflict.collapsed .frame-header.sidebar::before {
+	border-right: 0.3rem solid #bd7053;
+	border-left: 0.6rem solid #e7a973;
+}
+
+/*--------------------------------------------------------------------------
+	Error messages
+--------------------------------------------------------------------------*/
+
+#error {
+	padding: 10rem 5rem;
+}
+
+#error .frame {
+	display: block;
+	overflow: hidden;
+	min-width: 50rem;
+	max-width: 80rem;
+	margin: 0 auto; padding: 0; background: @white;
+}
+
+#error h1 {
+	color: @darker-grey; font-size: @text-short; font-weight: 300; margin: 0; padding: @spacing-smallerish @spacing-smallish; border-bottom: 1px solid @lighter-grey; background: @lightest-grey;
+}
+
+#error .frame h1 em {
+	color: @accent; font-family: inherit; font-style: normal;
+}
+
+#error p {
+	line-height: 1.4em; margin: 0; padding: @spacing-smallerish @spacing-smallish;
+}
+
+#error .frame pre {
+	font: 100%/1.5 Monaco, Consolas, 'Andale Mono', monospace;
+}
+
+#error .frame pre,
+#error .frame ul ul {
+	overflow: auto;
+	padding: @spacing-smallerish 0 @spacing-smallish;
+	background: @white;
+}
+
+#error .content ul {
+	margin: 0;
+}
+
+#error .frame ul ul li {
+	padding: @spacing-micro @spacing-smallish;
+	line-height: 1.4em;
+	white-space: nowrap;
+	border-top: 1px solid @lighter-grey;
+}
+
+#error .frame ul ul li.full {
+	white-space: normal;
+}
+
+#error .frame-header {
+	color: @darker-grey; font-size: @text-shorter; font-weight: 300; text-transform: uppercase; padding: @spacing-smallerish @spacing-smallish; border-bottom: 1px solid @lighter-grey; background: @lightest-grey;
+}
+
+#error .frame ul ul:first-of-type li:first-of-type {
+	border-top: none;
+}
+
+#error .frame .error {
+	color: @red;
+	background-color: @lightest-grey;
+}
+#error .frame .error b {
+	display: inline-block;
+	margin: -0.2rem 0 -0.1rem;
+	padding: 0.2rem 0 0.1rem;
+	color: #fff;
+	line-height: 1.8;
+	background: rgba(167, 31, 45, 0.7);
+}
+
+#error .frame code a {
+	margin: 0;
+}
+
+#error .frame strong,
+#error .frame em {
+	color: rgba(0, 0, 0, 0.5);
+	font: 100%/1.5 Monaco, Consolas, 'Andale Mono', monospace;
+	font-style: normal;
+	padding-right: @spacing-micro;
+}
+
+#error .frame .content {
+	padding-bottom: 0;
+	background: #fefefe;
+}
+
+#error .frame .content:last-of-type ul {
+	border-radius: 0 0 0.4rem 0.4rem;
+}
+
+#error .frame .actions {
+	padding: 1rem;
+}

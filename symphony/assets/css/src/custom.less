@@ -1,0 +1,623 @@
+/**
+ * Style definition for the Symphony backend
+ */
+
+/*-----------------------------------------------------------------------------
+	LESS — Variables Importing
+-----------------------------------------------------------------------------*/
+
+@import "variables";
+
+/*--------------------------------------------------------------------------
+	Gravatar
+--------------------------------------------------------------------------*/
+
+a.gravatar {
+	display: block; padding: @spacing-smallish @spacing-smallish @spacing-smallest; border-top: 1px solid @lighter-grey;
+}
+
+img.gravatar {
+	border-radius: 100%;
+	display: block; position: relative; right: 0; top: 0; margin: 0 auto; border: 1px solid @lighter-grey; z-index: 12;
+}
+
+/*--------------------------------------------------------------------------
+	Language Switcher
+--------------------------------------------------------------------------*/
+
+#nav li.backend_language_switcher {
+	position: absolute; left: 0; bottom: @spacing-smallerish; width: 12rem;
+
+	img {
+		display: inline-block;
+	}
+
+	&.first {
+		left: 0; text-align: right; margin: 0;
+	}
+
+	&.last {
+		left: 13rem; text-align: left; margin: 0;
+	}
+}
+
+/*--------------------------------------------------------------------------
+	Dashboard
+--------------------------------------------------------------------------*/
+
+#dashboard {
+	.panel {
+		box-shadow: 0 0 0 rgba(0,0,0,0);
+		position: relative; margin: 0; border: 1px solid @lighter-grey; background: @white;
+
+		h3 {
+			color: @darker-grey; font-size: @text-shorter; text-transform: uppercase; font-weight: 300; padding: @spacing-smallerish @spacing-smallish; border-bottom: 1px solid @lighter-grey; background: none;
+		
+			span {
+				color: @dark-grey;
+
+				&:before {
+					content: " - ";
+				}
+			}
+		}
+
+		a.panel-edit {
+			top: 0.7rem; color: @light-grey; font-size: @text-short; font-weight: 300;
+
+			&:hover {
+				color: @darker-grey;
+			}
+		}
+
+		.panel-inner {
+			color: @dark-grey; font-size: @text-short; font-weight: 300; padding: @spacing-smallish; background: @white;
+
+			h4 {
+				color: @accent; font-size: @text-short; font-weight: 300; padding-bottom: @spacing-smallest;
+			}
+
+			* + h4 {
+				padding-top: @spacing-smallish;
+			}
+
+			dl {
+				margin: 0;
+			}
+		}
+
+		& + .panel {
+			margin-top: @spacing-smallish;
+		}
+
+		&.rss_reader .panel-inner {
+			h5 {
+				font-size: @text-short; font-weight: 300; line-height: 1.8em; padding-bottom: @spacing-smallest;
+			}
+
+			* + h5 {
+				margin-top: @spacing-smallish; padding-top: @spacing-smallish; border-top: 1px solid @lighter-grey;
+			}
+
+			a {
+				color: @accent;
+
+				&:hover {
+					color: currentColor;
+				}
+			}
+
+			p img {
+				padding: @spacing-micro 0; width: 100%; height: auto;
+			}
+		}
+	}
+
+	.sortable-container {
+		border-radius: @radius-current;
+		padding: 0 0 0 @spacing-smallish; border: none; min-height: 1px;
+
+		&.secondary {
+			padding-left: @spacing-mid;
+
+			@media (max-width: @md){
+				margin-top: @spacing-smallish; padding-left: 0;
+			}
+		}
+	}
+}
+
+/*--------------------------------------------------------------------------
+	Extension Downloader
+--------------------------------------------------------------------------*/
+
+#extension_downloader {
+	.flex(~'row', ~'center', ~'center');
+	order: 2;
+	position: relative; padding: 0 @spacing-smallish; height: 100%;
+
+	h3 {
+		font-size: @text-current; font-weight: 300; margin: 0; padding-right: @spacing-smallerish; white-space: nowrap;
+
+		a {
+			transition: color 0.45s; float: none; color: @accent; font-size: @text-short; padding-left: @spacing-smallest;
+
+			@media (max-width: @xs){
+				display: none;
+			}
+
+			&:hover {
+				color: currentColor;
+			}
+		}
+	}
+}
+
+#extension_downloader_results {
+	overflow: auto; position: absolute; right: 0; top: 100%; padding: 0; border: 1px solid @lighter-grey; border-top: none; background: #fff; min-width: @spacing-huger; max-width: 100vw;
+
+	a {
+		display: block; color: @accent; font-size: @text-short; font-weight: 300; line-height: @text-short; padding: @spacing-smallerish @spacing-smallish; border-top: 1px solid @lighter-grey; white-space: nowrap;
+	
+		&:hover { color: @darker-grey; }
+	}
+}
+
+/*--------------------------------------------------------------------------
+	Fields
+--------------------------------------------------------------------------*/
+
+.field-multilingual .container > label,
+.field-datetime > label,
+#contents .field-entry_relationship > label {
+	position: static; margin-bottom: @spacing-smallest!important;
+}
+
+.field-multilingual .container,
+.field-datetime {
+	position: relative;
+}
+
+/* Multilingual */
+
+#contents .field-multilingual {
+	.invalid > div {
+		padding: 0; border: none; background: transparent;
+	}
+
+	ul.tabs li {
+		font-size: @text-shorter; text-transform: uppercase; line-height: 1.4em; padding-bottom: 0.6rem;
+	}
+} 
+
+/* Image Upload */
+
+.field-multilingual_image_upload .tab-panel.file {
+	.flex(~'column-reverse', ~'center', ~'center');
+	border-radius: @radius-current;
+	padding: @spacing-smallerish; border: 1px solid @lighter-grey; background: @lightest-grey;
+}
+
+/* OEmbed */
+
+.field-oembed label {
+	> div {
+		margin-top: 2px;
+	}
+
+	.frame {
+		.flex(~'row', ~'center', ~'center');
+		flex-wrap: wrap;
+
+		> span {
+			display: none;
+		}
+
+		> div {
+			order: 99;
+			flex-shrink: 0; width: 100%;
+		}
+
+		> a {
+			border-radius: @radius-current;
+			color: @white; font-size: @text-shorter; font-style: normal; font-weight: 300; text-transform: uppercase; line-height: @spacing-smaller; margin-bottom: @spacing-smallest; padding: 0 @spacing-smallest; border: none; background: @accent; cursor: pointer;
+
+			&:hover {
+				background: @darker-grey;
+			}
+
+			& + span + a {
+				margin-left: @spacing-smallest;
+			}
+		}
+	}
+}
+
+body div.compact label.oembed-other-title {
+	display: block; margin: @spacing-smallerish 0 @spacing-smallerish @spacing-smallish; width: 90%;
+}
+
+/* Sandbox */
+
+.editor-toolbar {
+	margin-top: 0; border-color: @lighter-grey; background: @lightest-grey;
+
+	a.active {
+		color: @accent!important;
+	}
+
+	&.fullscreen {
+		z-index: 100;
+	}
+}
+
+.CodeMirror {
+	color: @dark-grey; font-size: @text-current; font-weight: 300; padding: @spacing-smallerish; border-color: @lighter-grey;
+
+	.CodeMirror-code {
+		.cm-header {
+			font-weight: 300; line-height: 1.2em;
+		}
+
+		.cm-header-1 {
+			font-size: @text-biggest;
+		}
+
+		.cm-header-2 {
+			font-size: @text-bigger;
+		}
+	}
+}
+
+.editor-fullscreen .tab-group:first-child {
+	z-index: 100;
+}
+
+/* Insert */
+
+#contents {
+	table + fieldset.insert {
+		margin: @spacing-smallish 0!important; padding: 0; border: none;
+	}
+
+	fieldset.insert label {
+		.flex(~'row', ~'center', ~'flex-start');
+
+		.input-ip {
+			line-height: 1.5; border-radius: @radius-current 0 0 @radius-current;
+		}
+
+		.input-submit {
+			line-height: 3.2; padding: @spacing-micro @spacing-smallerish; border-radius: 0 @radius-current @radius-current 0;
+		}
+	}
+}
+
+/* Calendar */
+
+.field-datetime .frame {
+	margin-top: @spacing-smallest; padding: 0.8rem @spacing-smallerish;
+
+	header {
+		div, div.focus {
+			box-shadow: none;
+			margin: 0; padding: 0!important; border: none; background: none;
+		}
+
+		input {
+			background-color: none;
+
+			&.end {
+				padding-left: 22px; padding-top: 7px; background-position: 2px 10px;
+			}
+		}
+
+		em.label {
+			top: 2px; right: 0; color: @dark-grey; font-size: @text-shorter; text-transform: uppercase; font-weight: 300;
+
+			&.end {
+				top: 32px;
+			}
+		}
+	}
+
+	div.dt-calendar {
+		margin: 0 auto; padding: @spacing-smallish 0 @spacing-smallest!important; border: none; background: none; max-width: 30rem; z-index: 20;
+
+		div.date:not(:last-child) {
+			display: block!important; padding: 0!important; width: 100%!important;
+		}
+
+		table {
+			background: @white;
+		}
+
+		div.switch {
+			background: @accent!important; 
+
+			ul li {
+				font-size: @text-short;
+			}
+
+			&:not(.active) {
+				box-shadow: none;
+				height: 20px;
+			}
+		}
+
+		div.date nav {
+			padding-bottom: @spacing-micro; border: none;
+
+			a:hover {
+				color: @accent;
+			}
+
+			a.previous {
+				background-position: 6px -13px!important;
+			}
+
+			a.next {
+				background-position: -15px -13px!important;
+			}
+		}
+
+		td {
+			color: @accent; padding: 0!important; border-color: @lighter-grey;
+		}
+
+		thead td,
+		thead td:first-child,
+		thead td:last-child {
+			color: @accent;
+		}
+
+		td:first-child,
+		td:last-child {
+			background: none;
+		}
+
+		td.selected,
+		td.selected.today,
+		tbody td:hover {
+			color: @white; background: @accent!important;
+		}
+
+		td.last,
+		td.next {
+			color: @lighter-grey;
+		}
+	}
+
+	div.timer {
+		display: block!important; margin: 0 auto; padding: 0!important; width: 100%!important; max-width: 30rem;
+
+		div.timeline {
+			border-color: @accent; background: @accent;
+
+			span {
+				border-color: rgba(0,0,0,0.1);
+			}
+
+			code,
+			div.selector code {
+				box-shadow: 0 0 0 rgba(0,0,0,0);
+				border-radius: @radius-current;
+				top: -26px; color: @accent; font-size: @text-short; border: 1px solid @lighter-grey; background: @white;
+			}
+		}
+	}
+}
+
+/* Address Location */
+
+div.field-addresslocation {
+	padding: 0; border: none;
+
+	p.title {
+		color: @accent; margin: 0 0 @spacing-smallerish; padding: 0; border: none;
+	}
+
+	div.main.address {
+		.flex(~'row', ~'flex-start', ~'flex-start');
+		flex-wrap: wrap;
+		float: none; width: calc(~'100% + @{spacing-smallish}');
+
+		label {
+			box-sizing: border-box;
+			float: none; margin: 0 0 @spacing-smallish; padding-right: @spacing-smallish; width: 50%;
+
+			@media (max-width: @xs) {
+				width: 100%;
+			}
+
+			&.street {
+				width: 100%;
+			}
+
+			&.locate {
+				.flex(~'row', ~'flex-start', ~'flex-start');
+
+				input {
+					.transitioned(~'color, background');
+					float: none; font-size: @text-shorter; text-transform: uppercase; line-height: 1.85; margin: 0 @spacing-smallest 0 0; padding: @spacing-smallest @spacing-smallerish; border-radius: @radius-current; background: @accent; width: auto;
+				
+					&:not(:disabled) {
+						cursor: pointer;
+
+						&:hover {
+							background: @black;
+						}
+					}
+
+					&:disabled {
+						opacity: 0.5;
+					}
+				}
+			}
+		}
+	}
+
+	div.main.map {
+		float: none; width: 100%;
+	}
+}
+
+/* Preferences */
+
+#contents .navigationicons-duplicator > li {
+	.flex(~'row', ~'center', ~'space-between');
+	clear: none;
+
+	span {
+		font-size: @text-short; padding: 0;
+	}
+
+	input.navIcon {
+		font-family: inherit; width: 50%!important;
+	}
+
+	& + li {
+		margin-top: @spacing-smallest;
+	}
+}
+
+/*--------------------------------------------------------------------------
+	Publish Tab
+--------------------------------------------------------------------------*/
+
+.column.primary:after {
+	content: "";
+	display: block; clear: both;
+}
+
+.tab-group {
+	box-sizing: border-box;
+	background: @white;
+
+	> h2 {
+		color: @accent; font-size: @text-bigger; font-weight: 300; padding: @spacing-smallest 0 5rem;
+	}
+
+	&:first-child {
+		@media (min-width: (@md + 1)){
+			overflow: auto; position: fixed!important; left: 25.1rem!important; right: @spacing-huger; top: @spacing-midlarge!important; padding: @spacing-smallish @spacing-smallish @spacing-mid; width: auto; height: calc(~'100vh - @{spacing-midlarge}');
+		
+			> * {
+				margin-left: auto; margin-right: auto; max-width: @max-width-small;
+			}
+		}
+		@media (max-width: @md){
+			position: relative!important; left: 0!important; top: 0!important; height: auto;
+		}
+
+		> h2 {
+			padding-top: @spacing-smallest + @spacing-midlarge;
+		}
+	}
+
+	&:nth-child(2) {
+		@media (min-width: (@md + 1)){
+			padding-top: @spacing-midlarge;
+		}
+	}
+
+	&:nth-child(n + 2) {
+		box-sizing: border-box;
+		position: relative!important; left: 0!important; top: 0!important; 
+
+		@media (max-width: @md){
+			margin-top: @spacing-smallish; padding-top: @spacing-smallish; border-top: 1px solid @lighter-grey;
+		}
+		@media (min-width: (@md + 1)){
+			clear: both; float: right; margin-right: -@spacing-smallish; padding-left: @spacing-smallish; padding-right: @spacing-smallish; width: @spacing-huger;
+		}
+	}
+
+	&:nth-child(n + 3) {
+		@media (min-width: (@md + 1)){
+			margin-top: 5rem; padding-top: @spacing-smallish; border-top: 1px solid @lighter-grey;
+		}
+	}
+
+	&:last-child {
+		padding-bottom: @spacing-smallish;
+	}
+}
+
+/*--------------------------------------------------------------------------
+	Tables
+--------------------------------------------------------------------------*/
+
+table.selectable td.field-checkbox input.ajax-checkbox {
+	display: block; margin: 0; padding: 0;
+}
+
+/*--------------------------------------------------------------------------
+	Entry Relationship
+--------------------------------------------------------------------------*/
+
+/* Field */
+
+#contents .field-entry_relationship {
+	position: relative; padding-bottom: 0.8rem;
+
+	.destructor a:hover {
+		color: @darker-grey;
+	}
+
+	> .frame {
+		margin: @spacing-smallest 0!important; border: 1px solid @lighter-grey;
+	}
+
+	fieldset.single {
+		.sections-selection {
+			font-size: @text-short; text-transform: none; margin-left: @spacing-micro; padding-right: @spacing-smallest;
+		}
+
+		.select2-container {
+			text-align: left; width: auto!important;
+		}
+
+		> button {
+			border-radius: @radius-current; font-size: @text-shorter; font-weight: 300; text-transform: uppercase; line-height: @spacing-smallish; margin: 0 0 0 @spacing-smallest; padding: @spacing-micro @spacing-smallerish; background: @accent; cursor: pointer;
+		
+			&:hover {
+				background: @darker-grey;
+			}
+		}
+	}
+}
+
+/* Overwrite Lightbox Styles */
+
+#entry-relationship-ctn.show {
+	background: rgba(0, 0, 0, 0.8); cursor: url(http://snake.288dev.com/symphony/assets/img/cursor-close.png) 34 34, pointer;
+
+	> .iframe {
+		left: @spacing-large!important; top: @spacing-large!important; width: calc(~'100vw - @{spacing-largest}')!important; height: calc(~'100vh - @{spacing-largest}')!important; cursor: default;
+
+		> iframe {
+			display: block; width: 100%; height: 100%;
+		}
+	}
+}
+
+/* Modify layout when in iFrame */
+
+body.entry_relationship {
+	padding-left: 0;
+
+	#header,
+	#breadcrumbs nav {
+		display: none;
+	}
+
+	#context {
+		left: 0;
+	}
+
+	.tab-group:first-child {
+		left: 0!important;
+	}
+}
+

@@ -52,7 +52,7 @@
 			var itemSettings = $.extend({}, settings);
 			var item = $(this);
 			var updateItemSettings = function () {
-				itemSettings.top = itemSettings.container.offset().top;
+				itemSettings.top = itemSettings.container.offset().top - 95;
 				itemSettings.freespace = itemSettings.container.height();
 				itemSettings.bottom = itemSettings.top + itemSettings.freespace;
 				itemSettings.height = item.height();
@@ -99,6 +99,7 @@
 				var settings = item.data('affix-settings');
 				var cssClass = 'js-affix-scroll';
 				var top = '';
+				console.log(settings.top);
 				if (scrollTop < settings.top) {
 					cssClass = 'js-affix-top';
 				} else if (scrollTop > settings.bottom) {

@@ -1,0 +1,62 @@
+/**
+ * System notification
+ *
+ * @since Symphony 2.3
+ */
+
+ /*-----------------------------------------------------------------------------
+ 	LESS — Variables Importing
+ -----------------------------------------------------------------------------*/
+ @import "variables";
+
+
+/*-----------------------------------------------------------------------------
+	Notifier
+-----------------------------------------------------------------------------*/
+
+.notifier {
+	overflow: hidden; position: fixed; bottom: 0; left: @spacing-huge; right: 0; color: @black; font-size: @text-short; background: @accent; z-index: 100;
+}
+
+.notifier nav {
+	display: block; position: absolute; top: 0; right: @spacing-smallish; padding: @spacing-smallest 0; cursor: pointer;
+}
+
+.notifier nav:before {
+	content: '\2193';
+	padding-right: 0.3rem;
+}
+
+.notifier .notice:last-child nav:before {
+	content: '\2191';
+}
+
+/*-----------------------------------------------------------------------------
+	Message types
+-----------------------------------------------------------------------------*/
+
+.notice {
+	position: relative; color: @white; font-size: @text-short; font-weight: 300; margin: 0; border: none; padding: @spacing-smallest @spacing-smallish;
+}
+
+.notice a {
+	margin: 0 0.3rem;
+	color: currentColor;
+	border-bottom: 1px solid currentColor;
+
+	&:hover {
+		border-color: transparent;
+	}
+}
+
+/* Success messages */
+
+.notice.success {
+	background: @accent;
+}
+
+/* Errors messages */
+
+.notice.error {
+	background: @red;
+}
