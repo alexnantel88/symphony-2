@@ -47,10 +47,10 @@ body {
 		order: 1;
 		flex-shrink: 0;
 		box-sizing: border-box;
-		position: relative; top: 0; left: 0; font-size: @text-current; padding: 0 @spacing-smallish; border-bottom: 1px solid @lighter-grey; height: @spacing-midlarge;
+		position: relative; top: 0; left: 0; font-size: @text-current; padding: 0 @spacing-smallish!important; border-bottom: 1px solid @lighter-grey; height: @spacing-midlarge;
 
 		a {
-			display: block; position: absolute; left: 0; top: 0; color: @accent; font-weight: 300; text-indent: -5000px; background-position: 0 0; background-size: auto 100%!important; width: 100%!important; height: 100%!important;
+			display: block; position: absolute; left: 0; top: 0; color: @accent; font-weight: 300; text-indent: -5000px; background-position: 0 0!important; background-size: auto 100%!important; width: 100%!important; height: 100%!important;
 		}
 	}
 
@@ -241,7 +241,7 @@ body {
 
 		a {
 			.flex(~'row', ~'center', ~'flex-start');
-			color: @dark-grey; font-size: @text-shorter; text-transform: uppercase; line-height: @spacing-midlarge; margin: 0; padding: 0; white-space: nowrap;
+			color: @dark-grey; font-size: @text-shorter; text-transform: uppercase; line-height: @spacing-midlarge; margin: 0; padding: 0; background: none; white-space: nowrap;
 
 			svg {
 				margin-right: @spacing-smallest;
@@ -262,7 +262,15 @@ body {
 		}
 
 		li + li {
-			padding-left: @spacing-smallish;
+			margin-left: @spacing-smallish;
+		}
+
+		fieldset > div {
+			.flex(~'row', ~'center', ~'flex-start');
+
+			> a  + a {
+				margin-left: @spacing-smallish;
+			}
 		}
 	}
 }

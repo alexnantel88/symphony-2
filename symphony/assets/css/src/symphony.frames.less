@@ -84,7 +84,7 @@
 
 	h4 {
 		.flex(~'row', ~'center', ~'flex-start');
-		display: inline-block; font-size: @text-short;
+		display: inline-block; font-size: @text-short; font-weight: 300;
 
 		* {
 			.transitioned(~'color');
@@ -94,7 +94,7 @@
 			font-weight: 300;
 		}
 
-		span {
+		span, & + span {
 			color: @dark-grey; font-size: @text-short; font-weight: 300; padding-left: @spacing-smallest;
 		}
 
