@@ -79,7 +79,7 @@
 /* Headers */
 
 .frame-header {
-	.flex(~'row', ~'center', ~'space-between');
+	.flex(~'row', ~'center', ~'flex-start');
 	position: relative; padding: @spacing-smallest @spacing-smallerish; border-top: 1px solid @lighter-grey;
 
 	h4 {
@@ -109,6 +109,10 @@
 		.required {
 			/*font-style: italic;*/
 		}
+	}
+
+	> a:first-of-type {
+		margin-left: auto!important;
 	}
 }
 
@@ -173,7 +177,7 @@ fieldset.frame,
 
 .frame .destructor,
 .frame .debug {
-	color: @light-grey; font-size: @text-short; font-weight: 300; margin: 0;
+	color: @light-grey; font-size: @text-short!important; font-weight: 300; margin: 0 0 0 @spacing-smallerish;
 }
 
 .frame .destructor:hover,
