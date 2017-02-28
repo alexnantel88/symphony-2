@@ -61,7 +61,7 @@ div.drawer.vertical-right {
 
 div.drawer.vertical-left .contents,
 div.drawer.vertical-right .contents {
-	padding: @spacing-smallish;
+	padding: 0;
 }
 
 /*-----------------------------------------------------------------------------
@@ -138,14 +138,14 @@ div.drawer.vertical-right .contents {
 	background: @white;
 
 	h2 {
-		color: @accent; font-size: @text-bigger; font-weight: 300; margin: 0; padding: 0 0 5rem; border: none;
+		color: @accent; font-size: @text-bigger; font-weight: 300; margin: 0; padding: @spacing-smallish @spacing-smallish 5rem; border: none;
 	}
 
 	.documenter-content {
-		color: @darker-grey;
+		color: @darker-grey; padding: 0 @spacing-smallish @spacing-smallish;
 
 		& + h2 {
-			margin-top: 5rem; padding-top: 5rem; border-top: 1px solid @lighter-grey;
+			padding-top: 5rem; border-top: 1px solid @lighter-grey;
 		}
 	}
 }
