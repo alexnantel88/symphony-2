@@ -239,7 +239,7 @@ body {
 		flex-shrink: 0;
 		margin: 0; padding: 0 @spacing-smallish;
 
-		a {
+		a, button {
 			.flex(~'row', ~'center', ~'flex-start');
 			color: @dark-grey; font-size: @text-shorter; text-transform: uppercase; line-height: @spacing-midlarge; margin: 0; padding: 0; background: none; white-space: nowrap;
 
@@ -254,10 +254,10 @@ body {
 		}
 
 		button {
-			font-size: @text-shorter; font-weight: 300; text-transform: uppercase; padding: @spacing-smallest @spacing-smallerish; border-radius: @radius-current; background: @accent; cursor: pointer;
+			display: block; position: relative; padding-left: @spacing-smallish;
 
-			&:hover {
-				background: @darker-grey;
+			svg {
+				position: absolute; left: 0; top: 50%; margin-top: -@spacing-smallest;
 			}
 		}
 

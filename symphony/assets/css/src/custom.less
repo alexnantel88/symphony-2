@@ -205,7 +205,7 @@ img.gravatar {
 		padding-right: 0!important;
 	}
 
-	.tab-panel {
+	&:not(.field-multilingual_image_upload) .tab-panel {
 		padding: 0; border: none; background: none;
 	}
 } 
@@ -590,6 +590,10 @@ table.selectable td.field-checkbox input.ajax-checkbox {
 	}
 
 	fieldset.single {
+		.sections {
+			margin: 0 0 0 @spacing-smallest!important;
+		}
+
 		.sections-selection {
 			font-size: @text-short; text-transform: none; margin-left: @spacing-micro; padding-right: @spacing-smallest;
 		}
