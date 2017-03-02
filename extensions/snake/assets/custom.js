@@ -359,6 +359,8 @@
 			var title = t.attr('title');
 			var url = t.attr('href');
 
+			t.wrapInner('<span><span></span></span>');
+
 			// By URL
 			if(url.indexOf('/edit/') !== -1) t.prepend(s.edit);
 			else if(url.indexOf('/new/') !== -1) t.prepend(s.add);
@@ -386,7 +388,7 @@
 				else if(title.indexOf('clone') !== -1) t.prepend(s.clone);
 			}
 		});
-		$(o.navElFirst).append(s.chevron);
+		$(o.navEl).has('ul').find('> span').append(s.chevron);
 		if($(o.actionButtons).length > 1) $(o.actions).append(s.chevron);
 		$(o.selectArrows).html(s.chevron);
 		$('.frame.collapsible .frame-header h4').append(s.chevron);
@@ -401,11 +403,13 @@
 		// Website
 		_____________________________________________ */
 
+		onResize();
 		onScroll();
 
 		win.on('scroll', function(){
 			onScroll();
 		}).on('resize', function(){
+			onResize();
 			onScroll();
 		});
 
@@ -423,6 +427,16 @@
 
 			if(t.hasClass('selected')) d.addClass('opened');
 			else d.removeClass('opened');
+		}
+
+		/* Window Resize - Function */
+
+		function onResize(){
+			$(o.contextActions + '> span').each(function(){
+				var t = $(this);
+
+				t.width($('> span', t).outerWidth());
+			});
 		}
 
 		/* Window Scroll - Function */

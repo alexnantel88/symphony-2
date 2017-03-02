@@ -239,8 +239,17 @@ body {
 			.flex(~'row', ~'center', ~'flex-start');
 			color: @dark-grey; font-size: @text-shorter; text-transform: uppercase; line-height: @spacing-midlarge; margin: 0; padding: 0; background: none; white-space: nowrap;
 
-			svg {
-				margin-right: @spacing-smallest;
+			> span {
+				.transitioned(~'width');
+				overflow: hidden;
+
+				> span {
+					padding-left: @spacing-smallest; white-space: nowrap;
+				}
+			}
+
+			&:not(:hover) > span {
+				width: 0!important;
 			}
 
 			&.selected,
@@ -257,8 +266,9 @@ body {
 			}
 		}
 
-		li + li {
-			margin-left: @spacing-smallish;
+		li + li a,
+		li + li button {
+			padding-left: @spacing-smallish;
 		}
 
 		fieldset > div {
