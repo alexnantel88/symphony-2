@@ -432,6 +432,12 @@ body div.compact label.oembed-other-title {
 	}
 }
 
+/* Color Chooser */
+
+.field-colorchooser input {
+	transition-duration: 0s;
+}
+
 /* Address Location */
 
 div.field-addresslocation {
@@ -520,13 +526,15 @@ div.field-addresslocation {
 			.transitioned(~'opacity, filter',~'0.25s');
 		}
 
-		&:hover {
+		&:hover,
+		&.hover {
 			.tab-group > * {
 				filter: grayscale(100%);
 				opacity: 0.5;
 			}
 
-			.tab-group:hover > * {
+			.tab-group:hover > *,
+			.tab-group.hover > * {
 				filter: grayscale(0%);
 				opacity: 1;
 			}

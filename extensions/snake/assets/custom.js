@@ -178,15 +178,28 @@
 
 		/* Focus and Blur States */
 
-		$('.tab-group input, .tab-group textarea').on('focus', function(){
+		$('.tab-group input:not([type="checkbox"]), .tab-group textarea').on('focus', function(){
 			addTabFocus($(this));
 		}).on('blur', function(){
 			remTabFocus($(this));
 		});
 
-		/*$('.tab-group').on('click', '.select2-container--default', function(){
+		$('.tab-group select').on('select2:open', function(){
 			addTabFocus($(this));
-		});*/
+		}).on('select2:close', function (evt) {
+			remTabFocus($(this));
+		}).on('change', function (evt) {
+			remTabFocus($(this));
+		});
+
+		$('body').on('mouseenter', '> .select2-container--open', function(){
+			var t = $('.tab-group .select2-container--open');
+			t.parents(o.tabGroup).addClass('hover');
+			t.parents('.column.primary').addClass('hover');
+		}).on('mouseleave', '> .select2-container--open', function(){
+			$(o.tabGroup).removeClass('hover');
+			$('.column.primary').removeClass('hover');
+		});
 
 		function addTabFocus(t){
 			var f = t.parents('.field');
@@ -202,6 +215,9 @@
 
 			f.removeClass('focused');
 			tab.removeClass('focused');
+
+			$(o.tabGroup).removeClass('hover');
+			$('.column.primary').removeClass('hover');
 		}
 
 		/*

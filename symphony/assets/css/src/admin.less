@@ -112,16 +112,12 @@ body {
 				svg {
 					.transitioned(~'opacity');
 					content: ">";
-					padding-left: @spacing-smallest; opacity: 0;
+					padding-left: @spacing-smallest;
 				}
 			}
 
 			&.opened, &.active, &:hover {
 				color: @accent;
-			}
-
-			&.opened > span svg {
-				opacity: 1;
 			}
 
 			& + li {
