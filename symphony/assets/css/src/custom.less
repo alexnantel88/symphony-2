@@ -257,7 +257,11 @@ body div.compact label.oembed-other-title {
 	display: block; margin: @spacing-smallerish 0 @spacing-smallerish @spacing-smallish; width: 90%;
 }
 
-/* Sandbox */
+/* Markdown */
+
+.field-simplemde:not(.field-multilingual) .editor-toolbar {
+	margin-top: @spacing-smallest;
+}
 
 .editor-toolbar {
 	margin-top: 0; border-color: @lighter-grey; background: @lightest-grey;
@@ -267,7 +271,7 @@ body div.compact label.oembed-other-title {
 	}
 
 	&.fullscreen {
-		z-index: 100;
+		z-index: 120;
 	}
 }
 
@@ -290,7 +294,7 @@ body div.compact label.oembed-other-title {
 }
 
 .editor-fullscreen .tab-group:first-child {
-	z-index: 100;
+	z-index: 120;
 }
 
 /* Insert */
@@ -505,9 +509,40 @@ div.field-addresslocation {
 	Publish Tab
 --------------------------------------------------------------------------*/
 
-.column.primary:after {
-	content: "";
-	display: block; clear: both;
+.column.primary {
+	&:after {
+		content: "";
+		display: block; clear: both;
+	}
+
+	@media (min-width: (@md + 1)){
+		.tab-group > * {
+			.transitioned(~'opacity, filter',~'0.25s');
+		}
+
+		&:hover {
+			.tab-group > * {
+				filter: grayscale(100%);
+				opacity: 0.5;
+			}
+
+			.tab-group:hover > * {
+				filter: grayscale(0%);
+				opacity: 1;
+			}
+
+			.tab-group.focused > * {
+				filter: grayscale(0%)!important;
+				opacity: 0.5!important;
+
+				&:not(h2):hover,
+				&.focused {
+					filter: grayscale(0%)!important;
+					opacity: 1!important;
+				}
+			}
+		}
+	}
 }
 
 .tab-group {
@@ -527,7 +562,7 @@ div.field-addresslocation {
 			}
 		}
 		@media (max-width: @md){
-			position: relative!important; left: 0!important; top: 0!important; height: auto;
+			position: relative!important; left: 0!important; top: 0!important; padding-bottom: 5rem; height: auto;
 		}
 
 		> h2 {
@@ -543,10 +578,10 @@ div.field-addresslocation {
 
 	&:nth-child(n + 2) {
 		box-sizing: border-box;
-		position: relative!important; left: 0!important; top: 0!important; 
+		position: relative!important; left: 0!important; top: 0!important; padding-bottom: 5rem;
 
 		@media (max-width: @md){
-			margin-top: @spacing-smallish; padding-top: @spacing-smallish; border-top: 1px solid @lighter-grey;
+			padding-top: @spacing-smallish; border-top: 1px solid @lighter-grey;
 		}
 		@media (min-width: (@md + 1)){
 			clear: both; float: right; margin-right: -@spacing-smallish; padding-left: @spacing-smallish; padding-right: @spacing-smallish; width: @spacing-huger;
@@ -555,12 +590,8 @@ div.field-addresslocation {
 
 	&:nth-child(n + 3) {
 		@media (min-width: (@md + 1)){
-			margin-top: 5rem; padding-top: @spacing-smallish; border-top: 1px solid @lighter-grey;
+			padding-top: @spacing-smallish; border-top: 1px solid @lighter-grey;
 		}
-	}
-
-	&:last-child {
-		padding-bottom: @spacing-smallish;
 	}
 }
 
@@ -613,19 +644,34 @@ table.selectable td.field-checkbox input.ajax-checkbox {
 }
 
 #contents .tab-group:nth-child(n + 2) .field-entry_relationship {
-	.frame .frame-header {
-		flex-direction: column;
+	@media (min-width: (@md + 1)){
+		.frame .frame-header {
+			flex-direction: column;
 
-		.destructor {
-			margin: @spacing-smallest auto 0 0
+			h4 {
+				flex-direction: column;
+				align-items: flex-start;
+
+				span {
+					padding: @spacing-smallest 0 0;
+				}
+			}
+
+			.destructor {
+				margin: @spacing-smallest auto 0 0;
+
+				a {
+					padding: 0 @spacing-smallest 0 0;
+				}
+			}
 		}
-	}
 
-	fieldset.single {
-		text-align: left;
+		fieldset.single {
+			text-align: left;
 
-		> button {
-			margin: @spacing-smallest @spacing-smallest 0 0;
+			> button {
+				margin: @spacing-smallest @spacing-smallest 0 0;
+			}
 		}
 	}
 }
@@ -633,10 +679,11 @@ table.selectable td.field-checkbox input.ajax-checkbox {
 /* Overwrite Lightbox Styles */
 
 #entry-relationship-ctn.show {
-	background: rgba(0, 0, 0, 0.8); cursor: url(http://snake.288dev.com/symphony/assets/img/cursor-close.png) 34 34, pointer;
+	background: rgba(241, 241, 241, 0.9); /*cursor: url(http://snake.288dev.com/symphony/assets/img/cursor-close.png) 34 34, pointer;*/ cursor: pointer;
 
 	> .iframe {
-		left: @spacing-large!important; top: @spacing-large!important; width: calc(~'100vw - @{spacing-largest}')!important; height: calc(~'100vh - @{spacing-largest}')!important; cursor: default;
+		box-shadow: 0 0 0 rgba(0,0,0,0);
+		left: @spacing-large!important; top: @spacing-large!important; border: 1px solid @lighter-grey; width: calc(~'100vw - @{spacing-largest}')!important; height: calc(~'100vh - @{spacing-largest}')!important; cursor: default;
 
 		> iframe {
 			display: block; width: 100%; height: 100%;

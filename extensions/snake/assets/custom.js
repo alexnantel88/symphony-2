@@ -28,7 +28,7 @@
 		editorEl: '.editor-toolbar a',
 		tableEl: 'table td',
 		dashboard: '#dashboard',
-		dashboardDrawerSelects: '#drawer-dashboard select',
+		dashboardDrawerSelects: '#drawer-dashboard select:not(.disabled)',
 		dashboardDrawerSelectsArrows: '#drawer-dashboard .select2-container .select2-selection--single .select2-selection__arrow',
 		selectArrows: '.select2-container .select2-selection--single .select2-selection__arrow'
 	};
@@ -176,6 +176,34 @@
 			return false;
 		});
 
+		/* Focus and Blur States */
+
+		$('.tab-group input, .tab-group textarea').on('focus', function(){
+			addTabFocus($(this));
+		}).on('blur', function(){
+			remTabFocus($(this));
+		});
+
+		/*$('.tab-group').on('click', '.select2-container--default', function(){
+			addTabFocus($(this));
+		});*/
+
+		function addTabFocus(t){
+			var f = t.parents('.field');
+			var tab = t.parents(o.tabGroup);
+
+			f.addClass('focused');
+			tab.addClass('focused');
+		}
+
+		function remTabFocus(t){
+			var f = t.parents('.field');
+			var tab = t.parents(o.tabGroup);
+
+			f.removeClass('focused');
+			tab.removeClass('focused');
+		}
+
 		/*
 		// Context Association Drawer
 		_____________________________________________ */
@@ -256,12 +284,12 @@
 		// Select
 		_____________________________________________ */
 
-		$('select').each(function(){
+		$('select:not(.disabled)').each(function(){
 			var t = $(this);
 			if(t.attr('multiple') === undefined) t.select2();
 		});
 
-		$('#context .actions li select[name="panel-type"]').on('change', function(){
+		$('#context .actions li select[name="panel-type"]:not(.disabled)').on('change', function(){
 			setTimeout(function(){
 				$(o.dashboardDrawerSelects).select2();
 				$(o.dashboardDrawerSelectsArrows).html(s.chevron);
@@ -276,7 +304,7 @@
 
 		$(o.context).on('click', '.drawer-filtering .constructor', function(){
 			setTimeout(function(){
-				$('.drawer-filtering .instance:last-child select').select2();
+				$('.drawer-filtering .instance:last-child select:not(.disabled)').select2();
 				$('.drawer-filtering .instance:last-child .select2-container .select2-selection--single .select2-selection__arrow').html(s.chevron);
 			}, 250);
 		});
@@ -289,7 +317,7 @@
 
 				if(t.parents('.frame').hasClass('collapsible')) $('.frame-header h4', f).append(s.chevron);
 
-				$('select', f).select2();
+				$('select:not(.disabled)', f).select2();
 				$('.select2-container .select2-selection--single .select2-selection__arrow', f).html(s.chevron);
 			}, 250);
 		});
