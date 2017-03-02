@@ -201,6 +201,15 @@
 			$('.column.primary').removeClass('hover');
 		});
 
+		$('body').on('mouseenter', '> #picker-container', function(){
+			var t = $('.tab-group .field-colorchooser.focused');
+			t.parents(o.tabGroup).addClass('hover');
+			t.parents('.column.primary').addClass('hover');
+		}).on('mouseleave', '> #picker-container', function(){
+			$(o.tabGroup).removeClass('hover');
+			$('.column.primary').removeClass('hover');
+		});
+
 		function addTabFocus(t){
 			var f = t.parents('.field');
 			var tab = t.parents(o.tabGroup);
