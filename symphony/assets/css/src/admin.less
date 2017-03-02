@@ -100,11 +100,7 @@ body {
 		}
 
 		> li {
-			display: block;
-			position: relative;
-			font-weight: 300;
-			line-height: 2.5rem;
-			cursor: pointer;
+			display: block; position: relative; font-size: @text-short; font-weight: 300; line-height: 2rem; cursor: pointer;
 
 			> span {
 				.flex(~'row', ~'center', ~'flex-start');
@@ -130,7 +126,7 @@ body {
 				display: none; margin: @spacing-smallest 0 0; padding: 0 0 0 @spacing-smallerish; border-left: 1px dotted @accent;
 
 				a {
-					color: @dark-grey; font-size: @text-short; line-height: 2rem;
+					color: @dark-grey;
 				}
 
 				li.active a, a:hover {

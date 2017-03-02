@@ -178,10 +178,12 @@
 
 		/* Focus and Blur States */
 
-		$('.tab-group input:not([type="checkbox"]), .tab-group textarea').on('focus', function(){
-			addTabFocus($(this));
+		$('.tab-group input, .tab-group textarea').on('focus', function(){
+			var t = $(this);
+			if(t.attr('type') != 'checkbox' && t.attr('type') != 'file' && t.attr('readonly') != 'readonly') addTabFocus($(this));
 		}).on('blur', function(){
-			remTabFocus($(this));
+			var t = $(this);
+			if(t.attr('type') != 'checkbox' && t.attr('type') != 'file' && t.attr('readonly') != 'readonly') remTabFocus($(this));
 		});
 
 		$('.tab-group select').on('select2:open', function(){
