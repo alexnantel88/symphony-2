@@ -325,11 +325,15 @@ body div.compact label.oembed-other-title {
 		.flex(~'row', ~'center', ~'flex-start');
 
 		.input-ip {
-			line-height: 1.5; border-radius: @radius-current 0 0 @radius-current;
+			font-size: @text-short; line-height: 1em; padding: @spacing-smallest @spacing-smallerish; border-radius: @radius-current 0 0 @radius-current;
 		}
 
 		.input-submit {
-			line-height: 3.2; padding: @spacing-micro @spacing-smallerish; border-radius: 0 @radius-current @radius-current 0;
+			line-height: @text-short; padding: @spacing-smallest @spacing-smallerish; border-radius: 0 @radius-current @radius-current 0; border: 2px solid @accent;
+
+			&:hover {
+				border-color: @darker-grey;
+			}
 		}
 	}
 }
@@ -675,7 +679,7 @@ table.selectable td.field-checkbox input.ajax-checkbox {
 			font-size: @text-shorter; font-weight: 300; text-transform: uppercase; line-height: @text-short; margin: 0 0 0 @spacing-smallest; padding: @spacing-smallest @spacing-smallerish; border: 1px solid @accent; background: @accent; cursor: pointer;
 		
 			&:hover {
-				border-color: @black; background: @darker-grey;
+				border-color: @darker-grey; background: @darker-grey;
 			}
 		}
 	}
