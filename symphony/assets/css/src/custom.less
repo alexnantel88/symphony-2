@@ -278,7 +278,13 @@ body div.compact label.oembed-other-title {
 }
 
 .CodeMirror {
-	color: @dark-grey; font-size: @text-current; font-weight: 300; padding: @spacing-smallerish; border-color: @lighter-grey;
+	box-sizing: border-box;
+	color: @dark-grey; font-size: @text-short; font-weight: 300; line-height: 2em; border-color: @lighter-grey; min-height: @spacing-huge!important; height: @spacing-huge;
+
+	.CodeMirror-scroll,
+	.CodeMirror-sizer {
+		min-height: @spacing-huge!important;
+	}
 
 	.CodeMirror-code {
 		.cm-header {
@@ -293,6 +299,11 @@ body div.compact label.oembed-other-title {
 			font-size: @text-bigger;
 		}
 	}
+}
+
+.editor-preview-side {
+	box-sizing: border-box;
+	padding: @spacing-smallerish; border-left: none;
 }
 
 .editor-fullscreen .tab-group:first-child {
@@ -480,7 +491,7 @@ div.field-addresslocation {
 
 				input {
 					.transitioned(~'color, background');
-					float: none; font-size: @text-shorter; text-transform: uppercase; line-height: 1.85; margin: 0 @spacing-smallest 0 0; padding: @spacing-smallest @spacing-smallerish; border-radius: @radius-current; background: @accent; width: auto;
+					float: none; font-size: @text-shorter; text-transform: uppercase; line-height: @text-short; margin: 0 @spacing-smallest 0 0; padding: @spacing-smallest @spacing-smallerish; border-radius: @radius-current; background: @accent; width: auto;
 				
 					&:not(:disabled) {
 						cursor: pointer;
@@ -542,13 +553,13 @@ body:not(.editor-fullscreen) .column.primary {
 		&:hover,
 		&.hover {
 			.tab-group > * {
-				transition-delay: 0s;
 				filter: grayscale(100%);
 				opacity: 0.5;
 			}
 
 			.tab-group:hover > *,
 			.tab-group.hover > * {
+				transition-delay: 0s;
 				filter: grayscale(0%);
 				opacity: 1;
 			}
@@ -572,7 +583,7 @@ body:not(.editor-fullscreen) .column.primary {
 	background: @white;
 
 	> h2 {
-		color: @accent; font-size: @text-bigger; font-weight: 300; padding: @spacing-smallest 0 5rem;
+		color: @accent; font-size: @text-bigger; font-weight: 300; padding: @spacing-smallest 0 @spacing-smallish;
 	}
 
 	&:first-child {
@@ -584,7 +595,7 @@ body:not(.editor-fullscreen) .column.primary {
 			}
 		}
 		@media (max-width: @md){
-			position: relative!important; left: 0!important; top: 0!important; padding-bottom: 5rem; height: auto;
+			position: relative!important; left: 0!important; top: 0!important; padding-bottom: @spacing-smallish; height: auto;
 		}
 
 		> h2 {
@@ -600,7 +611,7 @@ body:not(.editor-fullscreen) .column.primary {
 
 	&:nth-child(n + 2) {
 		box-sizing: border-box;
-		position: relative!important; left: 0!important; top: 0!important; padding-bottom: 5rem;
+		position: relative!important; left: 0!important; top: 0!important; padding-bottom: @spacing-smallish;
 
 		@media (max-width: @md){
 			padding-top: @spacing-smallish; border-top: 1px solid @lighter-grey;
@@ -656,10 +667,11 @@ table.selectable td.field-checkbox input.ajax-checkbox {
 		}
 
 		> button {
-			border-radius: @radius-current; font-size: @text-shorter; font-weight: 300; text-transform: uppercase; line-height: @spacing-smallish; margin: 0 0 0 @spacing-smallest; padding: @spacing-micro @spacing-smallerish; background: @accent; cursor: pointer;
+			border-radius: @radius-current;
+			font-size: @text-shorter; font-weight: 300; text-transform: uppercase; line-height: @text-short; margin: 0 0 0 @spacing-smallest; padding: @spacing-smallest @spacing-smallerish; border: 1px solid @accent; background: @accent; cursor: pointer;
 		
 			&:hover {
-				background: @darker-grey;
+				border-color: @black; background: @darker-grey;
 			}
 		}
 	}
@@ -669,6 +681,7 @@ table.selectable td.field-checkbox input.ajax-checkbox {
 	@media (min-width: (@md + 1)){
 		.frame .frame-header {
 			flex-direction: column;
+			align-items: flex-start;
 
 			h4 {
 				flex-direction: column;
@@ -690,6 +703,10 @@ table.selectable td.field-checkbox input.ajax-checkbox {
 
 		fieldset.single {
 			text-align: left;
+
+			> div {
+				width: 100%;
+			}
 
 			> button {
 				margin: @spacing-smallest @spacing-smallest 0 0;

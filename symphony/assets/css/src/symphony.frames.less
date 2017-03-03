@@ -134,7 +134,8 @@ fieldset.frame,
 
 #login {
 	.flex(~'column', ~'center', ~'center');
-	padding: 0; width: 100%; height: 100vh;
+	box-sizing: border-box;
+	padding: @spacing-smallish; width: 100%; min-height: 100vh;
 
 	fieldset {
 		padding: @spacing-smallerish;
@@ -149,7 +150,7 @@ fieldset.frame,
 	}
 
 	.frame {
-		overflow: hidden; padding: 0; background: @white; width: @spacing-huger;
+		overflow: hidden; padding: 0; background: @white; width: @spacing-huger; max-width: 100%;
 
 		h1 {
 			padding: @spacing-smallest @spacing-smallerish; background: @accent;

@@ -40,7 +40,7 @@ select,
 body .select2-container .select2-selection--single .select2-selection__rendered {
 	box-sizing: border-box;
 	border-radius: @radius-current;
-	color: @darker-grey; font-family: inherit; font-size: 1.4rem; font-weight: 300; text-transform: none; line-height: 1.4rem; padding: @spacing-smallest @spacing-smallerish; border: 1px solid @lighter-grey; background-color: @lightest-grey; width: 100%;
+	color: @darker-grey; font-family: inherit; font-size: @text-short; font-weight: 300; text-transform: none; line-height: 1em; padding: @spacing-smallest @spacing-smallerish; border: 1px solid @lighter-grey; background-color: @lightest-grey; width: 100%;
 }
 
 #wrapper .select2-container {
@@ -53,7 +53,7 @@ body .select2-container {
 		border: none; height: auto!important;
 
 		.select2-selection__rendered {
-			padding-right: 5rem; min-height: 3.6rem
+			padding-right: 5rem; min-height: @text-short + @spacing-smallest + @spacing-smallest + 0.2;
 		}
 
 		.select2-selection__arrow {
@@ -71,7 +71,7 @@ body .select2-container {
 
 	.select2-results__option {
 		.transitioned(~'color, background');
-		color: @darker-grey; font-family: inherit; font-size: 1.4rem; font-weight: 300; text-transform: none; line-height: 1.4rem; padding: @spacing-smallest @spacing-smallerish;
+		color: @darker-grey; font-family: inherit; font-size: @text-short; font-weight: 300; text-transform: none; line-height: 1em; padding: @spacing-smallest @spacing-smallerish;
 
 		&[aria-disabled="false"]:hover,
 		&[aria-selected="true"] {
@@ -249,10 +249,10 @@ button,
 .apply-label-right {
 	display: inline-block;
 	margin-left: 1rem;
-	padding: @spacing-micro @spacing-smallest;
-	font-size: 125%;
+	padding: @spacing-smallest @spacing-smallest;
+	font-size: @text-shorter;
 	color: @white;
-	line-height: 1.85;
+	line-height: @text-short;
 	border: none;
 }
 
@@ -275,7 +275,7 @@ button[disabled=disabled],
 button[disabled=disabled]:hover,
 button[disabled=disabled]:active,
 button[disabled=disabled]:focus {
-	opacity: 0.5;
+	opacity: 0.55;
 	cursor: not-allowed;
 }
 
@@ -371,7 +371,7 @@ button.delete:focus,
 
 	.select2-container .select2-selection--single .select2-selection__rendered {
 		border-radius: @radius-current 0 0 @radius-current;
-		line-height: 2rem; border-right: none;
+		line-height: 1em; border-right: none;
 	}
 }
 
@@ -386,7 +386,7 @@ button.delete:focus,
 .apply-label-right,
 .apply-label-left {
 	border-radius: 0 @radius-current @radius-current 0;
-	float: right; color: @white!important; font-size: @text-shorter; font-weight: 300; text-transform: uppercase; line-height: @spacing-smaller + @spacing-smallest + @spacing-nano; margin: 0; padding-left: @spacing-smallerish; padding-right: @spacing-smallerish; border: none; background: @accent;
+	float: right; color: @white!important; font-size: @text-shorter; font-weight: 300; text-transform: uppercase; line-height: @text-short; margin: 0; padding: @spacing-smallest @spacing-smallerish; border: 1px solid @accent; background: @accent;
 }
 
 .apply button,
@@ -395,7 +395,7 @@ button.delete:focus,
 	cursor: pointer;
 
 	&:hover {
-		background: @darker-grey;
+		border-color: @black; background: @darker-grey;
 	}
 }
 
@@ -414,7 +414,7 @@ button.delete:focus,
 .apply.inactive button,
 .apply.inactive:hover button,
 .apply.inactive button:hover {
-	color: @dark-grey; background: @grey; cursor: default;
+	color: @dark-grey; border-color: @grey; background: @grey; cursor: default;
 }
 
 /* Single select "With selected…" */

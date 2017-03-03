@@ -36,11 +36,11 @@ body {
 	.transitioned(~'transform');
 	display: flex;
 	flex-direction: column;
-	position: fixed; left: 0; bottom: 0; top: 0; border-right: 1px solid @lighter-grey; background: @white; width: @spacing-huge; z-index: 100;
+	position: fixed; left: 0; bottom: 0; top: 0; border-right: 1px solid @lighter-grey; background: @white; width: @spacing-huge; z-index: 101;
 
 	&.spaced-bottom {
 		@media (max-width: @sm){
-			bottom: 7rem;
+			bottom: @spacing-midlarge;
 		}
 	}
 
@@ -106,7 +106,7 @@ body {
 		}
 
 		> li {
-			display: block; position: relative; font-size: @text-short; font-weight: 300; line-height: 2rem; cursor: pointer;
+			display: block; position: relative; font-size: @text-current; font-weight: 300; line-height: 2rem; cursor: pointer;
 
 			> span {
 				.flex(~'row', ~'center', ~'flex-start');
@@ -204,7 +204,7 @@ body {
 		display: block; /*overflow: auto;*/ position: absolute; right: 0; top: 100%; margin-top: 1px; padding: 0 0 0 @spacing-smallish; border-bottom: 1px solid @lighter-grey; background: @white; width: @spacing-huger; height: @spacing-midlarge; white-space: nowrap;
 
 		li {
-			display: inline-block; position: relative; font-size: @text-short; font-weight: 300; text-transform: none; line-height: @spacing-midlarge; margin-right: @spacing-smallish; height: @spacing-midlarge;
+			display: inline-block; position: relative; font-size: @text-current; font-weight: 300; text-transform: none; line-height: @spacing-midlarge; margin-right: @spacing-smallish; height: @spacing-midlarge;
 
 			&:first-child {
 				display: none;
@@ -394,7 +394,8 @@ body {
 	}
 
 	> svg {
-		display: block; position: absolute; right: @spacing-smallerish; top: 3.5rem; color: @white; font-weight: 300; pointer-events: none;
+		transform: translateY(-50%);
+		display: block; position: absolute; right: @spacing-smallerish; top: 50%; color: @white; font-weight: 300; pointer-events: none;
 	}
 
 	#duplicate-entry {
@@ -413,7 +414,7 @@ html.touch {
 		.flex(~'row',~'center',~'flex-start');
 		box-sizing: border-box;
 		transform: translateY(-100%);
-		top: 100vh; left: @spacing-huge; padding: @spacing-smallerish; border-top: 1px solid @lighter-grey; background: @white; width: auto; height: auto;
+		top: 100vh; left: @spacing-huge; padding: 0 @spacing-smallerish; border-top: 1px solid @lighter-grey; background: @white; width: auto; height: @spacing-midlarge;
 
 		@media (max-width: @sm) {
 			left: 0;
@@ -470,14 +471,14 @@ html:not(.touch) {
 			.flex(~'row',~'center',~'flex-start');
 			box-sizing: border-box;
 			transform: translateY(-100%);
-			top: 100vh; left: @spacing-huge; padding: @spacing-smallerish; border-top: 1px solid @lighter-grey; background: @white; width: auto; height: auto;
+			top: 100vh; left: @spacing-huge; padding: 0 @spacing-smallerish; border-top: 1px solid @lighter-grey; background: @white; width: auto; height: @spacing-midlarge;
 
 			@media (max-width: @sm) {
 				left: 0;
 			}
 
 			input, button {
-				line-height: 1.85; padding: @spacing-smallest @spacing-smallerish; border-radius: @radius-current; width: auto;
+				line-height: @text-short; padding: @spacing-smallest @spacing-smallerish; border-radius: @radius-current; width: auto;
 			}
 
 			.button-container svg {
@@ -853,7 +854,7 @@ div.field-checkbox + .field:not(.field-checkbox) {
 	em {
 		.transitioned(~'color, background');
 		border-radius: @radius-current;
-		color: @white; font-size: @text-shorter; font-style: normal; font-weight: 300; text-transform: uppercase; line-height: @spacing-smaller; margin-bottom: @spacing-smallest; padding: 0 @spacing-smallest; background: @accent; cursor: pointer;
+		color: @white; font-size: @text-shorter; font-style: normal; font-weight: 300; text-transform: uppercase; line-height: 1em; margin-bottom: @spacing-smallest; padding: @spacing-micro @spacing-smallest; background: @accent; cursor: pointer;
 
 		&:hover {
 			background: @darker-grey;

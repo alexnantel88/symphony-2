@@ -38,7 +38,7 @@ div.drawer.vertical-right {
 	.transitioned(~'transform');
 	overflow: scroll;
 	-webkit-overflow-scrolling: touch;
-	position: fixed; top: @spacing-midlarge; bottom: 0; background: @white; width: @spacing-huger!important; height: auto!important; z-index: 100;
+	position: fixed; top: @spacing-midlarge; bottom: 0; background: @white; width: @spacing-huger!important; height: auto!important; max-width: 100%; z-index: 100;
 }
 
 div.drawer.vertical-left {
@@ -138,14 +138,14 @@ div.drawer.vertical-right .contents {
 	background: @white;
 
 	h2 {
-		color: @accent; font-size: @text-bigger; font-weight: 300; margin: 0; padding: @spacing-smallish @spacing-smallish 5rem; border: none;
+		color: @accent; font-size: @text-bigger; font-weight: 300; margin: 0; padding: @spacing-smallish @spacing-smallish; border: none;
 	}
 
 	.documenter-content {
 		color: @darker-grey; padding: 0 @spacing-smallish @spacing-smallish;
 
 		& + h2 {
-			padding-top: 5rem; border-top: 1px solid @lighter-grey;
+			padding-top: @spacing-smallish; border-top: 1px solid @lighter-grey;
 		}
 	}
 }
