@@ -103,7 +103,7 @@
 		// Context Actions
 		_____________________________________________ */
 
-		/* Init - Remove Lightbox Actiuons if it is only Close */
+		/* Init - Remove Lightbox Actions if it is only Close */
 
 		$('body.entry_relationship.page-index #contents .actions').remove();
 
@@ -112,6 +112,7 @@
 		if($(o.actions).length){
 			$(o.context).addClass('spaced-right');
 			$(o.contents).addClass('spaced-bottom');
+			$(o.header).addClass('spaced-bottom');
 		}
 
 		/* Init - Wrap Inputs and Buttons */
@@ -132,6 +133,17 @@
 		
 		$('.actions #version').remove();
 
+		/* Dashboard - Editing */
+
+		$('#context > .actions .edit-mode').on('click', function(){
+			var t = $(this);
+
+			setTimeout(function(){
+				t.wrapInner('<span><span></span></span>');
+				t.prepend(s.edit);
+			}, 10);
+		});
+
 		/*
 		// Context Tabs
 		_____________________________________________ */
@@ -140,22 +152,6 @@
 
 		if(!$(o.tabGroup).length && !$(o.secColumn).length) $(o.contents).addClass('centered-content');
 
-		/* Init - TEMP repartition of the divided tabs in the Primary Column */
-
-		if($(o.secTabGroup).length > 1){
-			$(o.secTabGroup).parents(o.columns).attr('class', '');
-
-			$(o.secTabGroup).each(function(){
-				var t = $(this);
-				var classes = t.attr('class').split(' ');
-
-				if($(o.priTabGroup+classes[1]).length) $(o.priTabGroup+classes[1]).append(t.html());
-				else $(o.priColumn).append(t);
-			});
-
-			$(o.secTabGroup).remove();
-		}
-
 		/* Init - Add a title to each Tab */
 
 		$(o.tabGroup).each(function(){
@@ -163,8 +159,6 @@
 			var title = $(o.contextTabs).eq(t.index()).html();
 			t.prepend('<h2>'+title+'</h2>');
 		});
-
-		/* Init - Nano Scroll */
 
 		/* Scroll to right TabGroup on TabNav click */
 
@@ -311,10 +305,14 @@
 		// Select
 		_____________________________________________ */
 
+		/* Init - General */
+
 		$('select:not(.disabled)').each(function(){
 			var t = $(this);
 			if(t.attr('multiple') === undefined) t.select2();
 		});
+
+		/* Init - Async Drawer Dashboard */
 
 		$('#context .actions li select[name="panel-type"]:not(.disabled)').on('change', function(){
 			setTimeout(function(){
@@ -329,12 +327,16 @@
 			}, 250);
 		});
 
+		/* Init - Async Drawer Filtering */
+
 		$(o.context).on('click', '.drawer-filtering .constructor', function(){
 			setTimeout(function(){
 				$('.drawer-filtering .instance:last-child select:not(.disabled)').select2();
 				$('.drawer-filtering .instance:last-child .select2-container .select2-selection--single .select2-selection__arrow').html(s.chevron);
 			}, 250);
 		});
+
+		/* Init - Async Add Instance */
 
 		$('body').on('click', 'fieldset.apply button', function(){
 			var t = $(this).parents('.apply');
@@ -347,6 +349,14 @@
 				$('select:not(.disabled)', f).select2();
 				$('.select2-container .select2-selection--single .select2-selection__arrow', f).html(s.chevron);
 			}, 250);
+		});
+
+		/* Context Select - Put above everything else */
+
+		$('#context .actions select').on('select2:open', function(){
+			$('body > .select2-container').addClass('above-content');
+		}).on('select2:close', function(){
+			$('body > .select2-container').removeClass('above-content');
 		});
 
 		/*
@@ -373,6 +383,7 @@
 			else if(url.indexOf('?list') !== -1) t.prepend(s.list);
 			// By Class
 			else if(t.hasClass('link-preview')) t.prepend(s.view);
+			else if(t.hasClass('edit-mode')) t.prepend(s.edit);
 			// By Title
 			else if(title !== undefined) {
 				if(title.indexOf('View') !== -1) t.prepend(s.view);
@@ -434,11 +445,11 @@
 		/* Window Resize - Function */
 
 		function onResize(){
-			$(o.contextActions + '> span').each(function(){
+			/*$(o.contextActions + '> span').each(function(){
 				var t = $(this);
 
 				t.width($('> span', t).outerWidth());
-			});
+			});*/
 		}
 
 		/* Window Scroll - Function */

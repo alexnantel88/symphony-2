@@ -38,6 +38,12 @@ body {
 	flex-direction: column;
 	position: fixed; left: 0; bottom: 0; top: 0; border-right: 1px solid @lighter-grey; background: @white; width: @spacing-huge; z-index: 100;
 
+	&.spaced-bottom {
+		@media (max-width: @sm){
+			bottom: 7rem;
+		}
+	}
+
 	> * {
 		order: 3;
 	}
@@ -245,7 +251,9 @@ body {
 			}
 
 			&:not(:hover) > span {
-				width: 0!important;
+				/*@media (max-width: @sm){
+					width: 0!important;
+				}*/
 			}
 
 			&.selected,
@@ -262,9 +270,17 @@ body {
 			}
 		}
 
-		li + li a,
-		li + li button {
-			padding-left: @spacing-smallish;
+		li {
+			margin-left: 0!important;
+
+			& + li a,
+			& + li button {
+				padding-left: @spacing-smallish;
+			}
+
+			.edit-mode {
+				margin-right: @spacing-smallish;
+			}
 		}
 
 		fieldset > div {
@@ -285,7 +301,7 @@ body {
 	flex-grow: 1;
 	overflow: hidden; position: relative; padding: 0 @spacing-smallish; white-space: nowrap;
 
-	@media (max-width: @sm) {
+	@media (max-width: @xs) {
 		display: none;
 	}
 
