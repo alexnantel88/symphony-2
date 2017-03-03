@@ -259,8 +259,10 @@ body div.compact label.oembed-other-title {
 
 /* Markdown */
 
-.field-simplemde:not(.field-multilingual) .editor-toolbar {
-	margin-top: @spacing-smallest;
+.field-simplemde {
+	&:not(.field-multilingual) .editor-toolbar {
+		margin-top: @spacing-smallest;
+	}
 }
 
 .editor-toolbar {
@@ -529,15 +531,18 @@ div.field-addresslocation {
 		content: "";
 		display: block; clear: both;
 	}
+}
 
+body:not(.editor-fullscreen) .column.primary {
 	@media (min-width: (@md + 1)){
 		.tab-group > * {
-			.transitioned(~'opacity, filter',~'0.35s');
+			.transitioned(~'opacity, filter',~'0.45s',~'0.15s');
 		}
 
 		&:hover,
 		&.hover {
 			.tab-group > * {
+				transition-delay: 0s;
 				filter: grayscale(100%);
 				opacity: 0.5;
 			}
@@ -550,7 +555,7 @@ div.field-addresslocation {
 
 			.tab-group.focused > * {
 				filter: grayscale(0%)!important;
-				opacity: 0.5!important;
+				opacity: 0.55!important;
 
 				&:not(h2):hover,
 				&.focused {
