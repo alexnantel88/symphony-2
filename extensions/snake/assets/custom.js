@@ -133,6 +133,10 @@
 		
 		$('.actions #version').remove();
 
+		/* Init - Set Constrain */
+
+		$('#context > .actions li').css({'max-width': (100 / $('#context > .actions li').length) + '%'});
+
 		/* Dashboard - Editing */
 
 		$(o.contextActions + '.edit-mode').on('click', function(){
@@ -353,9 +357,9 @@
 
 		/* Context Select - Put above everything else */
 
-		$('#context .actions select').on('select2:open', function(){
+		$(o.context).on('select2:open', 'select', function(){
 			$('body > .select2-container').addClass('above-content');
-		}).on('select2:close', function(){
+		}).on('select2:close', 'select', function(){
 			$('body > .select2-container').removeClass('above-content');
 		});
 
@@ -416,13 +420,9 @@
 		// Website
 		_____________________________________________ */
 
-		onResize();
 		onScroll();
 
 		win.on('scroll', function(){
-			onScroll();
-		}).on('resize', function(){
-			onResize();
 			onScroll();
 		});
 
@@ -440,16 +440,6 @@
 
 			if(t.hasClass('selected')) d.addClass('opened');
 			else d.removeClass('opened');
-		}
-
-		/* Window Resize - Function */
-
-		function onResize(){
-			/*$(o.contextActions + '> span').each(function(){
-				var t = $(this);
-
-				t.width($('> span', t).outerWidth());
-			});*/
 		}
 
 		/* Window Scroll - Function */

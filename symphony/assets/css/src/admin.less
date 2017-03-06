@@ -233,10 +233,14 @@ body {
 	/* Actions */
 
 	> .actions {
-		.flex(~'row', ~'center', ~'flex-start');
+		.flex(~'row', ~'center', ~'flex-end');
+		flex-grow: 1;
 		order: 3;
-		flex-shrink: 0;
-		margin: 0; padding: 0 @spacing-smallish;
+		margin: 0; padding: 0 @spacing-smallish; max-width: 50%;
+
+		@media (max-width: @xs){
+			max-width: calc(~'100% - @{spacing-midlarge}');
+		}
 
 		a, button {
 			.flex(~'row', ~'center', ~'flex-start');
@@ -251,14 +255,9 @@ body {
 				overflow: hidden;
 
 				> span {
-					padding-left: @spacing-smallest; white-space: nowrap;
+					text-overflow: ellipsis;
+					display: block; overflow: hidden; padding-left: @spacing-smallest; white-space: nowrap;
 				}
-			}
-
-			&:not(:hover) > span {
-				/*@media (max-width: @sm){
-					width: 0!important;
-				}*/
 			}
 
 			&.selected,
@@ -276,6 +275,7 @@ body {
 		}
 
 		li {
+			flex-shrink: 1;
 			margin-left: 0!important;
 
 			& + li a,
@@ -728,10 +728,6 @@ ul.page {
 }
 
 /* Data Sources */
-
-select[multiple] {
-	min-height: 20rem;
-}
 
 #blueprints-datasources table td.pages {
 	width: 30%;

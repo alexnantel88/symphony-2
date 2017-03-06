@@ -65,10 +65,10 @@
 }
 
 .frame > button {
-	font-size: @text-shorter; font-weight: 300; text-transform: uppercase; margin: 0; padding: @spacing-smallest @spacing-smallerish; border: none; background: @accent; border-radius: @radius-current; cursor: pointer;
+	font-size: @text-shorter; font-weight: 300; text-transform: uppercase; line-height: @text-short; margin: 0; padding: @spacing-smallest @spacing-smallerish; border: 2px solid @accent; background: @accent; border-radius: @radius-current; cursor: pointer;
 
 	&:not(:disabled):hover {
-		background: @darker-grey;
+		border-color: @darker-grey; background: @darker-grey;
 	}
 
 	&:disabled {
