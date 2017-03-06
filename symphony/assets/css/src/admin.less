@@ -696,78 +696,35 @@ div.password {
 /* Pagination */
 
 ul.page {
-	height: 3.6rem;
-	margin: -6.1rem 0 0;
-	padding: 2.3rem 5rem 0 1.9rem;
-	color: #9e9e9e;
-	cursor: default;
-}
+	.flex(~'row',~'center',~'center');
+	margin: -3.8rem 0 0;
+	padding: 0 @spacing-smallish;
+	color: @dark-grey; cursor: default;
 
-ul.page li {
-	display: inline;
-	margin-right: 0.75rem;
-}
+	a {
+		color: @accent;
 
-ul.page a {
-	margin: 0 -0.67rem;
-	padding: 0.67rem;
-	border-bottom: none;
-}
+		&:hover {
+			color: @darker-grey
+		}
+	}
 
-ul.page form {
-	display: inline-block;
-	box-sizing: border-box;
-	min-height: 2rem;
-	padding: 0;
-	border: 1px solid transparent;
-	border-radius: 0.4rem;
-}
+	input {
+		border-radius: @radius-current;
+		color: @dark-grey; font-size: @text-short; text-align: center!important; line-height: 1em; padding: @spacing-smallest @spacing-smallerish; border: 1px solid @lighter-grey; box-shadow: none; outline: none;
+	}
 
-ul.page:hover form {
-	border-color: #dedede;
-}
+	form.invalid input {
+		border-color: @red;
+	}
 
-ul.page form:hover,
-ul.page form.active {
-	border-color: rgba(0, 0, 0, 0.4);
-	box-shadow: 0 0 0.7rem rgba(0, 0, 0, 0.1);
-}
+	li {
+		font-size: @text-current; font-weight: 300;
 
-ul.page form.invalid {
-	border-color: rgba(0, 0, 0, 0.4);
-	background-color: #fff9a2;
-	box-shadow: 0 0 0.7rem rgba(0, 0, 0, 0.1);
-}
-
-ul.page form.invalid input {
-	background-color: #fff9a2;
-}
-
-ul.page input {
-	height: 20px;
-	margin: 0;
-	padding: 0;
-	color: #666;
-	font-size: @text-current;
-	line-height: 1;
-	text-align: center !important;
-	border: none;
-	border-radius: 0.4rem;
-	box-shadow: none;
-	outline: none;
-}
-
-ul.page form:hover input {
-	color: #9e9e9e;
-}
-
-ul.page form.active input,
-ul.page input:focus {
-	color: #000;
-}
-
-ul.page form span {
-	visibility: hidden;
+		& + li {
+			margin-left: @spacing-smallerish;
+		}
+	}
 }
 
 /* Data Sources */
