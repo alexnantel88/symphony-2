@@ -541,6 +541,46 @@ div.field-addresslocation {
 	}
 }
 
+/* Publish Notes */
+
+.field-publishnotes {
+	display: flex;
+	flex-direction: column;
+
+	label {
+		margin: 0; padding: 0; border: none; background: none;
+	}
+
+	.hover {
+		background: none;
+	}
+
+	.control {
+		margin-top: @spacing-smallest;
+	}
+
+	.publishnotes-note {
+		a {
+			color: @accent;
+
+			&:hover {
+				color: currentColor;
+			}
+		}
+	}
+
+	.publishnotes-edit {
+		order: 10;
+		align-self: flex-start;
+		border-radius: @radius-current;
+		position: relative; color: @white; font-size: @text-shorter; text-transform: uppercase; line-height: @text-short; margin: @spacing-smallest 0 0; padding: @spacing-smallest @spacing-smallerish; background: @accent;
+
+		&:hover {
+			background: @darker-grey;
+		}
+	}
+}
+
 /*--------------------------------------------------------------------------
 	Publish Tab
 --------------------------------------------------------------------------*/
