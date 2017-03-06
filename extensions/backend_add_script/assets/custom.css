@@ -1,0 +1,17 @@
+/*
+	This CSS file can be used to add your custom CSS-rules to the backend
+*/
+
+/* Admin */
+
+select[multiple] {
+	min-height: 20rem;
+}
+
+#blueprints-sections .field-publish_tabs.instance .frame-header {
+	background-color: yellow;
+}
+
+#blueprints-sections .field-publishnotes.instance .frame-header {
+	background-color: pink;
+}
