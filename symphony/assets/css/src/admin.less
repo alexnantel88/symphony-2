@@ -94,6 +94,7 @@ body {
 	flex-grow: 1;
 	display: flex;
 	flex-direction: column;
+	-webkit-overflow-scrolling: touch;
 	overflow: auto; margin: 0 0 auto; width: 100%; list-style: none;
 
 	/* First Level */
@@ -241,6 +242,10 @@ body {
 			.flex(~'row', ~'center', ~'flex-start');
 			color: @dark-grey; font-size: @text-shorter; text-transform: uppercase; line-height: @spacing-midlarge; margin: 0; padding: 0; background: none; white-space: nowrap;
 
+			> svg {
+				max-width: @spacing-smaller; max-height: @spacing-smaller;
+			}
+
 			> span {
 				.transitioned(~'width');
 				overflow: hidden;
@@ -354,7 +359,7 @@ body {
 		.transitioned(~'opacity, background');
 		border-radius: 0px;
 		box-sizing: border-box;
-		display: block; color: @white; font-size: @text-shorter; text-transform: uppercase; text-align: left; line-height: @spacing-midlarge; margin: 0!important; padding: 0 @spacing-small 0 5.5rem; border: none; background: @accent!important; width: 100%; cursor: pointer;
+		display: block; color: @white; font-size: @text-shorter; text-transform: uppercase; text-align: left; line-height: @spacing-midlarge; margin: 0!important; padding: 0 @spacing-small 0 4.5rem; border: none; background: @accent!important; width: 100%; cursor: pointer;
 	
 		&[name="action[delete]"], &[name="action[delete]"]:hover {
 			background: @red!important;
@@ -371,7 +376,7 @@ body {
 		svg {
 			transform: translateY(-50%);
 			content: ">";
-			position: absolute; left: @spacing-smallerish; top: 50%; color: @white; font-weight: 300; pointer-events: none;
+			position: absolute; left: @spacing-smallerish; top: 50%; color: @white; font-weight: 300; max-width: @spacing-smaller; max-height: @spacing-smaller; pointer-events: none;
 		}
 	}
 

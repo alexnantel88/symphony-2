@@ -135,7 +135,7 @@
 
 		/* Dashboard - Editing */
 
-		$('#context > .actions .edit-mode').on('click', function(){
+		$(o.contextActions + '.edit-mode').on('click', function(){
 			var t = $(this);
 
 			setTimeout(function(){
@@ -172,7 +172,7 @@
 
 		/* Focus and Blur States */
 
-		$('.tab-group input, .tab-group textarea').on('focus', function(){
+		$('input, textarea', o.tabGroup).on('focus', function(){
 			var t = $(this);
 			if(t.attr('type') != 'checkbox' && t.attr('type') != 'file' && t.attr('readonly') != 'readonly') addTabFocus($(this));
 		}).on('blur', function(){
@@ -180,7 +180,7 @@
 			if(t.attr('type') != 'checkbox' && t.attr('type') != 'file' && t.attr('readonly') != 'readonly') remTabFocus($(this));
 		});
 
-		$('.tab-group select').on('select2:open', function(){
+		$('select', o.tabGroup).on('select2:open', function(){
 			addTabFocus($(this));
 		}).on('select2:close', function (evt) {
 			remTabFocus($(this));
