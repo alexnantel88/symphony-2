@@ -4,14 +4,3 @@
 
 /* Admin */
 
-select[multiple] {
-	min-height: 20rem;
-}
-
-#blueprints-sections .field-publish_tabs.instance .frame-header {
-	background-color: yellow;
-}
-
-#blueprints-sections .field-publishnotes.instance .frame-header {
-	background-color: pink;
-}
