@@ -39,7 +39,7 @@ body {
 	position: fixed; left: 0; bottom: 0; top: 0; border-right: 1px solid @lighter-grey; background: @white; width: @spacing-huge; z-index: 101;
 
 	&.spaced-bottom {
-		@media (max-width: @sm){
+		@media (max-width: (@sm - 1)){
 			bottom: @spacing-midlarge;
 		}
 	}
@@ -71,13 +71,13 @@ body {
 			color: @accent;
 		}
 
-		@media (min-width: (@sm + 1)){
+		@media (min-width: @sm){
 			display: none;
 		}
 	}
 
 	&:not(.opened) {
-		@media (max-width: @sm){
+		@media (max-width: (@sm - 1)){
 			transform: translateX(-100%);
 
 			#btn-toggle-header-mobile {
@@ -187,7 +187,7 @@ body {
 	box-sizing: border-box;
 	position: fixed; left: @spacing-huge; right: 0; top: 0; border-bottom: 1px solid @lighter-grey; background: @white; height: @spacing-midlarge; z-index: 50;
 
-	@media (max-width: @sm){
+	@media (max-width: (@sm - 1)){
 		justify-content: flex-end;
 		left: 0; padding-left: @spacing-midlarge;
 	}
@@ -217,7 +217,7 @@ body {
 			display: block; position: fixed; right: @spacing-huger; top: @spacing-midlarge; background: @lighter-grey; width: 1px; height: 100vh;
 		}
 
-		@media (max-width: @md){
+		@media (max-width: (@md - 1)){
 			left: 0; width: auto;
 
 			li:first-child {
@@ -238,7 +238,7 @@ body {
 		order: 3;
 		margin: 0; padding: 0 @spacing-smallish; max-width: 50%;
 
-		@media (max-width: @xs){
+		@media (max-width: (@xs - 1)){
 			max-width: calc(~'100% - @{spacing-midlarge}');
 		}
 
@@ -419,7 +419,7 @@ html.touch {
 		.flex(~'row',~'center',~'flex-start');
 		box-sizing: border-box;
 		transform: translateY(-100%);
-		top: 100vh; left: @spacing-huge; padding: 0 @spacing-smallerish; border-top: 1px solid @lighter-grey; background: @white; width: auto; height: @spacing-midlarge;
+		top: 100vh; left: calc(~'@{spacing-huge} + 0.1rem'); padding: 0 @spacing-smallerish; border-top: 1px solid @lighter-grey; background: @white; width: auto; height: @spacing-midlarge;
 
 		@media (max-width: @sm) {
 			left: 0;
@@ -564,17 +564,17 @@ html:not(.touch) {
 fieldset.settings {
 	position: relative; margin-bottom: @spacing-smallish; padding: 0;
 
-	@media (min-width: (@md + 1)){
+	@media (min-width: @md){
 		padding-left: @spacing-huge;
 	}
 
 	> legend {
 		line-height: 1.4em;
 		
-		@media (min-width: (@md + 1)){
+		@media (min-width: @md){
 			position: absolute; top: -0.1rem; left: 0; width: @spacing-huge - @spacing-smallish;
 		}
-		@media (max-width: @md){
+		@media (max-width: (@md - 1)){
 			color: @accent; font-size: @text-bigger; font-weight: 300; padding: @spacing-smallest 0 @spacing-smallish;
 		}
 	}
@@ -631,7 +631,7 @@ fieldset.settings {
 	& + fieldset.settings {
 		margin-top: @spacing-midlarge;
 
-		@media (max-width: @md){
+		@media (max-width: (@md - 1)){
 			margin-top: @spacing-smallish;
 
 			> legend {

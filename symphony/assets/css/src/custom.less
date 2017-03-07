@@ -128,7 +128,7 @@ img.gravatar {
 		&.secondary {
 			padding-left: @spacing-mid;
 
-			@media (max-width: @md){
+			@media (max-width: (@md - 1)){
 				margin-top: @spacing-smallish; padding-left: 0;
 			}
 		}
@@ -150,7 +150,7 @@ img.gravatar {
 		a {
 			transition: color 0.45s; float: none; color: @accent; font-size: @text-short; padding-left: @spacing-smallest;
 
-			@media (max-width: @xs){
+			@media (max-width: (@xs - 1)){
 				display: none;
 			}
 
@@ -594,7 +594,7 @@ div.field-addresslocation {
 }
 
 body:not(.editor-fullscreen) .column.primary {
-	@media (min-width: (@md + 1)){
+	@media (min-width: @md){
 		.tab-group > * {
 			.transitioned(~'opacity, filter',~'0.45s',~'0.15s');
 		}
@@ -636,14 +636,14 @@ body:not(.editor-fullscreen) .column.primary {
 	}
 
 	&:first-child {
-		@media (min-width: (@md + 1)){
+		@media (min-width: @md){
 			overflow: auto; position: fixed!important; left: 25.1rem!important; right: @spacing-huger; top: @spacing-midlarge!important; padding: @spacing-smallish @spacing-smallish @spacing-mid; width: auto; height: calc(~'100vh - @{spacing-midlarge}');
 		
 			> * {
 				margin-left: auto; margin-right: auto; max-width: @max-width-small;
 			}
 		}
-		@media (max-width: @md){
+		@media (max-width: (@md - 1)){
 			position: relative!important; left: 0!important; top: 0!important; padding-bottom: @spacing-smallish; height: auto;
 		}
 
@@ -653,7 +653,7 @@ body:not(.editor-fullscreen) .column.primary {
 	}
 
 	&:nth-child(2) {
-		@media (min-width: (@md + 1)){
+		@media (min-width: @md){
 			padding-top: @spacing-midlarge;
 		}
 	}
@@ -662,16 +662,16 @@ body:not(.editor-fullscreen) .column.primary {
 		box-sizing: border-box;
 		position: relative!important; left: 0!important; top: 0!important; padding-bottom: @spacing-smallish;
 
-		@media (max-width: @md){
+		@media (max-width: (@md - 1)){
 			padding-top: @spacing-smallish; border-top: 1px solid @lighter-grey;
 		}
-		@media (min-width: (@md + 1)){
+		@media (min-width: @md){
 			clear: both; float: right; margin-right: -@spacing-smallish; padding-left: @spacing-smallish; padding-right: @spacing-smallish; width: @spacing-huger;
 		}
 	}
 
 	&:nth-child(n + 3) {
-		@media (min-width: (@md + 1)){
+		@media (min-width: @md){
 			padding-top: @spacing-smallish; border-top: 1px solid @lighter-grey;
 		}
 	}
@@ -727,7 +727,7 @@ table.selectable td.field-checkbox input.ajax-checkbox {
 }
 
 #contents .tab-group:nth-child(n + 2) .field-entry_relationship {
-	@media (min-width: (@md + 1)){
+	@media (min-width: @md){
 		.frame .frame-header {
 			flex-direction: column;
 			align-items: flex-start;
