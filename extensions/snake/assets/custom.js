@@ -95,8 +95,20 @@
 
 		$(o.navEl).has('ul').on('click', '> span', function(){
 			var t = $(this);
-			t.parent().toggleClass('opened');
-			t.siblings('ul').slideToggle(250);
+
+			// Open
+			if(!t.parent().hasClass('opened')) {
+				$(o.navEl + '.opened ul').slideUp(250);
+				$(o.navEl + '.opened').removeClass('opened');
+
+				t.parent().addClass('opened');
+				t.siblings('ul').slideDown(250);
+			}
+			// Close
+			else {
+				t.parent().removeClass('opened');
+				t.siblings('ul').slideUp(250);
+			}
 		});
 
 		/*
