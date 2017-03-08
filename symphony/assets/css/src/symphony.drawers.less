@@ -35,6 +35,10 @@ div.drawer.vertical-right {
 	overflow: scroll;
 	-webkit-overflow-scrolling: touch;
 	position: fixed; top: @spacing-midlarge; bottom: 0; background: @white; width: @spacing-huger!important; height: auto!important; max-width: 100%; z-index: 100;
+
+	.contents {
+		padding: 0 0 @spacing-mid;
+	}
 }
 
 div.drawer.vertical-left {
@@ -53,11 +57,6 @@ div.drawer.vertical-right {
 	&:not(.opened) {
 		transform: translateX(100%);
 	}
-}
-
-div.drawer.vertical-left .contents,
-div.drawer.vertical-right .contents {
-	padding: 0 0 @spacing-mid;
 }
 
 /*-----------------------------------------------------------------------------

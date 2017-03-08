@@ -154,8 +154,9 @@ select[multiple] {
 	select:active,
 	select:focus,
 	textarea:active,
-	textarea:focus {
-		border-color: @red;
+	textarea:focus,
+	.select2-container .select2-selection--single .select2-selection__rendered {
+		border-color: @red!important;
 	}
 
 	label {
@@ -163,11 +164,19 @@ select[multiple] {
 	}
 
 	> p {
-		color: @red; font-weight: 500; padding: @spacing-smallest 0 0;
+		color: @red; font-weight: 500; margin-top: -@spacing-smaller; padding: 0;
 
 		br:first-child {
 			display: none;
 		}
+	}
+
+	.file + p {
+		margin-top: -@spacing-micro;
+	}
+
+	.container + p {
+		margin-top: @spacing-micro;
 	}
 }
 
@@ -297,7 +306,7 @@ legend {
 --------------------------------------------------------------------------*/
 
 .apply {
-	display: block; float: right; margin: 0; padding: 0;
+	display: block; float: right; margin: @spacing-smallest 0 0; padding: 0;
 
 	div {
 		box-sizing: border-box;	
@@ -356,10 +365,6 @@ legend {
 		button:hover,
 		&:hover button {
 			color: @dark-grey; border-color: @grey; background: @grey; cursor: default;
-		}
-
-		&:hover {
-			display: block; float: right; margin: 0; padding: 0;
 		}
 	}
 }

@@ -166,7 +166,7 @@
 
 		/* Init - Determine how to center content */
 
-		if(!$(o.tabGroup).length && !$(o.secColumn).length) $(o.contents).addClass('centered-content');
+		if(!$(o.tabGroup).length && !$(o.secColumn, o.contents).length) $(o.contents).addClass('centered-content');
 
 		/* Init - Add a title to each Tab */
 

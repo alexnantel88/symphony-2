@@ -2,17 +2,24 @@
  * Backend tables
  */
 
-
-
  /*-----------------------------------------------------------------------------
  	LESS — Variables Importing
  -----------------------------------------------------------------------------*/
+ 
  @import "variables";
+
+ /*-----------------------------------------------------------------------------
+	Tables
+-----------------------------------------------------------------------------*/
 
 table {
 	border-radius: @radius-current;
 	border-collapse: initial;
 	font-size: @text-short; text-align: left; border: 1px solid @lighter-grey; width: 100%;
+
+	label {
+		margin-bottom: 0!important;
+	}
 
 	&.fixed {
 		overflow-wrap: break-word;
@@ -55,6 +62,36 @@ table {
 
 th {
 	color: @dark-grey; font-size: @text-shorter; font-weight: 300; text-transform: uppercase; text-align: left; line-height: 1.4em; padding: @spacing-smallerish @spacing-smallish; background: transparent;
+
+	a,
+	a:hover,
+	a:hover:after {
+		color: @dark-grey;
+	}
+
+	a:after {
+		color: @grey;
+		font-size: .875em;
+	}
+
+	a:active,
+	a.active,
+	a.active:after {
+		color: @darker-grey;
+	}
+
+	a:after,
+	a.active:hover:after,
+	a.active[href$=asc]:after {
+		content: '\2193';
+		margin-left: @spacing-micro;
+	}
+
+	a.active:after,
+	a[href$=asc]:after,
+	a.active[href$=asc]:hover:after {
+		content: '\2191';
+	}
 }
 
 td {
@@ -69,64 +106,6 @@ td {
 		}
 	}
 }
-
-th a,
-th a:hover,
-th a:hover:after {
-	color: @dark-grey;
-}
-
-th a:after {
-	color: @grey;
-	font-size: .875em;
-}
-
-th a:active,
-th a.active,
-th a.active:after {
-	color: @darker-grey;
-}
-
-th a:after,
-th a.active:hover:after,
-th a.active[href$=asc]:after {
-	content: '\2193';
-	margin-left: @spacing-micro;
-}
-
-th a.active:after,
-th a[href$=asc]:after,
-th a.active[href$=asc]:hover:after {
-	content: '\2191';
-}
-
-table label {
-	margin-bottom: 0!important;
-}
-
-/*table.busy td {
-	border-top: 1px solid @lighter-grey;
-	border-bottom: 1px solid @lighter-grey;
-	background-color: @white;
-}
-
-table.busy tr:nth-child(odd) td {
-	border-top: 1px solid @lighter-grey;
-	border-bottom: 1px solid @lighter-grey;
-	background-color: @lightest-grey;
-}
-
-table.busy a {
-	color: @blue;
-}
-
-table + fieldset {
-	margin-top: @spacing-mid !important;
-}
-
-td img {
-	vertical-align: middle;
-}*/
 
 /*-----------------------------------------------------------------------------
 	Selectable rows
@@ -178,8 +157,38 @@ tr.ordering a {
 }
 
 /*-----------------------------------------------------------------------------
-	Status information
+	Misc
 -----------------------------------------------------------------------------*/
+
+tr[class*=status-] a:first-of-type::after {
+	.transitioned(~'color');
+	content: attr(data-status);
+	color: @grey;
+}
+
+/*table.busy td {
+	border-top: 1px solid @lighter-grey;
+	border-bottom: 1px solid @lighter-grey;
+	background-color: @white;
+}
+
+table.busy tr:nth-child(odd) td {
+	border-top: 1px solid @lighter-grey;
+	border-bottom: 1px solid @lighter-grey;
+	background-color: @lightest-grey;
+}
+
+table.busy a {
+	color: @blue;
+}
+
+table + fieldset {
+	margin-top: @spacing-mid !important;
+}
+
+td img {
+	vertical-align: middle;
+}*/
 
 /*tr[class*=status-] {
 	border-left-width: 0.8rem;
@@ -205,12 +214,6 @@ tr[class*=status-].selected {
 tr[class*=status-] td:first-of-type {
 	padding-left: 1.5rem;
 }*/
-
-tr[class*=status-] a:first-of-type::after {
-	.transitioned(~'color');
-	content: attr(data-status);
-	color: @grey;
-}
 
 /*tr[class*=status-]:nth-child(even) a:first-of-type::after,
 tr[class*=status-]:nth-child(even):hover a:first-of-type::after {
