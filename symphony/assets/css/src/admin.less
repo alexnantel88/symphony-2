@@ -12,14 +12,6 @@
 	Structure
 --------------------------------------------------------------------------*/
 
-* {
-	letter-spacing: .02em;
-}
-
-body {
-	font-weight: 400; min-width: 320px;
-}
-
 #wrapper {
 	position: relative;
 }
@@ -559,142 +551,8 @@ html:not(.touch) {
 }
 
 /*--------------------------------------------------------------------------
-	Settings
+	Pagination
 --------------------------------------------------------------------------*/
-
-fieldset.settings {
-	position: relative; margin-bottom: @spacing-smallish; padding: 0;
-
-	@media (min-width: @md){
-		padding-left: @spacing-huge;
-	}
-
-	> legend {
-		line-height: 1.4em;
-		
-		@media (min-width: @md){
-			position: absolute; top: -0.1rem; left: 0; width: @spacing-huge - @spacing-smallish;
-		}
-		@media (max-width: (@md - 1)){
-			color: @accent; font-size: @text-bigger; font-weight: 300; padding: @spacing-smallest 0 @spacing-smallish;
-		}
-	}
-
-	> p a {
-		color: @accent;
-
-		&:hover {
-			color: currentColor;
-		}
-	}
-
-	select {
-		width: 100%;
-	}
-
-	label + p.help {
-		margin: -2.5rem 0 2rem;
-	}
-
-	p.help {
-		margin: 0;
-
-		a {
-			border-bottom: 1px solid currentColor;
-
-			&:hover {
-				border-color: transparent;
-			}
-		}
-	}
-
-	input + p.help,
-	select + p.help {
-		margin-top: 1rem;
-	}
-
-	> legend + .help {
-		position: absolute; line-height: 1.8em; margin: 2.5rem 0 0 -@spacing-huge; width: @spacing-huge - @spacing-smallish; width: 17rem;
-
-		p {
-			margin: 0 0 @spacing-smaller;
-		}
-	}
-
-	li .label {
-		margin: 1rem 0 1.25rem;
-	}
-
-	> .columns.two .column {
-		margin-bottom: 0;
-	}
-
-	& + fieldset.settings {
-		margin-top: @spacing-midlarge;
-
-		@media (max-width: (@md - 1)){
-			margin-top: @spacing-smallish;
-
-			> legend {
-				display: block; padding-top: @spacing-smallish;  border-top: 1px solid @lighter-grey; width: 100%;
-			}
-		}
-	}
-}
-
-#password {
-	display: block;
-
-	legend {
-		margin-left: @spacing-smallish!important; padding: 0!important;
-	}
-
-	i {
-		position: absolute; top: 100%; right: 0; font-size: @text-shorter; font-weight: 300; margin-top: @spacing-nano;
-	}
-
-	.column {
-		float: left;
-	}
-
-	&:after {
-		content: "";
-		display: block; clear: both;
-	}
-}
-
-div.password {
-	display: none;
-}
-
-/*--------------------------------------------------------------------------
-	Index page
---------------------------------------------------------------------------*/
-
-.page-index h2,
-.index h2 {
-	border: none;
-}
-
-.page-index form,
-.index form {
-	margin: 0;
-	padding: 0;
-}
-
-.page-index .actions,
-.index .actions {
-	height: 3.8rem;
-	padding: @spacing-smallish 0 0;
-	text-align: right;
-}
-
-.page-index .actions + ul.page,
-.index .actions + ul.page {
-	margin-top: -5.8rem;
-}
-
-/* Pagination */
 
 ul.page {
 	.flex(~'row',~'center',~'center');
@@ -726,121 +584,6 @@ ul.page {
 			margin-left: @spacing-smallerish;
 		}
 	}
-}
-
-/* Data Sources */
-
-#blueprints-datasources table td.pages {
-	width: 30%;
-}
-
-#blueprints-sections .field-publish_tabs.instance .frame-header {
-	background-color: @accent!important;
-
-	* {
-		color: @white!important; 
-	}
-}
-
-#blueprints-sections .field-publishnotes.instance .frame-header {
-	background-color: @lightest-grey;
-}
-
-/*--------------------------------------------------------------------------
-	Single page
---------------------------------------------------------------------------*/
-
-.field {
-	box-sizing: border-box;
-	margin-bottom: @spacing-smallish; min-height: @spacing-small;
-
-	&.field-multilingual div.container label {
-		margin-bottom: @spacing-smallest;
-	}
-}
-
-fieldset {
-	position: relative;
-}
-
-legend {
-	color: @dark-grey; font-size: @text-short; font-weight: 300;
-}
-
-label,
-#password legend {
-	display: block; position: relative; color: @dark-grey; font-size: @text-shorter; font-weight: 300; text-transform: uppercase; line-height: 1.4em;
-}
-
-label {
-	> input,
-	> textarea,
-	> select,
-	> .select2-container,
-	> .field-value-readonly,
-	> .frame,
-	> .color-chooser-container {
-		margin-top: @spacing-smallest;
-	}
-
-	a {
-		color: currentColor; border-bottom: 1px solid currentColor;
-
-		&:hover {
-			border-color: transparent;
-		}
-	}
-}
-
-label,
-label.column {
-	margin-bottom: @spacing-smallish!important;
-}
-
-/* Checkboxes */
-
-div.field-checkbox {
-	min-height: 1.6rem;
-}
-
-div.field-checkbox:first-child {
-	margin-top: 2rem;
-}
-
-div.field-checkbox + .field:not(.field-checkbox) {
-	margin-top: @spacing-smallish;
-}
-
-/* File uploads */
-
-.file {
-	input {
-		color: @dark-grey; font-size: @text-short; font-weight: 300;
-	}
-
-	.frame {
-		.flex(~'column-reverse', ~'center', ~'center');
-
-		input {
-			padding: 0; border: none;
-		}
-	}
-
-	em {
-		.transitioned(~'color, background');
-		border-radius: @radius-current;
-		color: @white; font-size: @text-shorter; font-style: normal; font-weight: 300; text-transform: uppercase; line-height: 1em; margin-bottom: @spacing-smallest; padding: @spacing-micro @spacing-smallest; background: @accent; cursor: pointer;
-
-		&:hover {
-			background: @darker-grey;
-		}
-	}
-}
-
-/* Publish Note */
-
-.field-publishnotes {
-	margin-top: @spacing-smallish;
 }
 
 /*--------------------------------------------------------------------
@@ -879,3 +622,26 @@ div.field-checkbox + .field:not(.field-checkbox) {
 .js-animate {
 	pointer-events: none;
 }
+
+/*.page-index h2,
+.index h2 {
+	border: none;
+}
+
+.page-index form,
+.index form {
+	margin: 0;
+	padding: 0;
+}
+
+.page-index .actions,
+.index .actions {
+	height: 3.8rem;
+	padding: @spacing-smallish 0 0;
+	text-align: right;
+}
+
+.page-index .actions + ul.page,
+.index .actions + ul.page {
+	margin-top: -5.8rem;
+}*/

@@ -206,7 +206,7 @@ img.gravatar {
 	}
 
 	div.container label, p {
-		padding-right: 0!important;
+		padding-right: @spacing-mid!important;
 	}
 
 	&:not(.field-multilingual_image_upload) .tab-panel {
@@ -544,9 +544,10 @@ div.field-addresslocation {
 
 /* Publish Notes */
 
-.field-publishnotes {
+.field-publishnotes:not(.instance) {
 	display: flex;
 	flex-direction: column;
+	margin-top: @spacing-smallish;
 
 	label {
 		margin: 0; padding: 0; border: none; background: none;
@@ -686,6 +687,29 @@ table.selectable td.field-checkbox input.ajax-checkbox {
 }
 
 /*--------------------------------------------------------------------------
+	Blueprints
+--------------------------------------------------------------------------*/
+
+#blueprints-datasources,
+#blueprints-sections {
+	table td.pages {
+		width: 30%;
+	}
+
+	.field-publish_tabs.instance .frame-header {
+		background-color: @accent!important;
+
+		* {
+			color: @white!important; 
+		}
+	}
+
+	.field-publishnotes.instance .frame-header {
+		background-color: @lightest-grey;
+	}
+}
+
+/*--------------------------------------------------------------------------
 	Entry Relationship
 --------------------------------------------------------------------------*/
 
@@ -767,11 +791,11 @@ table.selectable td.field-checkbox input.ajax-checkbox {
 /* Overwrite Lightbox Styles */
 
 #entry-relationship-ctn.show {
-	background: rgba(241, 241, 241, 0.9); /*cursor: url(http://snake.288dev.com/symphony/assets/img/cursor-close.png) 34 34, pointer;*/ cursor: pointer;
+	background: rgba(241, 241, 241, 0.9); cursor: pointer;
 
 	> .iframe {
 		box-shadow: 0 0 0 rgba(0,0,0,0);
-		left: @spacing-large!important; top: @spacing-large!important; border: 1px solid @lighter-grey; width: calc(~'100vw - @{spacing-largest}')!important; height: calc(~'100vh - @{spacing-largest}')!important; cursor: default;
+		left: 0!important; top: 0!important; width: 100%!important; height: 100%!important; cursor: default;
 
 		> iframe {
 			display: block; width: 100%; height: 100%;

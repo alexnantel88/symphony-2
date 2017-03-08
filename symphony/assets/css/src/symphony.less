@@ -8,12 +8,13 @@
 /*-----------------------------------------------------------------------------
 	LESS — Variables Importing
 -----------------------------------------------------------------------------*/
+
 @import "variables";
 
 /*-----------------------------------------------------------------------------
 	Font importing — Karla | Google Fonts
 -----------------------------------------------------------------------------*/
-// @import url(https://fonts.googleapis.com/css?family=Karla:400,400italic,700,700italic);
+
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,400italic,500,700,300,300italic);
 
 /*-----------------------------------------------------------------------------
@@ -61,6 +62,10 @@ h1, h2, h3, h4, h5, h6 {
 	line-height: 1.2em;
 }
 
+* {
+	letter-spacing: .02em;
+}
+
 /*-----------------------------------------------------------------------------
 	Basic styles
 -----------------------------------------------------------------------------*/
@@ -68,10 +73,14 @@ h1, h2, h3, h4, h5, h6 {
 html {
 	font-size: 62.5%;
 	min-height: 100%;
+
+	@media (max-width: (@lg - 1)){
+		font-size: 56.25%;
+	}
 }
 
 body {
-	color: @darker-grey; font: @text-current/1.8em 'Roboto', 'Lucida Grande', Leelawadee, Tahoma, Verdana, sans-serif; padding-left: @spacing-huge; min-height: 100%;
+	color: @darker-grey; font-size: @text-current; line-height: 1.8em; font-family: 'Roboto', sans-serif; font-weight: 400; padding-left: @spacing-huge; min-width: @xxs; min-height: 100%;
 
 	@media (max-width: (@sm - 1)){
 		padding-left: 0;
@@ -103,35 +112,6 @@ a, input[type="submit"], button {
 
 ul, ol {
 	margin: 0 0 @spacing-smallest @spacing-smaller;
-}
-
-ul.tags {
-	color: @grey; font-size: @text-short; font-weight: 300; margin: -2.5rem 0 0 0; padding: 0; list-style: none;
-}
-
-ul.tags li,
-ul.tags li:first-of-type,
-ul.tags li:last-of-type {
-	display: inline;
-	float: none;
-	padding: 0 @spacing-micro 0 0;
-	font-size: @text-short;
-	border: none;
-	cursor: pointer;
-}
-
-ul.tags li:hover {
-	color: #554;
-}
-
-ul.tags li.more {
-	color: @accent;
-	border-bottom: 1px solid currentColor;
-}
-
-ul.tags .more:hover {
-	color: @darker-grey;
-	border-bottom-color: currentColor;
 }
 
 /* Code */
@@ -166,24 +146,6 @@ i, var {
 	color: #a9a9a9;
 	font-style: normal;
 	text-shadow: none;
-}
-
-/* Forms */
-
-label > i,
-p.label > i {
-	position: absolute;
-	top: 100%;
-	right: 0;
-	font-weight: 300;
-	font-size: @text-shorter;
-	text-transform: none;
-	color: @dark-grey;
-	margin-top: 2px;
-}
-
-label.inline-help > i {
-	position: relative;
 }
 
 /* States */
