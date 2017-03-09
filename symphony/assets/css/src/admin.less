@@ -105,10 +105,13 @@
 				.flex(~'row', ~'center', ~'flex-start');
 
 				svg {
-					.transitioned(~'opacity');
-					content: ">";
-					padding-left: @spacing-smallest;
+					.transitioned(~'transform',~'0.15s');
+					padding: 0 @spacing-smallest;
 				}
+			}
+
+			&:not(.opened) > span svg {
+				transform: rotateZ(-90deg);
 			}
 
 			&.opened, &.active, &:hover {

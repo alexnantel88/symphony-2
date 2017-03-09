@@ -318,21 +318,34 @@ body div.compact label.oembed-other-title {
 
 #contents {
 	table + fieldset.insert {
-		margin: @spacing-smallish 0!important; padding: 0; border: none;
+		margin: @spacing-smallest 0 @spacing-smallish!important; padding: 0; border: none;
 	}
 
-	fieldset.insert label {
-		.flex(~'row', ~'center', ~'flex-start');
+	fieldset.insert {
+		label {
+			.flex(~'row', ~'center', ~'flex-start');
+			float: left;
 
-		.input-ip {
-			font-size: @text-short; line-height: 1em; padding: @spacing-smallest @spacing-smallerish; border-radius: @radius-current 0 0 @radius-current;
+			.input-ip {
+				font-size: @text-short; line-height: 1em; padding: @spacing-smallest @spacing-smallerish; border-radius: @radius-current 0 0 @radius-current;
+			}
+
+			.input-submit {
+				line-height: @text-short; padding: @spacing-smallest @spacing-smallerish; border-radius: 0 @radius-current @radius-current 0; border: 2px solid @accent;
+
+				&:hover {
+					border-color: @darker-grey;
+				}
+			}
 		}
 
-		.input-submit {
-			line-height: @text-short; padding: @spacing-smallest @spacing-smallerish; border-radius: 0 @radius-current @radius-current 0; border: 2px solid @accent;
+		.apply {
+			margin-top: 0;
+		}
 
-			&:hover {
-				border-color: @darker-grey;
+		.actions {
+			@media (max-width: (@xs - 1)){
+				float: left; clear: both; margin-top: @spacing-smallest;
 			}
 		}
 	}
@@ -614,7 +627,7 @@ body:not(.editor-fullscreen) .column.primary {
 				opacity: 1;
 			}
 
-			.tab-group.focused > * {
+			.tab-group.focused > .field {
 				filter: grayscale(0%)!important;
 				opacity: 0.55!important;
 
