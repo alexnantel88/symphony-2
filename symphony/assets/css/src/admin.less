@@ -529,7 +529,7 @@ html:not(.touch) {
 
 #contents {
 	box-sizing: border-box;
-	position: relative; margin-top: @spacing-midlarge; padding: @spacing-smallish;
+	position: relative; margin-top: @spacing-midlarge; padding: @spacing-smallish @spacing-smallish @spacing-large;
 
 	&.spaced-top {
 		padding-top: calc(~'@{spacing-smallish} + @{spacing-midlarge}');
@@ -550,6 +550,14 @@ html:not(.touch) {
 		> p {
 			margin-right: 0!important; width: 100%; max-width: @max-width-big;
 		}
+	}
+}
+
+body.page-index #contents.centered-content,
+body.index #contents.centered-content {
+	> form,
+	> p {
+		max-width: 100%;
 	}
 }
 
