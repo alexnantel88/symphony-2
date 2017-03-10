@@ -30,7 +30,8 @@
 		dashboard: '#dashboard',
 		dashboardDrawerSelects: '#drawer-dashboard select:not(.disabled)',
 		dashboardDrawerSelectsArrows: '#drawer-dashboard .select2-container .select2-selection--single .select2-selection__arrow',
-		selectArrows: '.select2-container .select2-selection--single .select2-selection__arrow'
+		selectArrows: '.select2-container .select2-selection--single .select2-selection__arrow',
+		typeChangerEl: '#type-changer a'
 	};
 	var s = {
 		burger: '<svg version="1" xmlns="http://www.w3.org/2000/svg" width="24" height="15" viewBox="0 0 24 15" class="line-height-0 valign-top width-full height-full block"><path fill-rule="evenodd" clip-rule="evenodd" fill="currentColor" d="M0 0v3h24V0H0zm0 9h24V6H0v3zm0 6h24v-3H0v3z"/></svg>',
@@ -382,6 +383,34 @@
 			$('body > .select2-container').addClass('above-content');
 		}).on('select2:close', 'select', function(){
 			$('body > .select2-container').removeClass('above-content');
+		});
+
+		/*
+		// Prototype - JS Type Changer
+		_____________________________________________ */
+
+		/* Init - Add Type Changer to DOM */
+
+		$('body').append('<div id="type-changer"><a href="" class="short">A</a><a href="" class="current">A</a><a href="" class="big">A</a></div>');
+
+		$(o.typeChangerEl).on('click', function(){
+			var t = $(this);
+
+			switch(t.attr('class')){
+				case 'short':
+					$('html').css({'font-size': '56.25%'});
+				break;
+
+				case 'current':
+					$('html').css({'font-size': '62.5%'});
+				break;
+
+				case 'big':
+					$('html').css({'font-size': '68.75%'});
+				break;
+			}
+
+			return false;
 		});
 
 		/*

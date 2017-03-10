@@ -173,6 +173,44 @@
 	}
 }
 
+/* Type Changer */
+
+#type-changer {
+	.flex(~'row',~'baseline',~'flex-start');
+	box-sizing: border-box;
+	position: fixed; left: @spacing-huge; top: @spacing-midlarge; color: @accent; padding: @spacing-micro @spacing-smallerish; border: 1px solid @lighter-grey; border-left: none; border-top: none; background: @lightest-grey; z-index: 50;
+
+	a {
+		color: currentColor;
+
+		&:hover {
+			color: @darker-grey;
+		}
+
+		&.short {
+			font-size: @text-short;
+		}
+
+		&.current {
+			font-size: @text-current; margin: 0 @spacing-smallest;
+		}
+
+		&.big {
+			font-size: @text-big;
+		}
+	}
+
+	@media (max-width: (@sm - 1)){
+		left: 0;
+	}
+}
+
+body.publish-tabs #type-changer {
+	@media (max-width: (@md - 1)){
+		top: @spacing-midlarge * 2;
+	}
+}
+
 /*---------------------------------------
 	Top Bar
 ---------------------------------------*/
