@@ -410,6 +410,8 @@
 				break;
 			}
 
+			onResize();
+
 			return false;
 		});
 
@@ -470,9 +472,12 @@
 		// Website
 		_____________________________________________ */
 
+		onResize();
 		onScroll();
 
-		win.on('scroll', function(){
+		win.on('resize', function(){
+			onResize();
+		}).on('scroll', function(){
 			onScroll();
 		});
 
@@ -490,6 +495,19 @@
 
 			if(t.hasClass('selected')) d.addClass('opened');
 			else d.removeClass('opened');
+		}
+
+		/* Window Resize - Function */
+
+		function onResize(){
+			$('.frame.collapsible .instance').each(function(){
+				var t = $(this);
+				var minh = $('> .frame-header', t).outerHeight();
+				var maxh = $('> .frame-header', t).outerHeight() + $('> .content', t).outerHeight();
+
+				if(t.hasClass('collapsed')) t.css({'min-height': minh, 'max-height': minh});
+				else t.css({'min-height': minh, 'max-height': maxh});
+			});
 		}
 
 		/* Window Scroll - Function */
