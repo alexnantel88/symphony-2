@@ -300,6 +300,12 @@
 		});
 
 		/*
+		// Entry Relationship
+		_____________________________________________ */
+
+		$('.field.field-entry_relationship > .single').wrapInner('<div></div>');
+
+		/*
 		// Multilingual Fields
 		_____________________________________________ */
 

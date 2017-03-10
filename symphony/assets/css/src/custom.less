@@ -651,7 +651,7 @@ body:not(.editor-fullscreen) .column.primary {
 
 	&:first-child {
 		@media (min-width: @md){
-			overflow: auto; position: fixed!important; left: 25.1rem!important; right: @spacing-huger; top: @spacing-midlarge!important; padding: @spacing-smallish @spacing-smallish @spacing-mid; width: auto; height: calc(~'100vh - @{spacing-midlarge}');
+			overflow: auto; position: fixed!important; left: 25.1rem!important; right: @spacing-huger; top: @spacing-midlarge!important; padding: @spacing-smallish @spacing-smallish @spacing-large; width: auto; height: calc(~'100vh - @{spacing-midlarge}');
 		
 			> * {
 				margin-left: auto; margin-right: auto; max-width: @max-width-small;
@@ -740,24 +740,35 @@ table.selectable td.field-checkbox input.ajax-checkbox {
 	}
 
 	fieldset.single {
-		.sections {
-			margin: 0 0 0 @spacing-smallest!important;
-		}
+		text-align: left;
 
-		.sections-selection {
-			font-size: @text-short; text-transform: none; margin-left: @spacing-micro; padding-right: @spacing-smallest;
-		}
+		> div {
+			.flex(~'row', ~'center', ~'flex-end');
+			flex-wrap: wrap;
 
-		.select2-container {
-			text-align: left; width: auto!important;
-		}
+			> div {
+				.flex(~'row', ~'center', ~'flex-start');
+			}
 
-		> button {
-			border-radius: @radius-current;
-			font-size: @text-shorter; font-weight: 300; text-transform: uppercase; line-height: @text-short; margin: 0 0 0 @spacing-smallest; padding: @spacing-smallest @spacing-smallerish; border: 1px solid @accent; background: @accent; cursor: pointer;
-		
-			&:hover {
-				border-color: @darker-grey; background: @darker-grey;
+			.sections {
+				margin: 0 0 0 @spacing-smallest!important;
+			}
+
+			.sections-selection {
+				font-size: @text-short; text-transform: none; margin-left: @spacing-micro; padding-right: @spacing-smallest;
+			}
+
+			.select2-container {
+				text-align: left; margin-left: @spacing-micro; width: auto!important;
+			}
+
+			> button {
+				border-radius: @radius-current;
+				font-size: @text-shorter; font-weight: 300; text-transform: uppercase; line-height: @text-short; margin: 0 0 0 @spacing-smallest; padding: @spacing-smallest @spacing-smallerish; border: 1px solid @accent; background: @accent; cursor: pointer; white-space: nowrap;
+			
+				&:hover {
+					border-color: @darker-grey; background: @darker-grey;
+				}
 			}
 		}
 	}
@@ -788,14 +799,17 @@ table.selectable td.field-checkbox input.ajax-checkbox {
 		}
 
 		fieldset.single {
-			text-align: left;
-
 			> div {
+				justify-content: flex-start;
 				width: 100%;
-			}
 
-			> button {
-				margin: @spacing-smallest @spacing-smallest 0 0;
+				> div {
+					width: 100%;
+				}
+
+				> button {
+					margin: @spacing-smallest @spacing-smallest 0 0;
+				}
 			}
 		}
 	}
