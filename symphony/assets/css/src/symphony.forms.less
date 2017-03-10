@@ -36,6 +36,14 @@ body .select2-container .select2-selection--single .select2-selection__rendered 
 	color: @darker-grey; font-family: inherit; font-size: @text-short; font-weight: 300; text-transform: none; line-height: 1em; padding: @spacing-smallest @spacing-smallerish; border: 1px solid @lighter-grey; background-color: @lightest-grey; width: 100%;
 }
 
+select[multiple] {
+	padding: @spacing-smallest;
+
+	option {
+		color: @darker-grey; padding: @spacing-micro;
+	}
+}
+
 input:active,
 input:focus,
 textarea:active,
@@ -204,7 +212,7 @@ button[disabled=disabled],
 button[disabled=disabled]:hover,
 button[disabled=disabled]:active,
 button[disabled=disabled]:focus {
-	opacity: 0.55;
+	opacity: 0.25;
 	cursor: not-allowed;
 }
 
@@ -359,7 +367,7 @@ legend {
 	}
 
 	&.inactive {
-		opacity: 0.55;
+		opacity: 0.25;
 
 		button,
 		button:hover,

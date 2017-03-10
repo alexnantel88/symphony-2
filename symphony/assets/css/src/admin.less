@@ -178,13 +178,15 @@
 #type-changer {
 	.flex(~'row',~'baseline',~'flex-start');
 	box-sizing: border-box;
-	position: fixed; left: @spacing-huge; top: @spacing-midlarge; color: @accent; padding: @spacing-micro @spacing-smallerish; border: 1px solid @lighter-grey; border-left: none; border-top: none; background: @lightest-grey; z-index: 50;
+	position: fixed; left: @spacing-huge; top: @spacing-midlarge; color: @accent; line-height: @text-big;  padding: @spacing-smallest @spacing-smallerish; border: 1px solid @lighter-grey; border-left: none; border-top: none; background: @lightest-grey; z-index: 50;
 
 	a {
-		color: currentColor;
+		transition-duration: 0.15s;
+		color: currentColor; border-bottom: 1px solid transparent;
 
-		&:hover {
-			color: @darker-grey;
+		&:hover,
+		&.active {
+			border-color: @accent;
 		}
 
 		&.short {
@@ -567,7 +569,7 @@ html:not(.touch) {
 
 #contents {
 	box-sizing: border-box;
-	position: relative; margin-top: @spacing-midlarge; padding: @spacing-smallish @spacing-smallish @spacing-large;
+	position: relative; margin-top: @spacing-midlarge; padding: @spacing-mid @spacing-smallish @spacing-large;
 
 	&.spaced-top {
 		padding-top: calc(~'@{spacing-smallish} + @{spacing-midlarge}');

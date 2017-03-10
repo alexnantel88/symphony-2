@@ -391,24 +391,17 @@
 
 		/* Init - Add Type Changer to DOM */
 
-		$('body').append('<div id="type-changer"><a href="" class="short">A</a><a href="" class="current">A</a><a href="" class="big">A</a></div>');
+		$('body').append('<div id="type-changer"><a href="" class="short">A</a><a href="" class="current active">A</a><a href="" class="big">A</a></div>');
 
 		$(o.typeChangerEl).on('click', function(){
 			var t = $(this);
 
-			switch(t.attr('class')){
-				case 'short':
-					$('html').css({'font-size': '56.25%'});
-				break;
+			if(t.hasClass('short')) $('html').css({'font-size': '56.25%'});
+			else if(t.hasClass('current')) $('html').css({'font-size': '62.5%'});
+			else if(t.hasClass('big')) $('html').css({'font-size': '68.75%'});
 
-				case 'current':
-					$('html').css({'font-size': '62.5%'});
-				break;
-
-				case 'big':
-					$('html').css({'font-size': '68.75%'});
-				break;
-			}
+			$(o.typeChangerEl).removeClass('active');
+			t.addClass('active');
 
 			onResize();
 
