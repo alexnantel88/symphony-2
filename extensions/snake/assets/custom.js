@@ -31,7 +31,9 @@
 		dashboardDrawerSelects: '#drawer-dashboard select:not(.disabled)',
 		dashboardDrawerSelectsArrows: '#drawer-dashboard .select2-container .select2-selection--single .select2-selection__arrow',
 		selectArrows: '.select2-container .select2-selection--single .select2-selection__arrow',
-		typeChangerEl: '#type-changer a'
+		typeChangerEl: '#custom-toolbar .type-changer a',
+		focusOptionEl: '#custom-toolbar .focus-option a',
+		customToolbar: '#custom-toolbar'
 	};
 	var s = {
 		burger: '<svg version="1" xmlns="http://www.w3.org/2000/svg" width="24" height="15" viewBox="0 0 24 15" class="line-height-0 valign-top width-full height-full block"><path fill-rule="evenodd" clip-rule="evenodd" fill="currentColor" d="M0 0v3h24V0H0zm0 9h24V6H0v3zm0 6h24v-3H0v3z"/></svg>',
@@ -229,6 +231,7 @@
 
 			f.addClass('focused');
 			tab.addClass('focused');
+			$('.column.primary').addClass('tab-focused');
 		}
 
 		function remTabFocus(t){
@@ -239,7 +242,7 @@
 			tab.removeClass('focused');
 
 			$(o.tabGroup).removeClass('hover');
-			$('.column.primary').removeClass('hover');
+			$('.column.primary').removeClass('hover tab-focused');
 		}
 
 		/*
@@ -389,9 +392,11 @@
 		// Prototype - JS Type Changer
 		_____________________________________________ */
 
+		$('body').append('<div id="custom-toolbar"></div>');
+
 		/* Init - Add Type Changer to DOM */
 
-		$('body').append('<div id="type-changer"><a href="" class="short">A</a><a href="" class="current active">A</a><a href="" class="big">A</a></div>');
+		$(o.customToolbar).append('<div class="type-changer"><a href="" class="short">A</a><a href="" class="current active">A</a><a href="" class="big">A</a></div>');
 
 		$(o.typeChangerEl).on('click', function(){
 			var t = $(this);
@@ -404,6 +409,19 @@
 			t.addClass('active');
 
 			onResize();
+
+			return false;
+		});
+
+		/* Init - Add Focus Option to DOM */
+
+		$(o.customToolbar).append('<div class="focus-option"><a href="">Focus</a></div>');
+
+		$(o.focusOptionEl).on('click', function(){
+			var t = $(this);
+
+			t.toggleClass('active');
+			$('body').toggleClass('focus-option-activated');
 
 			return false;
 		});

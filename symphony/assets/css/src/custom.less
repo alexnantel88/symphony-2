@@ -607,13 +607,13 @@ div.field-addresslocation {
 	}
 }
 
-body:not(.editor-fullscreen) .column.primary {
+body.focus-option-activated:not(.editor-fullscreen) .column.primary {
 	@media (min-width: @md){
 		.tab-group > * {
 			.transitioned(~'opacity, filter',~'0.45s',~'0.15s');
 		}
 
-		&:hover,
+		/*&:hover,
 		&.hover {
 			.tab-group > * {
 				filter: grayscale(100%);
@@ -625,6 +625,11 @@ body:not(.editor-fullscreen) .column.primary {
 				transition-delay: 0s;
 				filter: grayscale(0%);
 				opacity: 1;
+			}*/
+
+			&.tab-focused .tab-group:not(.focused) > * {
+				filter: grayscale(0%)!important;
+				opacity: 0.55!important;
 			}
 
 			.tab-group.focused > .field {
@@ -637,7 +642,7 @@ body:not(.editor-fullscreen) .column.primary {
 					opacity: 1!important;
 				}
 			}
-		}
+		//}
 	}
 }
 
@@ -840,7 +845,7 @@ body.entry_relationship {
 		display: none;
 	}
 
-	#type-changer {
+	#custom-toolbar {
 		left: 0;
 	}
 
