@@ -33,7 +33,8 @@
 		selectArrows: '.select2-container .select2-selection--single .select2-selection__arrow',
 		typeChangerEl: '#custom-toolbar .type-changer a',
 		focusOptionEl: '#custom-toolbar .focus-option a',
-		customToolbar: '#custom-toolbar'
+		customToolbar: '#custom-toolbar',
+		dataSourceSource: '#ds-context'
 	};
 	var s = {
 		burger: '<svg version="1" xmlns="http://www.w3.org/2000/svg" width="24" height="15" viewBox="0 0 24 15" class="line-height-0 valign-top width-full height-full block"><path fill-rule="evenodd" clip-rule="evenodd" fill="currentColor" d="M0 0v3h24V0H0zm0 9h24V6H0v3zm0 6h24v-3H0v3z"/></svg>',
@@ -328,6 +329,61 @@
 		});
 
 		/*
+		// Prototype - Custom Toolbar
+		_____________________________________________ */
+
+		$('body').append('<div id="custom-toolbar"></div>');
+
+		/* Init - Add Type Changer to DOM */
+
+		$(o.customToolbar).append('<div class="type-changer"><a href="" class="short">A</a><a href="" class="current active">A</a><a href="" class="big">A</a></div>');
+
+		$(o.typeChangerEl).on('click', function(){
+			var t = $(this);
+
+			if(t.hasClass('short')) $('html').css({'font-size': '56.25%'});
+			else if(t.hasClass('current')) $('html').css({'font-size': '62.5%'});
+			else if(t.hasClass('big')) $('html').css({'font-size': '68.75%'});
+
+			$(o.typeChangerEl).removeClass('active');
+			t.addClass('active');
+
+			onResize();
+
+			return false;
+		});
+
+		/* Init - Add Focus Option to DOM */
+
+		if($(o.tabGroup).length > 0) $(o.customToolbar).append('<div class="focus-option"><a href="">Focus</a></div>');
+
+		$(o.focusOptionEl).on('click', function(){
+			var t = $(this);
+
+			t.toggleClass('active');
+			$('body').toggleClass('focus-option-activated');
+
+			return false;
+		});
+
+		/*
+		// Data Sources - Source
+		_____________________________________________ */
+
+		/* Init - Put in Right Place */
+
+		$(o.dataSourceSource).each(function(){
+			var t = $(this);
+			var p = t.parents('.apply');
+			var tHidden = $('#ds-source');
+			var newHtml = '<fieldset class="settings added"><legend>'+p.find('label').text()+'</legend><div></div></fieldset>';
+
+			tHidden.after(newHtml);
+			$('fieldset.settings.added > div').append(t);
+			p.remove();
+		});
+
+		/*
 		// Select
 		_____________________________________________ */
 
@@ -386,44 +442,6 @@
 			$('body > .select2-container').addClass('above-content');
 		}).on('select2:close', 'select', function(){
 			$('body > .select2-container').removeClass('above-content');
-		});
-
-		/*
-		// Prototype - JS Type Changer
-		_____________________________________________ */
-
-		$('body').append('<div id="custom-toolbar"></div>');
-
-		/* Init - Add Type Changer to DOM */
-
-		$(o.customToolbar).append('<div class="type-changer"><a href="" class="short">A</a><a href="" class="current active">A</a><a href="" class="big">A</a></div>');
-
-		$(o.typeChangerEl).on('click', function(){
-			var t = $(this);
-
-			if(t.hasClass('short')) $('html').css({'font-size': '56.25%'});
-			else if(t.hasClass('current')) $('html').css({'font-size': '62.5%'});
-			else if(t.hasClass('big')) $('html').css({'font-size': '68.75%'});
-
-			$(o.typeChangerEl).removeClass('active');
-			t.addClass('active');
-
-			onResize();
-
-			return false;
-		});
-
-		/* Init - Add Focus Option to DOM */
-
-		$(o.customToolbar).append('<div class="focus-option"><a href="">Focus</a></div>');
-
-		$(o.focusOptionEl).on('click', function(){
-			var t = $(this);
-
-			t.toggleClass('active');
-			$('body').toggleClass('focus-option-activated');
-
-			return false;
 		});
 
 		/*
