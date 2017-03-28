@@ -22,6 +22,10 @@ ul.tabs {
 	li {
 		box-sizing: border-box;
 		position: relative; color: @dark-grey; margin-bottom: -1px; border-bottom: 2px solid transparent; cursor: pointer; list-style-type: none;
+
+		.icon {
+			display: none!important;
+		}
 		
 		& + li {
 			margin-left: @spacing-smallest;
@@ -30,10 +34,18 @@ ul.tabs {
 
 	li:hover,
 	.selected,
-	.active,
-	.invalid.selected,
-	.invalid.selected:hover {
+	.active {
 		color: @accent!important; border-bottom-color: @accent; z-index: 10;
+	}
+
+	li.invalid {
+		color: @red!important;
+	}
+
+	li.invalid:hover,
+	li.invalid.selected,
+	li.invalid.selected:hover {
+		color: @red!important; border-bottom-color: @red; z-index: 10;
 	}
 }
 
