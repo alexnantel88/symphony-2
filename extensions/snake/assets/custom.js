@@ -182,7 +182,7 @@
 
 		/* Scroll to right TabGroup on TabNav click */
 
-		$(o.contextTabs).on('click', function(){
+		$(o.contextTabs).on('click', function(e){
 			var t = $(this);
 
 			$('html, body').stop().animate({scrollTop: ($(o.tabGroup).eq(t.index()).offset().top - 159)}, 750);
@@ -346,6 +346,7 @@
 			else if(t.hasClass('big')) $('html').css({'font-size': '68.75%'});
 
 			$(o.typeChangerEl).removeClass('active');
+			localStorage.setItem('symphony.typechanger', t.attr('class'));
 			t.addClass('active');
 
 			onResize();
@@ -363,8 +364,21 @@
 			t.toggleClass('active');
 			$('body').toggleClass('focus-option-activated');
 
+			if(t.hasClass('active')) localStorage.setItem('symphony.focusoption', 'active');
+			else localStorage.setItem('symphony.focusoption', 'inactive');
+
 			return false;
 		});
+
+		/* Init - Local Storage */
+
+		if(localStorage.getItem('symphony.typechanger') !== 'undefined'){
+			$(o.typeChangerEl+'.'+localStorage.getItem('symphony.typechanger')).trigger('click');
+		}
+
+		if(localStorage.getItem('symphony.focusoption') !== 'undefined'){
+			if(localStorage.getItem('symphony.focusoption') == 'active') $(o.focusOptionEl).trigger('click');
+		}
 
 		/*
 		// Data Sources - Source
