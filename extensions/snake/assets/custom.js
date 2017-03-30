@@ -346,7 +346,7 @@
 			else if(t.hasClass('big')) $('html').css({'font-size': '68.75%'});
 
 			$(o.typeChangerEl).removeClass('active');
-			localStorage.setItem('symphony.typechanger', t.attr('class'));
+			localStorage.setItem('symphony.snake.typechanger', t.attr('class'));
 			t.addClass('active');
 
 			onResize();
@@ -364,20 +364,20 @@
 			t.toggleClass('active');
 			$('body').toggleClass('focus-option-activated');
 
-			if(t.hasClass('active')) localStorage.setItem('symphony.focusoption', 'active');
-			else localStorage.setItem('symphony.focusoption', 'inactive');
+			if(t.hasClass('active')) localStorage.setItem('symphony.snake.focusoption', 'active');
+			else localStorage.setItem('symphony.snake.focusoption', 'inactive');
 
 			return false;
 		});
 
 		/* Init - Local Storage */
 
-		if(localStorage.getItem('symphony.typechanger') !== 'undefined'){
-			$(o.typeChangerEl+'.'+localStorage.getItem('symphony.typechanger')).trigger('click');
+		if(localStorage.getItem('symphony.snake.typechanger') !== 'undefined'){
+			$(o.typeChangerEl+'.'+localStorage.getItem('symphony.snake.typechanger')).trigger('click');
 		}
 
-		if(localStorage.getItem('symphony.focusoption') !== 'undefined'){
-			if(localStorage.getItem('symphony.focusoption') == 'active') $(o.focusOptionEl).trigger('click');
+		if(localStorage.getItem('symphony.snake.focusoption') !== 'undefined'){
+			if(localStorage.getItem('symphony.snake.focusoption') == 'active') $(o.focusOptionEl).trigger('click');
 		}
 
 		/*
