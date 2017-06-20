@@ -17,7 +17,7 @@
 #drawer-section-associations .association-title {
 	font-size: 1.4rem;
 	font-weight: 400;
-	padding: 2rem 0 0;
+	padding: 2rem 0 1rem;
 }
 
 .association {
@@ -66,6 +66,18 @@
 	padding: 0;
 	text-overflow: ellipsis;
 	white-space: nowrap;
+}
+
+.association header > p a {
+	border-bottom: none;
+}
+
+.association header > p a strong {
+	border-bottom: 1px solid rgba(63,105,165,.15);
+}
+
+.association header > p a:hover strong {
+	border-bottom: 1px solid rgba(63,105,165,.3);
 }
 
 .association header > p span {
