@@ -126,6 +126,16 @@
 	border-color: #e8e8e8;
 }
 
+.association-links a:before {
+	content: '\2192 ';
+	margin-right: 1rem;
+}
+
+.association.parent .association-links a:before {
+	content: '\2190 ';
+	margin-right: 1rem;
+}
+
 .association-more a {
 	color: #a9a9a9;
 }
